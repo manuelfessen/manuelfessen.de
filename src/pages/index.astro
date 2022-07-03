@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Card from '../components/Card.astro';
+import BaseHead from '../components/Head/BaseHead.astro';
+
+interface MarkdownFrontmatter {
+  date: number;
+}
+
+let title = 'Creek';
+let description = 'A Theme for Astro';
+let seoDescription = 'Creek is a theme for Astro static site generator';
+
+let allPosts = (await Astro.glob("./posts/*.md")).sort(
+  (a, b) =>
+    new Date(b.frontmatter.publishedAt).valueOf() -
+    new Date(a.frontmatter.publishedAt).valueOf()
+);
+---
+
+<BaseLayout title={title} description={description}>
+    <main class="">
+      <article class="max-w-6xl mx-auto px-3">
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-8" data-test="articles-section">
+          {allPosts.slice(0, 6).map(p => <div class="col-span-1"><Card post={p} /></div>)}
+        </section>
+      </article>
+    </main>
+  </BaseLayout>
