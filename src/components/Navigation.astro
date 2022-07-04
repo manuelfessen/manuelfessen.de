@@ -2,60 +2,32 @@
 import { nav } from './data/nav.js'
 import ThemeChange from "../components/ThemeChange.astro";
 ---
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+<div x-data="{ mobileMenuOpen : false }" class="flex flex-wrap flex-row justify-between md:items-center md:space-x-4 bg-white py-4 px-4 relative">
+  <a href="#" class="block">
+    <span class="text-blue-900 text-2xl font-bold hover:opacity-0">Manuel Fessen</span>
+    <span class="absolute transition duration-300 left-0 opacity-0 hover:opacity-100">@manuelfessen</span>
+  </a>
+  <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="mobileMenuOpen = !mobileMenuOpen">
+    <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+      <path x-show="!mobileMenuOpen" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+      <path x-show="mobileMenuOpen" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+    </svg>
+  </button>
+  <nav class="absolute md:relative top-12 left-0 md:top-0 z-20 md:flex flex-col md:flex-row md:space-x-6 font-semibold w-full md:w-auto bg-white shadow-md rounded-lg md:rounded-none md:shadow-none md:bg-transparent"
+  :class="{ 'flex text-center' : mobileMenuOpen , 'hidden' : !mobileMenuOpen}"  @click.away="mobileMenuOpen = false">
+  {nav.map((item) => (
+    <li class="list-none lg:self-center sm:py-8">
+      <a class="block py-1 text-gray-600 hover:underline" href={item.slug}>{item.title}</a>
+    </li>
+  ))}
+  <div class="lg:self-center">
+  <ThemeChange/>
+</div>
+  </nav>
+</div>
 
-<nav class="flex-1 flex items-center justify-between pb-4">
-  <ul class="menu menu-horizontal p-0 hidden md:flex ml-[-0.60rem]">
-    {nav.map((item) => (
-      <li>
-        <a class="p-1 sm:px-3 sm:py-2" href={item.slug}>{item.title}</a>
-      </li>
-    ))}
-  </ul>
 
-  <div class="flex">
-  <ThemeChange />
-  <a
-class="btn btn-square btn-ghost swap" href="/search"
-><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-</svg>
-</a>
-  </div>
-
-
-  <div class="dropdown dropdown-end md:hidden">
-    <label tabindex={0} class="btn btn-ghost btn-square">
-      <svg
-        class="w-6 h-6 stroke-current"
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="#000"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="feather feather-menu"
-      >
-        <line x1="3" y1="12" x2="21" y2="12"></line>
-        <line x1="3" y1="6" x2="21" y2="6"></line>
-        <line x1="3" y1="18" x2="21" y2="18"></line>
-      </svg>
-    </label>
-    <ul
-      tabindex={0}
-      class="dropdown-content menu p-2 bg-base-200 rounded-box w-52 menu-compact"
-    >
-      {nav.map((item) => (
-        <li>
-          <a href={item.slug}>{item.title}</a>
-        </li>
-      ))}
-    </ul>
-  </div>
-</nav>
 <!-- 
 <nav
       id="menu"
