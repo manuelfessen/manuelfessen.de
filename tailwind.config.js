@@ -5,6 +5,10 @@ module.exports = {
   ],
   plugins: [require("daisyui"), require("@tailwindcss/typography")],
   daisyui: {
-    themes: ["winter", "dark", "garden"],
+    themes: [
+      "night",
+      "winter",
+    ],
+    darkTheme: "night", // this will be the default dark theme
   },
 };

@@ -21,9 +21,12 @@ let allPosts = (await Astro.glob("./posts/*.md")).sort(
 <BaseLayout title={title} description={description}>
     <main class="">
       <article class="max-w-6xl mx-auto px-3">
+        <h1 class="font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+          Hello !</h1>
         <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-8" data-test="articles-section">
           {allPosts.slice(0, 6).map(p => <div class="col-span-1"><Card post={p} /></div>)}
         </section>
       </article>
+      
     </main>
   </BaseLayout>
