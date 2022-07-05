@@ -1,6 +1,6 @@
 ---
 title: Impact of Bionic Reading on UX Design
-publishedAt: "2022-05-24"
+date: "2022-05-24"
 slug: "bionic-reading-in-ux"
 description: Did you know that your brain reads faster than your eye?
 keywords: productivity

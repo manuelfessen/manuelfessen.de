@@ -1,5 +1,6 @@
 ---
 import EmailSignup from './Subscribe/EmailSignup.astro'
+import dayjs from 'dayjs'
 
 export interface Props {
   title: string;
@@ -10,16 +11,16 @@ export interface Props {
 const { title, date, hero } = Astro.props;
 ---
 
-<article class="max-w-5xl mx-auto px-3">
-  <header class="mx-auto max-w-3xl text-center content">
-    <h1>{title}</h1>
-  </header>
+<article class="max-w-5xl mx-auto space-y-4">
 
   <!-- Image -->
-  {hero && <img class="rounded-xl mx-auto" style="min-width: 80%;" loading="lazy" src={hero} alt={title} />}
+  {hero && <img class="rounded-xl mx-auto w-full" style="min-width: 80%;" loading="lazy" src={hero} alt={title} />}
+
+  <!-- Headline -->
+  <h1 class="font-medium leading-tight text-5xl mt-0 mb-2">{title}</h1>
 
   <!-- Date -->
-  <h2>{date}</h2>
+  <h2 class="font-light text-gray-300">Posted on {dayjs(date).format('DD.MM.YYYY')} reading time </h2>
 
   <!-- Content -->
   <section class="max-w-3xl mx-auto py-6 lg:py-12 content">

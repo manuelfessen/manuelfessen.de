@@ -1,10 +1,9 @@
 ---
-import BaseHead from '../../components/Head/BaseHead.astro';
-import Nav from '../../components/Nav.astro';
 import HomeHeader from '../../components/HomeHeader.astro';
 import Card from '../../components/Card.astro';
 import Footer from '../../components/Footer/Footer.astro'
 import Paginator from '../../components/Paginator.astro'
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths({ paginate }) {
   let allPosts = (await Astro.glob("./*.md")).sort(
@@ -26,13 +25,7 @@ let seoTitle = 'Articles | Creek';
 let seoDescription = '';
 ---
 
-<html lang="en">
-  <head>
-    <BaseHead title={seoTitle} description={seoDescription} />
-  </head>
-
-  <body class="bg-white text-black font-body leading-normal personality-casual">
-    <Nav />
+<BaseLayout title={seoTitle} description={seoDescription}>
 
     <main class="py-12 lg:py-20">
       <article class="max-w-6xl mx-auto px-3">
@@ -43,6 +36,4 @@ let seoDescription = '';
       </article>
     </main>
     <Paginator page={page} />
-    <Footer />
-  </body>
-</html>
+</BaseLayout>
