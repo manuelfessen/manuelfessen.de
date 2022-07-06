@@ -1,26 +1,34 @@
 ---
 import { Icon } from "astro-icon";
-import ThemeSwitcher from "../components/theme-switcher.astro";
+import ThemeSwitcher from "./theme-switcher.astro";
 
-import { nav } from './data/nav.js'
+const navItems = [
+  { title: "Features", url: "#features" },
+  { title: "Compatibility", url: "#compatibility" },
+  { title: "Showcase", url: "#showcase" },
+];
 ---
 
 <header
   id="page-header"
-  class="flex items-center justify-between w-full px-8 py-4 text-white border-b border-transparent"
+  class="z-10 flex items-center justify-between w-full px-8 py-4 text-white border-b border-transparent"
 >
   <a class="flex items-center gap-3 hover:!text-default" href="#">
     <h1 class="sr-only">Astro</h1>
+    <Icon name="logomark" class="h-10" />
+    <Icon name="wordmark" class="hidden h-4 sm:block" />
   </a>
   <div>
   <div class="flex items-center gap-6">
     <nav class="hidden sm:block">
       <ul class="flex items-center gap-6">
-          {nav.map((item) => (
-            <li>
-              <a class="text-sm" href={item.slug}>{item.title}</a>
-            </li>
-          ))}
+        {navItems.map(({ title, url }) => (
+          <li>
+            <a class="text-sm" href={url}>
+              {title}
+            </a>
+          </li>
+        ))}
       </ul>
     </nav>
     <button
@@ -51,9 +59,11 @@ import { nav } from './data/nav.js'
           </div>
           <nav>
             <ul class="flex flex-col">
-              {nav.map((item) => (
+              {navItems.map(({ title, url }) => (
                 <li>
-                  <a class="block py-4 text-xl text-center" href={item.slug}>{item.title}</a>
+                  <a class="block py-4 text-xl text-center" href={url}>
+                    {title}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -106,3 +116,13 @@ import { nav } from './data/nav.js'
     }
   </style>
 </noscript> -->
+
+<style>
+  .fixed-header {
+    @apply fixed top-0 bottom-auto;
+    @apply text-default bg-default border-default;
+  }
+  .modal.is-open {
+    @apply block;
+  }
+</style>

@@ -1,31 +1,23 @@
 ---
-import BaseHead from '../components/Head/BaseHead.astro';
-import Nav from '../components/Nav.astro';
-import Footer from '../components/Footer/Footer.astro'
-
-let title = 'How To Code';
-let description = '';
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <BaseHead title={title} description={description} />
-  </head>
+<BaseLayout>
+  <div class="md:px-40 md:py-20 rounded-md">
+    <div class="flex flex-col ">
+      <h1 class="font-bold text-blue-600 lg:text-5xl">404</h1>
 
-  <body class="bg-white text-black font-body leading-normal personality-casual">
-    <Nav />
+      <h6 class="mb-2 text-2xl font-bold md:text-3xl">
+        <span class="text-red-500">Oops!</span> You weren't supposed to see this.
+      </h6>
 
-    <main class="py-12 lg:py-20">
-      <article class="max-w-6xl mx-auto px-3">
-        <header class="mx-auto max-w-3xl text-center content">
-          <h1 class="mb-4">You're up 404 creek</h1>
-          <p>Not much to see here but the intro to Dawson's Creek. Don't wait for your life to be over. There are other pages.
-            Go find one!</p>
-          <div class="embed-responsive aspect-ratio-4/3">
-          </div>
-        </header>
-      </article>
-    </main>
-    <Footer />
-  </body>
-</html>
+      <p class="mb-4 text-gray-500 md:text-lg">
+        The page you’re looking for doesn’t exist.
+      </p>
+      <div class="text-sm">
+        <a href="../#" class="font-semibold">Go back</a>
+        and remember: You haven't seen anything.
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -59,7 +59,7 @@
           lunrIndex = lunr(function () {
             this.tokenizer = bigramTokeniser;
             this.pipeline.reset();
-            this.ref('slug');
+            this.ref('slug', { boost: 15 });
             this.field('title', { boost: 10 });
             this.field('body');
             this.metadataWhitelist = ['position'];

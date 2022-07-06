@@ -8,7 +8,7 @@ hero: "/images/javascript-logo-banner.jpg"
 layout: "../../layouts/BlogPostLayout.astro"
 ---
 
-Have you ever heard of Bionic Reading before? 
+Have you ever heard of Bionic Reading before?
 
 About a week ago there was this [reddit post](https://www.reddit.com/r/interestingasfuck/comments/usgac8/bionic_reading_using_font_weights_to_increase/) in r/interestingasfuck and from there it went through the internet. The sample text used by Bionic Reading GmbH to advertise its technology could be seen everywhere on social media.
 

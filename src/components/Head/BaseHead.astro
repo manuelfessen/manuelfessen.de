@@ -1,5 +1,5 @@
 ---
-import GoogleAnalytics from './GoogleAnalytics.astro'
+import  '../../styles/index.css'
 
 export interface Props {
 title: string;
@@ -9,9 +9,6 @@ const { title, description} = Astro.props;
 
 let permalink = 'https://manuelfessen.github.io';
 ---
-
-<GoogleAnalytics />
-
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
@@ -37,9 +34,6 @@ let permalink = 'https://manuelfessen.github.io';
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content="/images/social.jpg" />
-
-<script 
-rel="preload" src="src/components/data/theme-change.js"></script>
 
 
 <script is:inline>

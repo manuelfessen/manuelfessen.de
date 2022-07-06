@@ -1,145 +1,116 @@
 ---
-import { nav } from './data/nav.js'
-import ThemeChange from "../components/ThemeChange.astro";
+import { Icon } from "astro-icon";
+import ThemeSwitcher from "./theme-switcher.astro";
+import ThemeChange from "./ThemeChange.astro";
+
+const navItems = [
+  { title: "Home", url: "/" },
+  { title: "Blog", url: "/posts" },
+  { title: "Search", url: "/search" },
+]
 ---
-<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-<div x-data="{ mobileMenuOpen : false }" class="flex flex-wrap flex-row justify-between md:items-center md:space-x-4 bg-white py-4 px-4 relative">
-  <a href="#" class="block">
-    <span class="text-blue-900 text-2xl font-bold hover:opacity-0">Manuel Fessen</span>
-    <span class="absolute transition duration-300 left-0 opacity-0 hover:opacity-100">@manuelfessen</span>
-  </a>
-  <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="mobileMenuOpen = !mobileMenuOpen">
-    <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
-      <path x-show="!mobileMenuOpen" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-      <path x-show="mobileMenuOpen" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-    </svg>
+<div class="flex flex-col justify-center sm:mx-4">
+  <nav class="flex items-center justify-between w-full relative max-w-3xl  pt-8 pb-8 sm:pb-16">
+    <div class="ml-[-0.60rem]"> 
+    <button
+    id="open-nav-button"
+    type="button"
+    class="btn sm:hidden"
+    aria-label="Navigation"
+  >
+    <Icon pack="mdi" name="menu" class="h-8" />
   </button>
-  <nav class="absolute md:relative top-12 left-0 md:top-0 z-20 md:flex flex-col md:flex-row md:space-x-6 font-semibold w-full md:w-auto bg-white shadow-md rounded-lg md:rounded-none md:shadow-none md:bg-transparent"
-  :class="{ 'flex text-center' : mobileMenuOpen , 'hidden' : !mobileMenuOpen}"  @click.away="mobileMenuOpen = false">
-  {nav.map((item) => (
-    <li class="list-none lg:self-center sm:py-8">
-      <a class="block py-1 text-gray-600 hover:underline" href={item.slug}>{item.title}</a>
-    </li>
-  ))}
-  <div class="lg:self-center">
-  <ThemeChange/>
-</div>
+
+      {navItems.map(({ title, url }) => (
+      <a
+        class="font-normal hidden md:inline-block p-1 sm:px-3 sm:py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all"
+        href={url}
+      >
+        <span class="capsize">{title}</span>
+      </a>
+    ))}
+    </div>
+
+    <ThemeSwitcher />
+
+    <div id="menu-modal" class="hidden modal" aria-hidden="true">
+      <div class="z-10 fixed inset-0 px-8 py-4 bg-white">
+        <div class="space-y-4" role="dialog" aria-modal="true">
+          <header class="text-right">
+            <button
+              id="close-nav-button"
+              type="button"
+              class="btn"
+              aria-label="Close navigation"
+            >
+              <Icon pack="mdi" name="close" class="h-8" />
+            </button>
+          </header>
+          <div class="flex justify-center">
+            <Icon name="logomark" class="h-16" />
+          </div>
+          <nav>
+            <ul class="flex flex-col">
+              {navItems.map(({ title, url }) => (
+                <li>
+                  <a class="block py-4 text-xl text-center" href={url}>
+                    {title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
   </nav>
 </div>
 
+<script>
+  import MicroModal from "micromodal";
 
-<!-- 
-<nav
-      id="menu"
-      class="hidden lg:flex py-4 px-0 items-center flex-wrap w-full"
-    >
-      <div class="container container__row">
-        <a class="logo" href="/" title="Homepage">
-          <span>manuelfessen</span>
-        </a>
+  const menuModalId = "menu-modal";
 
-        <ul class="pl-0 list-none flex ml-auto justify-end">
-          
-      {nav.map((item) => (
-        <li>
-          <a href={item.slug}>{item.title}</a>
-        </li>
-      ))}
-        </ul>
-      </div>
-    </nav>
+  const header = document.querySelector("#page-header");
+  const page = document.documentElement;
+  const menu = document.querySelector(`#${menuModalId} ul`);
+  const openNavButton = document.querySelector("#open-nav-button");
+  const closeNavButton = document.querySelector("#close-nav-button");
 
-    <nav id="mobileMenu" class="flex lg:hidden w-full z-50">
-      <ul
-        class="list-none mx-auto flex items-center justify-around shadow-md rounded-[7px] border-2 border-orange-500"
-      >
-        <li class="mobileMenuLogo">
-          <a href="/" class="logo">
-            manuelfessen
-          </a>
-        </li>
-        
-      {nav.map((item) => (
-        <li>
-          <a href={item.slug}>{item.title}</a>
-        </li>
-      ))}
-      </ul>
-    </nav>
+  const openMenu = () => {
+    MicroModal.show(menuModalId, { disableScroll: true });
+  };
 
+  const closeMenu = () => {
+    MicroModal.close(menuModalId);
+  };
 
-    <style lang="scss">
-      #headerArea {
-        box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.1);
-      }
-      // MENU
-      nav {
-        .container {
-          justify-content: space-between;
-        }
-        .logo {
-          display: flex;
-          gap: 0 0.3rem;
-          align-items: center;
-          justify-content: center;
-          &:hover {
-            text-decoration: none;
-          }
-          img {
-            max-width: 52px;
-            height: auto;
-            object-fit: cover;
-          }
-          span {
-            font-size: 1.4rem;
-            font-weight: 500;
-          }
-        }
-        ul {
-          align-items: center;
-          gap: 0 2.5rem;
-          li {
-            a {
-              font-size: 1rem;
-              text-transform: capitalize;
-              color: #333a42;
-            }
-          }
-        }
-      }
-      #mobileMenu {
-        position: fixed;
-        bottom: 10px;
-        left: 0;
-        ul {
-          background: white;
-          gap: 0 0.85rem;
-          padding: 0.7rem 0.75rem;
-          min-width: 280px;
-          max-width: 540px;
-          width: 60%;
-          li {
-            img {
-              max-width: 40px;
-            }
-            a {
-              display: flex;
-              align-items: center;
-              flex-direction: column;
-              gap: 0.1rem 0;
-              img {
-                max-width: 24px;
-              }
-              &.logo img {
-                max-width: 52px;
-              }
-            }
-          }
-        }
-        @media screen and (min-width: 1023.9px) {
-          display: none;
-        }
-      }
-    </style>
+  openNavButton.addEventListener("click", openMenu);
+  closeNavButton.addEventListener("click", closeMenu);
 
--->
+  document.addEventListener("scroll", () => {
+    const d = page.clientHeight - page.scrollTop - header.offsetHeight;
+    header.classList.toggle("fixed-header", d < 0);
+  });
+
+  menu.addEventListener("click", (event) => {
+    if (event.target.tagName === "A") {
+      closeMenu();
+    }
+  });
+</script>
+
+<!-- https://github.com/withastro/compiler/issues/395 -->
+<!-- <noscript>
+  <style>
+    #open-nav-button {
+      @apply hidden;
+    }
+  </style>
+</noscript> -->
+
+<style>
+  .modal.is-open {
+    @apply block;
+  }
+</style>
