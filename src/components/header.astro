@@ -2,18 +2,19 @@
 import { Icon } from "astro-icon";
 import ThemeSwitcher from "./theme-switcher.astro";
 
+
 const navItems = [
-  { title: "Features", url: "#features" },
-  { title: "Compatibility", url: "#compatibility" },
-  { title: "Showcase", url: "#showcase" },
-];
+  { title: "Home", url: "/" },
+  { title: "Blog", url: "/posts" },
+  { title: "Search", url: "/search" },
+]
 ---
 
 <header
   id="page-header"
-  class="z-10 flex items-center justify-between w-full px-8 py-4 text-white border-b border-transparent"
+  class="absolute bottom-0 z-10 flex items-center justify-between w-full px-8 py-4 text-white border-b border-transparent"
 >
-  <a class="flex items-center gap-3 hover:!text-default" href="../">
+  <a class="flex items-center gap-3 hover:!text-default" href="#">
     <h1 class="sr-only">Astro</h1>
     <Icon name="logomark" class="h-10" />
     <Icon name="wordmark" class="hidden h-4 sm:block" />
@@ -41,7 +42,7 @@ const navItems = [
     </button>
     <ThemeSwitcher />
     </div>
-    <div id="menu-modal" class="hidden modal" aria-hidden="true">
+    <div id="menu-modal" class="" aria-hidden="true">
       <div class="fixed inset-0 px-8 py-4 bg-default">
         <div class="space-y-4" role="dialog" aria-modal="true">
           <header class="text-right">
@@ -86,7 +87,7 @@ const navItems = [
   const closeNavButton = document.querySelector("#close-nav-button");
 
   const openMenu = () => {
-    MicroModal.show(menuModalId);
+    MicroModal.show(menuModalId, { disableScroll: true });
   };
 
   const closeMenu = () => {

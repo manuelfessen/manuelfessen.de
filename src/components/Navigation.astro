@@ -23,7 +23,7 @@ const navItems = [
 
       {navItems.map(({ title, url }) => (
       <a
-        class="font-normal hidden md:inline-block p-1 sm:px-3 sm:py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all"
+        class="font-normal hidden md:inline-block p-1 sm:px-3 sm:py-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-all"
         href={url}
       >
         <span class="capsize">{title}</span>
@@ -33,7 +33,7 @@ const navItems = [
 
     <ThemeSwitcher />
 
-    <div id="menu-modal" class="hidden modal" aria-hidden="true">
+    <div id="menu-modal" class="modal" aria-hidden="true">
       <div class="z-10 fixed inset-0 px-8 py-4 bg-white">
         <div class="space-y-4" role="dialog" aria-modal="true">
           <header class="text-right">
@@ -71,14 +71,12 @@ const navItems = [
 
   const menuModalId = "menu-modal";
 
-  const header = document.querySelector("#page-header");
-  const page = document.documentElement;
   const menu = document.querySelector(`#${menuModalId} ul`);
   const openNavButton = document.querySelector("#open-nav-button");
   const closeNavButton = document.querySelector("#close-nav-button");
 
   const openMenu = () => {
-    MicroModal.show(menuModalId, { disableScroll: true });
+    MicroModal.show(menuModalId);
   };
 
   const closeMenu = () => {
@@ -87,11 +85,6 @@ const navItems = [
 
   openNavButton.addEventListener("click", openMenu);
   closeNavButton.addEventListener("click", closeMenu);
-
-  document.addEventListener("scroll", () => {
-    const d = page.clientHeight - page.scrollTop - header.offsetHeight;
-    header.classList.toggle("fixed-header", d < 0);
-  });
 
   menu.addEventListener("click", (event) => {
     if (event.target.tagName === "A") {
@@ -111,6 +104,6 @@ const navItems = [
 
 <style>
   .modal.is-open {
-    @apply block;
+    @apply inline-block;
   }
 </style>
