@@ -97,8 +97,8 @@ const navItems = [
   closeNavButton.addEventListener("click", closeMenu);
 
   document.addEventListener("scroll", () => {
-    const d = page.clientHeight - page.scrollTop - header.offsetHeight;
-    header.classList.toggle("fixed-header", d < 0);
+    const d = page.clientHeight - header.offsetHeight;
+    header.classList.toggle("fixed-header", d > 60);
   });
 
   menu.addEventListener("click", (event) => {
