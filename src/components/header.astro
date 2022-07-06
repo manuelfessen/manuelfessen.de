@@ -13,7 +13,7 @@ const navItems = [
   id="page-header"
   class="z-10 flex items-center justify-between w-full px-8 py-4 text-white border-b border-transparent"
 >
-  <a class="flex items-center gap-3 hover:!text-default" href="#">
+  <a class="flex items-center gap-3 hover:!text-default" href="../">
     <h1 class="sr-only">Astro</h1>
     <Icon name="logomark" class="h-10" />
     <Icon name="wordmark" class="hidden h-4 sm:block" />
@@ -86,7 +86,7 @@ const navItems = [
   const closeNavButton = document.querySelector("#close-nav-button");
 
   const openMenu = () => {
-    MicroModal.show(menuModalId, { disableScroll: true });
+    MicroModal.show(menuModalId);
   };
 
   const closeMenu = () => {
@@ -97,8 +97,8 @@ const navItems = [
   closeNavButton.addEventListener("click", closeMenu);
 
   document.addEventListener("scroll", () => {
-    const d = page.clientHeight - header.offsetHeight;
-    header.classList.toggle("fixed-header", d > 60);
+    const d = page.clientHeight - page.scrollTop - header.offsetHeight;
+    header.classList.toggle("fixed-header", d < 0);
   });
 
   menu.addEventListener("click", (event) => {
