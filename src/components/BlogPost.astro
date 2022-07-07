@@ -20,7 +20,7 @@ const { title, date, hero } = Astro.props;
   <h1 class="font-medium leading-tight text-5xl mt-0 mb-2">{title}</h1>
 
   <!-- Date -->
-  <h2 class="font-light text-gray-300">Posted on {dayjs(date).format('DD.MM.YYYY')} reading time </h2>
+  <h2 class="font-light">Posted on {dayjs(date).format('DD.MM.YYYY')} reading time </h2>
 
   <!-- Content -->
   <section class="mx-auto py-6 lg:py-12 content">
