@@ -5,14 +5,7 @@ module.exports = {
     "./public/**/*.html",
     "./src/**/*.{astro,js,jsx,svelte,ts,tsx,vue}",
   ],
-  plugins: [require("@tailwindcss/typography"), require("daisyui"), require("tailwindcss-fluid-type")],
-  daisyui: {
-    themes: [
-      "night",
-      "winter",
-    ],
-    darkTheme: "night", // this will be the default dark theme
-  },
+  plugins: [require("@tailwindcss/typography"), require("tailwindcss-fluid-type")],
   corePlugins: {
     fontSize: false,
   },

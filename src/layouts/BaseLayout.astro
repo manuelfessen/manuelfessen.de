@@ -6,19 +6,18 @@ import Footer from '../components/Footer/Footer.astro';
 
 const {title, description} = Astro.props;
 ---
-<html>
+<html class="h-full motion-safe:scroll-smooth" data-theme="dark">
   <head>
     <BaseHead title={title} description={description} />
   </head>
 
-  <body class="flex flex-col items-center h-[100svh] p-4 overflow-x-hidden text-base bg-default text-default motion-safe:scroll-smooth">
-    <div class="w-full h-screen max-w-3xl flex-grow">
+  <body class="h-full overflow-x-hidden text-base bg-default text-default selection:bg-secondary selection:text-white">
     <Header />
-    <main class="pb-4 mt-12 md:mt-16 lg:mt-20">
+    <div class="pb-4 mt-12 md:mt-16 lg:mt-20">
         <slot />
-    </main>
-    <Footer />
     </div>
+    <Footer />
   </body>
 </html>
+
 
