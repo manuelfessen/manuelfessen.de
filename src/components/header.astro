@@ -10,19 +10,13 @@ const navItems = [
 ]
 ---
 
-<nav id="page-header" class="relative z-10 flex justify-between items-center w-fullpx-8 sm:pb-16 text-primary dark:text-white border-b border-transparent">
-  <a class="hover:transition duration-300 text-2xl font-bold" href="../">
-    <span class="transition duration-300 opacity-100 group-hover:opacity-0">
-    <h1 class="bg-clip-text hover:bg-gradient-to-r from-blue-start to-blue-stop dark:from-purple-start dark:to-purple-stop">manuelfessen</h1>
-  </span>
-  </a>
-  <div class="flex items-center justify-between w-full relative max-w-2xl mx-auto pt-8 pb-8 sm:pb-16">
-    
+<nav id="page-header" class="relative z-10 flex justify-between items-center w-full sm:pb-16 text-primary dark:text-white border-b border-transparent">
+  <div class="flex items-center justify-between w-full relative pt-8 pb-8 sm:pb-16">   
     <nav class="hidden sm:block">
       <ul class="flex items-center gap-6">
         {navItems.map(({ title, url }) => (
           <li>
-            <a class="text-sm" href={url}>
+            <a class="font-normal text-gray-800 dark:text-gray-200 hidden md:inline-block p-1 sm:px-3 sm:py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all" href={url}>
               {title}
             </a>
           </li>

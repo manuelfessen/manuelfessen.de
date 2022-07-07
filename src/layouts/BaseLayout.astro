@@ -1,17 +1,16 @@
 ---
-import Navigation from '../components/Navigation.astro';
 import Header from '../components/header.astro';
 import BaseHead from '../components/Head/BaseHead.astro';
 import Footer from '../components/Footer/Footer.astro';
 
 const {title, description} = Astro.props;
 ---
-<html class="h-full motion-safe:scroll-smooth" data-theme="dark">
+<html class="flex flex-col items-center h-[100svh] p-4 motion-safe:scroll-smooth" data-theme="dark">
   <head>
     <BaseHead title={title} description={description} />
   </head>
 
-  <body class="h-full px-12 overflow-x-hidden text-base bg-default text-default selection:bg-secondary selection:text-white">
+  <body class="flex flex-col justify-center px-8 text-base bg-default text-default selection:bg-secondary selection:text-white max-w-3xl w-full">
     <Header />
     <div class="px-4 py-32 space-y-24">
         <slot />

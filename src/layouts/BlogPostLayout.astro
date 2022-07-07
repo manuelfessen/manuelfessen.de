@@ -7,7 +7,7 @@ const {title, description, date, hero} = content;
 ---
 
 <BaseLayout title={title} description={description}>
-    <main class="py-8 lg:py-12">
+    <main class="prose ">
       <BlogPost title={title} hero={hero} date={date} >
         <slot />
       </BlogPost>
