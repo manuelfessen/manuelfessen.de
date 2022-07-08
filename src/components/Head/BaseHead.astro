@@ -51,18 +51,18 @@ let permalink = 'https://manuelfessen.github.io';
     document.documentElement.dataset.theme = themeSaved;
   } else {
     const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
+      "(prefers-color-scheme: night)"
     ).matches;
-    document.documentElement.dataset.theme = prefersDark ? "dark" : "light";
+    document.documentElement.dataset.theme = prefersDark ? "night" : "cyberpunk";
   }
 
   window
-    .matchMedia("(prefers-color-scheme: dark)")
+    .matchMedia("(prefers-color-scheme: night)")
     .addEventListener("change", (event) => {
       if (!localStorage.getItem("theme")) {
         document.documentElement.dataset.theme = event.matches
-          ? "dark"
-          : "light";
+          ? "night"
+          : "cyberpunk";
       }
     });
 </script>

@@ -10,13 +10,13 @@ const navItems = [
 ]
 ---
 
-<nav id="page-header" class="flex justify-between items-center w-full sm:pb-16 text-primary border-b border-transparent">
+<nav id="page-header" class="flex justify-between items-center w-full sm:pb-16  navbar">
   <div class="flex items-center justify-between w-full relative pt-8 pb-8 sm:pb-16">   
     <nav class="hidden md:block">
       <ul class="flex items-center gap-6">
         {navItems.map(({ title, url }) => (
           <li>
-            <a class="font-normal text-gray-800 dark:text-gray-200 hidden md:inline-block p-1 sm:px-3 sm:py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all" href={url}>
+            <a class="font-normal hidden md:inline-block p-1 sm:px-3 sm:py-2 rounded-lg transition-all" href={url}>
               {title}
             </a>
           </li>
@@ -25,12 +25,11 @@ const navItems = [
     </nav>
     <ThemeSwitcher />
     <label for="my-modal-3" class="btn modal-button md:hidden">
-      <svg class="h-5 w-5 absolute" width="20" height="20" viewBox="0 0 20 20" fill="none" data-hide="false"><path d="M2.5 7.5H17.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.5 12.5H17.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></label>
-    
-    <!-- Put this part before </body> tag -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+    </label>
     <input type="checkbox" id="my-modal-3" class="modal-toggle" />
-    <div class="modal w-full h-full">
-      <div class="modal-box relative w-full h-full" aria-modal="true">
+    <div class="modal">
+      <div class="modal-box w-full h-full" aria-modal="true">
         <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-4 top-4">✕</label>
         <div class="space-y-4" role="dialog" aria-modal="true">
             <ul class="flex flex-col">
