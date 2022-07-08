@@ -2,19 +2,26 @@
 
 ---
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <section class="">
-  <div class="searchBoxContainer">
-    <input type="text" id="searchBox" class="searchBox w-full px-2 py-1" placeholder="Search..." data-test="search-input" />
+  <div class="relative w-full mb-4">
+    <input id="searchBox" aria-label="Search articles" data-test="search-input" type="text" placeholder="Search articles"
+      class="block w-full px-4 py-2 rounded-md">
+      <svg
+      class="absolute w-5 h-5 right-3 top-3" xmlns="http://www.w3.org/2000/svg"
+      fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z">
+      </path>
+    </svg>
   </div>
 
-  <!-- Search Results -->
-  <div id="searchResults" class="searchResults lg:pl-8"></div>
+</section>
+<!-- Search Results -->
+<div id="searchResults" class="searchResults lg:pl-8"></div>
 
-  <!-- Search JS -->
-  <script>
+<!-- Search JS -->
+<script>
     let lunrIndex;
     let lunrResult;
     let pagesIndex;
@@ -134,7 +141,7 @@
         searchResults.append(resultPage);
         return;
       }
-      
+
 
       let instance = new Mark(document.querySelector('#searchResults'));
       // Only show the ten first results
@@ -166,7 +173,14 @@
     initUI();
   </script>
 
-  <script client:load>
+<script client:load>
     document.getElementById('searchBox').focus()
   </script>
-</section>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"
+integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"
+integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>

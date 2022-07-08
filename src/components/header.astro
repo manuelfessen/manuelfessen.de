@@ -10,10 +10,9 @@ const navItems = [
 ]
 ---
 
-<nav id="page-header" class="flex justify-between items-center w-full sm:pb-16  navbar">
-  <div class="flex items-center justify-between w-full relative pt-8 pb-8 sm:pb-16">   
+<nav id="page-header" class="flex justify-between items-center w-full pt-8 pb-8 sm:pb-16 navbar">
     <nav class="hidden md:block">
-      <ul class="flex items-center gap-6">
+      <ul class="flex items-center gap-4 ml-[-0.60rem]">
         {navItems.map(({ title, url }) => (
           <li>
             <a class="font-normal hidden md:inline-block p-1 sm:px-3 sm:py-2 rounded-lg transition-all" href={url}>
@@ -43,6 +42,5 @@ const navItems = [
             </ul>
         </div>
       </div>
-    </div>
     </div>
 </nav>
