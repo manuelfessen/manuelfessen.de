@@ -23,48 +23,32 @@ const navItems = [
         ))}
       </ul>
     </nav>
-    <button
-      id="open-nav-button"
-      type="button"
-      class="btn sm:hidden"
-      aria-label="Navigation"
-    >
-      <Icon pack="mdi" name="menu" class="h-8" />
-    </button>
     <ThemeSwitcher />
     </div>
-    <div id="menu-modal" class="modal hidden" aria-hidden="true">
-      <div class="fixed inset-0 px-8 py-4 bg-default">
-        <div class="space-y-4" role="dialog" aria-modal="true">
-          <header class="text-right">
-            <button
-              id="close-nav-button"
-              type="button"
-              class="btn"
-              aria-label="Close navigation"
-            >
-              <Icon pack="mdi" name="close" class="h-8" />
-            </button>
-          </header>
-          <div class="flex justify-center">
-            <Icon name="logomark" class="h-16" />
-          </div>
-          <nav>
-            <ul class="flex flex-col">
-              {navItems.map(({ title, url }) => (
-                <li>
-                  <a class="block py-4 text-xl text-center" href={url}>
-                    {title}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
-      </div>
+
+    <!-- The button to open modal -->
+<label for="my-modal-3" class="btn modal-button">
+  <svg class="h-5 w-5 absolute" width="20" height="20" viewBox="0 0 20 20" fill="none" data-hide="false"><path d="M2.5 7.5H17.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.5 12.5H17.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></label>
+
+<!-- Put this part before </body> tag -->
+<input type="checkbox" id="my-modal-3" class="modal-toggle" />
+<div class="modal fixed inset-0 px-8 py-4">
+  <div class="modal-box relative " aria-modal="true">
+    <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+    <div class="space-y-4" role="dialog" aria-modal="true">
+      <nav>
+        <ul class="flex flex-col">
+          {navItems.map(({ title, url }) => (
+            <li>
+              <a class="block py-4 text-xl text-center" href={url}>
+                {title}
+              </a>
+            </li>
+          ))}
+        </ul>
     </div>
   </div>
-</nav>
+</div>
 
 
 <script>
@@ -114,7 +98,7 @@ const navItems = [
 <style>
   .fixed-header {
     @apply fixed top-0 bottom-auto;
-    @apply text-default bg-default border-default;
+    @apply text-primary bg-base-100 border-secondary;
   }
   .modal.is-open {
     @apply block !important;

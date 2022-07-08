@@ -18,7 +18,7 @@ import { Icon } from "astro-icon";
 </button>
 
 <script>
-  const themes = ["light", "dark"];
+  const themes = ["cyberpunk", "night"];
   const button = document.querySelector("#theme-switcher");
 
   const getThemeCurrent = () => document.documentElement.dataset.theme;
@@ -48,9 +48,3 @@ import { Icon } from "astro-icon";
 
   updateIcon();
 </script>
-
-<style>
-  :global(.fixed-header) #theme-switcher {
-    @apply scale-100 ml-0;
-  }
-</style>
