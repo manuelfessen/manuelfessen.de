@@ -10,9 +10,9 @@ const navItems = [
 ]
 ---
 
-<nav id="page-header" class="relative z-10 flex justify-between items-center w-full sm:pb-16 text-primary dark:text-white border-b border-transparent">
+<nav id="page-header" class="flex justify-between items-center w-full sm:pb-16 text-primary border-b border-transparent">
   <div class="flex items-center justify-between w-full relative pt-8 pb-8 sm:pb-16">   
-    <nav class="hidden sm:block">
+    <nav class="hidden md:block">
       <ul class="flex items-center gap-6">
         {navItems.map(({ title, url }) => (
           <li>
@@ -24,83 +24,26 @@ const navItems = [
       </ul>
     </nav>
     <ThemeSwitcher />
+    <label for="my-modal-3" class="btn modal-button md:hidden">
+      <svg class="h-5 w-5 absolute" width="20" height="20" viewBox="0 0 20 20" fill="none" data-hide="false"><path d="M2.5 7.5H17.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.5 12.5H17.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></label>
+    
+    <!-- Put this part before </body> tag -->
+    <input type="checkbox" id="my-modal-3" class="modal-toggle" />
+    <div class="modal w-full h-full">
+      <div class="modal-box relative w-full h-full" aria-modal="true">
+        <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-4 top-4">✕</label>
+        <div class="space-y-4" role="dialog" aria-modal="true">
+            <ul class="flex flex-col">
+              {navItems.map(({ title, url }) => (
+                <li>
+                  <a class="block py-4 text-xl text-center" href={url}>
+                    {title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+        </div>
+      </div>
     </div>
-
-    <!-- The button to open modal -->
-<label for="my-modal-3" class="btn modal-button">
-  <svg class="h-5 w-5 absolute" width="20" height="20" viewBox="0 0 20 20" fill="none" data-hide="false"><path d="M2.5 7.5H17.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.5 12.5H17.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></label>
-
-<!-- Put this part before </body> tag -->
-<input type="checkbox" id="my-modal-3" class="modal-toggle" />
-<div class="modal fixed inset-0 px-8 py-4">
-  <div class="modal-box relative " aria-modal="true">
-    <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-    <div class="space-y-4" role="dialog" aria-modal="true">
-      <nav>
-        <ul class="flex flex-col">
-          {navItems.map(({ title, url }) => (
-            <li>
-              <a class="block py-4 text-xl text-center" href={url}>
-                {title}
-              </a>
-            </li>
-          ))}
-        </ul>
     </div>
-  </div>
-</div>
-
-
-<script>
-  import MicroModal from "micromodal";
-
-  const menuModalId = "menu-modal";
-
-
-  const header = document.querySelector("#page-header");
-  const page = document.documentElement;
-  const menu = document.querySelector(`#${menuModalId} ul`);
-  const openNavButton = document.querySelector("#open-nav-button");
-  const closeNavButton = document.querySelector("#close-nav-button");
-
-  const openMenu = () => {
-    MicroModal.show(menuModalId);
-  };
-
-  const closeMenu = () => {
-    MicroModal.close(menuModalId);
-  };
-
-  document.addEventListener("scroll", () => {
-    const d = page.clientHeight - page.scrollTop - header.offsetHeight;
-    header.classList.toggle("fixed-header", d < 0);
-  });
-
-  openNavButton.addEventListener("click", openMenu);
-  closeNavButton.addEventListener("click", closeMenu);
-
-  menu.addEventListener("click", (event) => {
-    if (event.target.tagName === "A") {
-      closeMenu();
-    }
-  });
-</script>
-
-<!-- https://github.com/withastro/compiler/issues/395 -->
-<!-- <noscript>
-  <style>
-    #open-nav-button {
-      @apply hidden;
-    }
-  </style>
-</noscript> -->
-
-<style>
-  .fixed-header {
-    @apply fixed top-0 bottom-auto;
-    @apply text-primary bg-base-100 border-secondary;
-  }
-  .modal.is-open {
-    @apply block !important;
-  }
-</style>
+</nav>

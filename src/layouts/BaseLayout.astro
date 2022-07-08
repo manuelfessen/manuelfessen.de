@@ -10,9 +10,9 @@ const {title, description} = Astro.props;
     <BaseHead title={title} description={description} />
   </head>
 
-  <body class="flex flex-col justify-center px-8 text-base bg-default text-default selection:bg-secondary selection:text-white max-w-3xl w-full">
+  <body class="flex flex-col justify-center px-8 max-w-3xl w-full">
     <Header />
-    <div class="px-4 py-32 space-y-24">
+    <div class="py-32 space-y-24">
         <slot />
     </div>
     <Footer />

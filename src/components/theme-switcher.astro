@@ -5,14 +5,14 @@ import { Icon } from "astro-icon";
 <button
   id="theme-switcher"
   type="button"
-  class="transition-all origin-[right_center] duration-500 -ml-8 w-9 h-9 bg-gray-200 rounded-lg dark:bg-gray-600 flex items-center justify-center hover:ring-2 ring-gray-300"
+  class="transition-all origin-[right_center] duration-500 -ml-8 w-9 h-9 bg-base-300 rounded-lg flex items-center justify-center hover:ring-2 ring-gray-300"
 >
   <div id="icon-theme-light" class="hidden">
-    <Icon name="theme/light" class="h-8" />
+    <Icon name="theme/light" class="h-8 bg-primary" />
     <span class="sr-only">Use light theme</span>
   </div>
   <div id="icon-theme-dark" class="hidden">
-    <Icon name="theme/dark" class="h-8" />
+    <Icon name="theme/dark" class="h-8 bg-primary" />
     <span class="sr-only">Use dark theme</span>
   </div>
 </button>
