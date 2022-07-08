@@ -1,7 +1,6 @@
 ---
 import { Icon } from "astro-icon";
 import ThemeSwitcher from "./theme-switcher.astro";
-import ThemeChange from "./ThemeChange.astro";
 
 
 const navItems = [
@@ -11,13 +10,13 @@ const navItems = [
 ]
 ---
 
-<nav class="relative z-10 flex justify-between items-center w-full sm:pb-16 border-b border-transparent">
+<nav id="page-header" class="relative z-10 flex justify-between items-center w-full sm:pb-16 text-primary dark:text-white border-b border-transparent">
   <div class="flex items-center justify-between w-full relative pt-8 pb-8 sm:pb-16">   
     <nav class="hidden sm:block">
       <ul class="flex items-center gap-6">
         {navItems.map(({ title, url }) => (
           <li>
-            <a class="font-normal hidden md:inline-block p-1 sm:px-3 sm:py-2 rounded-lg transition-all" href={url}>
+            <a class="font-normal text-gray-800 dark:text-gray-200 hidden md:inline-block p-1 sm:px-3 sm:py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all" href={url}>
               {title}
             </a>
           </li>
@@ -32,10 +31,10 @@ const navItems = [
     >
       <Icon pack="mdi" name="menu" class="h-8" />
     </button>
-    <ThemeChange />
+    <ThemeSwitcher />
     </div>
     <div id="menu-modal" class="modal hidden" aria-hidden="true">
-      <div class="fixed inset-0 px-8 py-4">
+      <div class="fixed inset-0 px-8 py-4 bg-default">
         <div class="space-y-4" role="dialog" aria-modal="true">
           <header class="text-right">
             <button
@@ -72,6 +71,10 @@ const navItems = [
   import MicroModal from "micromodal";
 
   const menuModalId = "menu-modal";
+
+
+  const header = document.querySelector("#page-header");
+  const page = document.documentElement;
   const menu = document.querySelector(`#${menuModalId} ul`);
   const openNavButton = document.querySelector("#open-nav-button");
   const closeNavButton = document.querySelector("#close-nav-button");
@@ -83,6 +86,11 @@ const navItems = [
   const closeMenu = () => {
     MicroModal.close(menuModalId);
   };
+
+  document.addEventListener("scroll", () => {
+    const d = page.clientHeight - page.scrollTop - header.offsetHeight;
+    header.classList.toggle("fixed-header", d < 0);
+  });
 
   openNavButton.addEventListener("click", openMenu);
   closeNavButton.addEventListener("click", closeMenu);
@@ -104,6 +112,10 @@ const navItems = [
 </noscript> -->
 
 <style>
+  .fixed-header {
+    @apply fixed top-0 bottom-auto;
+    @apply text-default bg-default border-default;
+  }
   .modal.is-open {
     @apply block !important;
   }
