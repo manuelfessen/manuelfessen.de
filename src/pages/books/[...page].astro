@@ -17,11 +17,11 @@ export async function getStaticPaths({ paginate }) {
 }
 
 const { page } = Astro.props
-let pageTitle = 'Articles';
+let pageTitle = 'Manuel Fessens | Digital Bookshelf';
 //let pageDescription = `page ${page.currentPage} of all articles`;
-let pageDescription = `articles I have written in the past`;
-let seoTitle = 'Articles | Creek';
-let seoDescription = '';
+let pageDescription = `books I have read in the past`;
+let seoTitle = 'Manuel Fessens | Digital Bookshelf';
+let seoDescription = 'Manuel Fessens read books in the last time';
 ---
 
 <BaseLayout title={seoTitle} description={seoDescription}>

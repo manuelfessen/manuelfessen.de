@@ -3,27 +3,27 @@ import EmailSignup from './Subscribe/EmailSignup.astro'
 import dayjs from 'dayjs'
 
 export interface Props {
+  post: any;
   title: string;
   date: string;
-  hero: string;
 }
 
-const { title, date, hero } = Astro.props;
+
+const { title, date } = Astro.props;
 ---
 
-<article class="space-y-4 prose md:prose-xl">
-
-  <!-- Image -->
-  {hero && <img class="rounded-xl mx-auto w-full" style="min-width: 80%;" loading="lazy" src={hero} alt={title} />}
+<article class="space-y-1 prose md:prose-xl">
 
   <!-- Headline -->
-  <h1 class="font-medium leading-tight text-5xl mt-0 mb-2">{title}</h1>
+  <h1 class="font-medium leading-tight text-3xl mt-16">{title}</h1>
 
   <!-- Date -->
-  <h2 class="font-light text-gray-300">Posted on {dayjs(date).format('DD.MM.YYYY')} reading time </h2>
+  <p class="font-light -mt-8">Posted on {dayjs(date).format('DD.MM.YYYY')} </p>
+
+  <div class="divider"></div> 
 
   <!-- Content -->
-  <section class="mx-auto py-6 lg:py-12 content">
+  <section class="mx-auto pb-6 lg:pb-12 content">
     <slot />
   </section>
 

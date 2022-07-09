@@ -4,7 +4,6 @@ date: 2019-04-13
 slug: "remote-ux-test"
 description: It depends on the resources and goal you want to achieve with the test which one to chose.
 keywords: research
-hero: "/images/blog/bionic-reading.webpg"
 layout: "../../layouts/BlogPostLayout.astro"
 ---
 

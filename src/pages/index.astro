@@ -1,15 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Card from '../components/Card.astro';
-import BaseHead from '../components/Head/BaseHead.astro';
 
 interface MarkdownFrontmatter {
   date: number;
 }
 
-let title = 'Creek';
-let description = 'A Theme for Astro';
-let seoDescription = 'Creek is a theme for Astro static site generator';
+let title = 'Manuel Fessen | UX Designer';
+let description = 'Manuel Fessen is a designer and strategist currently living and working in Essen, Germany.';
+let seoDescription = 'Manuel Fessen is a designer and strategist currently living and working in Essen, Germany.';
 ---
 
 <BaseLayout title={title} description={description}>
@@ -24,19 +22,19 @@ let seoDescription = 'Creek is a theme for Astro static site generator';
             <h1 class="text-xl leading-9 tracking-tight sm:text-2xl sm:leading-10 md:text-3xl md:leading-14">
               I'm a UX Designer based in Essen working at
               <a
-                class="underline decoration-[#003671]"
+                class="underline decoration-[#003671] hover:text-[#003671]"
                 href="https://www.easy-software.com"
                 target="_blank">EASY Software</a
               >. I help with my skills and experience in delivering great User
               Experience to customers. <br />
             </h1>
             <h2 class="text-l leading-9 tracking-tight sm:text-xl sm:leading-10 md:text-2xl md:leading-14">
-              You can learn more about me by reading my
-              <a class="underline decoration-error hover:decoration-3" href="/blog">blog</a>,
-              skimming my whiteboard of public
-              <a class="underline decoration-warning hover:decoration-3" href="/notes">notes</a> or browsing
-              my digital
-              <a class="underline decoration-success hover:decoration-3" href="/books">bookshelf</a>.
+              You can read 
+              <a class="underline decoration-info hover:decoration-3 hover:text-info" href="/blog">articles I've written</a>,
+              skimming my 
+              <a class="underline decoration-warning hover:decoration-3 hover:text-warning" href="/notes">whiteboard of public notes</a> or browsing
+              
+              <a class="underline decoration-success hover:decoration-3 hover:text-success" href="/books">my digital bookshelf</a>.
             </h2>
           </div>
       </section>
