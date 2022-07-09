@@ -10,23 +10,35 @@ interface MarkdownFrontmatter {
 let title = 'Creek';
 let description = 'A Theme for Astro';
 let seoDescription = 'Creek is a theme for Astro static site generator';
-
-let allPosts = (await Astro.glob("./posts/*.md")).sort(
-  (a, b) =>
-    new Date(b.frontmatter.publishedAt).valueOf() -
-    new Date(a.frontmatter.publishedAt).valueOf()
-);
 ---
 
 <BaseLayout title={title} description={description}>
-    <main class="">
-      <article class="mx-auto">
-        <h1 class="font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-          Hello !</h1>
-        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-8" data-test="articles-section">
-          {allPosts.slice(0, 6).map(p => <div class="col-span-1"><Card post={p} /></div>)}
-        </section>
-      </article>
-      
+    <main class="flex flex-col justify-center sm:h-full">
+      <section class="flex flex-col-reverse sm:flex-row items-start">
+          <div class="flex flex-col space-y-1">
+            <h3 class="text-l leading-9 tracking-tight sm:text-xl sm:leading-10 md:text-2xl md:leading-14 mb-4">
+              hi, I'm Manuel {" "}
+              <span role="img" class="wave"> 👋 </span>
+            </h3>
+  
+            <h1 class="text-xl leading-9 tracking-tight sm:text-2xl sm:leading-10 md:text-3xl md:leading-14">
+              I'm a UX Designer based in Essen working at
+              <a
+                class="underline decoration-[#003671]"
+                href="https://www.easy-software.com"
+                target="_blank">EASY Software</a
+              >. I help with my skills and experience in delivering great User
+              Experience to customers. <br />
+            </h1>
+            <h2 class="text-l leading-9 tracking-tight sm:text-xl sm:leading-10 md:text-2xl md:leading-14">
+              You can learn more about me by reading my
+              <a class="underline decoration-error hover:decoration-3" href="/blog">blog</a>,
+              skimming my whiteboard of public
+              <a class="underline decoration-warning hover:decoration-3" href="/notes">notes</a> or browsing
+              my digital
+              <a class="underline decoration-success hover:decoration-3" href="/books">bookshelf</a>.
+            </h2>
+          </div>
+      </section>
     </main>
   </BaseLayout>

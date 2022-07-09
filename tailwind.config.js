@@ -7,28 +7,11 @@ module.exports = {
   corePlugins: {
     fontSize: false,
   },
-  theme: {
-    extend: {
-      fontFamily: {
-        sans: [
-          "IBM Plex Sans",
-          "ui-sans-serif",
-        ],
-        serif: [
-          "ui-serif",
-        ],
-        mono: [
-          "ui-monospace",
-          "SFMono-Regular",
-        ],
-      },
-    },
-  },
   daisyui: {
     themes: [
-      "night",
-      "cyberpunk",
+      "black",
+      "light",
     ],
-    darkTheme: "night", // this will be the default dark theme
+    darkTheme: "black", // this will be the default dark theme
   },
 };

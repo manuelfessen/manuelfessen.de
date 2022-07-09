@@ -1,18 +1,20 @@
 ---
-import { Icon } from "astro-icon";
+import SearchInput from "./SearchInput.astro";
 import ThemeSwitcher from "./theme-switcher.astro";
 
 
 const navItems = [
   { title: "Home", url: "/" },
-  { title: "Blog", url: "/posts" },
-  { title: "Search", url: "/search" },
+  { title: "Blog", url: "/blog" },
+  { title: "Search", url: "/bookshelf" },
 ]
 ---
 
-<nav id="page-header" class="flex justify-between items-center w-full pt-8 pb-8 sm:pb-16 navbar">
+<nav id="page-header" class="flex justify-between items-center w-full md:my-4 sm:pb-16 navbar">
     <nav class="hidden md:block">
-      <ul class="flex items-center gap-4 ml-[-0.60rem]">
+      <a href="../" class="monospace no-underline">Manuel Fessen
+      </a>
+      <ul class="flex items-center gap-4 ml-[-0.60rem] hidden">
         {navItems.map(({ title, url }) => (
           <li>
             <a class="font-normal hidden md:inline-block p-1 sm:px-3 sm:py-2 rounded-lg transition-all" href={url}>
@@ -23,20 +25,28 @@ const navItems = [
       </ul>
     </nav>
     <ThemeSwitcher />
-    <label for="my-modal-3" class="btn modal-button md:hidden">
+    <label for="my-modal-3" class="modal-button md:hidden btn-ghost btn">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
     </label>
     <input type="checkbox" id="my-modal-3" class="modal-toggle" />
-    <div class="modal">
-      <div class="modal-box w-full h-full" aria-modal="true">
-        <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-4 top-4">✕</label>
-        <div class="space-y-4" role="dialog" aria-modal="true">
-            <ul class="flex flex-col">
+    <div class="modal w-screen h-screen items-center hs-modal fixed top-0 left-0 z-[60] overflow-x-hidden overflow-y-auto bg-base-100/100">
+      <div class="modal-box w-screen h-screen border-none shadow-none" aria-modal="true">
+        <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-12 top-4"><svg class="h-5 w-5 absolute text-gray-900 dark:text-gray-100" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision" data-hide="false"><path d="M18 6L6 18"></path><path d="M6 6l12 12"></path></svg></label>
+        <div class="flex flex-col mx-8 h-full justify-between" role="dialog" aria-modal="true">
+
+
+          <div class="my-16 bottom-0">
+            <SearchInput /> 
+
+          </div>
+            <ul class="my-16">
               {navItems.map(({ title, url }) => (
                 <li>
-                  <a class="block py-4 text-xl text-center" href={url}>
+                  <a class="block p4-8 text-xl text-center" href={url}>
                     {title}
                   </a>
+
+                  <div class="divider"></div> 
                 </li>
               ))}
             </ul>

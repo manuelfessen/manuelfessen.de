@@ -6,11 +6,11 @@ import { Icon } from "astro-icon";
   type="button"
   class="transition-all origin-[right_center] duration-500 rounded-lg hover:ring-2 ring-gray-300"
 >
-<div id="icon-theme-cyberpunk" class="">
+<div id="icon-theme-light" class="">
   <Icon name="theme/light" class="h-8" />
   <span class="sr-only">Use light theme</span>
 </div>
-<div id="icon-theme-night" class="">
+<div id="icon-theme-black" class="">
   <Icon name="theme/dark" class="h-8" />
   <span class="sr-only">Use dark theme</span>
 </div>
@@ -20,7 +20,7 @@ import { Icon } from "astro-icon";
 
 
 <script>
-  const themes = ["cyberpunk", "night"];
+  const themes = ["light", "black"];
   const button = document.querySelector("#theme-switcher");
 
   const getThemeCurrent = () => document.documentElement.dataset.theme;

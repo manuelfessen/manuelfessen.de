@@ -1,0 +1,23 @@
+---
+export interface Props {
+  title: string;
+  img: string;
+  author: string;
+  url: string;
+}
+const { title, img, author, url } = Astro.props as Props;
+---
+
+<li class="list-none">
+  <a href={url} target="_blank">
+    <div class="aspect-[3/4] transform hover:scale-[1.01] transition-all h-44">
+      <img src={img} alt={title} />
+    </div>
+    <div class="py-2">
+      <h5 class="my-2 text-xl font-semibold tracking-tight mt-8">
+        {title}
+      </h5>
+      <p class="mb-3 font-normal">{author}</p>
+    </div>
+  </a>
+</li>

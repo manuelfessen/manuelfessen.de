@@ -2,185 +2,183 @@
 
 ---
 
-
 <section class="">
-  <div class="relative w-full mb-4">
-    <input id="searchBox" aria-label="Search articles" data-test="search-input" type="text" placeholder="Search articles"
-      class="block w-full px-4 py-2 rounded-md">
+  <div class="relative w-full mb-4 sm:h-12">
+    <input id="searchBox" aria-label="Search articles" data-test="search-input" type="text"
+    placeholder="Search ..." 
+      class="block w-full px-4 py-2 rounded-md focus:ring-blue-500 focus:border-blue-500">
       <svg
-      class="absolute w-5 h-5 right-3 top-3" xmlns="http://www.w3.org/2000/svg"
+      class="absolute w-5 h-5 right-3 top-3 " xmlns="http://www.w3.org/2000/svg"
       fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z">
-      </path>
-    </svg>
+        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+      </svg>
   </div>
-
 </section>
 <!-- Search Results -->
-<div id="searchResults" class="searchResults lg:pl-8"></div>
+<div id="searchResults" class="searchResults lg:pl-8 z-80 bg-base-100"></div>
 
 <!-- Search JS -->
 <script>
-    let lunrIndex;
-    let lunrResult;
-    let pagesIndex;
+  let lunrIndex;
+  let lunrResult;
+  let pagesIndex;
 
-    const bigramTokeniser = (obj, metadata) => {
-      if (obj == null || obj == undefined) {
-        return [];
+  const bigramTokeniser = (obj, metadata) => {
+    if (obj == null || obj == undefined) {
+      return [];
+    }
+
+    let str = obj.toString().trim().toLowerCase();
+    let tokens = [];
+
+    for (let i = 0; i <= str.length - 2; i++) {
+      let tokenMetadata = lunr.utils.clone(metadata) || {};
+      tokenMetadata['position'] = [i, i + 2];
+      tokenMetadata['index'] = tokens.length;
+      tokens.push(new lunr.Token(str.slice(i, i + 2), tokenMetadata));
+    }
+
+    return tokens;
+  };
+
+  const queryNgramSeparator = (query) => {
+    const str = query.toString().trim().toLowerCase();
+    const tokens = [];
+
+    for (let i = 0; i <= str.length - 2; i++) {
+      tokens.push(str.slice(i, i + 2));
+    }
+
+    return tokens.join(' ');
+  };
+
+  const index = '/search-index.json';
+
+  const initLunr = () => {
+    let request = new XMLHttpRequest();
+    request.open('GET', index, true);
+    request.onload = function () {
+      if (this.status >= 200 && this.status < 400) {
+        pagesIndex = JSON.parse(this.response);
+        lunrIndex = lunr(function () {
+          this.tokenizer = bigramTokeniser;
+          this.pipeline.reset();
+          this.ref('slug', { boost: 15 });
+          this.field('title', { boost: 10 });
+          this.field('body');
+          this.metadataWhitelist = ['position'];
+          pagesIndex.forEach((page) => {
+            this.add(page);
+          }, this);
+        });
+      } else {
+        console.error('Error getting Hugo index flie');
       }
-
-      let str = obj.toString().trim().toLowerCase();
-      let tokens = [];
-
-      for (let i = 0; i <= str.length - 2; i++) {
-        let tokenMetadata = lunr.utils.clone(metadata) || {};
-        tokenMetadata['position'] = [i, i + 2];
-        tokenMetadata['index'] = tokens.length;
-        tokens.push(new lunr.Token(str.slice(i, i + 2), tokenMetadata));
-      }
-
-      return tokens;
     };
-
-    const queryNgramSeparator = (query) => {
-      const str = query.toString().trim().toLowerCase();
-      const tokens = [];
-
-      for (let i = 0; i <= str.length - 2; i++) {
-        tokens.push(str.slice(i, i + 2));
-      }
-
-      return tokens.join(' ');
+    request.onerror = function () {
+      console.error('connection error');
     };
+    request.send();
+  };
 
-    const index = '/search-index.json';
+  /**
+   * Searching pages using lunr
+   * @param {String} query Query string for searching
+   * @return {Object[]} Array of search results
+   */
+  const search = (query) => {
+    lunrResult = lunrIndex.search(queryNgramSeparator(query));
+    return lunrResult.map((result) => {
+      return pagesIndex.filter((page) => {
+        return page.slug === result.ref;
+      })[0];
+    });
+  };
 
-    const initLunr = () => {
-      let request = new XMLHttpRequest();
-      request.open('GET', index, true);
-      request.onload = function () {
-        if (this.status >= 200 && this.status < 400) {
-          pagesIndex = JSON.parse(this.response);
-          lunrIndex = lunr(function () {
-            this.tokenizer = bigramTokeniser;
-            this.pipeline.reset();
-            this.ref('slug', { boost: 15 });
-            this.field('title', { boost: 10 });
-            this.field('body');
-            this.metadataWhitelist = ['position'];
-            pagesIndex.forEach((page) => {
-              this.add(page);
-            }, this);
-          });
-        } else {
-          console.error('Error getting Hugo index flie');
-        }
-      };
-      request.onerror = function () {
-        console.error('connection error');
-      };
-      request.send();
-    };
+  const initUI = () => {
+    const searchBox = document.querySelector('#searchBox');
+    if (searchBox === null) {
+      return;
+    }
+    searchBox.addEventListener('keyup', function (event) {
+      let searchResultsArea = document.querySelector('#searchResults');
+      let query = event.currentTarget.value;
 
-    /**
-     * Searching pages using lunr
-     * @param {String} query Query string for searching
-     * @return {Object[]} Array of search results
-     */
-    const search = (query) => {
-      lunrResult = lunrIndex.search(queryNgramSeparator(query));
-      return lunrResult.map((result) => {
-        return pagesIndex.filter((page) => {
-          return page.slug === result.ref;
-        })[0];
-      });
-    };
-
-    const initUI = () => {
-      const searchBox = document.querySelector('#searchBox');
-      if (searchBox === null) {
-        return;
-      }
-      searchBox.addEventListener('keyup', function (event) {
-        let searchResultsArea = document.querySelector('#searchResults');
-        let query = event.currentTarget.value;
-
-        // Only trigger a search when 2 chars. at least have been provided
-        if (query.length < 2) {
-          searchResultsArea.style.display = 'none';
-          return;
-        }
-
-        // Display search results
-        renderResults(search(query));
-        searchResultsArea.style.display = 'block';
-      });
-    };
-
-    /**
-     * Rendering search results
-     * @param {Object[]} results Array of search results
-     */
-    const renderResults = (results) => {
-      const searchResults = document.querySelector('#searchResults');
-      const query = document.querySelector('#searchBox').value;
-      const BODY_LENGTH = 100;
-      const MAX_PAGES = 10;
-
-      // Clear search result
-      while (searchResults.firstChild)
-        searchResults.removeChild(searchResults.firstChild);
-
-      // Show message when results is empty
-      if (!results.length) {
-        let resultPage = document.createElement('div');
-        resultPage.className = 'searchResultPage';
-        resultPage.innerHTML = 'No results found for query "' + query + '"';
-        searchResults.append(resultPage);
+      // Only trigger a search when 2 chars. at least have been provided
+      if (query.length < 2) {
+        searchResultsArea.style.display = 'none';
         return;
       }
 
+      // Display search results
+      renderResults(search(query));
+      searchResultsArea.style.display = 'block';
+    });
+  };
 
-      let instance = new Mark(document.querySelector('#searchResults'));
-      // Only show the ten first results
-      results.slice(0, MAX_PAGES).forEach((result, idx) => {
-        let resultPage = document.createElement('div');
-        resultPage.className = 'searchResultPage';
-        let metadata = lunrResult[idx].matchData.metadata;
-        let matchPosition = metadata[Object.keys(metadata)[0]].body.position[0][0];
-        let bodyStartPosition =
-          matchPosition - BODY_LENGTH / 2 > 0 ? matchPosition - BODY_LENGTH / 2 : 0;
+  /**
+   * Rendering search results
+   * @param {Object[]} results Array of search results
+   */
+  const renderResults = (results) => {
+    const searchResults = document.querySelector('#searchResults');
+    const query = document.querySelector('#searchBox').value;
+    const BODY_LENGTH = 100;
+    const MAX_PAGES = 10;
 
-        let resultTitle = document.createElement('a');
-        resultTitle.className = 'searchResultTitle';
-        resultTitle.href = `/posts/${result.slug}`;
-        resultTitle.innerHTML = result.title;
-        resultPage.append(resultTitle);
+    // Clear search result
+    while (searchResults.firstChild)
+      searchResults.removeChild(searchResults.firstChild);
 
-        let resultBody = document.createElement('div');
-        resultBody.className = 'searchResultBody';
-        resultBody.innerHTML = result.body.substr(bodyStartPosition, BODY_LENGTH);
-        resultPage.append(resultBody);
-        searchResults.append(resultPage);
+    // Show message when results is empty
+    if (!results.length) {
+      let resultPage = document.createElement('div');
+      resultPage.className = 'searchResultPage';
+      resultPage.innerHTML = 'No results found for query "' + query + '"';
+      searchResults.append(resultPage);
+      return;
+    }
 
-        instance.mark(query);
-      });
-    };
 
-    initLunr();
-    initUI();
-  </script>
+    let instance = new Mark(document.querySelector('#searchResults'));
+    // Only show the ten first results
+    results.slice(0, MAX_PAGES).forEach((result, idx) => {
+      let resultPage = document.createElement('div');
+      resultPage.className = 'searchResultPage';
+      let metadata = lunrResult[idx].matchData.metadata;
+      let matchPosition = metadata[Object.keys(metadata)[0]].body.position[0][0];
+      let bodyStartPosition =
+        matchPosition - BODY_LENGTH / 2 > 0 ? matchPosition - BODY_LENGTH / 2 : 0;
+
+      let resultTitle = document.createElement('a');
+      resultTitle.className = 'searchResultTitle';
+      resultTitle.href = `/blog/${result.slug}`;
+      resultTitle.innerHTML = result.title;
+      resultPage.append(resultTitle);
+
+      let resultBody = document.createElement('div');
+      resultBody.className = 'searchResultBody';
+      resultBody.innerHTML = result.body.substr(bodyStartPosition, BODY_LENGTH);
+      resultPage.append(resultBody);
+      searchResults.append(resultPage);
+
+      instance.mark(query);
+    });
+  };
+
+  initLunr();
+  initUI();
+</script>
 
 <script client:load>
-    document.getElementById('searchBox').focus()
-  </script>
+  document.getElementById('searchBox').focus()
+</script>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"
-integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww=="
-crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"
-integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg=="
-crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>

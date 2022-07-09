@@ -37,3 +37,8 @@
     transform: rotate(0deg);
   }
 }
+
+a {
+  hover:decoration-blue-400;
+  color: hsl(var(--in));
+}
