@@ -3,8 +3,7 @@ title: Hello World and welcome to my blog.
 date: 2022-05-05
 slug: "hello-world"
 description: I rethink and implement my website with astro 🚀. With some trial and error I manage to create the MVP within a short time. It was really a lot of fun.
-hero: ../../../assets/img/blog/full-logo-light.webp
-keywords: development
+keywords: Strategy / Development / UX
 layout: "../../layouts/BlogPostLayout.astro"
 ---
 
