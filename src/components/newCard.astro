@@ -1,11 +1,16 @@
 ---
-import EmailSignup from './Subscribe/EmailSignup.astro'
 import dayjs from 'dayjs'
+import readingTime from 'reading-time'
 
-const { title, date, keywords, reading } = Astro.props;
+const {content} = Astro.props;
+const {title, description, date, keywords} = content;
+
+const reading = readingTime(content.astro.source)
+
+
 ---
 
-<div class="flex justify-between mb-4 mt-8 text-xs no-decoration">
+<div class="flex justify-between mb-4 mt-16 text-xs no-decoration">
   <a href="/" class="">← Return home</a>
   <span class="">{keywords}</span> 
 </div>
@@ -19,12 +24,5 @@ const { title, date, keywords, reading } = Astro.props;
   <!-- Date -->
   <p class="font-light text-xs">Posted on {dayjs(date).format('DD.MM.YYYY')} · 📖 {reading.text}ing time</p>
 
-  <div class="divider"></div> 
-
-  <!-- Content -->
-  <section class="mx-auto pb-6 lg:pb-12 content">
-    <slot />
-  </section>
-
-  <EmailSignup />
+  <div class="divider"></div>
 </article>
