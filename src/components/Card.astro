@@ -9,7 +9,7 @@ export interface Props {
 const { post } = Astro.props;
 const wpm = 200; // Slightly less than average
 const wordCount = post.rawContent().split(/(s+)/).length;
-const minutes = Math.max(1, Math.floor(wordCount / wpm));
+const reading = Math.max(1, Math.floor(wordCount / wpm));
 
 
 ---
@@ -23,7 +23,7 @@ const minutes = Math.max(1, Math.floor(wordCount / wpm));
       {post.frontmatter.title}
     </h2>
     <p class="text-xs text-gray-600 mt-4 flex items-center">
-      {dayjs(post.frontmatter.date).format('DD.MM.YYYY')} · {minutes} minute reading time
+      {dayjs(post.frontmatter.date).format('DD.MM.YYYY')} · {reading} minute reading time
     </p>
   </div>
 </a>

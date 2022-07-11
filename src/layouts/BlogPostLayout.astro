@@ -1,14 +1,17 @@
 ---
 import BlogPost from '../components/BlogPost.astro';
-import BaseLayout from './BaseLayout.astro';
+import BaseLayout from './BaseLayout.astro'
+import readingTime from 'reading-time'
 
 const {content} = Astro.props;
-const {title, description, date, keywords, minutes} = content;
+const {title, description, date, keywords} = content;
+
+const reading = readingTime(content.astro.source)
 ---
 
 <BaseLayout title={title} description={description}>
     <main class="">
-      <BlogPost title={title} date={date} minutes={minutes} keywords={keywords}>
+      <BlogPost title={title} date={date} reading={reading} keywords={keywords}>
         <slot />
       </BlogPost>
     </main>

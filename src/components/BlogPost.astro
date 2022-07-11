@@ -6,11 +6,11 @@ import dayjs from 'dayjs'
 export interface Props {
   title: string;
   date: string;
-  minutes: number;
+  reading: number;
   keywords: string;
 }
 
-const { title, date, keywords, minutes } = Astro.props;
+const { title, date, keywords, reading } = Astro.props;
 ---
 
 <div class="flex justify-between mb-4 mt-16 text-xs no-decoration">
@@ -25,7 +25,7 @@ const { title, date, keywords, minutes } = Astro.props;
   <h1 class="font-medium leading-tight text-3xl -pb-16">{title}</h1>
 
   <!-- Date -->
-  <p class="font-light text-xs">Posted on {dayjs(date).format('DD.MM.YYYY')} {minutes} minutes to read</p>
+  <p class="font-light text-xs">Posted on {dayjs(date).format('DD.MM.YYYY')} · 📖 {reading.text}ing time</p>
 
   <div class="divider"></div> 
 
