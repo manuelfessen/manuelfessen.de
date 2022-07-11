@@ -1,0 +1,34 @@
+---
+import Card from '../../components/Card.astro';
+import Paginator from '../../components/Paginator.astro'
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths({ paginate }) {
+  let allPosts = (await Astro.glob("./*.md")).sort(
+  (a, b) =>
+    new Date(b.frontmatter.publishedAt).valueOf() -
+    new Date(a.frontmatter.publishedAt).valueOf()
+);
+
+  return paginate(allPosts, {
+    pageSize: 6
+  })
+}
+
+const { page } = Astro.props
+let pageTitle = 'Articles';
+//let pageDescription = `page ${page.currentPage} of all articles`;
+let pageDescription = `articles I have written in the past`;
+let seoTitle = "Manuel Fessen | Articles I have written in the past";
+let seoDescription = "What's on my mind, and links to some interesting stuff on the web.";
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+
+    <main class="py-12 lg:py-20 h-full">
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-8" data-test="articles-section">
+          {page.data.map(p => <div class="col-span-1"><Card post={p} /></div>)}
+        </section>
+    </main>
+    <Paginator page={page} />
+</BaseLayout>

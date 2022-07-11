@@ -1,0 +1,21 @@
+---
+const favoriteBooks = (await Astro.glob('../../pages/books/*.md')).sort(
+  (a, b) => new Date(b.frontmatter.publishedAt).valueOf() - new Date(a.frontmatter.publishedAt).valueOf(),
+)
+---
+<ul>
+{favoriteBooks.map((post) => (
+<li class="list-none">
+<a href={post.frontmatter.url}>
+<div class="flex">
+<img class="bg-primary aspect-[3/4] h-44 mr-4 my-4 hidden md:block" src={post.frontmatter.image} alt={post.frontmatter.title}>
+      <div class="my-4">
+        <h2 class="font-semibold text-xl">{post.frontmatter.title}</h2>
+        <p class="my-2">{post.frontmatter.desc}</p>
+      </div>
+</div>
+</a>
+</li>
+    ))}
+
+    </ul>

@@ -3,12 +3,12 @@ import BlogPost from '../components/BlogPost.astro';
 import BaseLayout from './BaseLayout.astro';
 
 const {content} = Astro.props;
-const {title, description, date, hero} = content;
+const {title, description, date, keywords, minutes} = content;
 ---
 
 <BaseLayout title={title} description={description}>
-    <main class="prose ">
-      <BlogPost title={title} hero={hero} date={date} >
+    <main class="">
+      <BlogPost title={title} date={date} minutes={minutes} keywords={keywords}>
         <slot />
       </BlogPost>
     </main>

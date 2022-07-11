@@ -10,6 +10,8 @@ export type Post = {
   timestamp: number;
   draft: boolean;
   date: string;
+  minutes: number;
+  keywords: string;
   file: URL;
   img: URL;
 };

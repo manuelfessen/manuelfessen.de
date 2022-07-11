@@ -1,0 +1,56 @@
+---
+import Paginator from '../../components/Paginator.astro'
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BookList from "../../components/bookshelf/BookList.astro";
+import BookReviewList from "../../components/bookshelf/BookReviewList.astro";
+
+export async function getStaticPaths({ paginate }) {
+  let allPosts = (await Astro.glob("./*.md")).sort(
+  (a, b) =>
+    new Date(b.frontmatter.publishedAt).valueOf() -
+    new Date(a.frontmatter.publishedAt).valueOf()
+);
+
+  return paginate(allPosts, {
+    pageSize: 6
+  })
+}
+
+const { page } = Astro.props
+let pageTitle = 'Manuel Fessens | Digital Bookshelf';
+//let pageDescription = `page ${page.currentPage} of all articles`;
+let pageDescription = `books I have read in the past`;
+let seoTitle = 'Manuel Fessens | Digital Bookshelf';
+let seoDescription = 'Manuel Fessens read books in the last time';
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+
+  <h1 class="text-3xl md:text-5xl tracking-tight mb-4">
+    my digital bookshelf 📚
+  </h1>
+  <h4 class="mb-1 text-l">
+    thanks to my kindle paperwhite, i have found the fun of reading again. Oh,
+    and because I'm no longer <span class="line-through">pushed</span>{" "}
+    encouraged to read works like Buddenbrooks, Iphigenie auf Tauris and Tauben im
+    Gras.
+  </h4>
+
+  <hr class="my-8" />
+
+  <section id="recent">
+    <h2 class="text-3xl md:text-2xl tracking-tight mt-12 mb-2 font-semibold">
+      Recently read
+    </h2>
+    <BookList />
+  </section>
+
+  <section id="favorites">
+    <h2 class="text-3xl md:text-2xl tracking-tight mt-12 mb-2 font-semibold">
+      Favorites
+    </h2>
+
+    <BookReviewList />
+  </section>
+    <Paginator page={page} />
+</BaseLayout>

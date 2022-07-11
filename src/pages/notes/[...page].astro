@@ -1,6 +1,5 @@
 ---
 import Card from '../../components/Card.astro';
-import Footer from '../../components/Footer/Footer.astro'
 import Paginator from '../../components/Paginator.astro'
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
@@ -27,11 +26,9 @@ let seoDescription = '';
 <BaseLayout title={seoTitle} description={seoDescription}>
 
     <main class="py-12 lg:py-20">
-      <article class="max-w-3xl">
         <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-8" data-test="articles-section">
           {page.data.map(p => <div class="col-span-1"><Card post={p} /></div>)}
         </section>
-      </article>
     </main>
     <Paginator page={page} />
 </BaseLayout>
