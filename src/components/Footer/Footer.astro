@@ -1,3 +1,12 @@
+---
+const SOCIAL_LINK = [
+  ['👤', 'Facebook', 'https://www.facebook.com/akellbl4'],
+  ['📷', 'Instagram', 'https://www.instagram.com/akellbl4/'],
+  ['🐙', 'GitHub', 'https://github.com/akellbl4'],
+  ['👨‍💻', 'LinkedIn', 'https://www.linkedin.com/in/akellbl4'],
+]
+---
+
 <footer class="mb-8 bottom-0">
   <hr class="my-6 border-gray-200 lg:my-8" />
   <div class="text-xs mt-4 sm:mt-0">
@@ -9,4 +18,17 @@
     <a href="/blog/drafts/inspiration" class="underline">lots of people</a>. 
 
   </div>
+</footer>
+
+<footer class="flex mb-4 text-sm sm:text-base flex-col justify-between sm:flex-row sm:items-end hidden">
+  <ul class="flex flex-wrap flex-shrink-0 max-w-full mr-6">
+    {SOCIAL_LINK.map(([emoji, label, href]) => (
+    <li class="mr-4 mt-2">
+      <a href={href} data-emoji={emoji}
+        class="link-emoji relative inline-block text-slate-500 dark:text-slate-300 transition-colors duration-200 border-b dark:border-slate-700 hover:text-transparent hover:border-transparent">
+        {label}
+      </a>
+    </li>
+    ))}
+  </ul>
 </footer>

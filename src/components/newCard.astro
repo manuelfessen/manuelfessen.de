@@ -1,28 +1,21 @@
 ---
-import dayjs from 'dayjs'
-import readingTime from 'reading-time'
 
-const {content} = Astro.props;
-const {title, description, date, keywords} = content;
+export type Props = {
+	title: string
+	description: string
+}
 
-const reading = readingTime(content.astro.source)
-
-
+const { post } = Astro.props
 ---
 
-<div class="flex justify-between mb-4 mt-16 text-xs no-decoration">
-  <a href="/" class="">← Return home</a>
-  <span class="">{keywords}</span> 
-</div>
-
-
-<article class="space-y-1 prose md:prose-xl">
-
-  <!-- Headline -->
-  <h1 class="font-medium leading-tight text-3xl -pb-16">{title}</h1>
-
-  <!-- Date -->
-  <p class="font-light text-xs">Posted on {dayjs(date).format('DD.MM.YYYY')} · 📖 {reading.text}ing time</p>
-
-  <div class="divider"></div>
+<article class="relative">
+	<div class="flex flex-col sm:flex-row justify-between mb-2">
+		<h3 class="flex mb-1 sm:mb-0 text-lg sm:text-xl font-bold w-full text-slate-900 dark:text-slate-100">
+			<a href={post.url}
+				class="block-link transition-opacity opacity-80 hover:opacity-100">
+				{post.title}
+			</a>
+		</h3>
+	</div>
+	<p class="text-slate-600 dark:text-slate-400 max-w-2xl">{post.description}</p>
 </article>

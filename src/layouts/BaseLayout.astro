@@ -1,5 +1,5 @@
 ---
-import Header from '../components/header.astro';
+import Navigation from '../components/Navigation.astro';
 import BaseHead from '../components/Head/BaseHead.astro';
 import Footer from '../components/Footer/Footer.astro';
 
@@ -11,7 +11,7 @@ const {title, description} = Astro.props;
   </head>
 
   <body class="flex flex-col justify-between max-w-3xl w-full h-screen sm:pt-8 md:pt-4">
-    <Header />
+    <Navigation />
     <div class="lg:py-8 space-y-12">
         <slot />
     </div>
