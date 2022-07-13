@@ -8,6 +8,7 @@ const navItems = [
   { title: "Home", url: "/" },
   { title: "Blog", url: "/blog" },
   { title: "About", url: "/about" },
+  { title: "Photography", url: "/photography" },
 ]
 
 
@@ -24,6 +25,9 @@ const isHome = pathname === '/'
       </li>
       <li class="nav-link">
         <ActiveLink href="/about">About</ActiveLink>
+      </li>
+      <li class="nav-link">
+        <ActiveLink href="/photography">Photography</ActiveLink>
       </li>
       {!isHome && (
       <li class="nav-link">
