@@ -14,17 +14,13 @@ const reading = Math.max(1, Math.floor(wordCount / wpm));
 
 ---
 
-<a href={post.url}
-  class="transition-all duration-75 ease-in-out h-full block relative top-0 hover:-top-2 border rounded-xl overflow-hidden"
-  data-test="article-card"
->
-  <div class="py-6 px-8">
-    <h2 class="font-bold text-2xl leading-tight">
-      {post.frontmatter.title}
-    </h2>
-    <p class="text-xs mt-4 flex items-center">
-      {dayjs(post.frontmatter.date).format('DD.MM.YYYY')} · {reading} minute reading time
-    </p>
+<a class="w-full" href={post.url}>
+  <div class="w-full mb-8">
+    <div class="flex flex-col justify-between md:flex-row pb-2">
+      <h4 class="w-full mb-2 text-lg font-medium md:text-xl">
+        {post.frontmatter.title}</h4>
+      <p class="w-32 mb-4 text-left md:text-right md:mb-0">{dayjs(post.frontmatter.date).format('DD.MM.YYYY')}</p>
+    </div>
+    <p class="badge badge-outline">{post.frontmatter.keywords}</p>
   </div>
 </a>
-

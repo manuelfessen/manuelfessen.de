@@ -4,6 +4,7 @@ const { MODE } = import.meta.env;
 
 export type Post = {
   title: string;
+  content: any;
   slug: string;
   description: string;
   author: string;
