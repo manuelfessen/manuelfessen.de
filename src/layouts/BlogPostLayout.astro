@@ -9,7 +9,7 @@ const {title, description, date, keywords} = content;
 const reading = readingTime(content.astro.source)
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={`${title} – Manuel Fessen`} description={description}>
     <main class="">
       <BlogPost title={title} date={date} reading={reading} keywords={keywords}>
         <slot />

@@ -9,8 +9,8 @@ const {title, description, date, keywords} = content;
 const reading = readingTime(content.astro.source)
 ---
 
-<BaseLayout title={title} description={description}>
-    <main class="prose prose-lg">
+<BaseLayout title={`${title} – Manuel Fessen`} description={description}>
+    <main class="prose max-w-none prose-list-disc leading-6">
         <slot />
     </main>
   </BaseLayout>
