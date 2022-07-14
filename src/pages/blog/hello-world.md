@@ -5,6 +5,7 @@ slug: "hello-world"
 description: I rethink and implement my website with astro 🚀. With some trial and error I manage to create the MVP within a short time. It was really a lot of fun.
 keywords: Strategy / Development / UX
 layout: "../../layouts/BlogPostLayout.astro"
+hero: "../images/blog/full-logo-light.webp"
 ---
 
 <img src="/assets/img/blog/full-logo-light.webp" alt="Astro Logo"/>

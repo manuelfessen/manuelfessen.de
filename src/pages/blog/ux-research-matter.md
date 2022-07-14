@@ -5,6 +5,7 @@ slug: "ux-research-matter"
 description: User testing with real users is the most fundamental usability method and is in some sense irreplaceable, since it provides direct information about how people use computers and what their exact problems are with the concrete interface being tested.
 keywords: Research / Strategy / UX
 layout: "../../layouts/BlogPostLayout.astro"
+hero: "../images/blog/ux-research.webp"
 ---
 
 <img src="/assets/img/blog/ux-research.webp" alt="UX Research Comic"/>

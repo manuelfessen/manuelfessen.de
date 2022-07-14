@@ -1,5 +1,5 @@
 {
-  "name": "astro-theme-creek",
+  "name": "manuels-digital-garden",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -27,7 +27,6 @@
     "daisyui": "^2.6.0",
     "dayjs": "^1.11.0",
     "lunr": "^2.3.9",
-    "micromodal": "^0.4.10",
     "postcss": "^8.4.14",
     "reading-time": "^1.5.0"
   }

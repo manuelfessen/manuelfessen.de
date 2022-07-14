@@ -5,6 +5,7 @@ slug: "remote-ux-test"
 description: It depends on the resources and goal you want to achieve with the test which one to chose.
 keywords: Strategy / UX / Research
 layout: "../../layouts/BlogPostLayout.astro"
+hero: "../images/blog/ux-research.webp"
 ---
 
 <img src="/assets/img/blog/ux-research.webp" alt="UX Research Comic"/>

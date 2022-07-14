@@ -14,13 +14,21 @@ const reading = Math.max(1, Math.floor(wordCount / wpm));
 
 ---
 
-<a class="w-full" href={post.url}>
-  <div class="w-full mb-8">
-    <div class="flex flex-col justify-between md:flex-row pb-2">
-      <h4 class="w-full mb-2 text-lg font-medium md:text-xl">
-        {post.frontmatter.title}</h4>
-      <p class="w-32 mb-4 text-left md:text-right md:mb-0">{dayjs(post.frontmatter.date).format('DD.MM.YYYY')}</p>
+<a class="w-full no-underline" href={post.url}>
+  <div class="flex justify-between items-center">
+    <div class="">
+      <div class="flex justify-between md:flex-row pb-2">
+        <h4 class="w-full mb-2 text-lg font-medium md:text-xl">
+          {post.frontmatter.title}
+        </h4>
+      </div>
+      <div class="flex items-center space-x-2">
+        <div class="text-xs">Posted on {dayjs(post.frontmatter.date).format('DD.MM.YYYY')}</div>
+        <div class="text-xs">· 📖 {reading} min read</div>
+      </div>
     </div>
-    <p class="badge badge-outline">{post.frontmatter.keywords}</p>
+    <img class="h-14 w-14 my-4 block" src={post.frontmatter.hero}
+      alt={post.frontmatter.title}>
   </div>
+  <div class="divider"></div> 
 </a>

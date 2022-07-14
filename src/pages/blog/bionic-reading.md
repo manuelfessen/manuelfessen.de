@@ -5,6 +5,7 @@ slug: "bionic-reading-in-ux"
 description: Did you know that your brain reads faster than your eye?
 keywords: UX / Interface / Front-end
 layout: "../../layouts/BlogPostLayout.astro"
+hero: "../images/blog/bionic-reading-1.webp"
 ---
 
 Have you ever heard of Bionic Reading before?
