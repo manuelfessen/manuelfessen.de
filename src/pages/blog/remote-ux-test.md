@@ -3,7 +3,7 @@ title: Moderated Remote Test vs Automated Remote Test
 date: 2019-04-13
 slug: "remote-ux-test"
 description: It depends on the resources and goal you want to achieve with the test which one to chose.
-keywords: Strategy / UX / Research
+keywords: UX / Research / Remote
 layout: "../../layouts/BlogPostLayout.astro"
 hero: "../images/blog/ux-research.webp"
 ---

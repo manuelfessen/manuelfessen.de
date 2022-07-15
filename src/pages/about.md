@@ -31,4 +31,4 @@ Manuel Fessen is UX Designer at EASY Software, where he helps providing a great 
 I am a UX Designer based in Essen working at EASY Software. I help with my skills and experience in delivering great User Experience to customers.
 
 ### Education
-Manuel Fessen graduated from Hochschule Ruhr West with a BS in Computer Engineering.
+Manuel Fessen graduated from Hochschule Ruhr West with a B.Sc. in Computer Engineering.

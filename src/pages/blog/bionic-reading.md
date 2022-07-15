@@ -1,12 +1,14 @@
 ---
-title: Impact of Bionic Reading on UX Design
+title: Did you know that your brain reads faster than your eye?
 date: "2022-05-24"
 slug: "bionic-reading-in-ux"
-description: Did you know that your brain reads faster than your eye?
-keywords: UX / Interface / Front-end
+description: At least this is the advertising slogan. A classification and what effects this can have on the user experience design. 
+keywords: UX / Interface / Technology
 layout: "../../layouts/BlogPostLayout.astro"
 hero: "../images/blog/bionic-reading-1.webp"
 ---
+
+Zumindest ist dies der Werbe Slogan? Welche Auswirkungen wird wird 
 
 Have you ever heard of Bionic Reading before?
 
