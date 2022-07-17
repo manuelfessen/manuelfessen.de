@@ -1,7 +1,6 @@
 ---
-import Card from '../../components/Card.astro';
-import Paginator from '../../components/Paginator.astro'
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import NoteList from '../../components/NoteList.astro'
 
 export async function getStaticPaths({ paginate }) {
   let allPosts = (await Astro.glob("./*.md")).sort(
@@ -15,20 +14,60 @@ export async function getStaticPaths({ paginate }) {
   })
 }
 
+const notes = (await Astro.glob('./*.md')).sort(
+  (a, b) => new Date(b.frontmatter.publishedAt).valueOf() - new Date(a.frontmatter.publishedAt).valueOf(),
+)
+const recentNotes = (await Astro.glob('./*.md')).sort(
+  (a, b) => new Date(b.frontmatter.publishedAt).valueOf() - new Date(a.frontmatter.publishedAt).valueOf())
+  .slice(0, 4)
+
+
+const Design = notes.filter(post => (post.frontmatter.category) == "Design");
+const Productivity = notes.filter(post => (post.frontmatter.category) == "Productivity");
+
 const { page } = Astro.props
-let pageTitle = 'Articles';
+let pageTitle = 'Manuel Fessens digital garden';
 //let pageDescription = `page ${page.currentPage} of all articles`;
-let pageDescription = `articles I have written in the past`;
-let seoTitle = 'Articles | Creek';
-let seoDescription = '';
+let pageDescription = `Manuel Fessens | digital garden`;
+let seoTitle = 'Manuel Fessens digital garden';
+let seoDescription = 'Welcome to my digital garden — a personal wiki. This section is a grab bag of notes on any subject i ilke (but mostly web stuff).';
 ---
 
 <BaseLayout title={seoTitle} description={seoDescription}>
+  <div class="prose max-w-none prose-list-disc leading-6">
+    <h1 class="">Notes 🌱</h1>
+    <p class="mb-4">
+      {seoDescription}
+      They are neither polished nor complete - the notes are published as half-finished thoughts that will grow and develop over time. Sometimes they just provide a link to an article, opinion or topic that I find interesting.
+    </p>
+  </div>
+  <section id="recentNotes">
+    <h2 class="text-xl md:text-2xl tracking-tight mt-8"><span>Recent</span></h2>
+    <hr class="my-2" />
+    <div class="grid sm:grid-cols-2 grid-cols-1 gap-4 my-4">
+      {recentNotes.map((post) => (
+      <a class="flex-auto" href={post.frontmatter.url}>
+        <div class="justify-center rounded-xl p-4 bg-primary-content">
+          <p class="font-semibold text-m no-underline hover:underline">
+            {post.frontmatter.title}
+          </p>
+          <p class="my-2 text-xs">{post.frontmatter.desc}</p>
+        </div>
+      </a>
+      ))}
+    </div>
+  </section>
 
-    <main class="py-12 lg:py-20">
-        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-8" data-test="articles-section">
-          {page.data.map(p => <div class="col-span-1"><Card post={p} /></div>)}
-        </section>
-    </main>
-    <Paginator page={page} />
+  <section id="allnotes">
+    <h2 class="text-xl md:text-2xl tracking-tight mt-8"><span>All Notes 🗒️</span></h2>
+
+    <hr class="my-2" />
+
+    <div class="grid sm:grid-cols-2 grid-cols-1 gap-8 my-4">
+
+
+      <NoteList heading="🎨 Design" posts={Design} />
+      <NoteList heading="🚀 Productivity" posts={Productivity} />
+    </div>
+  </section>
 </BaseLayout>

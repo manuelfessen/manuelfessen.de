@@ -11,32 +11,27 @@ let seoDescription = 'Manuel Fessen is a designer and strategist currently livin
 ---
 
 <BaseLayout title={title} description={description}>
-    <main class="flex flex-col justify-center">
-      <section class="flex flex-col-reverse sm:flex-row items-start">
-          <div class="flex flex-col space-y-1">
-            <h3 class="text-l leading-9 tracking-tight sm:text-xl sm:leading-10 md:text-2xl md:leading-14 mb-4">
-              hi, I'm Manuel {" "}
-              <span role="img" class="wave"> 👋 </span>
-            </h3>
-  
-            <h1 class="text-xl leading-9 tracking-tight sm:text-2xl sm:leading-10 md:text-3xl md:leading-14">
-              I'm a UX Designer based in Essen working at
-              <a
-                class="underline decoration-[#003671] hover:text-[#003671]"
-                href="https://www.easy-software.com"
-                target="_blank">EASY Software</a
-              >. I help with my skills and experience in delivering great User
-              Experience to customers. <br />
-            </h1>
-            <h2 class="text-l tracking-tight sm:text-xl md:text-2xl prose prose-lg">
-              You can read 
-              <a class="underline decoration-info hover:decoration-3 hover:text-info" href="/blog">articles I've written</a>,
-              skimming my 
-              <a class="underline decoration-warning hover:decoration-3 hover:text-warning" href="/notes">whiteboard of public notes</a> or browsing
-              
-              <a class="underline decoration-success hover:decoration-3 hover:text-success" href="/books">my digital bookshelf</a>.
-            </h2>
-          </div>
-      </section>
-    </main>
-  </BaseLayout>
+  <main class="flex flex-col justify-center">
+    <section class="flex flex-col-reverse sm:flex-row items-start">
+      <div class="flex flex-col space-y-1">
+        <h3 class="text-l leading-9 tracking-tight sm:text-xl sm:leading-10 md:text-2xl md:leading-14 mb-4">
+          hi, I'm Manuel {" "}
+          <span role="img" class="wave"> 👋 </span>
+        </h3>
+        <h1 class="text-xl leading-9 tracking-tight sm:text-2xl sm:leading-10 md:text-3xl md:leading-14">
+          I'm a UX Designer based in Essen working at
+          <a class="underline decoration-[#003671] hover:text-[#003671]" href="https://www.easy-software.com"
+            target="_blank">EASY Software</a>. I help with my skills and experience in delivering a great User
+          Experience to customers.
+        </h1>
+        <h2 class="text-l tracking-tight sm:text-xl md:text-2xl prose prose-lg">
+          You can read the
+          <a class="underline decoration-info hover:decoration-3 hover:text-info" href="/blog">articles</a> I've written, browse my
+          <a class="underline decoration-warning hover:decoration-3 hover:text-warning" href="/notes">digital garden</a> or have a look at
+          <a class="underline decoration-success hover:decoration-3 hover:text-success" href="/books">my digital
+            bookshelf</a>.
+        </h2>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

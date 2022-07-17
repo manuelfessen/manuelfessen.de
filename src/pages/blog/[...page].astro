@@ -28,14 +28,14 @@ let seoDescription = "What's on my mind, and links to some interesting stuff on 
 <BaseLayout title={seoTitle} description={seoDescription}>
 
   <main class="h-full">
-<div class="prose max-w-none prose-list-disc leading-6">
-    <h1 class="">Notes 🌱</h1>
-    <p class="mb-4">
-    </p>
-  </div>
+    <div class="prose max-w-none prose-list-disc leading-6">
+      <h1 class="">Notes 🌱</h1>
+      <p class="mb-4">
+      </p>
+    </div>
 
     {page.data.map(p =>
-    <div class="col-span-1 pb-4 pt-2">
+    <div class="col-span-1">
       <Card post={p} />
     </div>)}
   </main>

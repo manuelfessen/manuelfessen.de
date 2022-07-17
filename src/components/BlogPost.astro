@@ -1,5 +1,4 @@
 ---
-import EmailSignup from './Subscribe/EmailSignup.astro'
 import dayjs from 'dayjs'
 
 const { title, date, keywords, reading } = Astro.props;
@@ -11,10 +10,10 @@ const { title, date, keywords, reading } = Astro.props;
 </div>
 
 
-<article class="space-y-1 prose md:prose-xl">
+<article class="space-y-1 prose">
 
   <!-- Headline -->
-  <h1 class="font-medium leading-tight text-3xl -pb-16">{title}</h1>
+  <h1 class="font-medium leading-tight text-3xl">{title}</h1>
 
   <!-- Date -->
   <p class="font-light text-xs">Posted on {dayjs(date).format('DD.MM.YYYY')} · 📖 {reading.text}ing time</p>
@@ -25,6 +24,4 @@ const { title, date, keywords, reading } = Astro.props;
   <section class="mx-auto pb-6 lg:pb-12 content">
     <slot />
   </section>
-
-  <EmailSignup />
 </article>

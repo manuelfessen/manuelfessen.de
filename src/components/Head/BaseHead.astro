@@ -1,5 +1,6 @@
 ---
 import '../../styles/index.css'
+import { SEO } from "astro-seo";
 
 export interface Props {
   title: string;
@@ -9,6 +10,11 @@ const { title, description } = Astro.props;
 
 let permalink = 'https://manuelfessen.github.io';
 ---
+
+<SEO
+title={title}
+description={description}
+/>
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />

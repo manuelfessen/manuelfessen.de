@@ -10,8 +10,9 @@ layout: "../layouts/about.astro"
 ## Links
 - Instagram: <a href="https://instagram.com/manuelfessen">@manuelfessen</a>
 - Github: <a href="https://www.github.com/manuelfessen/">@manuelfessen</a>
-- LinkedIn: <a href="https://www.linkedin.com/in/manuelfessen/">https://www.linkedin.com/in/manuelfessen/</a>
-- LinkedIn: <a href="https://www.xing.com/profile/Manuel_Fessen">Xing</a>
+- LinkedIn: <a href="https://www.linkedin.com/in/manuelfessen/">@manuelfessen</a>
+- Xing: <a href="https://www.xing.com/profile/Manuel_Fessen">Manuel_Fessen</a>
+- Strava <a href="https://www.strava.com/athletes/31601783">🏃🏻‍♂️</a>
 
 ## Bio
 ### Job Title
@@ -32,3 +33,7 @@ I am a UX Designer based in Essen working at EASY Software. I help with my skill
 
 ### Education
 Manuel Fessen graduated from Hochschule Ruhr West with a B.Sc. in Computer Engineering.
+
+
+### Activities
+I ~~occasionally~~ share my thoughts about a [book](../books) and ~~maybe~~ soon I will connect my [GoodReads](https://www.goodreads.com/user/show/149011152-manuel-fessen), [Spotify](https://open.spotify.com/user/manuel.fessen) and [Strava](https://www.strava.com/athletes/31601783) activities more elegantly. Until then I solve it manually.
