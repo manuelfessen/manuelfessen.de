@@ -8,8 +8,6 @@ layout: "../../layouts/BlogPostLayout.astro"
 hero: "../images/blog/bionic-reading-1.webp"
 ---
 
-Zumindest ist dies der Werbe Slogan? Welche Auswirkungen wird wird 
-
 Have you ever heard of Bionic Reading before?
 
 About a week ago there was this [reddit post](https://www.reddit.com/r/interestingasfuck/comments/usgac8/bionic_reading_using_font_weights_to_increase/) in r/interestingasfuck and from there it went through the internet. The sample text used by Bionic Reading GmbH to advertise its technology could be seen everywhere on social media.
