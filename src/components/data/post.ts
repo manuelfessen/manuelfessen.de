@@ -9,6 +9,7 @@ export type Post = {
   description: string;
   author: string;
   timestamp: number;
+  reading: number;
   draft: boolean;
   date: string;
   keywords: string;
