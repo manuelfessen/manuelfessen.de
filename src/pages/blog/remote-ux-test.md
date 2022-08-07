@@ -8,7 +8,7 @@ layout: "../../layouts/BlogPostLayout.astro"
 hero: "../images/blog/ux-research.webp"
 ---
 
-<img src="/assets/img/blog/ux-research.webp" alt="UX Research Comic"/>
+<img src="../images/blog/ux-research.webp" alt="UX Research Comic"/>
 
 # Moderated Remote Test
 

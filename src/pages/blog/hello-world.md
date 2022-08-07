@@ -6,9 +6,12 @@ description: I rethink and implement my website with astro 🚀. With some trial
 keywords: Personal / Notes / Blog
 layout: "../../layouts/BlogPostLayout.astro"
 hero: "../images/blog/full-logo-light.webp"
+setup: |
+  import TLDR from '../../components/tldr.astro'
+  import content from '../../components/data/tldr.json'
 ---
 
-<img src="/assets/img/blog/full-logo-light.webp" alt="Astro Logo"/>
+<img src="../images/blog/full-logo-light.webp" alt="Astro Logo"/>
 
 # Hello World
 
@@ -32,5 +35,5 @@ You can use React, Angular, Svelte, or Vue or together at any point in the proje
 
 It comes with everything needed to build a website without adding or configuring libraries that support the above, a great starter into the world of JAM Stack. The perfect bundle for my needs. I made more progress on a rainy saturday and a half sunday than in all the months with different YouTube, Udemy and Blog Tutorials before. And maybe it's the right for you too, feel free to contact me if you have any questions. Or take a look in the [helpful documentation](https://docs.astro.build/en/getting-started/) or join their great [discord server](https://discord.com/invite/grF4GTXXYm). Otherwise, I am sure you will find lots of incredible tutorials at other tech blogs, YouTube or GitHub, you can find the source code of this website there too.
 
-# Learnings
-
+# TLDR
+<TLDR title="" items={content.helloWorld} />
