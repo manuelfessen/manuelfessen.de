@@ -1,7 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro'
 import readingTime from 'reading-time'
-import Github from '../components/github.astro';
 
 const { content } = Astro.props;
 const { title, description, date, keywords } = content;
@@ -13,6 +12,4 @@ const reading = readingTime(content.astro.source)
     <main class="prose max-w-none prose-list-disc leading-6">
         <slot />
     </main>
-
-    <Github />
 </BaseLayout>
