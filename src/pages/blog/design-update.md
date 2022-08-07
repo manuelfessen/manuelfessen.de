@@ -5,7 +5,7 @@ slug: "design-update"
 description: Today I want to share my knowledge and my experiences, how to create a new design system next to your daily work. You (and your team) can skip our mistakes and use our best practices. 
 keywords: Design System / User Interface / Daily Work
 layout: "../../layouts/BlogPostLayout.astro"
-hero: "../images/blog/design-update.png"
+hero: "../images/blog/design-update/design-update.png"
 setup: |
   import TLDR from '../../components/tldr2.astro'
   import content from '../../components/data/tldr.json'
@@ -26,8 +26,7 @@ However, we did not stop there, once we had this foundation. **We iteratively im
 
 Here are my proposals from autumn 2020. The final design is used on our website.
 
-
-<img src="../images/blog/full-logo-light.webp" alt="Astro Logo"/>
+<img src="../images/blog/design-update/Web%201920%20–%201.webp" alt="Astro Logo" class="w-10"/>
 
 ## TLDR
 <TLDR>
