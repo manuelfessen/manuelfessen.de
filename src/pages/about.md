@@ -16,23 +16,29 @@ layout: "../layouts/about.astro"
 
 ## Bio
 ### Job Title
-Manuel Fessen, UX Designer at EASY Software
-
-### Long, 3rd Person
-Manuel Fessen is UX Designer at EASY Software, where he helps providing a great customer experience. Its important to him, that every user has the right to good software and should have fun while using it. Prior he was a Community Manager where he learned a lot about the users perspective. In his spare time, he likes to read, is annoyed that he can't take enough photos with his camera and tries to go jogging regularly regardless of the weather.
-
-### Long, 1st Person
-I am a UX Designer based in Essen working at EASY Software. I help with my skills and experience in delivering great User Experience to customers.
-Intuitive software is a MUST. I believe that everyone has the right to good software and should have fun while using it. In my free time, I like to read, I'm annoyed that I don't take enough photos with my camera and I try to go jogging regularly regardless of the weather.
-
-### Short, 3rd Person
-Manuel Fessen is UX Designer at EASY Software, where he helps providing a great customer experience.
+Manuel Fessen, UX Designer at <a class="underline decoration-blue-400 hover:text-blue-400" href="https://www.easy-software.com"
+            target="_blank">EASY Software</a>
 
 ### Short, 1st Person
-I am a UX Designer based in Essen working at EASY Software. I help with my skills and experience in delivering great User Experience to customers.
+I am a UX Designer based in Essen working at <a class="underline decoration-blue-400 hover:text-blue-400" href="https://www.easy-software.com"
+            target="_blank">EASY Software</a>. I help with my skills and experience in delivering great User Experience to customers.
+
+### Short, 3rd Person
+Manuel Fessen is UX Designer at <a class="underline decoration-blue-400 hover:text-blue-400" href="https://www.easy-software.com"
+            target="_blank">EASY Software</a>, where he helps providing a great customer experience.
+
+### Long, 1st Person
+I am a UX Designer based in Essen working at <a class="underline decoration-blue-400 hover:text-blue-400" href="https://www.easy-software.com"
+            target="_blank">EASY Software</a>. I help with my skills and experience in delivering great User Experience to customers.
+Intuitive software is a MUST. I believe that everyone has the right to good software and should have fun while using it. In my free time, I like to read, I'm wishe to take more photos with my Fujifilm X-T30 and I try to go jogging regularly regardless of the weather.
+
+### Long, 3rd Person
+Manuel Fessen is UX Designer at <a class="underline decoration-blue-400 hover:text-blue-400" href="https://www.easy-software.com"
+            target="_blank">EASY Software</a>, where he helps providing a great customer experience. Its important to him, that every user has the right to good software and should have fun while using it. Prior he was a Community Manager at <a class="underline decoration-blue-400 hover:text-blue-400" href="https://kick-it-out.de/" target="_blank">Ludetis UG</a> where he learned a lot about the users perspective. In his spare time, he likes to read, wishes to take more photos with his Fujifilm X-T30 and tries to go jogging regularly regardless of the weather.  
 
 ### Education
-Manuel Fessen graduated from Hochschule Ruhr West with a B.Sc. in Computer Engineering.
+Manuel Fessen graduated at [Hochschule Ruhr West](https://www.hochschule-ruhr-west.de/studium/studienangebot/bachelor/mensch-technik-interaktion/) with a B.Sc. in Computer Engineering.
+
 
 
 ### Activities

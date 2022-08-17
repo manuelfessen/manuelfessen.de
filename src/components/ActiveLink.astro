@@ -8,7 +8,7 @@ const { pathname } = Astro.canonicalURL
 const isActive = href !== '/' && pathname.startsWith(href)
 ---
 
-<a href={href} class={`inline-block ${ isActive ? 'font-bold text-sm'
+<a href={href} class={`inline-block ${ isActive ? 'font-semibold text-sm'
 	: 'transition-colors duration-200 border-b hover:border-current text-sm'
 	}`}>
 	<slot />

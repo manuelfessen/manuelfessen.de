@@ -17,10 +17,10 @@ const { title, date, keywords, reading } = Astro.props;
 <article class="space-y-1 prose max-w-none prose-list-disc">
 
   <!-- Headline -->
-  <h1 class="font-medium leading-tight text-3xl">{title}</h1>
+  <h1 class="font-normal leading-tight text-3xl">{title}</h1>
 
   <!-- Date -->
-  <p class="font-light text-xs">Posted on {dayjs(date).format('DD.MM.YYYY')} · 📖 {reading.text}ing time</p>
+  <p class="text-xs">Posted on {dayjs(date).format('DD.MM.YYYY')} · 📖 {reading.text}ing time</p>
 
   <div class="divider"></div> 
 

@@ -1,6 +1,6 @@
 ---
 title: How to create a new design system next to your daily work.
-date: "2022-08-07"
+date: "2022-08-17"
 slug: "design-update"
 description: Today I want to share my knowledge and my experiences, how to create a new design system next to your daily work. You (and your team) can skip our mistakes and use our best practices. 
 keywords: Design System / User Interface / Daily Work
@@ -24,9 +24,7 @@ We reviewed all the designs and tried to **merge the best ideas.** As a solution
 
 However, we did not stop there, once we had this foundation. **We iteratively improved the design system based on user feedback over the past months and years.**
 
-Here are my proposals from autumn 2020. The final design is used on our website.
-
-<img src="../images/blog/design-update/Web%201920%20–%201.webp" alt="Astro Logo" class="w-10"/>
+Below are my submissions from autumn 2020. Almost 2 years later, I see a lot of potential for improvement. The final design is used on the [company website](https://www.easy-software.com) (Aug. 2022).
 
 ## TLDR
 <TLDR>
@@ -39,5 +37,15 @@ Here are my proposals from autumn 2020. The final design is used on our website
 - Do an internal meeting first.
 - Do not try to squeeze all the ideas into one design, it is a waste of time. Find the best one and add the other good ideas.
 - It is obvious, but I will list it here anyway: Involve the user.  
-- Update the system during use, it may live.
+- Update the system during use, you can't plan all the scenarios in advance.
 </TLDR>
+
+
+## Submissions 
+<div class="grid gap-4 grid-cols-1 md:grid-cols-4 not-prose mt-4 lg:mt-8">
+  <a href="../images/blog/design-update/Web%201920%20–%201.webp" target="_blank"><img src="../images/blog/design-update/Web%201920%20–%201.webp" alt="Design Challenge Submission #1" class="m-0"/></a>
+  <a href="../images/blog/design-update/Web%201920%20–%204.webp" target="_blank"><img src="../images/blog/design-update/Web%201920%20–%204.webp" alt="Design Challenge Submission #2" class="m-0"/></a>
+  <a href="../images/blog/design-update/Web%201920%20–%205.webp" target="_blank"><img src="../images/blog/design-update/Web%201920%20–%205.webp" alt="Design Challenge Submission #3" class="m-0"/></a>
+  <a href="../images/blog/design-update/Web%201920%20–%206.webp" target="_blank"><img src="../images/blog/design-update/Web%201920%20–%206.webp" alt="Design Challenge Submission #4" class="m-0"/></a>
+  <a href="../images/blog/design-update/Web%201920%20–%208.webp" target="_blank"><img src="../images/blog/design-update/Web%201920%20–%208.webp" alt="Design Challenge Submission #5" class="m-0"/></a>
+</div>

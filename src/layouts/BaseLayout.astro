@@ -5,12 +5,12 @@ import Footer from '../components/Footer/Footer.astro';
 
 const {title, description} = Astro.props;
 ---
-<html lang="en" class="flex flex-col items-center py-4 px-8 motion-safe:scroll-smooth" data-theme="dark">
+<html lang="en" class="flex flex-col items-center md:px-8 motion-safe:scroll-smooth p-4" data-theme="dark">
   <head>
     <BaseHead title={title} description={description}/>
   </head>
 
-  <body class="flex flex-col justify-between max-w-3xl w-full h-screen">
+  <body class="flex flex-col justify-between max-w-3xl w-full h-screen lg:font-normal">
     <Navigation />
     <div class="lg:mt-0 md:mt-4 mt-8">
         <slot />
