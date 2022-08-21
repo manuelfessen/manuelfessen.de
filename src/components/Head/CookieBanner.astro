@@ -1,0 +1,12 @@
+<div id="cookies-eu-banner" style="display: flex;" data-wait-remove="250">
+  I use cookies to 
+  <button id="cookies-eu-reject">Reject</button>
+  <button id="cookies-eu-accept">Accept</button>
+</div>
+
+<script src="cookies-eu-banner/dist/cookies-eu-banner.min.js">
+    new CookiesEuBanner(function () {
+        // Your code to launch when user accept cookies
+        splitbee.enableCookie();
+    }, true);
+</script>

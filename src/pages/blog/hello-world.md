@@ -7,7 +7,7 @@ keywords: Personal / Notes / Blog
 layout: "../../layouts/BlogPostLayout.astro"
 hero: "../images/blog/full-logo-light.webp"
 setup: |
-  import TLDR from '../../components/tldr.astro'
+  import TLDR from '../../components/tldr2.astro'
   import content from '../../components/data/tldr.json'
 ---
 
@@ -36,4 +36,10 @@ You can use React, Angular, Svelte, or Vue or together at any point in the proje
 It comes with everything needed to build a website without adding or configuring libraries that support the above, a great starter into the world of JAM Stack. The perfect bundle for my needs. I made more progress on a rainy saturday and a half sunday than in all the months with different YouTube, Udemy and Blog Tutorials before. And maybe it's the right for you too, feel free to contact me if you have any questions. Or take a look in the [helpful documentation](https://docs.astro.build/en/getting-started/) or join their great [discord server](https://discord.com/invite/grF4GTXXYm). Otherwise, I am sure you will find lots of incredible tutorials at other tech blogs, YouTube or GitHub, you can find the source code of this website there too.
 
 # TLDR
-<TLDR title="" items={content.helloWorld} />
+<TLDR>
+- I wanted to develop an all-in-one solution, a mistake. Wanted to create everything by myself. Didn't want to use libraries. To make a long story short: I made every single mistake of a software development, even though I know better myself and use it every day due to my professional experience.
+- To motivate myself to sit in front of my device after 8-9 hours of working is hard sometimes. it has turned out for me that I can work on it better at the weekend or on holidays.
+- If there is no motivation, don't force yourself to continue the work. This caused me to losing motivation. This led to larger pauses between progress, which eventually led to slower progress, which affected motivation...
+- Every progress is good progress.
+- Just start! 😃
+</TLDR>

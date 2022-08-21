@@ -6,15 +6,18 @@ layout: "../layouts/about.astro"
 ---
 
 # About Me
+Hi there, I’m currently working at <a class="underline decoration-blue-400 hover:text-blue-400" href="https://www.easy-software.com"
+            target="_blank">EASY Software</a>. I help with my skills and experience in delivering great User Experience to customers. 
 
-## Links
+## Get in touch with me
 - Instagram: <a href="https://instagram.com/manuelfessen">@manuelfessen</a>
 - Github: <a href="https://www.github.com/manuelfessen/">@manuelfessen</a>
 - LinkedIn: <a href="https://www.linkedin.com/in/manuelfessen/">@manuelfessen</a>
 - Xing: <a href="https://www.xing.com/profile/Manuel_Fessen">Manuel_Fessen</a>
 - Strava <a href="https://www.strava.com/athletes/31601783">🏃🏻‍♂️</a>
 
-## Bio
+## How I got here
+
 ### Job Title
 Manuel Fessen, UX Designer at <a class="underline decoration-blue-400 hover:text-blue-400" href="https://www.easy-software.com"
             target="_blank">EASY Software</a>
