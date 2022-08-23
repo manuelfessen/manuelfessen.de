@@ -2,7 +2,6 @@
 import Navigation from '../components/Navigation.astro';
 import BaseHead from '../components/Head/BaseHead.astro';
 import Footer from '../components/Footer/Footer.astro';
-import CookieBanner from '../components/Head/CookieBanner.astro';
 
 const {title, description} = Astro.props;
 ---
@@ -11,8 +10,7 @@ const {title, description} = Astro.props;
     <BaseHead title={title} description={description}/>
   </head>
 
-  <body class="flex flex-col justify-between max-w-3xl w-full h-screen lg:font-normal">
-    <CookieBanner />
+  <body class="flex flex-col justify-between max-w-3xl w-full h-screen">
     <Navigation />
     <div class="lg:mt-0 md:mt-4 mt-8">
         <slot />
