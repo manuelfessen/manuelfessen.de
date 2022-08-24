@@ -2,7 +2,7 @@
 const { page } = Astro.props
 ---
 
-<section class="flex space-x-8 justify-center text-xl pt-16 font-bold">
+<section class="flex space-x-8 justify-center text-xl pt-16 font-bold hidden">
   {page.url.prev &&
   <a
     href={page.url.prev}
