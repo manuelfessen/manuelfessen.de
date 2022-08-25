@@ -33,7 +33,7 @@ Manuel Fessen is UX Designer at <a class="underline decoration-blue-400 hover:te
 ### Long, 1st Person
 I am a UX Designer based in Essen working at <a class="underline decoration-blue-400 hover:text-blue-400" href="https://www.easy-software.com"
             target="_blank">EASY Software</a>. I help with my skills and experience in delivering great User Experience to customers.
-Intuitive software is a MUST. I believe that everyone has the right to good software and should have fun while using it. In my free time, I like to read, I'm wishe to take more photos with my Fujifilm X-T30 and I try to go jogging regularly regardless of the weather.
+Intuitive software is a MUST. I believe that everyone has the right to good software and should have fun while using it. In my free time, I like to read, wish to take more photos with my Fujifilm X-T30 and I try to go jogging regularly regardless of the weather.
 
 ### Long, 3rd Person
 Manuel Fessen is UX Designer at <a class="underline decoration-blue-400 hover:text-blue-400" href="https://www.easy-software.com"

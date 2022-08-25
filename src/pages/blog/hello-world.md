@@ -7,7 +7,7 @@ keywords: Personal / Notes / Blog
 layout: "../../layouts/BlogPostLayout.astro"
 hero: "../images/blog/full-logo-light.webp"
 setup: |
-  import TLDR from '../../components/tldr2.astro'
+  import TLDR from '../../components/tldr.astro'
   import content from '../../components/data/tldr.json'
 ---
 
