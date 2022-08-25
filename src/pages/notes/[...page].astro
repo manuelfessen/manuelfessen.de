@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
-import NoteList from '../../components/NoteList.astro'
+import NoteList from '../../components/notes/NoteList.astro'
 
 export async function getStaticPaths({ paginate }) {
   let allPosts = (await Astro.glob("./*.md")).sort(
@@ -37,35 +37,13 @@ let seoDescription = 'Welcome to my digital garden — a personal wiki. This sec
   <div class="prose max-w-none prose-list-disc leading-6">
     <h1 class="">Notes 🌱</h1>
     <p class="mb-4">
-      {seoDescription}
-      They are neither polished nor complete - the notes are published as half-finished thoughts that will grow and develop over time. Sometimes they just provide a link to an article, opinion or topic that I find interesting.
+      Welcome to my <a href="https://maggieappleton.com/garden-history" target="_blank">digital garden</a> — a personal wiki. This section is a grab bag of notes on any subject i ilke (but mostly web stuff).
     </p>
   </div>
-  <section id="recentNotes">
-    <h2 class="text-xl md:text-2xl tracking-tight mt-8"><span>Recent</span></h2>
-    <hr class="my-2" />
-    <div class="grid sm:grid-cols-2 grid-cols-1 gap-4 my-4">
-      {recentNotes.map((post) => (
-      <a class="flex-auto" href={post.frontmatter.url}>
-        <div class="justify-center rounded-xl p-4">
-          <p class="font-normal text-m no-underline hover:underline">
-            {post.frontmatter.title}
-          </p>
-          <p class="my-2 text-xs">{post.frontmatter.desc}</p>
-        </div>
-      </a>
-      ))}
-    </div>
-  </section>
 
   <section id="allnotes">
-    <h2 class="text-xl md:text-2xl tracking-tight mt-8"><span>All Notes 🗒️</span></h2>
-
     <hr class="my-2" />
-
     <div class="grid sm:grid-cols-2 grid-cols-1 gap-8 my-4">
-
-
       <NoteList heading="🎨 Design" posts={Design} />
       <NoteList heading="🚀 Productivity" posts={Productivity} />
     </div>
