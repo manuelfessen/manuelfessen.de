@@ -1,6 +1,6 @@
 ---
 const favoriteBooks = (await Astro.glob('../../pages/books/*.md')).sort(
-  (a, b) => new Date(b.frontmatter.publishedAt).valueOf() - new Date(a.frontmatter.publishedAt).valueOf(),
+  (a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf(),
 )
 ---
 

@@ -7,8 +7,8 @@ import BookReviewList from "../../components/bookshelf/BookReviewList.astro";
 export async function getStaticPaths({ paginate }) {
   let allPosts = (await Astro.glob("./*.md")).sort(
   (a, b) =>
-    new Date(b.frontmatter.publishedAt).valueOf() -
-    new Date(a.frontmatter.publishedAt).valueOf()
+    new Date(b.frontmatter.date).valueOf() -
+    new Date(a.frontmatter.date).valueOf()
 );
 
   return paginate(allPosts, {

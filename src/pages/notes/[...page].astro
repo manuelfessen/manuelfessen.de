@@ -5,8 +5,8 @@ import NoteList from '../../components/notes/NoteList.astro'
 export async function getStaticPaths({ paginate }) {
   let allPosts = (await Astro.glob("./*.md")).sort(
   (a, b) =>
-    new Date(b.frontmatter.publishedAt).valueOf() -
-    new Date(a.frontmatter.publishedAt).valueOf()
+    new Date(b.frontmatter.date).valueOf() -
+    new Date(a.frontmatter.date).valueOf()
 );
 
   return paginate(allPosts, {
@@ -15,10 +15,10 @@ export async function getStaticPaths({ paginate }) {
 }
 
 const notes = (await Astro.glob('./*.md')).sort(
-  (a, b) => new Date(b.frontmatter.publishedAt).valueOf() - new Date(a.frontmatter.publishedAt).valueOf(),
+  (a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf(),
 )
 const recentNotes = (await Astro.glob('./*.md')).sort(
-  (a, b) => new Date(b.frontmatter.publishedAt).valueOf() - new Date(a.frontmatter.publishedAt).valueOf())
+  (a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf())
   .slice(0, 4)
 
 
@@ -49,7 +49,7 @@ let seoDescription = 'Welcome to my digital garden — a personal wiki. This sec
       <h1 class="font-bold lg:text-5xl"></h1>
 
       <h6 class="mb-2 text-2xl font-bold md:text-3xl">
-       You are to early 🚧👷🏻‍♂️🚧
+       You are too early 🚧👷🏻‍♂️🚧
       </h6>
 
       <p class="mb-4 text-gray-500 md:text-lg">

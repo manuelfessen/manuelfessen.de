@@ -8,7 +8,6 @@ layout: "../../layouts/BlogPostLayout.astro"
 hero: "../images/blog/full-logo-light.webp"
 setup: |
   import TLDR from '../../components/tldr.astro'
-  import content from '../../components/data/tldr.json'
 ---
 
 <img src="../images/blog/full-logo-light.webp" alt="Astro Logo"/>

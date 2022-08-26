@@ -6,14 +6,13 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "postbuild": "pagefind --source dist",
     "preview": "astro preview"
   },
   "devDependencies": {
     "@astrojs/sitemap": "^0.2.6",
     "@astrojs/tailwind": "^0.2.0",
     "@tailwindcss/typography": "^0.5.2",
-    "astro": "^1.0.0-beta.4",
+    "astro": "^1.0.0",
     "astro-icon": "^0.7.1",
     "astro-robots-txt": "^0.3.6",
     "globby": "^13.1.1",
@@ -34,7 +33,6 @@
     "date-fns": "^2.28.0",
     "dayjs": "^1.11.0",
     "lunr": "^2.3.9",
-    "pagefind": "^0.8.0",
     "postcss": "^8.4.14",
     "reading-time": "^1.5.0"
   }
