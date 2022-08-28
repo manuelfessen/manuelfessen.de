@@ -49,9 +49,9 @@ Below are my submissions from autumn 2020. We selected this design because it re
 
 ## Submissions 
 <div class="grid gap-4 grid-cols-1 md:grid-cols-4 not-prose mt-4 lg:my-8">
-  <a href="../../images/blog/design-update/Web%201920%20–%201.webp" target="_blank"><img src="../images/blog/design-update/Web%201920%20–%201.webp" alt="Design Challenge Submission #1" class="m-0"/></a>
-  <a href="../../images/blog/design-update/Web%201920%20–%204.webp" target="_blank"><img src="../images/blog/design-update/Web%201920%20–%204.webp" alt="Design Challenge Submission #2" class="m-0 mt-4"/></a>
-  <a href="../../images/blog/design-update/Web%201920%20–%205.webp" target="_blank"><img src="../images/blog/design-update/Web%201920%20–%205.webp" alt="Design Challenge Submission #3" class="m-0 mt-4"/></a>
-  <a href="../../images/blog/design-update/Web%201920%20–%206.webp" target="_blank"><img src="../images/blog/design-update/Web%201920%20–%206.webp" alt="Design Challenge Submission #4" class="m-0 mt-4"/></a>
-  <a href="../../images/blog/design-update/Web%201920%20–%208.webp" target="_blank"><img src="../images/blog/design-update/Web%201920%20–%208.webp" alt="Design Challenge Submission #5" class="m-0 mt-4"/></a>
+  <a href="../../images/blog/design-update/Web%201920%20–%201.webp" target="_blank"><img src="../../images/blog/design-update/Web%201920%20–%201.webp" alt="Design Challenge Submission #1" class="m-0"/></a>
+  <a href="../../images/blog/design-update/Web%201920%20–%204.webp" target="_blank"><img src="../../images/blog/design-update/Web%201920%20–%204.webp" alt="Design Challenge Submission #2" class="m-0 mt-4"/></a>
+  <a href="../../images/blog/design-update/Web%201920%20–%205.webp" target="_blank"><img src="../../images/blog/design-update/Web%201920%20–%205.webp" alt="Design Challenge Submission #3" class="m-0 mt-4"/></a>
+  <a href="../../images/blog/design-update/Web%201920%20–%206.webp" target="_blank"><img src="../../images/blog/design-update/Web%201920%20–%206.webp" alt="Design Challenge Submission #4" class="m-0 mt-4"/></a>
+  <a href="../../images/blog/design-update/Web%201920%20–%208.webp" target="_blank"><img src="../../images/blog/design-update/Web%201920%20–%208.webp" alt="Design Challenge Submission #5" class="m-0 mt-4"/></a>
 </div>
