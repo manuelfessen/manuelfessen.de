@@ -18,9 +18,6 @@ You can also find me jogging regularly regardless of the weather or spending tim
 ## Education
 I graduated at [Hochschule Ruhr West](https://www.hochschule-ruhr-west.de/studium/studienangebot/bachelor/mensch-technik-interaktion/) with a B.Sc. in Computer Engineering. 
 
-
-<br>
-If you have any questions, feel free to ...
 ## Get in touch with me
 - LinkedIn: <a href="https://www.linkedin.com/in/manuelfessen/">@manuelfessen</a>
 - Xing: <a href="https://www.xing.com/profile/Manuel_Fessen">Manuel_Fessen</a>

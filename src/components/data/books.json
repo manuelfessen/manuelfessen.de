@@ -6,6 +6,12 @@
     "url": "https://www.amazon.de/Dune-Frank-Herbert/dp/0340960191/"
   },
   {
+    "title": "Factfulness",
+    "author": "Hans Rosling",
+    "img": "../images/books/factfulness.webp",
+    "url": "https://www.amazon.de/Factfulness-lernen-Welt-sehen-wirklich-ebook/dp/B077K69VX2"
+  },
+  {
     "title": "Microcopy: The Complete Guide",
     "author": "Kinneret Yifrah",
     "img": "../images/books/microcopy-the-complete.webp",
