@@ -61,7 +61,7 @@ const paginationProps = {
 					</h5>
 				</time>
 				<div class="pr-4">
-					📖 {minutesRead}ing time
+					📖 {minutesRead}
 				</div>
 				{
 					tags?.length && (
@@ -116,10 +116,10 @@ const paginationProps = {
 			class="w-60 hidden md:flex flex-col gap-3 sticky top-24 bg-base-300 p-4 rounded-md items-start"
 		>
 			<h2 class="font-semibold">Table of Contents</h2>
-			<ul class="mt-4 text-xs space-y-2">
+			<ul class="mt-4 text-xs space-y-2 accent">
 				{
 					headings.map(({ slug, text }) => (
-						<li class="line-clamp-2 hover:text-accent dark:hover:text-accent">
+						<li class="hover:text-accent dark:hover:text-accent">
 							<a href={`#${slug}`} aria-label={`Scroll to section: ${text}`}>
 								<span>&#35;</span> {text}
 							</a>
