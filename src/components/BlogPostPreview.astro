@@ -21,25 +21,27 @@ const postDate = getLocaleTime(date, { month: "short" });
 	<div class="">
 		<div class="flex justify-between md:flex-row pb-1">
 			<a class="w-full no-underline" href={post.url}>
-				<h4 class="mb-1 text-base font-medium w-screen">
+				<h4 class="w-full mb-1 text-base font-medium">
 					{post.frontmatter.title}
 				</h4>
 			</a>
 		</div>
 		<p class="text-xs mb-2 sm:block hidden">{post.frontmatter.description}</p>
 		<div class="flex items-center space-x-2">
-			<div class="text-xs ">
-				Posted <time {datetime} class=""
-					> {dayjs(date).fromNow()}
+			<div class="text-xs">
+				Posted <time {datetime}
+					>{dayjs(date).fromNow()}
 				</time>
 			</div>
-			<div class="text-xs"> 📖 {minutesRead}ing time
+			<div class="text-xs">
+				· 📖 {minutesRead}ing time
 			</div>
-			<div class="text-xs pl-2 md:pl-0 hidden sm:flex">
+			<div class="text-xs sm:block hidden">
 				{
 					tags?.length && (
 						<div class="flex items-center">
 							<ul class="flex list-none items-center gap-x-2">
+								·
 								{tags.map((tag) => (
 									<li>
 										<a
