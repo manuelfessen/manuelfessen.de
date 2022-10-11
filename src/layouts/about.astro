@@ -1,15 +1,12 @@
 ---
-import BaseLayout from './BaseLayout.astro'
-import readingTime from 'reading-time'
+import BaseLayout from "./BaseLayout.astro";
 
 const { content } = Astro.props;
-const { title, description, date, keywords } = content;
-
-const reading = readingTime(content.astro.source)
+const { title, description } = content;
 ---
 
-<BaseLayout title={`${title}`} description={description}>
-    <main class="prose max-w-none prose-list-disc leading-8">
-        <slot />
-    </main>
+<BaseLayout meta={{ title, description }}>
+	<main class="prose max-w-none prose-list-disc leading-8">
+		<slot />
+	</main>
 </BaseLayout>

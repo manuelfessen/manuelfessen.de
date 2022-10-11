@@ -1,34 +1,51 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "@/layouts/BaseLayout";
 
-interface MarkdownFrontmatter {
-  date: number;
-}
-
-let title = 'Manuel Fessen | UX Designer';
-let description = 'Manuel Fessen is a designer and strategist currently living and working in Essen, Germany.';
-let seoDescription = 'Manuel Fessen is a designer and strategist currently living and working in Essen, Germany.';
+const meta = {
+	title: "Manuel Fessen | UX Designer",
+	description:
+		"Manuel Fessen is a designer and strategist currently living and working in Essen, Germany.",
+};
 ---
 
-<BaseLayout title={title} description={description}>
-  <main class="flex flex-col justify-center">
-    <section class="flex flex-col-reverse sm:flex-row items-start lg:mt-0 mt-16">
-      <div class="flex flex-col space-y-4">
-        <h3 class="text-xl tracking-tight leading-10 md:text-2xl md:leading-14">
-          hi, I'm Manuel {" "}
-          <span role="img" class="wave"> 👋 </span>
-        </h3>
-        <h1 class="text-8xl leading-10 tracking-tight sm:text-5xl md:text-4xl md:leading-14">
-          I design experiences that make people's lives <span class="font-bold">simple.</span>
-        </h1>
-        <h2 class="tracking-tight text-xl leading-10 max-w-none prose-list-disc">
-          You can learn more about me by reading my
-          <a class="underline decoration-amber-500 hover:decoration-3 hover:text-amber-500" href="/blog">blog</a>, browse my personal
-          <a class="underline decoration-emerald-400 hover:decoration-3 hover:text-emerald-400" href="/notes">digital garden</a> or have a look at
-          <a class="underline decoration-fuchsia-500 hover:decoration-3 hover:text-fuchsia-500" href="/books">my digital
-            bookshelf</a>.
-        </h2>
-      </div>
-    </section>
-  </main>
+<BaseLayout meta={meta}>
+	<main class="flex flex-col items-stretch grow h-full justify-center">
+		<section
+			class="flex flex-col-reverse sm:flex-row items-start lg:mt-0 mt-16"
+		>
+			<div class="flex flex-col space-y-4">
+				<h3 class="text-xl tracking-tight leading-10 md:text-2xl md:leading-14">
+					hi, I'm Manuel {" "}
+					<span role="img" class="wave">👋</span>
+				</h3>
+				<h1
+					class="text-8xl leading-10 tracking-tight sm:text-5xl md:text-4xl md:leading-14"
+				>
+					I design experiences that make people's lives <span class="font-bold"
+						>simple.
+					</span>
+				</h1>
+				<h2
+					class="tracking-tight text-xl leading-10 max-w-none prose-list-disc"
+				>
+					You can learn more about me by reading my
+					<a
+						class="underline decoration-amber-500 hover:decoration-3 hover:text-amber-500"
+						href="/blog"
+						>blog
+					</a>, browse my personal
+					<a
+						class="underline decoration-emerald-400 hover:decoration-3 hover:text-emerald-400"
+						href="/notes"
+						>digital garden
+					</a> or have a look at
+					<a
+						class="underline decoration-fuchsia-500 hover:decoration-3 hover:text-fuchsia-500"
+						href="/books"
+						>my digital bookshelf
+					</a>.
+				</h2>
+			</div>
+		</section>
+	</main>
 </BaseLayout>

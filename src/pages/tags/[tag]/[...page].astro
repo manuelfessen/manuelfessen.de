@@ -1,0 +1,73 @@
+---
+import PageLayout from "@/layouts/BaseLayout";
+import NotePreview from "@/components/NotePreview";
+import { getAllTags, sortMDByDate } from "@/util";
+import type { MDXInstance, Page, Post } from "@/types";
+
+export async function getStaticPaths({ paginate }) {
+	const allPosts = await Astro.glob<Post>("../../notes/*.mdx");
+	const allPostsByDate = sortMDByDate(allPosts);
+	const allTags = getAllTags(allPostsByDate);
+
+	return allTags.map((tag) => {
+		const filterPosts = allPostsByDate.filter((post) =>
+			post.frontmatter.tags?.includes(tag)
+		);
+		return paginate(filterPosts, {
+			params: { tag },
+			pageSize: 10,
+		});
+	});
+
+	return allTags.map((tag) => {
+		const postsForTag = allPosts.filter((post) => post.tags.includes(tag));
+		return {
+			params: { slug: tag },
+			props: { allTags, postsForTag },
+		};
+	});
+}
+
+export interface Props {
+	page: Page<MDXInstance<Post>>;
+}
+
+const { page } = Astro.props as Props;
+const { tag } = Astro.params;
+
+const { allTags, postsForTag } = Astro.props;
+
+const meta = {
+	title: `Tag: ${tag}`,
+	description: `View all posts tagged with ${tag}`,
+};
+---
+
+<PageLayout meta={meta}>
+	<section class="h-screen" aria-label="Blog post list">
+		<div class="prose max-w-none prose-list-disc leading-6 space-y-2">
+			<a href="/" class="no-underline">← Return home</a>
+			<h1 class="">About #{tag}</h1>
+			<p class="mt-2">#{tag} is mentioned in this notes.</p>
+		</div>
+		<ul class="note-grid space-y-4 mt-8">
+			{
+				page.data.map((p) => (
+					<li>
+						<NotePreview post={p} />
+					</li>
+				))
+			}
+		</ul>
+	</section>
+</PageLayout>
+
+<style>
+	.note-grid {
+		--columns: 3;
+		--min-column-width: 15rem;
+		--gap: 1rem;
+		columns: var(--columns) var(--min-column-width);
+		column-gap: var(--gap);
+	}
+</style>

@@ -1,4 +1,3 @@
 User-agent: *
-Allow: /
-
-Sitemap: https://howtocode.io/sitemap.xml
+Disallow:
+Sitemap: https://www.manuelfessen.github.io/sitemap-index.xml

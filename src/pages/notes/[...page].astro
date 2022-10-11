@@ -1,65 +1,88 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro'
-import NoteList from '../../components/notes/NoteList.astro'
+import PageLayout from "@/layouts/BaseLayout";
+import NotePreview from "@/components/NotePreview";
+import { getAllTags, sortMDByDate } from "src/util";
+import type { Post, Page, MDXInstance } from "@/types";
 
 export async function getStaticPaths({ paginate }) {
-  let allPosts = (await Astro.glob("./*.md")).sort(
-  (a, b) =>
-    new Date(b.frontmatter.date).valueOf() -
-    new Date(a.frontmatter.date).valueOf()
-);
-
-  return paginate(allPosts, {
-    pageSize: 6
-  })
+	const allPosts = await Astro.glob<Post>("./*.mdx");
+	const allPostsByDate = sortMDByDate(allPosts);
+	const allTags = getAllTags(allPosts);
+	return paginate(allPostsByDate, { props: { allTags }, pageSize: 10 });
 }
 
-const notes = (await Astro.glob('./*.md')).sort(
-  (a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf(),
-)
-const recentNotes = (await Astro.glob('./*.md')).sort(
-  (a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf())
-  .slice(0, 4)
+export interface Props {
+	page: Page<MDXInstance<Post>>;
+	allTags: string[];
+}
 
+const { page, allTags } = Astro.props as Props;
 
-const Design = notes.filter(post => (post.frontmatter.category) == "Design");
-const Productivity = notes.filter(post => (post.frontmatter.category) == "Productivity");
+const meta = {
+	title: "The Garden of Manuel Fessen",
+	description: "A collection of essays, notes, and half-baked explorations I'm always tending to.",
+};
 
-const { page } = Astro.props
-let pageTitle = 'Manuel Fessens digital garden';
-//let pageDescription = `page ${page.currentPage} of all articles`;
-let pageDescription = `Manuel Fessens | digital garden`;
-let seoTitle = 'Manuel Fessens digital garden';
-let seoDescription = 'Welcome to my digital garden — a personal wiki. This section is a grab bag of notes on any subject i ilke (but mostly web stuff).';
 ---
 
-<BaseLayout title={seoTitle} description={seoDescription}>
-  <div class="prose max-w-none prose-list-disc leading-6 hidden">
-    <h1 class="">Notes 🌱</h1>
-    <p class="mb-4">
-      Welcome to my <a href="https://maggieappleton.com/garden-history" target="_blank">digital garden</a> — a personal wiki. This section is a grab bag of notes on any subject i ilke (but mostly web stuff).
-    </p>
-  </div>
+<PageLayout meta={meta}>
+	<section class="h-full">
+	<div class="prose max-w-none prose-list-disc leading-6">
+		<h1 class="">Notes</h1>
+		<p class="mb-4">
+			Welcome to my digital garden 👨🏻‍🌾 — a personal wiki. A collection of essays, notes, and half-baked explorations I'm always tending to. Read more about <a
+			href="https://maggieappleton.com/garden-history"
+			target="_blank"
+			>A Brief History & Ethos of the Digital Garden</a>.
+		</p>
+	</div>
 
-  <section id="allnotes">
-    
-  <div class="md:py-20 rounded-md">
-    <div class="flex flex-col ">
+	<!-- Tags -->
+	{
+		allTags.length && (
+			<aside class="max-w-full">
+				<ul class="flex overflow-x-auto items-center gap-2 mb-4 flex-row">
+					<li> <!-- muss sein, damit die UI gleich ist -->
+						<a class="btn btn-xs" href={`/notes`}>
+							all
+						</a>
+					</li>
+					{allTags.map((tag) => (
+						<li>
+							<a
+								class="btn btn-xs"
+								href={`/tags/${tag}`}
+								aria-label={`View all posts with the tag: ${tag}`}
+							>
+								{tag}
+							</a>
+						</li>
+					))}
+				</ul>
+			</aside>
+		)
+	}
+	<section class="mt-8" aria-label="Blog post list">
+		<ul class="note-grid space-y-4">
+			{
+				page.data.map((p) => (
+					<li>
+						<NotePreview post={p}/>
+					</li>
+				))
+			}
+		</ul>
+	</section>
+</section>
+</PageLayout>
 
-      <h1 class="font-bold lg:text-5xl"></h1>
+<style>
 
-      <h6 class="mb-2 text-2xl font-bold md:text-3xl">
-       You are too early 🚧👷🏻‍♂️🚧
-      </h6>
-
-      <p class="mb-4 text-gray-500 md:text-lg">
-        I am sorry, but you weren't supposed to see this.
-      </p>
-      <div class="text-sm">
-        <a href="../#" class="font-semibold">Go back</a>
-        and remember: You haven't seen anything. 
-      </div>
-    </div>
-  </div>
-  </section>
-</BaseLayout>
+	.note-grid{
+    --columns: 3;
+    --min-column-width: 15rem;
+    --gap: 1rem;
+    columns: var(--columns) var(--min-column-width);
+    column-gap: var(--gap);
+	}
+</style>

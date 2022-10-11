@@ -1,0 +1,19 @@
+---
+export type Props = {
+	href: string;
+};
+
+const { href } = Astro.props;
+const isActive = href !== "/" && Astro.url.pathname.startsWith(href);
+---
+
+<a
+	href={href}
+	class={`inline-block ${
+		isActive
+			? "font-semibold text-sm"
+			: "transition-colors duration-200 border-b hover:border-current text-sm"
+	}`}
+>
+	<slot />
+</a>

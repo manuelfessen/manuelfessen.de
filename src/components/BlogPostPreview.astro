@@ -1,0 +1,68 @@
+---
+import type { IElement, MDXInstance, Post } from "@/types";
+import { getLocaleTime } from "@/util";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+dayjs.extend(relativeTime);
+
+export interface Props extends IElement {
+	post: MDXInstance<Post>;
+	withDesc?: boolean;
+}
+
+const { post, as: Element = "div", withDesc = false } = Astro.props as Props;
+const { publishDate, minutesRead, tags } = post.frontmatter;
+const date = new Date(publishDate);
+const datetime = date.toISOString();
+const postDate = getLocaleTime(date, { month: "short" });
+---
+
+<div class="flex justify-between items-center">
+	<div class="">
+		<div class="flex justify-between md:flex-row pb-1">
+			<a class="w-full no-underline" href={post.url}>
+				<h4 class="w-full mb-1 text-base font-medium">
+					{post.frontmatter.title}
+				</h4>
+			</a>
+		</div>
+		<p class="text-xs mb-2 sm:block hidden">{post.frontmatter.description}</p>
+		<div class="flex items-center space-x-2">
+			<div class="text-xs">
+				Posted <time {datetime} class="min-w-[120px]"
+					>{dayjs(date).fromNow()}
+				</time>
+			</div>
+			<div class="text-xs">
+				· 📖 {minutesRead}ing time
+			</div>
+			<div class="text-xs">
+				{
+					tags?.length && (
+						<div class="flex items-center">
+							<ul class="flex list-none items-center gap-x-2">
+								·
+								{tags.map((tag) => (
+									<li>
+										<a
+											class="inline-block"
+											aria-label={`View more blogs with the tag ${tag}`}
+											href={`/tags/${tag}`}
+										>
+											&#35;{tag}
+										</a>
+									</li>
+								))}
+							</ul>
+						</div>
+					)
+				}
+			</div>
+		</div>
+	</div>
+
+	<a class="w-60 my-4 md:block hidden no-underline" href={post.url}>
+		<img src={post.frontmatter.hero} alt={post.frontmatter.title} />
+	</a>
+</div>
+<div class="divider"></div>

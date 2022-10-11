@@ -1,28 +1,35 @@
 ---
 import Github from "./Github.astro";
-import { format } from 'date-fns';
+import { format } from "date-fns";
 
 const SOCIAL_LINK = [
-
-  ['📷', 'Instagram', 'https://www.instagram.com/manuelfessen/'],
-  ['🐙', 'GitHub', 'https://www.github.com/manuelfessen'],
-  ['👨‍💻', 'LinkedIn', 'https://www.linkedin.com/in/manuelfessen'],
-  ['👨‍💻', 'Xing', 'https://www.xing.de/manuelfessen'],
-  ['🏃🏻‍♂️', 'Strava', 'https://www.strava.com/athletes/31601783'],
-]
+	["📷", "Instagram", "https://www.instagram.com/manuelfessen/"],
+	["🐙", "GitHub", "https://www.github.com/manuelfessen"],
+	["👨‍💻", "LinkedIn", "https://www.linkedin.com/in/manuelfessen"],
+	["👨‍💻", "Xing", "https://www.xing.de/manuelfessen"],
+	["🏃🏻‍♂️", "Strava", "https://www.strava.com/athletes/31601783"],
+];
 const builtAt: Date = new Date();
-const builtAtFormatted = format(builtAt, 'dd MMMM, yyyy');
+const builtAtFormatted = format(builtAt, "dd MMMM, yyyy");
 ---
-<footer class="flex sm:text-base flex-col justify-between sm:flex-row sm:items-end bottom-0 my-4">
-  <ul class="flex flex-wrap flex-shrink-0 max-w-full">
-    {SOCIAL_LINK.map(([emoji, label, href]) => (
-    <li class="mr-4 mt-0 text-xs">
-      <a href={href} data-emoji={emoji}
-        class="link-emoji relative inline-block transition-colors duration-200 border-b hover:text-transparent hover:border-transparent">
-        {label}
-      </a>
-    </li>
-    ))}
-  </ul>
-<Github />
+
+<footer
+	class="flex sm:text-base flex-col justify-between sm:flex-row sm:items-end bottom-0 my-4"
+>
+	<ul class="flex flex-wrap flex-shrink-0 max-w-full">
+		{
+			SOCIAL_LINK.map(([emoji, label, href]) => (
+				<li class="mr-4 mt-0 text-xs">
+					<a
+						href={href}
+						data-emoji={emoji}
+						class="link-emoji relative inline-block border-b transition-colors duration-200 hover:border-transparent hover:text-transparent"
+					>
+						{label}
+					</a>
+				</li>
+			))
+		}
+	</ul>
+	<Github />
 </footer>

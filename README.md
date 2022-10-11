@@ -10,5 +10,5 @@
 - [x] Improve social links (Github and LinkedIn)
 - [x] Add first Blog Post
 - [x] Add Activity component (Recent Books etc.)
-- [ ] Expand note page
+- [ ] Expand the digital garden
 - [ ] Expand Blogging ✍️💚
