@@ -48,3 +48,31 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 {image && <meta property="twitter:image" content={image} />}
+
+
+<!-- Saves prefered color scheme -->
+<script is:inline>
+	const themeSaved = localStorage.getItem("theme");
+  
+	if (themeSaved) {
+	  document.documentElement.dataset.theme = themeSaved;
+	} else {
+	  const prefersDark = window.matchMedia(
+		"(prefers-color-scheme: business)"
+	  ).matches;
+	  document.documentElement.dataset.theme = prefersDark ? "business" : "garden";
+	}
+  
+	window
+	  .matchMedia("(prefers-color-scheme: business)")
+	  .addEventListener("change", (event) => {
+		if (!localStorage.getItem("theme")) {
+		  document.documentElement.dataset.theme = event.matches
+			? "business"
+			: "garden";
+		}
+	  });
+  </script>
+
+<!-- Splitbee -->
+<script data-no-cookie data-respect-dnt data-token="XIHDQVOMRKZ1" async src="https://cdn.splitbee.io/sb.js"></script>
