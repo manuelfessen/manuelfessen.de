@@ -9,10 +9,10 @@ module.exports = {
 	},
 	daisyui: {
 	  themes: [
-		"black",
-		"light",
+		"business",
+		"garden",
 	  ],
-	  darkTheme: "black", // this will be the default dark theme
+	  darkTheme: "business", // this will be the default dark theme
 	},
   };
   
