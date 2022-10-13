@@ -14,7 +14,7 @@ export default defineConfig({
     },
     remarkPlugins: [remarkReadingTime]
   },
-  site: 'https://manuelfessen.github.io',
+  site: 'https://manuelfessen.de',
   vite: {
     ssr: {
       external: ["svgo"]
