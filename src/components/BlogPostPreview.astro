@@ -17,7 +17,7 @@ const datetime = date.toISOString();
 const postDate = getLocaleTime(date, { month: "short" });
 ---
 
-<div class="flex justify-between items-center">
+<div class="flex justify-between items-center md:mb-8 mb-6">
 	<div class="">
 		<div class="flex justify-between md:flex-row pb-1">
 			<a class="w-full no-underline" href={post.url}>
@@ -59,10 +59,11 @@ const postDate = getLocaleTime(date, { month: "short" });
 				}
 			</div>
 		</div>
+
 	</div>
 
 	<a class="w-60 my-4 md:block hidden no-underline" href={post.url}>
 		<img src={post.frontmatter.hero} alt={post.frontmatter.title} />
 	</a>
+
 </div>
-<div class="divider"></div>
