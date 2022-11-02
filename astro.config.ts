@@ -6,11 +6,6 @@ import sitemap from "@astrojs/sitemap";
 import { remarkReadingTime } from './remark-plugins/remark-reading-time.mjs';
 
 // https://astro.build/config
-
-// https://astro.build/config
-import partytown from "@astrojs/partytown";
-
-// https://astro.build/config
 export default defineConfig({
   markdown: {
     shikiConfig: {
@@ -29,5 +24,5 @@ export default defineConfig({
     config: {
       applyBaseStyles: false
     }
-  }), image(), sitemap(), partytown()]
+  }), image(), sitemap()]
 });
