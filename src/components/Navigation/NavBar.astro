@@ -1,6 +1,7 @@
 ---
 import ThemeSwitcher from "./theme-switcher.astro";
 import ActiveLink from "./ActiveLink.astro";
+import ModalMenu from "./ModalMenu.astro";
 
 const isHome = Astro.url.pathname === "/";
 ---
@@ -29,5 +30,5 @@ const isHome = Astro.url.pathname === "/";
 			}
 		</ul>
 	</nav>
-	<ThemeSwitcher />
+	<ModalMenu />
 </nav>

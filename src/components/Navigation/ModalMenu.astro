@@ -1,0 +1,262 @@
+---
+import ThemeSwitcher from "./theme-switcher.astro";
+import ActiveLink from "./ActiveLink.astro";
+
+const isHome = Astro.url.pathname === "/";
+---
+
+<label for="modal-menu" class=""><svg height="25" viewBox="0 0 20 20"><path d="M6.023 7.296v5.419H3.648C1.644 12.715 0 14.316 0 16.342 0 18.355 1.644 20 3.648 20a3.657 3.657 0 003.648-3.659v-2.375h5.397v2.376A3.657 3.657 0 0016.343 20c2.004 0 3.647-1.644 3.647-3.659 0-2.025-1.643-3.626-3.648-3.626h-2.375v-5.42h2.376c2.004 0 3.647-1.611 3.647-3.626C19.99 1.644 18.346 0 16.341 0c-2.014 0-3.648 1.644-3.648 3.67v2.364H7.296V3.669C7.296 1.644 5.663 0 3.648 0 1.644 0 0 1.644 0 3.67c0 2.014 1.644 3.626 3.648 3.626h2.375zm-2.375-1.24c-1.294 0-2.375-1.083-2.375-2.387 0-1.315 1.081-2.396 2.375-2.396 1.304 0 2.375 1.081 2.375 2.396v2.386H3.648zm12.694 0h-2.376V3.668c0-1.315 1.071-2.396 2.376-2.396 1.293 0 2.375 1.081 2.375 2.396 0 1.304-1.082 2.386-2.375 2.386zm-9.046 6.67V7.274h5.397v5.45H7.296zm-3.648 1.219h2.375v2.386a2.387 2.387 0 01-2.375 2.386 2.394 2.394 0 01-2.375-2.386 2.394 2.394 0 012.375-2.386zm12.694 0a2.394 2.394 0 012.375 2.386 2.394 2.394 0 01-2.375 2.386 2.387 2.387 0 01-2.376-2.386v-2.386h2.376z"></path></svg></label>
+
+<!-- Put this part before </body> tag -->
+<input type="checkbox" id="modal-menu" class="modal-toggle" />
+<label
+  for="modal-menu"
+  class="modal cursor-pointer modal-bottom sm:modal-middle"
+>
+  <label class="modal-box relative modal-correction shadow-none" for="">
+    <ul class="menu bg-base-100 p-0.5">
+      <li class="menu-title">
+        <span class="menu-title">Category</span>
+		<input type="text" placeholder="Search" class="input input-ghost focus:outline-0 w-full" />
+      </li>
+	  <div class="divider"></div> 
+      <li>
+        <a>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+            ></path>
+          </svg>
+          Item 2
+        </a>
+      </li>
+      <li>
+        <a>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            ></path>
+          </svg>
+          Item 1
+        </a>
+      </li>
+      <li>
+        <a>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+            ></path>
+          </svg>
+          Item 3
+        </a>
+      </li>
+      <li class="menu-title">
+        <span>Category</span>
+      </li>
+      <li>
+        <a>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+            ></path>
+          </svg>
+          Item 2
+        </a>
+      </li>
+      <li>
+        <a>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            ></path>
+          </svg>
+          Item 1
+        </a>
+      </li>
+      <li>
+        <a>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+            ></path>
+          </svg>
+          Item 3
+        </a>
+      </li><label
+        id="theme-switcher"
+        type="button"
+        class="transition-all origin-[right_center] duration-500 rounded-lg hover:ring-2 ring-gray-300"
+      >
+        <li>
+          <div id="icon-theme-garden" class="">
+            <!-- source: https://github.com/basmilius/weather-icons -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 64 64"
+              class="inline-block h-5 w-5 stroke-current"
+              ><g
+                ><path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-miterlimit="10"
+                  stroke-width="3"
+                  d="M42.5 32A10.5 10.5 0 1132 21.5 10.5 10.5 0 0142.5 32zM32 15.71V9.5m0 45v-6.21m11.52-27.81l4.39-4.39M16.09 47.91l4.39-4.39m0-23l-4.39-4.39m31.82 31.78l-4.39-4.39M15.71 32H9.5m45 0h-6.21"
+                ></path><animateTransform
+                  attributeName="transform"
+                  dur="45s"
+                  from="0 32 32"
+                  repeatCount="indefinite"
+                  to="360 32 32"
+                  type="rotate"></animateTransform>
+              </g>
+            </svg>
+            <span class="">Set theme to light</span>
+          </div>
+        </li>
+        <li>
+          <div id="icon-theme-business" class="">
+            <!-- source: https://github.com/basmilius/weather-icons -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 64 64"
+              class="inline-block h-5 w-5 stroke-current"
+              ><g
+                ><path
+                  fill="currentColor"
+                  d="M42.56 21.13L41.26 19a.55.55 0 01-.06-.5l.8-2.36a.59.59 0 00-.87-.7L39 16.74a.55.55 0 01-.5.06l-2.36-.8a.59.59 0 00-.7.87l1.3 2.13a.55.55 0 01.06.5l-.8 2.36a.59.59 0 00.87.7l2.13-1.3a.55.55 0 01.5-.06l2.36.8a.59.59 0 00.7-.87z"
+                ></path><animate
+                  attributeName="opacity"
+                  dur="3s"
+                  repeatCount="indefinite"
+                  values="1; 0; 1"></animate>
+              </g><g
+                ><path
+                  fill="currentColor"
+                  d="M49.73 27.18l-2.49-.07a.62.62 0 01-.46-.22l-1.53-2a.6.6 0 00-1.07.35l-.07 2.49a.62.62 0 01-.22.46l-2 1.53a.6.6 0 00.35 1.07l2.49.07a.62.62 0 01.46.22l1.53 2a.6.6 0 001.07-.35l.07-2.49a.62.62 0 01.22-.46l2-1.53a.6.6 0 00-.35-1.07z"
+                ></path><animate
+                  attributeName="opacity"
+                  begin="-1s"
+                  dur="3s"
+                  repeatCount="indefinite"
+                  values="1; 0; 1"></animate>
+              </g><g
+                ><path
+                  fill="currentColor"
+                  d="M40.69 27.65l-1.25-1.1a.4.4 0 01-.14-.31v-1.66a.39.39 0 00-.69-.27l-1.1 1.25a.4.4 0 01-.31.14h-1.66a.39.39 0 00-.27.69l1.25 1.1a.4.4 0 01.14.31v1.66a.39.39 0 00.69.27l1.1-1.25a.4.4 0 01.31-.14h1.66a.39.39 0 00.27-.69z"
+                ></path><animate
+                  attributeName="opacity"
+                  begin="-2s"
+                  dur="3s"
+                  repeatCount="indefinite"
+                  values="1; 0; 1"></animate>
+              </g><g
+                ><path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="3"
+                  d="M46.66 36.2a16.66 16.66 0 01-16.78-16.55 16.29 16.29 0 01.55-4.15A16.56 16.56 0 1048.5 36.1c-.61.06-1.22.1-1.84.1z"
+                ></path><animateTransform
+                  attributeName="transform"
+                  dur="10s"
+                  repeatCount="indefinite"
+                  type="rotate"
+                  values="-5 32 32;15 32 32;-5 32 32"></animateTransform>
+              </g>
+            </svg>
+            <span class="">Set theme to dark</span>
+          </div>
+        </li>
+      </label>
+    </ul>
+  </label>
+
+  <script>
+    const themes = ["garden", "business"];
+    const button = document.querySelector("#theme-switcher");
+
+    const getThemeCurrent = () => document.documentElement.dataset.theme;
+    const getThemeNext = () => {
+      const themeCurrent = getThemeCurrent();
+      const indexThemeCurrent = themes.indexOf(themeCurrent);
+      return themes[(indexThemeCurrent + 1) % themes.length];
+    };
+
+    const updateIcon = () => {
+      const themeCurrent = getThemeCurrent();
+      document
+        .querySelector(`#icon-theme-${themeCurrent}`)
+        .classList.add("hidden");
+      const themeNext = getThemeNext();
+      document
+        .querySelector(`#icon-theme-${themeNext}`)
+        .classList.remove("hidden");
+    };
+
+    button.addEventListener("click", () => {
+      const themeNext = getThemeNext();
+      document.documentElement.dataset.theme = themeNext;
+      localStorage.setItem("theme", themeNext);
+      updateIcon();
+    });
+
+    updateIcon();
+  </script>
+
+  <style>
+    .modal-correction {
+      padding-left: 0rem;
+      padding-right: 0rem;
+    }
+  </style>
+</label>
