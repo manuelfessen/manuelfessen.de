@@ -43,14 +43,14 @@ const meta = {
 			<aside class="max-w-full">
 				<ul class="flex overflow-x-auto items-center gap-2 mb-4 flex-row">
 					<li> <!-- muss sein, damit die UI gleich ist -->
-						<a class="badge badge-outline transition ease-in hover:border-2" href={`/notes`}>
+						<a class="badge badge-outline hover:border-2" href={`/notes`}>
 							#all
 						</a>
 					</li>
 					{allTags.map((tag) => (
 						<li>
 							<a
-								class="badge badge-outline transition ease-in hover:border-2"
+								class="badge badge-outline hover:border-2"
 								href={`/tags/${tag}`}
 								aria-label={`View all posts with the tag: ${tag}`}
 							>
