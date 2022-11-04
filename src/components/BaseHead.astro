@@ -6,9 +6,9 @@ import "../styles/index.css";
 export type Props = SiteMeta;
 
 const {
-	title,
-	description = siteMeta.description,
-	image,
+  title,
+  description = siteMeta.description,
+  image,
 } = Astro.props as Props;
 
 const titleSeparator = "•";
@@ -42,38 +42,43 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 <!-- Twitter -->
 <meta
-	property="twitter:card"
-	content={image ? "summary_large_image" : "summary"}
+  property="twitter:card"
+  content={image ? "summary_large_image" : "summary"}
 />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 {image && <meta property="twitter:image" content={image} />}
 
-
 <!-- Saves prefered color scheme -->
 <script is:inline>
-	const themeSaved = localStorage.getItem("theme");
-  
-	if (themeSaved) {
-	  document.documentElement.dataset.theme = themeSaved;
-	} else {
-	  const prefersDark = window.matchMedia(
-		"(prefers-color-scheme: business)"
-	  ).matches;
-	  document.documentElement.dataset.theme = prefersDark ? "business" : "garden";
-	}
-  
-	window
-	  .matchMedia("(prefers-color-scheme: business)")
-	  .addEventListener("change", (event) => {
-		if (!localStorage.getItem("theme")) {
-		  document.documentElement.dataset.theme = event.matches
-			? "business"
-			: "garden";
-		}
-	  });
-  </script>
+  const themeSaved = localStorage.getItem("theme");
+
+  if (themeSaved) {
+    document.documentElement.dataset.theme = themeSaved;
+  } else {
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: business)"
+    ).matches;
+    document.documentElement.dataset.theme = prefersDark
+      ? "business"
+      : "garden";
+  }
+
+  window
+    .matchMedia("(prefers-color-scheme: business)")
+    .addEventListener("change", (event) => {
+      if (!localStorage.getItem("theme")) {
+        document.documentElement.dataset.theme = event.matches
+          ? "business"
+          : "garden";
+      }
+    });
+</script>
 
 <!-- Cloudflare Web Analytics -->
-<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "18ee29c201214ea594d90ed48aedb29c"}'></script>
+<script
+  defer
+  src="https://static.cloudflareinsights.com/beacon.min.js"
+  data-cf-beacon="{"token": "18ee29c201214ea594d90ed48aedb29c"}"
+></script>
 <!-- End Cloudflare Web Analytics -->
