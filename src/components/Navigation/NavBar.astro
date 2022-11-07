@@ -1,5 +1,5 @@
 ---
-import ThemeSwitcher from "./theme-switcher.astro";
+import ThemeSwitcher from "./ThemeSwitcher.astro";
 import ActiveLink from "./ActiveLink.astro";
 import ModalMenu from "./ModalMenu.astro";
 
@@ -7,28 +7,28 @@ const isHome = Astro.url.pathname === "/";
 ---
 
 <nav
-	id="page-header"
-	class="flex justify-between items-center w-full sm:pb-16 text-sm"
+  id="page-header"
+  class="flex justify-between items-center w-full sm:pb-16 text-sm"
 >
-	<nav class="text-sm sm:text-base">
-		<ul class="flex w-full space-x-4">
-			<li class="nav-link">
-				<ActiveLink href="/posts">Blog</ActiveLink>
-			</li>
-			<li class="nav-link">
-				<ActiveLink href="/notes">Notes</ActiveLink>
-			</li>
-			<li class="nav-link">
-				<ActiveLink href="/about">About</ActiveLink>
-			</li>
-			{
-				!isHome && (
-					<li class="nav-link">
-						<ActiveLink href="/">Home</ActiveLink>
-					</li>
-				)
-			}
-		</ul>
-	</nav>
-	<ModalMenu />
+  <nav class="text-sm sm:text-base">
+    <ul class="flex w-full space-x-4">
+      <li class="nav-link">
+        <ActiveLink href="/posts">Blog</ActiveLink>
+      </li>
+      <li class="nav-link">
+        <ActiveLink href="/notes">Notes</ActiveLink>
+      </li>
+      <li class="nav-link">
+        <ActiveLink href="/about">About</ActiveLink>
+      </li>
+      {
+        !isHome && (
+          <li class="nav-link">
+            <ActiveLink href="/">Home</ActiveLink>
+          </li>
+        )
+      }
+    </ul>
+  </nav>
+  <ThemeSwitcher />
 </nav>

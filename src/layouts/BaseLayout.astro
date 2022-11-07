@@ -30,6 +30,19 @@ const {
   class="flex flex-col items-center md:px-8 motion-safe:scroll-smooth pt-4 px-4"
   data-theme="garden"
 >
+  <BaseHead title={title} description={description} image={image} />
+
+  <body class="flex flex-col max-w-3xl w-full min-h-max top-0 font-light">
+    <div class="top-0">
+      <Header />
+    </div>
+    <div class="lg:mt-0 md:mt-4 mt-8 inset-0 grow">
+      <slot/>
+    </div>
+    <div class="bottom-0">
+      <Footer />
+    </div>
+
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const toggleThemeButton = document.getElementById("theme-switcher");
@@ -41,17 +54,5 @@ const {
       };
     });
   </script>
-  <BaseHead title={title} description={description} image={image} />
-
-  <body class="flex flex-col max-w-3xl w-full min-h-max top-0 font-light">
-    <div class="top-0">
-      <Header />
-    </div>
-    <div class="lg:mt-0 md:mt-4 mt-8 inset-0 grow">
-      <slot />
-    </div>
-    <div class="bottom-0">
-      <Footer />
-    </div>
   </body>
 </html>
