@@ -1,48 +1,91 @@
 ---
-import BaseLayout from "@/layouts/BaseLayout";
+import { Image } from '@astrojs/image/components'
+import avatar from '../../public/sw.webp'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import PostCard from '@/components/PostCard.astro'
+import type { Frontmatter } from '@/types'
 
-const meta = {
-	title: "Manuel Fessen | UX Designer",
-	description:
-		"Manuel Fessen is a UX Designer and Strategist living and working in Essen, Germany.",
-};
+const posts = await Astro.glob<Frontmatter>('./blog/*.mdx')
+const nonDraftPosts = posts
+  .filter(({ frontmatter }) => !frontmatter.draft)
+  .sort((a, b) => {
+    const aDate = new Date(a.frontmatter.publishedAt)
+    const bDate = new Date(b.frontmatter.publishedAt)
+    return bDate.getTime() - aDate.getTime()
+  })
+  .slice(0, 3)
 ---
-<BaseLayout meta={meta}>
-	<main class="flex flex-col items-stretch grow h-full justify-center">
-		<section
-			class="flex flex-col-reverse sm:flex-row items-start lg:mt-0 mt-16"
-		>
-			<div class="flex flex-col space-y-4">
-				<h3 class="text-xl tracking-tight leading-10 md:text-2xl md:leading-14">
-					hi, I'm Manuel {" "}
-					<span role="img" class="wave">👋</span>
-				</h3>
-				<h1
-					class="text-8xl leading-10 tracking-tight sm:text-5xl md:text-4xl md:leading-14"
-				>
-					I design experiences that make people's lives <span class="font-bold"
-						>simple.
-					</span>
-				</h1>
-				<h2
-					class="tracking-tight text-xl leading-10 max-w-none prose-list-disc"
-				>
-					You can learn more about me by reading my
-					<a
-						class="underline md:decoration-2 decoration-4 decoration-amber-500 hover:decoration-3 hover:text-amber-500"
-						href="/posts"
-						>blog</a>, browse my
-					<a
-						class="underline md:decoration-2 decoration-4 decoration-emerald-400 hover:decoration-3 hover:text-emerald-400"
-						href="/notes"
-						>digital garden
-					</a> or have a look at
-					<a
-						class="underline md:decoration-2 decoration-4 decoration-fuchsia-500 hover:decoration-3 hover:text-fuchsia-500"
-						href="/books"
-						>my digital bookshelf</a>.
-				</h2>
-			</div>
-		</section>
-	</main>
+
+<BaseLayout title={'Manuel’s Blog'} description='Manuel Fessen | UX Designer'>
+  <div class='flex flex-col-reverse sm:flex-row sm:justify-between mb-16'>
+    <div class='flex flex-col center'>
+      <h1 class='text-gray-700 dark:text-gray-200 text-4xl mb-1 font-bold'>
+        Hi, I'm Manuel {' '}
+        <span role='img' class='wave'>👋</span>
+      </h1>
+      <h2 class='text-lg md:text-l font-medium leading-5 mb-4'>UX Designer at EASY Software.</h2>
+      <h3 class='text-gray-600 dark:text-gray-300 text-lg md:text-l'>
+        I design experiences that make people's lives <span class='font-bold'>simple.</span>
+      </h3>
+    </div>
+    <div class='relative mb-8 sm:mb-0 ml-8 flex-none'>
+      <Image
+        src={avatar}
+        alt='Manuel Fessen'
+        class='inline object-cover w-20 sm:w-32 h-20 sm:h-32 mr-2 rounded-full'
+        draggable={false}
+        loading='eager'
+        format='webp'
+      />
+    </div>
+  </div>
+  <div class='py-6 space-y-4'>
+    <h3 class='text-xl font-semibold'>Latest Posts</h3>
+
+    {
+      nonDraftPosts.length ? (
+        nonDraftPosts.map(({ frontmatter }) => <PostCard {...frontmatter} />)
+      ) : (
+        <p class='text-gray-600 dark:text-gray-300'>No posts yet.</p>
+      )
+    }
+  </div>
 </BaseLayout>
+
+<style>
+  /* https://jarv.is/notes/css-waving-hand-emoji/ */
+  .wave {
+    animation-name: wave-animation;
+    animation-duration: 2.667s;
+    animation-iteration-count: infinite;
+    transform-origin: 70% 70%;
+    display: inline-block;
+  }
+
+  @keyframes wave-animation {
+    0% {
+      transform: rotate(0deg);
+    }
+    10% {
+      transform: rotate(14deg);
+    }
+    20% {
+      transform: rotate(-8deg);
+    }
+    30% {
+      transform: rotate(14deg);
+    }
+    40% {
+      transform: rotate(-4deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+    60% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+</style>

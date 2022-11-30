@@ -1,0 +1,38 @@
+---
+title: Modals everywhere
+publishedAt: 11-02-2022
+description: Why I publicly lobby against modals. It's lazy ux, there are better options. Modals everywhere.
+tags: ["opinion", "ux"]
+hero: "../images/blog/modals-meme.webp"
+---
+
+import remarkToc from './src/plugins/remark-toc'
+
+{/* Comments */}
+
+# Table of Contents
+
+
+<div class="hidden">
+<Callout />
+</div>
+
+Modals are popular for **good reason** - they provide **quick and focused contextual interaction**. As a design pattern, modals are a great way to optimize screen space while maintaining the user's sense of orientation. An additional **page loading time is unnecessary** and the user gets instant feedback. A modal window **forces users to complete action** before returning to the current workflow or completing it. This can make users more productive because they perform one action at a time instead of multitasking. Users are less likely to get confused and lost in the workflow due to the control and restrictions of modal windows, for example "**Are you sure to delete this file?**".  
+  
+# Why I publicly lobby against modals  
+The problem is not in modal windows itself. It is with **designers and developers who use modals incorrectly.** In many places modals kind of work, but this doesn’t mean they’re ideal in every moment. In almost all cases, there is no need to force users into specific actions. As a result, modal windows introduce unnecessary pain points for your users. Frameworks like Vuetify are often „mobile first“ at least, modals are the only UI element for disruptive user inputs. But often the input process of the user doesn’t need to be that disruptive and the user needs to be able to see the rest of the content. Apart from that, it's easy to implement modals inaccessibly. It's important to take care not to overuse them, to code them properly, use native behavior where possible, and ideally to provide a non-JS fallback. Therefore, I advocate against them in public (in front of devs). 
+
+# When to use modals
+Aa modal is best used for things like action **confirmation**, or a definition of a term, etc. It should be short, succinct, and have a single function: to be **noticed and then dismissed**. Putting large bits of information or getting the user to do work in the modal makes me wonder **why you need that experienced overlaid on existing page content**. If it doesn't need to be overlaid, then **move it to a new experience on a new page**. If it's the context that's important, then find some technology to be able to bring them back to the first spot after they're done with the form. You can find some suggestions [here](https://modalzmodalzmodalz.com/). 
+
+## Consider Nonmodal Dialogs Instead
+Nonmodal dialogs are less offensive than modal ones because they allow users to **continue their activity** and ignore **them if they are irrelevant**. For example, Google Mail uses nonmodal windows as the default method for composing new email messages. Users can continue working with this window open, minimize the composed email without losing it (or optionally, maximize it into a modal window). This separate view allows users to **locate older emails or additional information** that might be helpful for composing the current email.
+
+# You still want to use a modal? Then do it properly
+I advise you to follow this quick guide: 
+1. The modal window should have a descriptive title
+2. The modal window should have a Cancel button
+3. The modal window should have a Close button
+4. Escape or clicking outside the modal should close the window
+5. Add a semi-transparent background
+6. Don't make the modal window too large

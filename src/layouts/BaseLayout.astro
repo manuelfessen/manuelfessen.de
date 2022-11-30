@@ -1,58 +1,30 @@
 ---
-import type { SiteMeta } from "@/types";
-import BaseHead from "@/components/BaseHead";
-import Header from "@/components/Navigation/NavBar";
-import Footer from "@/components/Footer/Footer";
-import siteMeta from "src/site-meta.config";
+import BaseHead from '@/components/BaseHead.astro'
+import Nav from '@/components/Nav.astro'
+import Footer from '@/components/Footer/Footer.astro'
+import type { BaseHeadProps } from '@/components/BaseHead.astro'
 
-export type Props = {
+import type { SiteMeta } from "@/types/index";
+import siteMeta from "@/types/site-meta.config";
+
+export type BaseHeadProps = {
   meta: SiteMeta;
 };
 
-const {
-  meta: { title, description, image },
-} = Astro.props as Props;
+const { title, description, image } = Astro.props as BaseHeadProps
 ---
 
-<!-- .____  ____.     .__________.                                  .___.
-     |    ||    |___. |          |      .____.                      |   |
-     |    ||    |   | |          |__. __|.   | ______.___. ____  ___|   |
-     |    ¯¯    |___| |     _____|  |/   |___|/      \   |/    \/   \   |
-     |   XOXO   |___. |     ¯¯¯¯|    ____|__|.    ||  |        |        |
-     |    __    |   | |    .____|   |   |    |  \____/   /|    |   ||   |
-     |    ||    |   | |    |   |    |   |    |   ¯¯¯¯/   ||    |        |
-     |____||____|___| |____|   |____|   |____|\_____/|___||____|\____/__| -->
-	 <!-- Glad to see you're interested in inspecting the nuts and bolts that
-     went into this box 'o pixels. Feel free to use anything, I advise to take a look at my repo at github.
-     Cheers! -->
-<html
-  lang={siteMeta.lang}
-  class="flex flex-col items-center md:px-8 motion-safe:scroll-smooth pt-4 px-4"
-  data-theme="garden"
->
-  <BaseHead title={title} description={description} image={image} />
-
-  <body class="flex flex-col max-w-3xl w-full min-h-max top-0 font-light">
-    <div class="top-0">
-      <Header />
-    </div>
-    <div class="lg:mt-0 md:mt-4 mt-8 inset-0 grow">
-      <slot/>
-    </div>
-    <div class="bottom-0">
+<html lang='en' class='scroll-smooth font-serif antialiased'>
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <body
+    class='flex h-screen flex-col px-6 overflow-x-hidden [overflow:overlay] bg-gray-100 text-black dark:bg-gray-900 dark:text-white transition-[background-color] duration-300 selection:bg-[#67769660] items-center md:px-8 motion-safe:scroll-smooth pt-4'
+  >
+    <Nav />
+    <main class='max-w-2xl mx-auto w-full'>
+      <slot />
+    </main>
       <Footer />
-    </div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const toggleThemeButton = document.getElementById("theme-switcher");
-      const toggleDarkMode = (isDark) => {
-        // Keep localStore in sync
-        if (localStorage.getItem("theme") !== isDark) {
-          localStorage.setItem("theme", isDark ? "dark" : "light");
-        }
-      };
-    });
-  </script>
   </body>
 </html>

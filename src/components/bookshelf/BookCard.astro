@@ -1,4 +1,6 @@
 ---
+
+import { Image } from '@astrojs/image/components'
 export interface Props {
   title: string;
   img: string;
@@ -9,10 +11,22 @@ const { title, img, author, url } = Astro.props as Props;
 ---
 
 <li class="list-none">
+  <ul class="w-44">
   <a href={url} target="_blank">
-    <div class="aspect-[3/4] transform hover:scale-[1.01] transition-all h-44">
-      <img src={img} alt={title} />
-    </div>
+    <Image
+    src={img}
+    alt={title}
+    height={480}
+    width={300}
+    draggable={false}
+    loading='eager'
+    format='webp'
+    attributes={{
+      img: {
+        class: "transform hover:scale-[1.01] transition-all",
+      },
+    }}
+  />
     <div class="py-2">
       <h5 class="my-2 text-xl mt-8">
         {title}
@@ -20,4 +34,5 @@ const { title, img, author, url } = Astro.props as Props;
       <p class="mb-3 font-normal">{author}</p>
     </div>
   </a>
+</ul>
 </li>

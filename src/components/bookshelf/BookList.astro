@@ -2,15 +2,12 @@
 import BookCard from './BookCard.astro'
 import books from './../data/books.json'
 ---
-
-
-  <div class="flex flex-col justify-center sm:py-4">
-    <!-- <div class="flex overflow-hidden -my-8"> -->
-    <div class="flex overflow-x-scroll pb-4">
-<!--       <div class="flex flex-nowrap ml-96"> -->
-  <ul class="flex w-full gap-x-8">
-
-      {books.map(props => (
-        <BookCard {...props}/>
-      ))}
-  </ul></div></div>
+<div class='flex flex-col sm:py-4 py-6'>
+  <div class='flex overflow-x-scroll pb-4'>
+          <div class="flex flex-nowrap 96">
+    <ul class='flex w-full gap-x-8'>
+      {books.map((props) => <BookCard {...props} />)}
+    </ul>
+    </div>
+  </div>
+</div>

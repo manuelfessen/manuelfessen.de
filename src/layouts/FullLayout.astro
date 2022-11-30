@@ -1,0 +1,62 @@
+---
+import BaseHead from '@/components/BaseHead.astro'
+import Nav from '@/components/Nav.astro'
+import Footer from '@/components/Footer/Footer.astro'
+import Section from '@/components/Section.astro'
+import IconLabel from '@/components/Section.astro'
+import type { BaseHeadProps } from '@/components/BaseHead.astro'
+
+import type { SiteMeta } from "@/types/index";
+import siteMeta from "@/types/site-meta.config";
+import { Image } from '@astrojs/image/components'
+import avatar from '../../public/sw.webp'
+
+export type BaseHeadProps = {
+  meta: SiteMeta;
+};
+
+const { title, description, image } = Astro.props as BaseHeadProps
+---
+
+<html lang='en' class='scroll-smooth font-serif antialiased'>
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <body class="bg-sky-50">
+    <div
+      class="w-full flex flex-col justify-center px-20 mt-10 lg:block lg:m-auto lg:w-[1024px] lg:mt-10 lg:px-24"
+    >
+      <header class="text-sm lg:w-64 lg:fixed lg:float-left">
+        <Section>
+          <div class='relative mb-8 sm:mb-0 ml-8 flex-none'>
+            <Image
+              src={avatar}
+              alt='Manuel Fessen'
+              class='inline object-cover w-20 sm:w-32 h-20 sm:h-32 mr-2 rounded-full'
+              draggable={false}
+              loading='eager'
+              format='webp'
+            />
+          </div>
+          <h1 class="text-2xl font-bold mt-3 mb-1.5">Austin Liu</h1>
+          <p>Senior at Los Altos High School</p>
+        </Section>
+        
+    <Nav />
+      </header>
+
+      <hr class="rounded-md border-2 w-[80%] mx-auto my-6 lg:hidden" />
+
+      <main class="lg:w-[32rem] lg:float-right lg:mb-6">
+        <slot />
+      </main>
+
+      <footer
+        class="mx-auto my-6 lg:m-0 lg:w-64 text-slate-700 lg:fixed lg:float-left lg:bottom-6"
+      >
+        <p><small>Built with ❤️ using Astro and Tailwind</small></p>
+        <p><small>© 2022 Austin Liu</small></p>
+      </footer>
+    </div>
+  </body>
+</html>

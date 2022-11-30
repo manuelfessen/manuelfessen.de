@@ -1,0 +1,65 @@
+.prose pre code {
+  @apply text-gray-900 dark:text-gray-200;
+}
+
+div[data-rehype-pretty-code-fragment] {
+  @apply relative my-9 w-full rounded-md border-2 border-gray-200 dark:border-gray-700;
+}
+
+div[data-rehype-pretty-code-fragment]:has([data-rehype-pretty-code-title]) {
+  @apply pt-7 lg:pt-10;
+}
+
+div[data-rehype-pretty-code-title] {
+  @apply absolute top-0 left-0 w-full rounded bg-gray-200 py-1 px-2 text-sm text-blue-400 dark:bg-gray-700 lg:px-4 lg:py-2;
+}
+
+div[data-rehype-pretty-code-fragment] pre {
+  @apply my-0 border-none px-0;
+}
+
+div[data-rehype-pretty-code-fragment] code {
+  @apply flex flex-col;
+}
+
+div[data-rehype-pretty-code-fragment] .line {
+  @apply w-max rounded-r border-l-2 border-transparent pl-2 pr-2 sm:pl-4;
+}
+
+div[data-rehype-pretty-code-fragment] .highlighted {
+  @apply border-blue-400 bg-[#b9c3d660] dark:bg-[#67769660];
+}
+
+div[data-rehype-pretty-code-fragment] code[data-line-numbers] {
+  counter-reset: line;
+}
+
+div[data-rehype-pretty-code-fragment] code[data-line-numbers] > .line::before {
+  counter-increment: line;
+  content: counter(line);
+  @apply mr-4 inline-block w-4 select-none text-right text-gray-300 sm:mr-6;
+}
+
+div[data-rehype-pretty-code-title][data-theme='light'] {
+  @apply inline-block dark:hidden;
+}
+
+div[data-rehype-pretty-code-title][data-theme='dark'] {
+  @apply hidden dark:inline-block;
+}
+
+div[data-rehype-pretty-code-fragment] pre[data-theme='light'] {
+  @apply block dark:hidden;
+}
+
+div[data-rehype-pretty-code-fragment] pre[data-theme='dark'] {
+  @apply hidden dark:block;
+}
+
+span[data-rehype-pretty-code-fragment] code[data-theme='light'] {
+  @apply inline dark:hidden;
+}
+
+span[data-rehype-pretty-code-fragment] code[data-theme='dark'] {
+  @apply hidden dark:inline;
+}

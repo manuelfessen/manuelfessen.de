@@ -1,0 +1,35 @@
+---
+interface Props {
+  reactions?: boolean
+}
+
+const { reactions = true } = Astro.props
+---
+
+<div class='giscus-container mt-8'></div>
+<script is:inline define:vars={{ reactions }}>
+  const giscusAttributes = {
+    src: 'https://giscus.app/client.js',
+    'data-repo': 'manuelfessen/portfolio',
+    'data-repo-id': 'R_kgDOHmhQVQ',
+    'data-category': 'Announcements',
+    'data-category-id': 'DIC_kwDOIWYjsc4CSqeT',
+    'data-mapping': 'pathname',
+    'data-strict': '0',
+    'data-reactions-enabled': reactions ? '1' : '0',
+    'data-emit-metadata': '0',
+    'data-input-position': 'top',
+    'data-theme': theme, // theme variable from BaseHead.astro
+    'data-lang': 'en',
+    'data-loading': 'lazy',
+    crossorigin: 'anonymous',
+    async: '',
+  }
+
+  const giscusScript = document.createElement('script')
+  Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value))
+
+  const giscusContainer = document.querySelector('.giscus-container')
+  if (!giscusContainer) throw new Error('Giscus container not found !')
+  giscusContainer.appendChild(giscusScript)
+</script>

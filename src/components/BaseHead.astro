@@ -1,79 +1,69 @@
 ---
-import type { SiteMeta } from "@/types";
-import siteMeta from "src/site-meta.config";
-import "../styles/index.css";
+import inter from '@fontsource/inter/files/inter-latin-400-normal.woff2'
+import firacode from '@fontsource/fira-code/files/fira-code-latin-400-normal.woff2'
+import '@fontsource/inter'
+import '@fontsource/fira-code'
+import 'katex/dist/katex.min.css'
 
-export type Props = SiteMeta;
+import type { SiteMeta } from "@/types/index";
+import siteMeta from "@/types/site-meta.config";
+import avatar from '../../public/sw.webp'
+
+export type BaseHeadProps = SiteMeta;
 
 const {
   title,
   description = siteMeta.description,
-  image,
-} = Astro.props as Props;
+  image = 'https://manuelfessen.de/sw.webp',
+} = Astro.props as BaseHeadProps;
 
 const titleSeparator = "•";
 const siteTitle = `${title} ${titleSeparator} ${siteMeta.title}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset='utf-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0, viewport-fit=cover' />
+<meta name='generator' content={Astro.generator} />
+<link rel='icon' type='image/svg+xml' href='/favicon.ico' />
+
 
 <!-- Primary Meta Tags -->
 <title>{siteTitle}</title>
-<meta name="title" content={siteTitle} />
-<meta name="description" content={description} />
-
-<!-- Global Metadata -->
-<link rel="icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" href="/images/icon/192x192.png" />
-<link rel="manifest" href="/manifest.webmanifest" />
-<meta name="theme-color" content={siteMeta.themeColorLight} />
+<meta name='title' content={siteTitle} />
+<meta name='description' content={description} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:locale" content={siteMeta.ogLocale} />
-<meta property="og:type" content="website" />
-<meta property="og:url" content={canonicalURL} />
+<meta property='og:type' content='website' />
+<meta property='og:url' content={canonicalURL} />
 <link rel="canonical" href={canonicalURL} />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-{image && <meta property="og:image" content={image} />}
+<meta property='og:title' content={title} />
+<meta property='og:description' content={description} />
+<meta property="og:image" content={avatar} />
 
-<!-- Twitter -->
-<meta
-  property="twitter:card"
-  content={image ? "summary_large_image" : "summary"}
-/>
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-{image && <meta property="twitter:image" content={image} />}
+<meta property='twitter:card' content={image ? "summary_large_image" : "summary"} />
+<meta property='twitter:url' content={Astro.url} />
+<meta property='twitter:title' content={title} />
+<meta property='twitter:description' content={description} />
+<meta property="twitter:image" content={avatar} />
 
-<!-- Saves prefered color scheme -->
 <script is:inline>
-  const themeSaved = localStorage.getItem("theme");
+  const theme = (() => {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme')
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  })()
 
-  if (themeSaved) {
-    document.documentElement.dataset.theme = themeSaved;
-  } else {
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: business)"
-    ).matches;
-    document.documentElement.dataset.theme = prefersDark
-      ? "business"
-      : "garden";
-  }
-
-  window
-    .matchMedia("(prefers-color-scheme: business)")
-    .addEventListener("change", (event) => {
-      if (!localStorage.getItem("theme")) {
-        document.documentElement.dataset.theme = event.matches
-          ? "business"
-          : "garden";
-      }
-    });
+  document.documentElement.setAttribute('style', `color-scheme: ${theme};`)
+  document.documentElement.setAttribute('data-theme', theme)
+  window.localStorage.setItem('theme', theme)
 </script>
+
+<link rel='preload' as='font' href={inter} type='font/woff2' crossorigin='anonymous' />
+<link rel='preload' as='font' href={firacode} type='font/woff2' crossorigin='anonymous' />
+
 
 <!-- Cloudflare Web Analytics -->
 <script 
