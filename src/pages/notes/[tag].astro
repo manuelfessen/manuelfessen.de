@@ -40,11 +40,13 @@ const tags = nonDraftPosts.flatMap(({ frontmatter }) => frontmatter.tags)
 const uniqueTags = [...new Set(tags)]
 
 const getCount = (tag: string) => tags.filter((t) => t === tag).length
+
+let tagHeader = `${count} note${count === 1 ? "" : "s"} tagged with "${tag}"`;
 ---
 
 <BaseLayout title={`#${tag} - Manuel Fessen`} description={`All the posts that include ${tag}.`}>
   <div class='mb-4'>
-    <h2 class='mb-4 text-3xl font-bold tracking-tight md:text-5xl'>#{tag} ({count})</h2>
+    <h2 class='mb-4 text-3xl font-bold tracking-tight md:text-5xl'>{tagHeader}</h2>
     <p class='text-gray-600 dark:text-gray-300'>Welcome to my digital garden 👨🏻‍🌾 — a personal wiki. A collection of essays, notes, and half-baked explorations I'm always tending to. Read more about <a
       href="https://maggieappleton.com/garden-history"
       target="_blank"
