@@ -1,9 +1,7 @@
 {
-  "name": "astro-blog",
-  "type": "module",
-  "license": "MTI",
-  "version": "0.0.1",
-  "private": true,
+  "name": "manuels-digital-garden",
+	"version": "1.1.0",
+	"private": true,
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

@@ -4,6 +4,7 @@ type SiteMeta = {
 	title: string;
 	description?: string;
 	image?: string;
+	imageTwitter?: string;
 };
 
 export type {

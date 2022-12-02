@@ -7,14 +7,14 @@ import 'katex/dist/katex.min.css'
 
 import type { SiteMeta } from "@/types/index";
 import siteMeta from "@/types/site-meta.config";
-import avatar from '../../public/sw.webp'
 
 export type BaseHeadProps = SiteMeta;
 
 const {
   title,
   description = siteMeta.description,
-  image = 'https://manuelfessen.de/sw.webp',
+  image = '/social.png',
+  imageTwitter = '/sw.png',
 } = Astro.props as BaseHeadProps;
 
 const titleSeparator = "•";
@@ -40,13 +40,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <link rel="canonical" href={canonicalURL} />
 <meta property='og:title' content={title} />
 <meta property='og:description' content={description} />
-<meta property="og:image" content={avatar} />
+<meta property="og:image" content={new URL(image, Astro.url)} />
 
 <meta property='twitter:card' content={image ? "summary_large_image" : "summary"} />
 <meta property='twitter:url' content={Astro.url} />
 <meta property='twitter:title' content={title} />
 <meta property='twitter:description' content={description} />
-<meta property="twitter:image" content={avatar} />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@nytimesbits" />
+<meta name="twitter:creator" content="@nickbilton" />
+<meta property="og:image" content={new URL(imageTwitter, Astro.url)} />
 
 <script is:inline>
   const theme = (() => {
