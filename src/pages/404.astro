@@ -1,13 +1,15 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import { SEO } from 'config';
+import type { SiteMeta } from '@/types'
 
-const meta = {
-	title: "Oops! You found a missing page!",
-	description: "Oops! It looks like this page is lost in space!",
-};
+const metadata: SiteMeta = {
+  title: SEO.getTitle('Oops! You found a missing page!'),
+  description: 'Oops! It looks like this page is lost in space!',
+}
 ---
 
-<BaseLayout meta={meta}>
+<BaseLayout {...metadata}>
 	<div class="md:py-60 rounded-md">
 		<div class="flex flex-col">
 			<h1 class="font-bold text-blue-600 lg:text-5xl">404</h1>

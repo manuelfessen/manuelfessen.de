@@ -2,21 +2,47 @@
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import BaseLayout from './BaseLayout.astro'
-import Giscus from '@/components/Giscus.astro'
+import TagCard from '@/components/TagCard.astro'
 import { cx } from '@/lib/utils'
 import type { MarkdownLayoutProps } from 'astro'
-import type { Frontmatter } from '@/types'
+import type { Frontmatter, SiteMeta } from '@/types'
 import '@/styles/syntaxHighlight.css'
 
 interface Props extends MarkdownLayoutProps<Frontmatter> {}
 
-const { title, description, publishedAt, updatedAt, minutesRead, hero } = Astro.props.frontmatter
+const {
+  title,
+  description,
+  publishedAt,
+  updatedAt,
+  tags,
+  //comments = true,
+  slug,
+  minutesRead,
+  hero,
+} = Astro.props.frontmatter
+
+const metadata: SiteMeta = {
+  title: `${title}`,
+  description,
+  publishedAt,
+}
+
+const posts = await Astro.glob<Frontmatter>('../pages/**/*.mdx')
+const nonDraftPosts = posts.filter(({ frontmatter }) => !frontmatter.draft)
+const sortedPosts = nonDraftPosts.sort(
+  ({ frontmatter: { publishedAt: a } }, { frontmatter: { publishedAt: b } }) =>
+    new Date(b).valueOf() - new Date(a).valueOf()
+)
+
+const currentPostIndex = sortedPosts.findIndex(({ frontmatter }) => frontmatter.slug === slug)
+const prevPost = sortedPosts[currentPostIndex + 1]
+const nextPost = sortedPosts[currentPostIndex - 1]
 
 dayjs.extend(relativeTime)
 ---
 
-<BaseLayout title={`${title} – Manuel Fessen`} description={description}>
-
+<BaseLayout {...metadata}>
   {hero && <img class="rounded mb-4 mx-auto w-full" style="min-width: 80%;" loading="lazy" src={hero} alt={title} />}
   <h1 class='mb-6 text-3xl font-bold tracking-tight md:text-5xl'>{title}</h1>
   <div class='flex flex-col items-start justify-between w-full mb-4 md:flex-row md:items-center'>
@@ -52,13 +78,52 @@ dayjs.extend(relativeTime)
   </div>
   <article
     class={cx(
-      'prose lg:prose-xl dark:prose-invert max-w-none w-full mx-auto',
+      'prose lg:prose-xl dark:prose-invert max-w-none w-full mx-auto mb-10',
       'prose-hr:transition-colors prose-hr:duration-300',
       'prose-pre:border-2 prose-pre:border-gray-200 dark:prose-pre:border-gray-700',
       'prose-code:text-pink-500'
     )}
   >
     <slot />
+    <hr class="hidden"/>
   </article>
-  
+  <ol class='flex-wrap gap-2 hidden'>
+    {
+      tags.map((tag) => (
+        <li>
+          <TagCard tag={tag} />
+        </li>
+      ))
+    }
+  </ol>
+  <div class='flex flex-col lg:flex-row gap-2 w-full mt-10'>
+    {
+      prevPost && (
+        <a
+          href={`/**/${prevPost.frontmatter.slug}`}
+          class={cx(
+            'grow flex flex-col p-3 sm:p-4 border border-grey-200 dark:border-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors duration-300',
+            nextPost ? 'lg:w-1/2' : 'lg:w-full'
+          )}
+        >
+          <p class='text-gray-600 dark:text-gray-300'>Previous post</p>
+          <p class='text-black dark:text-white'>{prevPost.frontmatter.title}</p>
+        </a>
+      )
+    }
+    {
+      nextPost && (
+        <a
+          href={`/**/${nextPost.frontmatter.slug}`}
+          class={cx(
+            'grow flex flex-col p-3 sm:p-4 border border-grey-200 dark:border-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors duration-300',
+            prevPost ? 'lg:w-1/2 lg:items-end' : 'lg:w-full'
+          )}
+        >
+          <p class='text-gray-600 dark:text-gray-300'>Next post</p>
+          <p class='text-black dark:text-white'>{nextPost.frontmatter.title}</p>
+        </a>
+      )
+    }
+  </div>
 </BaseLayout>

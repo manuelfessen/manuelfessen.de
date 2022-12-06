@@ -8,17 +8,10 @@ import 'katex/dist/katex.min.css'
 import type { SiteMeta } from "@/types/index";
 import siteMeta from "@/types/site-meta.config";
 
-export type BaseHeadProps = SiteMeta;
 
-const {
-  title,
-  description = siteMeta.description,
+const { title, description, publishedAt,
   image = '/social.png',
-  imageTwitter = '/sw.png',
-} = Astro.props as BaseHeadProps;
-
-const titleSeparator = "•";
-const siteTitle = `${title} ${titleSeparator} ${siteMeta.title}`;
+  imageTwitter = '/sw.png', } = Astro.props as SiteMeta
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -29,8 +22,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 
 <!-- Primary Meta Tags -->
-<title>{siteTitle}</title>
-<meta name='title' content={siteTitle} />
+<title>{title}</title>
+<meta name='title' content={title} />
 <meta name='description' content={description} />
 
 <!-- Open Graph / Facebook -->
@@ -43,13 +36,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <meta property="og:image" content={new URL(image, Astro.url)} />
 
 <meta property='twitter:card' content={image ? "summary_large_image" : "summary"} />
-<meta property='twitter:url' content={Astro.url} />
+<meta property='twitter:url' content={canonicalURL} />
 <meta property='twitter:title' content={title} />
 <meta property='twitter:description' content={description} />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@nytimesbits" />
 <meta name="twitter:creator" content="@nickbilton" />
 <meta property="og:image" content={new URL(imageTwitter, Astro.url)} />
+
+{publishedAt && <meta property='article:published_time' content={publishedAt} />}
 
 <script is:inline>
   const theme = (() => {

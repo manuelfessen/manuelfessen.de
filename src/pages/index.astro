@@ -1,22 +1,29 @@
 ---
+import { SEO } from 'config'
 import { Image } from '@astrojs/image/components'
 import avatar from '../../public/sw.webp'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import PostCard from '@/components/PostCard.astro'
-import type { Frontmatter } from '@/types'
+import type { Frontmatter, SiteMeta } from '@/types'
 
 const posts = await Astro.glob<Frontmatter>('./blog/*.mdx')
-const nonDraftPosts = posts
-  .filter(({ frontmatter }) => !frontmatter.draft)
-  .sort((a, b) => {
-    const aDate = new Date(a.frontmatter.publishedAt)
-    const bDate = new Date(b.frontmatter.publishedAt)
-    return bDate.getTime() - aDate.getTime()
-  })
+const nonDraftPosts = posts.filter(({ frontmatter }) => !frontmatter.draft)
+const sortedPosts = nonDraftPosts.sort(
+  ({ frontmatter: { publishedAt: a } }, { frontmatter: { publishedAt: b } }) =>
+    new Date(b).valueOf() - new Date(a).valueOf()
+)
   .slice(0, 3)
+
+const pinnedPosts = sortedPosts.filter(({ frontmatter }) => frontmatter.pinned)
+const unpinnedPosts = sortedPosts.filter(({ frontmatter }) => !frontmatter.pinned)
+
+const metadata: SiteMeta = {
+  title: SEO.getTitle('Blog'),
+  description: 'I design experiences that make peoples lives simple.',
+}
 ---
 
-<BaseLayout title={'Manuel Fessen’s Blog'} description='Manuel Fessen | UX Designer'>
+<BaseLayout {...metadata}>
   <div class='flex flex-col-reverse sm:flex-row sm:justify-between mb-16'>
     <div class='flex flex-col center'>
       <h1 class='text-gray-700 dark:text-gray-200 text-4xl mb-1 font-bold'>
@@ -31,7 +38,8 @@ const nonDraftPosts = posts
     <div class='relative mb-8 sm:mb-0 ml-8 flex-none'>
       <Image
         src={avatar}
-        alt='Manuel Fessen'ç
+        alt='Manuel Fessen'
+        ç
         class='inline object-cover w-20 sm:w-32 h-20 sm:h-32 mr-2 rounded-full'
         draggable={false}
         loading='eager'
@@ -39,12 +47,31 @@ const nonDraftPosts = posts
       />
     </div>
   </div>
-  <div class='py-2 space-y-4'>
-    <h3 class='text-xl font-semibold'>Latest Posts</h3>
-
+  <div class='space-y-6'>
+    {
+      !!pinnedPosts.length && (
+        <>
+          <h3 class='text-xl'>Pinned</h3>
+          <ol class='space-y-4'>
+            {pinnedPosts.map(({ frontmatter }) => (
+              <li>
+                <PostCard {...frontmatter} />
+              </li>
+            ))}
+          </ol>
+        </>
+      )
+    }
+    <h3 class='text-xl'>Latest Posts</h3>
     {
       nonDraftPosts.length ? (
-        nonDraftPosts.map(({ frontmatter }) => <PostCard {...frontmatter} />)
+        <ol class='space-y-4'>
+          {unpinnedPosts.map(({ frontmatter }) => (
+            <li>
+              <PostCard {...frontmatter} />
+            </li>
+          ))}
+        </ol>
       ) : (
         <p class='text-gray-600 dark:text-gray-300'>No posts yet.</p>
       )

@@ -1,7 +1,8 @@
 ---
+import { SEO } from 'config'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import NoteCard from '@/components/NoteCard.astro'
-import type { Frontmatter } from '@/types'
+import type { Frontmatter, SiteMeta } from '@/types'
 
 const notes = await Astro.glob<Frontmatter>('./notes/*.mdx')
 const nonDraftPosts = notes.filter(({ frontmatter }) => !frontmatter.draft)
@@ -18,8 +19,14 @@ const nonDraftNotes = notes
     const bDate = new Date(b.frontmatter.publishedAt)
     return bDate.getTime() - aDate.getTime()
   })
+  
+const metadata: SiteMeta = {
+  title: SEO.getTitle('Notes'),
+  description: 'My Digital Garden - A collection of essays, notes, and half-baked explorations I am always tending to.',
+}
 ---
-<BaseLayout title='Notes | Manuel Fessen' description='My Digital Garden - A collection of essays, notes, and half-baked explorations I am always tending to.'>
+
+<BaseLayout {...metadata}>
   <div class='mb-4'>
     <h2 class='mb-4 text-3xl font-bold tracking-tight md:text-5xl'>Notes</h2>
     <p class='text-gray-600 dark:text-gray-300'>Welcome to my digital garden 👨🏻‍🌾 — a personal wiki. A collection of essays, notes, and half-baked explorations I'm always tending to. Read more about <a

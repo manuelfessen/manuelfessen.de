@@ -1,5 +1,34 @@
 # Building my website with Astro 🚀
 
+## ⭐ Features
+
+- Fast & Small 🏎️
+
+  - Static site generation
+  - Auto-compress all static files
+  - Built with [Astro](https://astro.build/), [Solid.js](https://www.solidjs.com/) and [Tailwind CSS](https://tailwindcss.com/)
+  - Image optimized (local/remote images auto compress to `Webp` format) with lazy loading
+  - Partial hydration
+
+- Powerful 🚀
+
+  - MDX support
+  - Syntax highlighting
+    - copy button
+    - line number
+    - line highlight
+    - dark mode
+  - Twemoji support
+  - Comments system
+  - SEO friendly
+  - RSS feed
+
+- Responsive 📱
+
+  - Mobile-first
+  - Dark mode
+  - Customizable
+
 ## Tasks ✅
 
 - [x] Create a website layout

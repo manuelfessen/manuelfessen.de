@@ -1,9 +1,17 @@
 ---
+import { SEO } from 'config'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import Giscus from '@/components/Giscus.astro'
+import type { Frontmatter, SiteMeta } from '@/types'
+
+const metadata: SiteMeta = {
+  title: SEO.getTitle('Blog'),
+  description:
+    'I write about web development, programming, and other stuff that I find interesting.',
+}
 ---
 
-<BaseLayout title='Guestbook – Manuel Fessen' description='Leave some comments here.'>
+<BaseLayout {...metadata}>
   <h2 class='mb-4 text-3xl font-bold tracking-tight md:text-5xl'>Guestbook</h2>
   <p class='mb-4 text-gray-600 dark:text-gray-300'>Leave a comment below.</p>
 </BaseLayout>
