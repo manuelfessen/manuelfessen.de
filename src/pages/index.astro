@@ -1,19 +1,26 @@
 ---
+import { SEO } from 'config'
 import { Image } from '@astrojs/image/components'
 import avatar from '../../public/sw.webp'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import PostCard from '@/components/PostCard.astro'
-import type { Frontmatter } from '@/types'
+import type { Frontmatter, SiteMeta } from '@/types'
+
+const metadata: SiteMeta = {
+  title: SEO.title,
+  description: 'NekoChan - Full Stack Web Developer',
+}
 
 const posts = await Astro.glob<Frontmatter>('./blog/*.mdx')
-const nonDraftPosts = posts
-  .filter(({ frontmatter }) => !frontmatter.draft)
-  .sort((a, b) => {
-    const aDate = new Date(a.frontmatter.publishedAt)
-    const bDate = new Date(b.frontmatter.publishedAt)
-    return bDate.getTime() - aDate.getTime()
-  })
+const nonDraftPosts = posts.filter(({ frontmatter }) => !frontmatter.draft)
+const sortedPosts = nonDraftPosts.sort(
+  ({ frontmatter: { publishedAt: a } }, { frontmatter: { publishedAt: b } }) =>
+    new Date(b).valueOf() - new Date(a).valueOf()
+)
   .slice(0, 3)
+
+const pinnedPosts = sortedPosts.filter(({ frontmatter }) => frontmatter.pinned)
+const unpinnedPosts = sortedPosts.filter(({ frontmatter }) => !frontmatter.pinned)
 ---
 
 <BaseLayout title={'Manuel Fessen’s Blog'} description='Manuel Fessen | UX Designer'>
@@ -39,12 +46,31 @@ const nonDraftPosts = posts
       />
     </div>
   </div>
-  <div class='py-2 space-y-4'>
+  <div class='space-y-6'>
+    {
+      !!pinnedPosts.length && (
+        <>
+          <h3 class='text-xl font-semibold'>Pinned</h3>
+          <ol class='space-y-4'>
+            {pinnedPosts.map(({ frontmatter }) => (
+              <li>
+                <PostCard {...frontmatter} />
+              </li>
+            ))}
+          </ol>
+        </>
+      )
+    }
     <h3 class='text-xl font-semibold'>Latest Posts</h3>
-
     {
       nonDraftPosts.length ? (
-        nonDraftPosts.map(({ frontmatter }) => <PostCard {...frontmatter} />)
+        <ol class='space-y-4'>
+          {unpinnedPosts.map(({ frontmatter }) => (
+            <li>
+              <PostCard {...frontmatter} />
+            </li>
+          ))}
+        </ol>
       ) : (
         <p class='text-gray-600 dark:text-gray-300'>No posts yet.</p>
       )

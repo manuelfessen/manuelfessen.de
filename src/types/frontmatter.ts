@@ -8,4 +8,5 @@ export interface Frontmatter {
   minutesRead: string
   draft?: boolean
   hero?: string
+  pinned?: boolean
 }
