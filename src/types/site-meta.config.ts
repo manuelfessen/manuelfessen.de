@@ -9,4 +9,3 @@ const siteMeta = {
 }
 
 export default siteMeta;
-

@@ -1,8 +1,7 @@
 ---
-import { SEO } from 'config'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import PostCard from '@/components/PostCard.astro'
-import type { Frontmatter, SiteMeta } from '@/types'
+import type { Frontmatter } from '@/types'
 
 const allPosts = await Astro.glob('./blog/*.mdx')
 const nonDraftSortedPosts = allPosts
@@ -21,15 +20,9 @@ const postsByYear = nonDraftSortedPosts.reduce((acc: any, post) => {
   return acc
 }, {})
 const sortedYears = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a))
-
-const metadata: SiteMeta = {
-  title: SEO.getTitle('Blog'),
-  description:
-    'I write about user experience, user testing, and other topics that I find interesting.',
-}
 ---
 
-<BaseLayout {...metadata}>
+<BaseLayout title={'Blog - Manuel Fessen'} description='Manuel Fessen - UX Designer'>
   <div class='mb-16'>
     <h2 class='mb-4 text-3xl font-bold tracking-tight md:text-5xl'>Blog</h2>
     <p class='text-gray-600 dark:text-gray-300'>
@@ -50,7 +43,7 @@ const metadata: SiteMeta = {
                 class='border-grey-200 mb-4 flex w-full flex-col rounded border p-2 transition-colors duration-300 hover:bg-gray-200 dark:border-gray-800 dark:hover:bg-gray-800 sm:p-4'
               >
                 <span class='mb-1 flex items-center justify-between'>
-                  <h3 class='mb-1 text-lg md:text-xl text-gray-900 dark:text-gray-100'>
+                  <h3 class='mb-1 text-lg md:text-xl font-semibold text-gray-900 dark:text-gray-100'>
                     {post.frontmatter.title}
                   </h3>
                   <span class='shrink-0 text-gray-600 dark:text-gray-400 font-normal'>{post.frontmatter.minutesRead}</span>

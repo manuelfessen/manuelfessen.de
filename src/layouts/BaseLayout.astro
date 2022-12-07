@@ -2,14 +2,21 @@
 import BaseHead from '@/components/BaseHead.astro'
 import Nav from '@/components/Nav.astro'
 import Footer from '@/components/Footer/Footer.astro'
-import type { SiteMeta } from '@/types'
+import type { BaseHeadProps } from '@/components/BaseHead.astro'
 
-interface Props extends SiteMeta {}
+import type { SiteMeta } from "@/types/index";
+import siteMeta from "@/types/site-meta.config";
+
+export type BaseHeadProps = {
+  meta: SiteMeta;
+};
+
+const { title, description, image } = Astro.props as BaseHeadProps
 ---
 
 <html lang='en' class='scroll-smooth font-serif antialiased'>
   <head>
-    <BaseHead {...Astro.props} />
+    <BaseHead title={title} description={description} />
   </head>
   <body
     class='flex h-screen flex-col px-6 overflow-x-hidden [overflow:overlay] bg-gray-100 text-black dark:bg-gray-900 dark:text-white transition-[background-color] duration-300 selection:bg-[#67769660] items-center md:px-8 motion-safe:scroll-smooth pt-4'
