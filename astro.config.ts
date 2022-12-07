@@ -8,6 +8,7 @@ import solidJs from '@astrojs/solid-js'
 import mdx from '@astrojs/mdx'
 import image from '@astrojs/image'
 import compress from 'astro-compress'
+import mdxProvider from './plugins/mdx-provider'
 import remarkMath from 'remark-math'
 import remarkBreaks from 'remark-breaks'
 import remarkBehead from 'remark-behead'
@@ -55,6 +56,9 @@ export default defineConfig({
   site: 'https://www.manuelfessen.de',
   markdown: {
     syntaxHighlight: false,
+  },
+  vite: {
+    plugins: [mdxProvider()],
   },
   integrations: [
     prefetch(),
