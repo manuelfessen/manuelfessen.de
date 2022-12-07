@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import PostCard from '@/components/PostCard.astro'
+import TagCard from '@/components/TagCard.astro'
 import type { MarkdownLayoutProps } from 'astro'
 import type { Frontmatter } from '@/types'
 
@@ -46,23 +47,20 @@ const getCount = (tag: string) => tags.filter((t) => t === tag).length
     <h2 class='mb-4 text-3xl font-bold tracking-tight md:text-5xl'>#{tag} ( {count} )</h2>
   </div>
   <ul class='flex gap-x-2 mb-8'>
-    {
-      uniqueTags.length ? (
-        uniqueTags.map((tag) => (
-          <a>#all</a>
+    
+  {
+    uniqueTags.length ? (
+      <ol class='flex flex-wrap gap-x-2 gap-y-2'>
+        {uniqueTags.map((tag) => (
           <li>
-            <a
-              href={`/${tag}`}
-              class='px-2 py-1 text-sm rounded text-gray-600 bg-gray-200 hover:text-gray-700 hover:bg-gray-300 dark:text-gray-300 dark:bg-gray-800 dark:hover:text-gray-200 dark:hover:bg-gray-700 transition-colors duration-300'
-            >
-              #{tag} ({getCount(tag)})
-            </a>
+            <TagCard tag={tag} count={getCount(tag)} />
           </li>
-        ))
-      ) : (
-        <li class='text-gray-600 dark:text-gray-300'>No tags yet.</li>
-      )
-    }
+        ))}
+      </ol>
+    ) : (
+      <p class='text-gray-600 dark:text-gray-300'>No tags yet.</p>
+    )
+  }
   </ul>
 
   <div class='grid w-full grid-cols-1 gap-4 my-2 mt-4 sm:grid-cols-2'>
