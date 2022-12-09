@@ -21,6 +21,7 @@
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/solid-js": "^1.2.3",
     "@astrojs/tailwind": "^2.1.2",
+    "@botpoison/browser": "^0.1.30",
     "@fontsource/fira-code": "^4.5.12",
     "@fontsource/inter": "^4.5.14",
     "@tailwindcss/line-clamp": "^0.4.2",

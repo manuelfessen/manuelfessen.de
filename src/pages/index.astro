@@ -5,11 +5,7 @@ import avatar from '../../public/sw.webp'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import PostCard from '@/components/PostCard.astro'
 import type { Frontmatter, SiteMeta } from '@/types'
-
-const metadata: SiteMeta = {
-  title: SEO.title,
-  description: 'NekoChan - Full Stack Web Developer',
-}
+import Callout from '@/components/MDX/Callout.astro'
 
 const posts = await Astro.glob<Frontmatter>('./blog/*.mdx')
 const nonDraftPosts = posts.filter(({ frontmatter }) => !frontmatter.draft)
@@ -21,10 +17,15 @@ const sortedPosts = nonDraftPosts.sort(
 
 const pinnedPosts = sortedPosts.filter(({ frontmatter }) => frontmatter.pinned)
 const unpinnedPosts = sortedPosts.filter(({ frontmatter }) => !frontmatter.pinned)
+
+const metadata: SiteMeta = {
+  title: SEO.title,
+  description: 'Manuel Fessen - UX Professional',
+}
 ---
 
-<BaseLayout title={'Manuel Fessen’s Blog'} description='Manuel Fessen | UX Designer'>
-  <div class='flex flex-col-reverse sm:flex-row sm:justify-between mb-16'>
+<BaseLayout {...metadata}>
+  <div class='flex flex-col-reverse sm:flex-row sm:justify-between mb-4'>
     <div class='flex flex-col center'>
       <h1 class='text-gray-700 dark:text-gray-200 text-4xl mb-1 font-bold'>
         Hi, I'm Manuel {' '}
@@ -32,7 +33,7 @@ const unpinnedPosts = sortedPosts.filter(({ frontmatter }) => !frontmatter.pinne
       </h1>
       <h2 class='text-lg md:text-l font-medium leading-5 mb-4'>UX Designer at EASY Software.</h2>
       <h3 class='text-gray-600 dark:text-gray-300 text-lg md:text-l'>
-        I design experiences that make people's lives <span class='font-bold'>simple.</span>
+        As a UX designer and problem solver, I use my expertise in usability, accessibility, and user research to create intuitive and engaging experiences that provide real value to users and customers. 
       </h3>
     </div>
     <div class='relative mb-8 sm:mb-0 ml-8 flex-none'>
@@ -45,6 +46,20 @@ const unpinnedPosts = sortedPosts.filter(({ frontmatter }) => !frontmatter.pinne
         format='webp'
       />
     </div>
+  </div>
+  <div class="space-x-2 my-4 mb-8">
+
+  <a href='../contact'>
+    <button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+      <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+          Contact Me
+      </span>
+    </button>
+  </a>
+
+  <a href='../cv'>
+    <button type="button" class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">Download CV</button>
+  </a>
   </div>
   <div class='space-y-6'>
     {

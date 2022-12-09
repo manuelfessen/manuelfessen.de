@@ -1,0 +1,111 @@
+---
+import { SEO } from 'config';
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import Callout from '@/components/MDX/Callout.astro';
+import type { SiteMeta } from '@/types';
+const homepage = new URL(Astro.url).href
+
+const metadata: SiteMeta = {
+  title: 'Contact Me',
+  description: 'Do not hesitate to contact me. I am passionate about UX design and am eager to work on exciting new endeavors. My skills in UX design make me a great candidate for any project, and I am confident that I can help drive success.',
+}
+---
+
+<BaseLayout {...metadata}>
+  <main class=''>
+    <section class='mb-8 flex flex-col'>
+      <h1 class='text-3xl font-bold tracking-tight sm:mb-4 md:text-5xl'>Contact Me</h1>
+      <Callout header="Available for cool projects in spring 2023"></Callout>
+      <form
+        id='contactForm'
+        action='https://submit-form.com/C4htEPTs'
+        method='POST'
+        data-botpoison-public-key='pk_182d9398-de3f-4931-8022-1371da1d6cb9'
+        class='sm:mt-2'
+      >
+        <div class='mb-4 flex flex-col'>
+          <label class='label-text mb-2' for='name'>Your name</label>
+          <input
+            type='text'
+            id='name'
+            name='name'
+            placeholder='A curious person'
+            auto-complete='on'
+            required
+            class='input input-bordered focus:input-primary w-full rounded-lg border border-current px-4 py-4 focus:outline-none'
+          />
+        </div>
+        <div class='mb-4 flex flex-col'>
+          <label class='label-text mb-2' for='email'>Email</label>
+          <input
+            type='email'
+            id='email'
+            name='email'
+            placeholder='curious@gmail.com'
+            auto-complete='on'
+            required
+            class='input input-bordered focus:input-primary w-full rounded-lg border border-current px-4 py-2'
+          />
+        </div>
+        <div class='mb-4 flex flex-col'>
+          <label class='label-text mb-2' for='message'>Message</label>
+          <textarea
+            rows={5}
+            id='message'
+            name='message'
+            placeholder='A nice message'
+            required
+            class='textarea textarea-bordered focus:input-primary w-full rounded-lg border border-current px-4 py-4'
+          ></textarea>
+        </div>
+        <input type='hidden' name='_redirect' value={homepage} />
+        <input type='hidden' name='_append' value='false' />
+
+        <div class='form-control mb-4 flex flex-col items-center md:items-baseline'>
+          <label class='label cursor-pointer'>
+            <input required type='checkbox' class='checkbox mr-2 border' required />
+            <span class='label-text'
+              >I consent to having this website store my submitted information so they can respond
+              to my inquiry.</span
+            >
+          </label>
+          <label class='label cursor-pointer'>
+            <input required type='checkbox' class='checkbox mr-2 border' required />
+            <span class='label-text'>
+              I agree to the <a
+                class='font-semibold'
+                href='
+        https://botpoison.com/legal/gdpr/'>GDPR Agreement</a
+              >
+            </span>
+          </label>
+        </div><button
+          type='submit'
+          class='focus:ring-4 focus:outline-none w-full cursor-pointer rounded-lg border border-current px-4 py-2 text-xl font-semibold transition'
+          >Send
+        </button>
+      </form>
+    </section>
+  </main>
+</BaseLayout>
+
+<script>
+  import '@botpoison/browser'
+
+  const checkForm = (event) => {
+    const form = document.querySelector('#contactForm')
+    const btn = document.querySelector(`#contactForm > button[type="submit"]`)
+
+    form.addEventListener('botpoison-challenge-start', () => {
+      btn.setAttribute('disabled', 'disabled')
+    })
+    form.addEventListener('botpoison-challenge-success', () => {
+      btn.removeAttribute('disabled')
+    })
+    form.addEventListener('botpoison-challenge-error', () => {
+      btn.removeAttribute('disabled')
+    })
+  }
+
+  window.addEventListener('DOMContentLoaded', checkForm)
+</script>
