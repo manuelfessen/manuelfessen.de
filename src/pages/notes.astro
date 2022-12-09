@@ -55,6 +55,7 @@ const nonDraftNotes = notes
     }
   </ul>
   <div class='columns-2 gap-4 sm:columns-3'>
+    <NoteCard slug='../books' title='My digital bookshelf' description='Thanks to my kindle paperwhite, I have found the fun in reading again.' />
     {
       nonDraftNotes.length ? (
       nonDraftNotes.map(({ frontmatter }) => <NoteCard {...frontmatter} />)

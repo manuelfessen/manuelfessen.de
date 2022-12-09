@@ -18,7 +18,8 @@ const {
 } = Astro.props as BaseHeadProps;
 
 const titleSeparator = "•";
-const siteTitle = `${title} ${titleSeparator} ${siteMeta.title}`;
+//const siteTitle = `${title} ${titleSeparator} ${siteMeta.title}`;
+const siteTitle = `${title}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -59,7 +60,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
   })()
 
-  document.documentElement.setAttribute('style', `color-scheme: ${theme};`)
   document.documentElement.setAttribute('data-theme', theme)
   window.localStorage.setItem('theme', theme)
 </script>

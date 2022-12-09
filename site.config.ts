@@ -7,5 +7,5 @@ export const SEO = {
     site: '@manuelfessen',
     creator: '@manuelfessen',
   },
-  getTitle: (title: string) => `${title} | ${SEO.author}`,
+  getTitle: (title: string) => `${title}`,
 }
