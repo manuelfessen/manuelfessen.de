@@ -12,7 +12,6 @@ import mdxProvider from './plugins/mdx-provider'
 import remarkMath from 'remark-math'
 import remarkBreaks from 'remark-breaks'
 import remarkBehead from 'remark-behead'
-import remarkImages from './src/plugins/remark-images'
 import remarkM2dx from 'astro-m2dx'
 import remarkToc from './plugins/remark-toc'
 import remarkRouteSlug from './plugins/remark-route-slug'
@@ -72,7 +71,6 @@ export default defineConfig({
         remarkMath,
         remarkBreaks,
         [remarkBehead, { minDepth: 2 }],
-        remarkImages,
         [remarkM2dx, remarM2dxOptions],
         remarkToc,
         remarkRouteSlug,
