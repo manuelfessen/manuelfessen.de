@@ -28,35 +28,3 @@ const { title, description, image } = Astro.props as BaseHeadProps
       <Footer />
   </body>
 </html>
-
-<script>// This is the number of snowflakes to create
-  const NUM_SNOWFLAKES = 50;
-  
-  // This is the size of the snowflakes
-  const SNOWFLAKE_SIZE = "1.5em";
-  
-  // This is the style for the snowflake when it is falling
-  const SNOWFLAKE_FALLING_STYLE =
-    "falling 10s linear infinite";
-  
-  // This function creates a snowflake element and adds it to the page
-  function createSnowflake() {
-    const snowflake = document.createElement("i");
-    snowflake.className = "snowflake fas fa-snowflake";
-    snowflake.style.fontSize = SNOWFLAKE_SIZE;
-    snowflake.style.top = `${Math.random() * 100}%`;
-    snowflake.style.left = `${Math.random() * 100}%`;
-    snowflake.style.animation = SNOWFLAKE_FALLING_STYLE;
-    document.body.appendChild(snowflake);
-  }
-  
-  // This function creates all the snowflakes and adds them to the page
-  function createSnow() {
-    for (let i = 0; i < NUM_SNOWFLAKES; i++) {
-      createSnowflake();
-    }
-  }
-  
-  // Call the createSnow() function to start the snowfall
-  createSnow();
-  </script>
