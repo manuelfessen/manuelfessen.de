@@ -25,10 +25,10 @@
   resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-0.30.1.tgz#687e0a36cc42d84545bb90eb7ac8324563922f90"
   integrity sha512-sH3hvGA9JR5eE2bHG3sr5QjaJl5ER9EmmZzSwBHkMPoBj0XU7XzQjSGoyCbIML6sSaelJEPnfsr9NsypvKOecg==
 
-"@astrojs/image@^0.12.1":
-  version "0.12.1"
-  resolved "https://registry.yarnpkg.com/@astrojs/image/-/image-0.12.1.tgz#e16e06b0fd7cea56f0039b21da460cf9c0590075"
-  integrity sha512-7pBUPCw7/FPwfEntx+mGjhdwpaWXNHwRVcTK71rpf+c2yb8iIesRS9r26U7lGozTzXUROh1y1ftA82ziuqYF6Q==
+"@astrojs/image@^0.11.6":
+  version "0.11.6"
+  resolved "https://registry.yarnpkg.com/@astrojs/image/-/image-0.11.6.tgz#5eaa8091bcd4cce9afa7432e0b14b8a308926dac"
+  integrity sha512-/awb4CWvOdoBv896XZcXw+oYEYLezWiaX5Oyk2g4PQ6rEHtZVROj56CFdUbS9ldmIqp3ni7rXNf1XK3dlP5d1A==
   dependencies:
     "@altano/tiny-async-pool" "^1.0.2"
     http-cache-semantics "^4.1.0"
@@ -87,10 +87,10 @@
     unist-util-visit "^4.1.0"
     vfile "^5.3.2"
 
-"@astrojs/mdx@^0.12.1":
-  version "0.12.1"
-  resolved "https://registry.yarnpkg.com/@astrojs/mdx/-/mdx-0.12.1.tgz#dda82694530c9dd8ed313d706dbf45342bcf9c52"
-  integrity sha512-d41ariAR7VMHb+4ALiXPbYXMPSqjpGqTAZBSp40sRam084r/4Vwr6F1mwRKWFDwbwgN6iLN+fczSQDvqoOD2JQ==
+"@astrojs/mdx@^0.11.6":
+  version "0.11.6"
+  resolved "https://registry.yarnpkg.com/@astrojs/mdx/-/mdx-0.11.6.tgz#07cdc2ae1994ee24fd8cd3973f8075b8808b8982"
+  integrity sha512-MEi8CZuz4vXn74/jCb0CMOAKEqd6nsLrShYfE+ddb1//14CwuaVGbXN7V6/zGj8ZvBhFk/darBbNpJBmzfbI6A==
   dependencies:
     "@astrojs/prism" "^1.0.2"
     "@mdx-js/mdx" "^2.1.2"
@@ -801,9 +801,9 @@
   integrity sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==
 
 "@types/needle@*":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@types/needle/-/needle-3.2.0.tgz#68badb910fae8e9d81c8aff4d9dc9b2044695fc7"
-  integrity sha512-6XzvzEyJ2ozFNfPajFmqH9JOt0Hp+9TawaYpJT59iIP/zR0U37cfWCRwosyIeEBBZBi021Osq4jGAD3AOju5fg==
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/@types/needle/-/needle-2.5.3.tgz#cc64f46411b811df260171b68756e67d36890ea1"
+  integrity sha512-RwgTwMRaedfyCBe5SSWMpm1Yqzc5UPZEMw0eAd09OSyV93nLRj9/evMGZmgFeHKzUOd4xxtHvgtc+rjcBjI1Qg==
   dependencies:
     "@types/node" "*"
 
@@ -997,16 +997,16 @@ astro-compress@^1.1.10:
   dependencies:
     "@nikolarhristov/pipeline" "0.1.1"
 
-astro-m2dx@0.7.15:
-  version "0.7.15"
-  resolved "https://registry.yarnpkg.com/astro-m2dx/-/astro-m2dx-0.7.15.tgz#ad6e089c7ab3edc838d1697765101e0b08ed6824"
-  integrity sha512-/fWKddNecAeskqw0B+nhouo57R+kQH0CnCrNUkvIj5iJNPV+92V95cKlLxYuEty6ZlxrYkWFHnetztgO1w3cgA==
+astro-m2dx@0.7.11:
+  version "0.7.11"
+  resolved "https://registry.yarnpkg.com/astro-m2dx/-/astro-m2dx-0.7.11.tgz#70676d4ffdb722368a8d6b051ba3b06f0150d1ff"
+  integrity sha512-wLyus4Ad+T0GVqyDlOGF9PAXGB8aGypmog8DS/d0axBYM9zeIX/7miZNIxOO+QTg88ynwpFpt7mh4GbzZXf0/Q==
   dependencies:
     acorn "^8.8.1"
     estree-util-visit "^1.2.0"
     gray-matter "^4.0.3"
     js-yaml "^4.1.0"
-    m2dx-utils "0.2.5"
+    m2dx-utils "0.2.3"
     mdast-util-mdx "^2.0.0"
     remark "^14.0.2"
     remark-directive "^2.0.1"
@@ -1354,10 +1354,10 @@ ci-info@^3.3.1:
   resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-3.7.0.tgz#6d01b3696c59915b6ce057e4aa4adfc2fa25f5ef"
   integrity sha512-2CpRNYmImPx+RXKLq6jko/L07phmS9I02TyqkcNU20GCF/GgaWvc58hPtjxDX8lPpkdwc9sNh72V9k00S7ezog==
 
-class-variance-authority@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/class-variance-authority/-/class-variance-authority-0.4.0.tgz#2ff1b5a836a68ce7a2dac0cc12f6fdc50e47f666"
-  integrity sha512-74enNN8O9ZNieycac/y8FxqgyzZhZbxmCitAtAeUrLPlxjSd5zA7LfpprmxEcOmQBnaGs5hYhiSGnJ0mqrtBLQ==
+class-variance-authority@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/class-variance-authority/-/class-variance-authority-0.3.0.tgz#40c824bfbe5c604ecb3e337a2353b4b86278888e"
+  integrity sha512-TFO+pzY9Gedqv8crPhprd647wxhvfpKevPPjiMcteEWsnkHX9yZrD1xMY3ZhRZnLwHUHCCP0LYO6KZIVag/5wQ==
 
 clean-css@5.2.0:
   version "5.2.0"
@@ -2781,10 +2781,10 @@ jsonc-parser@^3.0.0:
   resolved "https://registry.yarnpkg.com/jsonc-parser/-/jsonc-parser-3.2.0.tgz#31ff3f4c2b9793f89c67212627c51c6394f88e76"
   integrity sha512-gfFQZrcTc8CnKXp6Y4/CBT3fTc0OVuDofpre4aEeEpSBPV5X5v4+Vmx+8snU7RLPrNHPKSgLxGo9YuQzz20o+w==
 
-katex@0.16.4:
-  version "0.16.4"
-  resolved "https://registry.yarnpkg.com/katex/-/katex-0.16.4.tgz#87021bc3bbd80586ef715aeb476794cba6a49ad4"
-  integrity sha512-WudRKUj8yyBeVDI4aYMNxhx5Vhh2PjpzQw1GRu/LVGqL4m1AxwD1GcUp0IMbdJaf5zsjtj8ghP0DOQRYhroNkw==
+katex@0.16.0:
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/katex/-/katex-0.16.0.tgz#4faff4c905aad0c6010e85901c4d9140efb80a5e"
+  integrity sha512-wPRB4iUPysfH97wTgG5/tRLYxmKVq6Q4jRAWRVOUxXB1dsiv4cvcNjqabHkrOvJHM1Bpk3WrgmllSO1vIvP24w==
   dependencies:
     commander "^8.0.0"
 
@@ -2905,10 +2905,10 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
-m2dx-utils@0.2.5:
-  version "0.2.5"
-  resolved "https://registry.yarnpkg.com/m2dx-utils/-/m2dx-utils-0.2.5.tgz#9aa884136491e9ba5b0feff63789ea3ccdb70940"
-  integrity sha512-aiZq8I8scoUVLhZ6NjJ5I7pi6rTwIRT3btZBAXcKBvhaJgDa60t7/FHU0WJdcqP5ZZY+HB5BJE7MPR9TLx36Ng==
+m2dx-utils@0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/m2dx-utils/-/m2dx-utils-0.2.3.tgz#1639c9e9b1d137c791a6c0fbde4a66eda78c694c"
+  integrity sha512-wEIPaHW9hnhPx1QvZJBPIjZkmq1YCTxKmi8MhlBWxrw8PpAT7C9hXqLyCosZDjgnt5gNuH1JsDE07b4R/t1lGA==
   dependencies:
     acorn "^8.8.1"
     estree-util-visit "^1.2.0"
@@ -4106,10 +4106,10 @@ prettier-plugin-astro@^0.7.0:
     sass-formatter "^0.7.5"
     synckit "^0.8.4"
 
-prettier-plugin-tailwindcss@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/prettier-plugin-tailwindcss/-/prettier-plugin-tailwindcss-0.2.1.tgz#989b35afd86c550cb671da69891aba4f4a051159"
-  integrity sha512-aIO8IguumORyRsmT+E7JfJ3A9FEoyhqZR7Au7TBOege3VZkgMvHJMkufeYp4zjnDK2iq4ktkvGMNOQR9T8lisQ==
+prettier-plugin-tailwindcss@^0.1.13:
+  version "0.1.13"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-tailwindcss/-/prettier-plugin-tailwindcss-0.1.13.tgz#ca1071361dc7e2ed5d95a2ee36825ce45f814942"
+  integrity sha512-/EKQURUrxLu66CMUg4+1LwGdxnz8of7IDvrSLqEtDqhLH61SAlNNUSr90UTvZaemujgl3OH/VHg+fyGltrNixw==
 
 prettier@^2.7.1, prettier@^2.8.0:
   version "2.8.1"
