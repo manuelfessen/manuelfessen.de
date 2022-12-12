@@ -4,6 +4,7 @@ import firacode from '@fontsource/fira-code/files/fira-code-latin-400-normal.wof
 import '@fontsource/inter'
 import '@fontsource/fira-code'
 import 'katex/dist/katex.min.css'
+import * as Swetrix from 'swetrix'
 
 import type { SiteMeta } from "@/types/index";
 import siteMeta from "@/types/site-meta.config";
@@ -64,3 +65,18 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   data-cf-beacon='{"token": "18ee29c201214ea594d90ed48aedb29c"}'>
 </script>
 <!-- End Cloudflare Web Analytics -->
+
+<!-- Put this at the end of the <body> tag -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      swetrix.init('XD9d7BxYhUBl')
+      swetrix.trackViews()
+    })
+  </script>
+  <noscript>
+    <img
+      src="https://api.swetrix.com/log/noscript?pid=XD9d7BxYhUBl"
+      alt=""
+      referrerpolicy="no-referrer-when-downgrade"
+    />
+  </noscript>
