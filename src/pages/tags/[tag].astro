@@ -63,7 +63,7 @@ const getCount = (tag: string) => tags.filter((t) => t === tag).length
   }
   </ul>
 
-  <div class='grid w-full grid-cols-1 gap-4 my-2 mt-4 sm:grid-cols-2'>
+  <div class='grid w-full grid-cols-1 gap-4 my-2 mt-4 sm:grid-cols-3'>
   {posts.map(({ frontmatter }) => <PostCard {...frontmatter} />)}
   </div>
 </BaseLayout>

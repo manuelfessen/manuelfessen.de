@@ -75,7 +75,7 @@ let tagHeader = `${count} note${count === 1 ? "" : "s"} tagged with "${tag}"`;
     }
   </ul>
 
-  <div class='grid w-full grid-cols-1 gap-4 my-2 mt-4 sm:grid-cols-2'>
+  <div class='grid w-full grid-cols-1 gap-4 my-2 mt-4 sm:grid-cols-3'>
   {posts.map(({ frontmatter }) => <NoteCard {...frontmatter} />)}
   </div>
 </BaseLayout>

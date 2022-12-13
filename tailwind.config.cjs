@@ -6,7 +6,7 @@ module.exports = {
   //darkMode: ['class', '[data-theme="dark"]'],
   theme: {
     fontFamily: {
-      serif: ['Inter', ...fontFamily.serif],
+      sans: ['Inter', ...fontFamily.sans],
       mono: ['Fira Code', ...fontFamily.mono],
     },
     extend: {
