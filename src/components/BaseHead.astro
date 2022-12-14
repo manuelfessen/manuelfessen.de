@@ -4,7 +4,6 @@ import firacode from '@fontsource/fira-code/files/fira-code-latin-400-normal.wof
 import '@fontsource/inter'
 import '@fontsource/fira-code'
 import 'katex/dist/katex.min.css'
-import * as Swetrix from 'swetrix'
 
 import type { SiteMeta } from "@/types/index";
 import siteMeta from "@/types/site-meta.config";
@@ -68,9 +67,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 <!-- Put this at the end of the <body> tag -->
   <script>
+    import * as Swetrix from 'swetrix'
     document.addEventListener('DOMContentLoaded', function() {
-      swetrix.init('XD9d7BxYhUBl')
-      swetrix.trackViews()
+      Swetrix.init('XD9d7BxYhUBl')
+      Swetrix.trackViews()
     })
   </script>
   <noscript>
