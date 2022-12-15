@@ -83,7 +83,7 @@ dayjs.extend(relativeTime)
   <article
     class={cx(
       'prose lg:prose-lg dark:prose-invert',
-      'prose-hr:transition-colors prose-hr:duration-300',
+      'prose-hr:duration-300',
       'prose-pre:border-2 prose-pre:border-gray-200 dark:prose-pre:border-gray-700',
       'prose-code:text-pink-500'
     )}
@@ -96,7 +96,7 @@ dayjs.extend(relativeTime)
         <a
           href={`/blog/${prevPost.frontmatter.slug}`}
           class={cx(
-            'grow flex flex-col p-3 sm:p-4 border border-grey-200 dark:border-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors duration-300',
+            'grow flex flex-col p-3 sm:p-4 border border-grey-200 dark:border-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800',
             nextPost ? 'lg:w-1/2' : 'lg:w-full'
           )}
         >
@@ -110,7 +110,7 @@ dayjs.extend(relativeTime)
         <a
           href={`/blog/${nextPost.frontmatter.slug}`}
           class={cx(
-            'grow flex flex-col p-3 sm:p-4 border border-grey-200 dark:border-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors duration-300',
+            'grow flex flex-col p-3 sm:p-4 border border-grey-200 dark:border-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800',
             prevPost ? 'lg:w-1/2 lg:items-end' : 'lg:w-full'
           )}
         >

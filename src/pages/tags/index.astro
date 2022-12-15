@@ -23,7 +23,7 @@ const getCount = (tag: string) => tags.filter((t) => t === tag).length
           <li>
             <a
               href={`/tags/${tag}`}
-              class='px-2 py-1 text-sm rounded text-gray-600 bg-gray-200 hover:text-gray-700 hover:bg-gray-300 dark:text-gray-300 dark:bg-gray-800 dark:hover:text-gray-200 dark:hover:bg-gray-700 transition-colors duration-300'
+              class='px-2 py-1 text-sm rounded text-gray-600 bg-gray-200 hover:text-gray-700 hover:bg-gray-300 dark:text-gray-300 dark:bg-gray-800 dark:hover:text-gray-200 dark:hover:bg-gray-700'
             >
               #{tag} ({getCount(tag)})
             </a>

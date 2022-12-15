@@ -36,14 +36,14 @@ const nonDraftNotes = notes
   <ul class='flex flex-wrap gap-x-2 gap-y-2 mb-8'>
 
     <li class="">
-    <a class="px-2 py-1 text-sm rounded text-gray-600 bg-gray-200 hover:text-gray-700 hover:bg-gray-300 dark:text-gray-300 dark:bg-gray-800 dark:hover:text-gray-200 dark:hover:bg-gray-700 transition-colors duration-300" href="../notes/">#all</a>
+    <a class="px-2 py-1 text-sm rounded text-gray-600 bg-gray-200 hover:text-gray-700 hover:bg-gray-300 dark:text-gray-300 dark:bg-gray-800 dark:hover:text-gray-200 dark:hover:bg-gray-700" href="../notes/">#all</a>
     </li>{
       uniqueTags.length ? (
         uniqueTags.map((tag) => (
           <li class="">
             <a
               href={`/notes/${tag}`}
-              class='px-2 py-1 text-sm rounded text-gray-600 bg-gray-200 hover:text-gray-700 hover:bg-gray-300 dark:text-gray-300 dark:bg-gray-800 dark:hover:text-gray-200 dark:hover:bg-gray-700 transition-colors duration-300'
+              class='px-2 py-1 text-sm rounded text-gray-600 bg-gray-200 hover:text-gray-700 hover:bg-gray-300 dark:text-gray-300 dark:bg-gray-800 dark:hover:text-gray-200 dark:hover:bg-gray-700'
             > 
               #{tag} ({getCount(tag)})
             </a>
