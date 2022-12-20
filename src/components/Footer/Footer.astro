@@ -11,7 +11,7 @@ const SOCIAL_LINK = [
 ---
 
 <footer
-	class="flex flex-col gap-y-2 w-full h-28 sm:h-40 max-w-2xl mx-auto mt-auto text-gray-500 dark:text-gray-300 py-4 sm:py-8 sm:pt-16"
+	class="flex sm:text-base flex-col justify-between sm:flex-row sm:items-end bottom-0 my-4 gap-y-2 w-full h-28 sm:h-40 max-w-2xl mx-auto mt-auto text-gray-500 dark:text-gray-300 py-4 sm:py-8 sm:pt-16"
 >
 	<ul class="flex flex-wrap flex-shrink-0 max-w-full">
 		{
@@ -27,6 +27,22 @@ const SOCIAL_LINK = [
 				</li>
 			))
 		}
+	</ul>
+
+	<ul class="flex flex-wrap flex-shrink-0 max-w-full">
+				<li class="mr-4 mt-0 relative inline-block border-b hover:border-transparent">
+					<a
+						href="../impressum"
+					>Impressum
+					</a>
+				</li>
+
+				<li class="mr-4 mt-0 relative inline-block border-b hover:border-transparent">
+					<a
+						href="../dse"
+					>Datenschutzerklärung
+					</a>
+				</li>
 	</ul>
 </footer>
 
