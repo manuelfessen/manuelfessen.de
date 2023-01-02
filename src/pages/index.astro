@@ -3,11 +3,12 @@ import { SEO } from 'config'
 import { Image } from '@astrojs/image/components'
 import avatar from 'public/sw.webp'
 import BaseLayout from '@/layouts/BaseLayout.astro'
+//import BaseLayout from '@/layouts/FullLayout.astro'
 import PostCard from '@/components/PostCard.astro'
 import type { Frontmatter, SiteMeta } from '@/types'
 import Callout from '@/components/MDX/Callout.astro'
 
-const posts = await Astro.glob<Frontmatter>('./blog/*.mdx')
+const posts = await Astro.glob<Frontmatter>('./*/*.mdx')
 const nonDraftPosts = posts.filter(({ frontmatter }) => !frontmatter.draft)
 const sortedPosts = nonDraftPosts.sort(
   ({ frontmatter: { publishedAt: a } }, { frontmatter: { publishedAt: b } }) =>

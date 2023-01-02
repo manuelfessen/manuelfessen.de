@@ -1,19 +1,14 @@
 ---
 import BaseHead from '@/components/BaseHead.astro'
 import Nav from '@/components/Nav.astro'
-import Footer from '@/components/Footer/Footer.astro'
-import Section from '@/components/Section.astro'
-import IconLabel from '@/components/Section.astro'
-import type { BaseHeadProps } from '@/components/BaseHead.astro'
 
-import type { SiteMeta } from "@/types/index";
-import siteMeta from "@/types/site-meta.config";
+import type { SiteMeta } from '@/types/index'
 import { Image } from '@astrojs/image/components'
-import avatar from '/sw.webp'
+import avatar from 'public/sw.webp'
 
 export type BaseHeadProps = {
-  meta: SiteMeta;
-};
+  meta: SiteMeta
+}
 
 const { title, description, image } = Astro.props as BaseHeadProps
 ---
@@ -22,41 +17,36 @@ const { title, description, image } = Astro.props as BaseHeadProps
   <head>
     <BaseHead title={title} description={description} />
   </head>
-  <body class="bg-sky-50">
-    <div
-      class="w-full flex flex-col justify-center px-20 mt-10 lg:block lg:m-auto lg:w-[1024px] lg:mt-10 lg:px-24"
-    >
-      <header class="text-sm lg:w-64 lg:fixed lg:float-left">
-        <Section>
-          <div class='relative mb-8 sm:mb-0 ml-8 flex-none'>
-            <Image
-              src={avatar}
-              alt='Manuel Fessen'
-              class='inline object-cover w-20 sm:w-32 h-20 sm:h-32 mr-2 rounded-full'
-              draggable={false}
-              loading='eager'
-              format='webp'
-            />
-          </div>
-          <h1 class="text-2xl font-bold mt-3 mb-1.5">Manuel Fessen</h1>
-          <p>UX Designer at EASY Software</p>
-        </Section>
-        
-    <Nav />
-      </header>
+  <body
+    class='flex h-screen flex-col px-4 overflow-x-hidden [overflow:overlay] bg-gray-100 text-black dark:bg-gray-900 dark:text-white selection:bg-[#67769660] items-center md:px-8 motion-safe:scroll-smooth pt-4'
+  >
+    <section class='text-sm lg:w-64 lg:fixed'>
+      <section>
+        <div class='relative mb-8 sm:mb-0 ml-8 flex-none'>
+          <Image
+            src={avatar}
+            alt='Manuel Fessen'
+            class='inline object-cover w-20 sm:w-32 h-20 sm:h-32 mr-2 rounded-full'
+            draggable={false}
+            loading='eager'
+            format='webp'
+          />
+        </div>
+        <h1 class='text-2xl font-bold mt-3 mb-1.5'>Manuel Fessen</h1>
+        <p>UX Designer at EASY Software</p>
 
-      <hr class="rounded-md border-2 w-[80%] mx-auto my-6 lg:hidden" />
-
-      <main class="lg:w-[32rem] lg:float-right lg:mb-6">
-        <slot />
-      </main>
-
-      <footer
-        class="mx-auto my-6 lg:m-0 lg:w-64 text-slate-700 lg:fixed lg:float-left lg:bottom-6"
-      >
-        <p><small>Built with ❤️ using Astro and Tailwind</small></p>
-        <p><small>© 2022 Austin Liu</small></p>
-      </footer>
-    </div>
+        <footer class='mx-auto my-6 lg:m-0 lg:w-64 lg:fixed lg:float-left lg:bottom-6'>
+          <p><small>Built with ❤️ using Astro and Tailwind</small></p>
+          <p><small>© 2022 Austin Liu</small></p>
+        </footer>
+      </section>
+    </section>
+    <main class='w-full flex-none relative mt-10 lg:block lg:m-auto lg:mt-10 justify-center'>
+      <div class='justify-center'>
+        <div class='lg:w-[32rem] lg:float-right lg:mb-6'>
+          <slot />
+        </div>
+      </div>
+    </main>
   </body>
 </html>
