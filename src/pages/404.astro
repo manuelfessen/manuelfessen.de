@@ -4,8 +4,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 import type { Frontmatter, SiteMeta } from '@/types'
 
 const metadata: SiteMeta = {
-	title: "Oops! You found a missing page!",
-	description: "Oops! It looks like this page is lost in space!",
+  title: SEO.getTitle('404 Not Found'),
+  description: 'Oops! It looks like this page is lost in space!',
 }
 ---
 
