@@ -1,13 +1,14 @@
 ---
-import { SEO } from 'config';
+import { SEO } from 'config'
 import BaseLayout from '@/layouts/BaseLayout.astro'
-import Callout from '@/components/MDX/Callout.astro';
-import type { SiteMeta } from '@/types';
+import Callout from '@/components/MDX/Callout.astro'
+import type { SiteMeta } from '@/types'
 const homepage = new URL(Astro.url).href
 
 const metadata: SiteMeta = {
   title: 'Contact Me',
-  description: 'Do not hesitate to contact me. I am passionate about UX design and am eager to work on exciting new endeavors. My skills in UX design make me a great candidate for any project, and I am confident that I can help drive success.',
+  description:
+    'Do not hesitate to contact me. I am passionate about UX design and am eager to work on exciting new endeavors. My skills in UX design make me a great candidate for any project, and I am confident that I can help drive success.',
 }
 ---
 
@@ -15,7 +16,7 @@ const metadata: SiteMeta = {
   <main class=''>
     <section class='mb-8 flex flex-col'>
       <h1 class='text-2xl font-bold xl:text-3xl tracking-tight mb-4'>Contact Me</h1>
-      <Callout header="Available for cool projects in spring 2023"></Callout>
+      <Callout header='Available for cool projects in spring 2023' />
       <form
         id='contactForm'
         action='https://submit-form.com/C4htEPTs'
@@ -32,7 +33,7 @@ const metadata: SiteMeta = {
             placeholder='A curious person'
             auto-complete='on'
             required
-            class='input input-bordered focus:input-primary w-full rounded-lg border border-current px-4 py-4 focus:outline-none dark:bg-gray-900'
+            class='input input-bordered focus:input-primary w-full rounded-lg border border-current px-4 py-2 dark:bg-gray-900'
           />
         </div>
         <div class='mb-4 flex flex-col'>
@@ -62,7 +63,7 @@ const metadata: SiteMeta = {
         <input type='hidden' name='_append' value='false' />
 
         <div class='form-control mb-4 flex flex-col content-center md:items-baseline'>
-          <label class='label cursor-pointer'>
+          <label class='label cursor-pointer  mb-2'>
             <input required type='checkbox' class='checkbox mr-2 border' required />
             <span class='label-text'
               >I consent to having this website store my submitted information so they can respond
