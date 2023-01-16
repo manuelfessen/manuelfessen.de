@@ -1,7 +1,6 @@
 ---
 import BaseHead from '@/components/BaseHead.astro'
-import Nav from '@/components/Nav.astro'
-
+import Sidebar from '@/components/Sidebar.astro'
 import type { SiteMeta } from '@/types/index'
 import { Image } from '@astrojs/image/components'
 import avatar from 'public/sw.webp'
@@ -17,34 +16,237 @@ const { title, description, image } = Astro.props as BaseHeadProps
   <head>
     <BaseHead title={title} description={description} />
   </head>
-  <body
-    class='flex h-screen flex-col px-4 overflow-x-hidden [overflow:overlay] bg-gray-100 text-black dark:bg-gray-900 dark:text-white selection:bg-[#67769660] items-center md:px-8 motion-safe:scroll-smooth pt-4'
-  >
-    <section class='text-sm lg:w-64 lg:fixed'>
-      <section>
-        <div class='relative mb-8 sm:mb-0 ml-8 flex-none'>
-          <Image
-            src={avatar}
-            alt='Manuel Fessen'
-            class='inline object-cover w-20 sm:w-32 h-20 sm:h-32 mr-2 rounded-full'
-            draggable={false}
-            loading='eager'
-            format='webp'
-          />
-        </div>
-        <h1 class='text-2xl font-bold mt-3 mb-1.5'>Manuel Fessen</h1>
-        <p>UX Designer at EASY Software</p>
+  <body class='relative flex h-full min-h-screen w-full'>
+    <Sidebar />
+    <main class='flex flex-1'>
+      <div
+        class='relative flex max-h-screen w-full flex-col overflow-y-auto bg-white dark:bg-black'
+      >
+        <div class='mx-auto w-full max-w-3xl px-4 py-12 pb-10 md:px-8'>
+          <div class='pb-24 space-y-8 md:space-y-16'>
+            <section class='grid items-start grid-cols-1 gap-6 md:grid-cols-12'>
+              <h4
+                class='col-span-2 pt-8 text-lg font-extrabold text-black dark:text-white md:pt-0 md:text-right md:text-base md:font-normal md:text-opacity-40'
+              >
+              </h4>
+              <div class='col-span-10'>
+                <div class='prose text-black dark:text-white'>
 
-        <footer class='mx-auto my-6 lg:m-0 lg:w-64 lg:fixed lg:float-left lg:bottom-6'>
-          <p><small>Built with ❤️ using Astro and Tailwind</small></p>
-          <p><small>© 2022 Austin Liu</small></p>
-        </footer>
-      </section>
-    </section>
-    <main class='w-full flex-none relative mt-10 lg:block lg:m-auto lg:mt-10 justify-center'>
-      <div class='justify-center'>
-        <div class='lg:w-[32rem] lg:float-right lg:mb-6'>
-          <slot />
+            <h1 class='text-black dark:text-white text-4xl'>
+              Hi, I'm Manuel <span class='wave' role='img'>👋</span>
+            </h1>
+                  <p>
+                    I'm a UX Designer. I'm currently at <!-- -->
+                    <a target='_blank' rel='noopener noreferrer' href='https://easy-software.com'
+                      >EASY Software</a
+                    > and use my expertise in usability, accessibility, and user research to create intuitive and engaging experiences that provide real value to users and customers.
+                  </p><p>
+                    Before that, I worked there as a UX researcher for more than two years. </p><p>
+                    Before EASY I delivered customer satisfaction for six years  at<!-- -->
+                    <a target='_blank' rel='noopener noreferrer' href='https://kick-it-out.de/ueber-das-spiel/'
+                      >Ludetis</a
+                    > as a Community Manager.
+                  </p><p>
+                    You can learn more <a href='/about'>about me</a> by reading my <a href='/writing'>blog</a>, discover my <a href='/notes'>digital garden</a> or scroll through my <a href='/books'>digital bookshelf</a>.
+                  </p>
+                </div>
+                <div class='flex pt-6 space-x-4'>
+                  <a
+                    href='../contact'
+                    class='flex space-x-2 flex-none items-center justify-center cursor-pointer leading-none transition-all font-semibold px-4 py-2 text-sm opacity-100 rounded-md bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 text-white'
+                    >Contact Me</a
+                  >
+                  <a
+                    href='../CV_Manuel_Fessen.pdf' target='_blank'
+                    class='flex space-x-2 flex-none items-center justify-center cursor-pointer leading-none transition-all font-semibold px-4 py-2 text-sm opacity-100 rounded-md text-gray-700 hover:text-gray-1000 shadow-xs bg-white border border-gray-400 border-opacity-30 dark:border-gray-700 dark:hover:border-gray-600 dark:bg-white dark:bg-opacity-10 dark:text-gray-200 dark:hover:text-white hover:border-opacity-50 hover:shadow-sm'
+                    >Download CV</a
+                  >
+                </div>
+              </div>
+            </section>
+            <section class='grid items-start grid-cols-1 gap-6 md:grid-cols-12'>
+              <h4
+                class='col-span-2 pt-8 text-lg font-extrabold text-black dark:text-white md:pt-0 md:text-right md:text-base md:font-normal md:text-opacity-40'
+              >
+                Online
+              </h4><div class='col-span-10'>
+                <div class='flex flex-col space-y-3'>
+                  <a
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    href='/twitter'
+                    class='flex items-center space-x-4 group'
+                    ><strong
+                      class='flex-none font-medium text-gray-1000 group-hover:text-blue-600 group-hover:underline dark:text-gray-100 dark:group-hover:text-blue-500'
+                      >Twitter</strong
+                    ><span
+                      class='w-full border-t border-gray-300 border-dashed shrink dark:border-gray-800'
+                    ></span><span class='flex-none text-tertiary'>Follow</span>
+                  </a><a
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    href='/youtube'
+                    class='flex items-center space-x-4 group'
+                    ><strong
+                      class='flex-none font-medium text-gray-1000 group-hover:text-blue-600 group-hover:underline dark:text-gray-100 dark:group-hover:text-blue-500'
+                      >YouTube</strong
+                    ><span
+                      class='w-full border-t border-gray-300 border-dashed shrink dark:border-gray-800'
+                    ></span><span class='flex-none text-tertiary'>Subscribe</span>
+                  </a><a
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    href='/github'
+                    class='flex items-center space-x-4 group'
+                    ><strong
+                      class='flex-none font-medium text-gray-1000 group-hover:text-blue-600 group-hover:underline dark:text-gray-100 dark:group-hover:text-blue-500'
+                      >GitHub</strong
+                    ><span
+                      class='w-full border-t border-gray-300 border-dashed shrink dark:border-gray-800'
+                    ></span><span class='flex-none text-tertiary'>Follow</span>
+                  </a><a
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    href='/figma'
+                    class='flex items-center space-x-4 group'
+                    ><strong
+                      class='flex-none font-medium text-gray-1000 group-hover:text-blue-600 group-hover:underline dark:text-gray-100 dark:group-hover:text-blue-500'
+                      >Figma</strong
+                    ><span
+                      class='w-full border-t border-gray-300 border-dashed shrink dark:border-gray-800'
+                    ></span><span class='flex-none text-tertiary'>Follow</span>
+                  </a>
+                </div>
+              </div>
+            </section>
+            <section class='grid items-start grid-cols-1 gap-6 md:grid-cols-12'>
+              <h4
+                class='col-span-2 pt-8 text-lg font-extrabold text-black dark:text-white md:pt-0 md:text-right md:text-base md:font-normal md:text-opacity-40'
+              >
+                Where
+              </h4><div class='col-span-10'>
+                <img
+                  alt='Map of San Francisco with blue location dot in the middle'
+                  sizes='100vw'
+                  srcset='/_next/image?url=%2Fstatic%2Fimg%2Fsf.png&w=640&q=100 640w, /_next/image?url=%2Fstatic%2Fimg%2Fsf.png&w=750&q=100 750w, /_next/image?url=%2Fstatic%2Fimg%2Fsf.png&w=828&q=100 828w, /_next/image?url=%2Fstatic%2Fimg%2Fsf.png&w=1080&q=100 1080w, /_next/image?url=%2Fstatic%2Fimg%2Fsf.png&w=1200&q=100 1200w, /_next/image?url=%2Fstatic%2Fimg%2Fsf.png&w=1920&q=100 1920w, /_next/image?url=%2Fstatic%2Fimg%2Fsf.png&w=2048&q=100 2048w, /_next/image?url=%2Fstatic%2Fimg%2Fsf.png&w=3840&q=100 3840w'
+                  src='/_next/image?url=%2Fstatic%2Fimg%2Fsf.png&w=3840&q=100'
+                  width='800'
+                  height='400'
+                  decoding='async'
+                  data-nimg='1'
+                  class='rounded-2xl'
+                  style='color:transparent;width:100%;height:auto'
+                /><p
+                  class='flex items-center justify-end pt-2 space-x-2 text-sm text-quaternary md:text-right'
+                >
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    width='12'
+                    height='12'
+                    viewBox='0 0 24 24'
+                    fill='none'
+                    stroke='currentColor'
+                    stroke-width='2'
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    ><path d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z'></path><circle
+                      cx='12'
+                      cy='10'
+                      r='3'></circle>
+                  </svg><span>San Francisco, CA</span>
+                </p>
+              </div>
+            </section>
+            <section class='grid items-start grid-cols-1 gap-6 md:grid-cols-12'>
+              <h4
+                class='col-span-2 pt-8 text-lg font-extrabold text-black dark:text-white md:pt-0 md:text-right md:text-base md:font-normal md:text-opacity-40'
+              >
+                Work
+              </h4><div class='col-span-10'>
+                <div class='flex flex-col space-y-3'>
+                  <a
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    href='https://campsite.design'
+                    class='flex items-center space-x-4 group'
+                    ><strong
+                      class='flex-none font-medium text-gray-1000 group-hover:text-blue-600 group-hover:underline dark:text-gray-100 dark:group-hover:text-blue-500'
+                      >Campsite</strong
+                    ><span
+                      class='w-full border-t border-gray-300 border-dashed shrink dark:border-gray-800'
+                    ></span><span class='flex-none text-tertiary'>Founder</span><span
+                      class='flex-none font-mono text-quaternary'>2022—&nbsp;&nbsp;</span
+                    >
+                  </a><a
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    href='https://github.com/mobile'
+                    class='flex items-center space-x-4 group'
+                    ><strong
+                      class='flex-none font-medium text-gray-1000 group-hover:text-blue-600 group-hover:underline dark:text-gray-100 dark:group-hover:text-blue-500'
+                      >GitHub</strong
+                    ><span
+                      class='w-full border-t border-gray-300 border-dashed shrink dark:border-gray-800'
+                    ></span><span class='flex-none text-tertiary'>Product Designer</span><span
+                      class='flex-none font-mono text-quaternary'>2018—22</span
+                    >
+                  </a><a
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    href='https://designdetails.fm'
+                    class='flex items-center space-x-4 group'
+                    ><strong
+                      class='flex-none font-medium text-gray-1000 group-hover:text-blue-600 group-hover:underline dark:text-gray-100 dark:group-hover:text-blue-500'
+                      >Design Details Podcast</strong
+                    ><span
+                      class='w-full border-t border-gray-300 border-dashed shrink dark:border-gray-800'
+                    ></span><span class='flex-none text-tertiary'>Co-host</span><span
+                      class='flex-none font-mono text-quaternary'>2014—&nbsp;&nbsp;</span
+                    >
+                  </a><a
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    href='https://github.com/withspectrum/spectrum'
+                    class='flex items-center space-x-4 group'
+                    ><strong
+                      class='flex-none font-medium text-gray-1000 group-hover:text-blue-600 group-hover:underline dark:text-gray-100 dark:group-hover:text-blue-500'
+                      >Spectrum.chat</strong
+                    ><span
+                      class='w-full border-t border-gray-300 border-dashed shrink dark:border-gray-800'
+                    ></span><span class='flex-none text-tertiary'>Co-founder</span><span
+                      class='flex-none font-mono text-quaternary'>2017—18</span
+                    >
+                  </a><a
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    href='https://facebook.com'
+                    class='flex items-center space-x-4 group'
+                    ><strong
+                      class='flex-none font-medium text-gray-1000 group-hover:text-blue-600 group-hover:underline dark:text-gray-100 dark:group-hover:text-blue-500'
+                      >Facebook</strong
+                    ><span
+                      class='w-full border-t border-gray-300 border-dashed shrink dark:border-gray-800'
+                    ></span><span class='flex-none text-tertiary'>Product Designer</span><span
+                      class='flex-none font-mono text-quaternary'>2015—17</span
+                    >
+                  </a><a
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    href='https://buffer.com'
+                    class='flex items-center space-x-4 group'
+                    ><strong
+                      class='flex-none font-medium text-gray-1000 group-hover:text-blue-600 group-hover:underline dark:text-gray-100 dark:group-hover:text-blue-500'
+                      >Buffer</strong
+                    ><span
+                      class='w-full border-t border-gray-300 border-dashed shrink dark:border-gray-800'
+                    ></span><span class='flex-none text-tertiary'>Product Designer</span><span
+                      class='flex-none font-mono text-quaternary'>2013—15</span
+                    >
+                  </a>
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
       </div>
     </main>

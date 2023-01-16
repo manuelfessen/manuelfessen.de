@@ -1,0 +1,165 @@
+---
+//import ThemeToggle from './ThemeToggle.astro'
+import { cx } from '@/lib/utils'
+
+const itemsHead = [
+  { name: 'Home', url: '../', svg: '/svg/icons/home.svg' },
+  { name: 'Contact', url: '../contact', svg: '/svg/icons/contact.svg' },
+]
+
+const itemsMe = [
+  { name: 'Writing', url: '../blog', svg: '/svg/icons/writing.svg' },
+  { name: 'Digital Garden', url: '../notes', svg: '/svg/icons/digital-garden.svg' },
+  { name: 'Digital Bookshelf', url: '../books', svg: '/svg/icons/books.svg' },
+  { name: 'About', url: '../about', svg: '/svg/icons/about.svg' },
+]
+
+const SOCIAL_LINK = [
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/manuelfessen', svg: '/svg/brands/linkedin.svg' },
+  { name: 'Figma', url: 'https://figma.com/@manuelfessen', svg: '/svg/brands/figma.svg' },
+  { name: 'Github', url: 'https://github.com/manuelfessen', svg: '/svg/brands/github.svg' },
+  { name: 'Instagram', url: 'https://www.instagram.com/manuelfessen/', svg: '/svg/brands/instagram.svg' },
+  { name: 'Strava', url: 'https://www.strava.com/athletes/31601783', svg: '/svg/brands/strava.svg' },
+]
+
+const legal = [
+  { name: 'Impressum', url: '../impressum', svg: '/svg/icons/impressum.svg' },
+  { name: 'Datenschutzerklärung', url: '../dse', svg: '/svg/icons/dse.svg' },
+]
+---
+
+<nav
+  class='absolute -translate-x-full 3xl:w-80 z-30 flex h-full max-h-screen min-h-screen w-3/4 flex-none transform flex-col overflow-y-auto border-r border-gray-150 bg-white pb-10 transition duration-200 ease-in-out dark:border-gray-800 dark:bg-gray-900 sm:w-1/2 sm:pb-0 md:w-1/3 lg:relative lg:z-auto lg:w-56 lg:translate-x-0 lg:bg-gray-50 lg:dark:bg-gray-900 2xl:w-72'
+>
+  <div
+    class='sticky top-0 z-10 flex flex-col justify-center px-3 py-2 dark:border-b dark:border-gray-900 h-12'
+  >
+    <div class='flex items-center justify-between flex-none'>
+      <span class='flex items-center space-x-3'
+        ><h2 class='text-sm font-bold text-black dark:text-white transform-gpu line-clamp-1 ml-4'>
+          Manuel Fessen
+        </h2>
+      </span>
+    </div><div></div>
+  </div>
+  <div class='flex-1 px-3 py-3 space-y-1'>
+    <ul class='space-y-1 h-full'>
+      {
+        itemsHead.map(({ name, url, svg }) => (
+          <li class='flex items-stretch space-x-1'>
+            <a
+              href={url}
+              class={cx(
+                'flex flex-1 items-center space-x-3 rounded-md px-2 py-1.5 text-sm font-medium',
+                Astro.url.pathname.split('/')[1] === url.replaceAll('/', '')
+                  ? 'bg-black text-white hover:bg-black hover:text-white dark:bg-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white'
+                  : 'text-gray-700 dark:text-gray-200 sm:hover:bg-gray-200 sm:hover:text-gray-900 sm:dark:hover:bg-gray-700 sm:dark:hover:text-gray-200'
+              )}
+              {...(url.startsWith('http') ? { rel: 'noopener noreferrer' } : { rel: 'prefetch' })}
+            >
+              <span class='flex w-4 items-center justify-center'>
+                <img src={svg} />
+              </span>
+              <span class='flex-1'>{name}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul><ul class='space-y-1'>
+      <h4
+        class='px-2 pt-5 pb-2 text-xs font-semibold text-gray-1000 text-opacity-40 dark:text-white'
+      >
+        Me
+      </h4>
+      {
+        itemsMe.map(({ name, url, svg }) => (
+          <li class='flex items-stretch space-x-1'>
+            <a
+              href={url}
+              class={cx(
+                'flex flex-1 items-center space-x-3 rounded-md px-2 py-1.5 text-sm font-medium',
+                Astro.url.pathname.split('/')[1] === url.replaceAll('/', '')
+                  ? 'bg-black text-white hover:bg-black hover:text-white dark:bg-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white'
+                  : 'text-gray-700 dark:text-gray-200 sm:hover:bg-gray-200 sm:hover:text-gray-900 sm:dark:hover:bg-gray-700 sm:dark:hover:text-gray-200'
+              )}
+              {...(url.startsWith('http') ? { rel: 'noopener noreferrer' } : { rel: 'prefetch' })}
+            >
+              <span class='flex w-4 items-center justify-center'>
+                <img src={svg} />
+              </span>
+              <span class='flex-1'>{name}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <ul class='space-y-1'>
+      <h4
+        class='px-2 pt-5 pb-2 text-xs font-semibold text-gray-1000 text-opacity-40 dark:text-white'
+      >
+        Online
+      </h4>
+      {
+        SOCIAL_LINK.map(({ name, url, svg }) => (
+          <li class='flex items-stretch space-x-1'>
+            <a
+              target='_blank'
+              href={url}
+              class={cx(
+                'flex flex-1 items-center space-x-3 rounded-md px-2 py-1.5 text-sm font-medium',
+                Astro.url.pathname.split('/')[1] === url.replaceAll('/', '')
+                  ? 'bg-black text-white hover:bg-black hover:text-white dark:bg-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white'
+                  : 'text-gray-700 dark:text-gray-200 sm:hover:bg-gray-200 sm:hover:text-gray-900 sm:dark:hover:bg-gray-700 sm:dark:hover:text-gray-200'
+              )}
+              {...(url.startsWith('http') ? { rel: 'noopener noreferrer' } : { rel: 'prefetch' })}
+            >
+              <span class='flex w-4 items-center justify-center'>
+                <img src={svg} />
+              </span>
+              <span class='flex-1'>{name}</span><span
+            class='flex items-center justify-center w-4 text-black text-opacity-40 dark:text-white'
+            >
+            <svg
+              width='10'
+              height='9'
+              viewBox='0 0 10 9'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+              ><path
+                d='M9.00195 6.32617V0.824219C9.00195 0.490234 8.79102 0.267578 8.45117 0.267578L2.94922 0.279297C2.62109 0.279297 2.41016 0.519531 2.41016 0.794922C2.41016 1.07031 2.65039 1.30469 2.92578 1.30469H4.66602L7.45508 1.19922L6.39453 2.13672L1.16211 7.38086C1.05664 7.48633 0.998047 7.61523 0.998047 7.73828C0.998047 8.01367 1.24414 8.27734 1.53125 8.27734C1.66602 8.27734 1.78906 8.22461 1.89453 8.11914L7.13281 2.875L8.07617 1.81445L7.96484 4.48047V6.34961C7.96484 6.61914 8.19922 6.86523 8.48633 6.86523C8.76172 6.86523 9.00195 6.63672 9.00195 6.32617Z'
+                fill='currentColor'></path>
+            </svg>
+          </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <ul class='space-y-1 px-3 py-3 bottom-0 justify-self-end'>
+    <h4 class='px-2 pt-5 pb-2 text-xs font-semibold text-gray-1000 text-opacity-40 dark:text-white'>
+      Legal
+    </h4>
+    {
+      legal.map(({ name, url, svg }) => (
+        <li class='flex items-stretch space-x-1'>
+          <a
+            href={url}
+            class={cx(
+              'flex flex-1 items-center space-x-3 rounded-md px-2 py-1.5 text-sm font-medium',
+              Astro.url.pathname.split('/')[1] === url.replaceAll('/', '')
+                ? 'bg-black text-white hover:bg-black hover:text-white dark:bg-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white'
+                : 'text-gray-700 dark:text-gray-200 sm:hover:bg-gray-200 sm:hover:text-gray-900 sm:dark:hover:bg-gray-700 sm:dark:hover:text-gray-200'
+            )}
+            {...(url.startsWith('http') ? { rel: 'noopener noreferrer' } : { rel: 'prefetch' })}
+          >
+            <span class='flex w-4 items-center justify-center'>
+              <img src={svg} />
+            </span>
+            <span class='flex-1'>{name}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

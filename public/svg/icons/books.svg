@@ -1,0 +1,30 @@
+<svg
+  xmlns='http://www.w3.org/2000/svg'
+  class='icon icon-tabler icon-tabler-brand-instagram'
+  width='20'
+  height='20'
+  viewBox='0 0 24 24'
+  stroke-width='1.5'
+  stroke='currentColor'
+  fill='none'
+  stroke-linecap='round'
+  stroke-linejoin='round'
+>
+<style>
+    :root { --color: #000000; }
+    @media (prefers-color-scheme: light) { :root { --color: #000000; } }
+    @media (prefers-color-scheme: dark) { :root { --color: #FFFFFF; } }
+
+    rect, path, circle, line, polyline {
+      fill: none;
+      stroke: var(--color);
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+</style>
+<path d='M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0'></path>
+<path d='M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0'></path>
+<line x1='3' y1='6' x2='3' y2='19'></line>
+<line x1='12' y1='6' x2='12' y2='19'></line>
+<line x1='21' y1='6' x2='21' y2='19'></line>
+</svg>
