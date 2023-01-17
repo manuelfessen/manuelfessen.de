@@ -1,0 +1,133 @@
+---
+import ListLayout from './ListLayout.astro'
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
+import type { MarkdownLayoutProps } from 'astro'
+import type { Frontmatter, SiteMeta } from '@/types'
+import { cx } from '@/lib/utils'
+import '@/styles/syntaxHighlight.css'
+
+interface Props extends MarkdownLayoutProps<Frontmatter> {}
+
+const {
+  title,
+  description,
+  publishedAt,
+  updatedAt,
+  tags,
+  //comments = true,
+  slug,
+  minutesRead,
+  hero,
+} = Astro.props.frontmatter
+
+const metadata: SiteMeta = {
+  title: `${title}`,
+  description,
+  publishedAt,
+}
+
+const posts = await Astro.glob<Frontmatter>('../pages/blog/*.mdx')
+const nonDraftPosts = posts.filter(({ frontmatter }) => !frontmatter.draft)
+const sortedPosts = nonDraftPosts.sort(
+  ({ frontmatter: { publishedAt: a } }, { frontmatter: { publishedAt: b } }) =>
+    new Date(b).valueOf() - new Date(a).valueOf()
+)
+
+const currentPostIndex = sortedPosts.findIndex(({ frontmatter }) => frontmatter.slug === slug)
+const prevPost = sortedPosts[currentPostIndex + 1]
+const nextPost = sortedPosts[currentPostIndex - 1]
+
+dayjs.extend(relativeTime)
+
+export type BaseHeadProps = {
+  meta: SiteMeta
+}
+---
+
+<ListLayout title={`${title} – Manuel Fessen`} description={description}>
+  <div
+    class='relative flex max-h-screen w-full flex-col overflow-y-auto bg-white dark:bg-black text-black dark:text-white'
+  >
+    <div class='mx-auto w-full max-w-3xl px-4 py-12 pb-10 md:px-8'>
+      <div class='space-y-3 mb-8'>
+        {hero && <img class='mx-auto w-full rounded' loading='lazy' src={hero} alt={title} />}
+        <h1 class='font-sans text-2xl font-bold xl:text-3xl'>{title}</h1>
+        <div class='flex items-center justify-between md:flex-row md:items-center'>
+          <div class='flex items-center mt-4'>
+            <p class='text-sm text-gray-700 dark:text-gray-300'>
+              <span>Published at</span>
+              <time
+                class='text-gray-600 dark:text-gray-200 font-semibold'
+                datetime={dayjs(publishedAt).toISOString()}
+                title={dayjs(publishedAt).fromNow()}
+              >
+                {dayjs(publishedAt).format('DD MMMM YYYY')}
+              </time>
+              {
+                updatedAt && (
+                  <>
+                    <span>,&nbsp;</span>
+                    <br class='sm:hidden' />
+                    <span>modified on</span>
+                    <time
+                      class='font-semibold text-gray-600 dark:text-gray-200'
+                      datetime={dayjs(updatedAt).toISOString()}
+                      title={dayjs(updatedAt).fromNow()}
+                    >
+                      {dayjs(updatedAt).format('DD MMMM YYYY')}
+                    </time>
+                  </>
+                )
+              }
+            </p>
+          </div>
+          <p class='text-sm text-gray-600 dark:text-gray-300 min-w-32 md:mt-0 mt-4'>
+            {minutesRead}
+          </p>
+        </div>
+      </div>
+
+      <article
+        class={cx(
+          'prose dark:prose-invert max-w-none',
+          'prose-hr:duration-300',
+          'prose-pre:border-2 prose-pre:border-gray-200 dark:prose-pre:border-gray-700',
+          'prose-code:text-pink-500'
+        )}
+      >
+        <slot />
+      </article>
+      <div class='flex flex-col lg:flex-row gap-2 w-full mt-10'>
+        {
+          prevPost && (
+            <a
+              href={`/blog/${prevPost.frontmatter.slug}`}
+              class={cx(
+                'border-grey-200 flex grow flex-col rounded-lg border p-3 hover:bg-gray-200 dark:border-gray-800 dark:hover:bg-gray-800 sm:p-4',
+                nextPost ? 'lg:w-1/2' : 'lg:w-full'
+              )}
+            >
+              <p class='text-gray-600 dark:text-gray-300'>Previous post</p>
+              <p class='text-black dark:text-white'>{prevPost.frontmatter.title}</p>
+            </a>
+          )
+        }
+        {
+          nextPost && (
+            <a
+              href={`/blog/${nextPost.frontmatter.slug}`}
+              class={cx(
+                'border-grey-200 flex grow flex-col rounded-lg border p-3 hover:bg-gray-200 dark:border-gray-800 dark:hover:bg-gray-800 sm:p-4',
+                prevPost ? 'lg:w-1/2 lg:items-end' : 'lg:w-full'
+              )}
+            >
+              <p class='text-gray-600 dark:text-gray-300'>Next post</p>
+              <p class='text-black dark:text-white'>{nextPost.frontmatter.title}</p>
+            </a>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</ListLayout>

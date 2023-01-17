@@ -8,7 +8,7 @@ const sortedPosts = nonDraftPosts.sort(
   ({ frontmatter: { publishedAt: a } }, { frontmatter: { publishedAt: b } }) =>
     new Date(b).valueOf() - new Date(a).valueOf()
 )
-  .slice(0, 5)
+  .slice(0, 15)
 
 const pinnedPosts = sortedPosts.filter(({ frontmatter }) => frontmatter.pinned)
 const unpinnedPosts = sortedPosts.filter(({ frontmatter }) => !frontmatter.pinned)

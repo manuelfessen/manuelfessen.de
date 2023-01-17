@@ -1,0 +1,15 @@
+---
+import { SEO } from 'config'
+import FullLayout from '@/layouts/ReadLayout.astro'
+import type { Frontmatter, SiteMeta } from '@/types'
+import ListLayout from '@/layouts/ListLayout.astro';
+
+const metadata: SiteMeta = {
+  title: SEO.title,
+  description: 'Manuel Fessen - UX Professional',
+}
+---
+
+<ListLayout {...metadata}>
+Hallo
+</ListLayout>

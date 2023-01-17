@@ -1,6 +1,6 @@
 ---
 import { SEO } from 'config'
-import BaseLayout from '@/layouts/BaseLayout.astro'
+import FullLayout from '@/layouts/FullLayout.astro'
 import type { Frontmatter, SiteMeta } from '@/types'
 
 const metadata: SiteMeta = {
@@ -9,8 +9,8 @@ const metadata: SiteMeta = {
 }
 ---
 
-<BaseLayout {...metadata}>
-  <section class='space-y-2 prose lg:prose-lg dark:prose-invert'>
+<FullLayout {...metadata}>
+  <section class='mx-auto w-full max-w-3xl px-4 py-12 pb-10 md:px-8 text-black dark:text-white prose prose-invert'>
     <h1>Datenschutz&shy;erkl&auml;rung</h1>
     <h2>1. Datenschutz auf einen Blick</h2>
     <h3>Allgemeine Hinweise</h3>
@@ -242,4 +242,4 @@ const metadata: SiteMeta = {
     </p>
     <p>Quelle: <a href='https://www.e-recht24.de'>https://www.e-recht24.de</a></p>
   </section>
-</BaseLayout>
+</FullLayout>

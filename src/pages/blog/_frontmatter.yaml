@@ -1,1 +1,1 @@
-layout: '@/layouts/PostLayout.astro'
+layout: '@/layouts/ReadLayout.astro'

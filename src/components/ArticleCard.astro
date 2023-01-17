@@ -1,0 +1,25 @@
+---
+import type { Frontmatter } from '@/types'
+import dayjs from 'dayjs';
+const { slug, title, publishedAt } = Astro.props as Frontmatter
+---
+
+<a
+  class='flex space-x-3 border-b border-gray-100 py-3 px-3.5 text-sm dark:border-gray-900 lg:rounded-lg lg:border-none lg:py-2 sm:hover:bg-gray-200 sm:dark:hover:bg-gray-800'
+  href={`/blog/${slug}`}
+  ><div class='flex flex-col justify-center space-y-1'>
+    <div class='font-medium line-clamp-3 text-gray-1000 dark:text-gray-100'>
+      {title}
+    </div><div
+      class='line-clamp-1 text-gray-1000 text-opacity-40 dark:text-white dark:text-opacity-60'
+    >
+    <time
+          class='line-clamp-1 text-gray-1000 text-opacity-40 dark:text-white dark:text-opacity-60'
+          datetime={dayjs(publishedAt).toISOString()}
+          title={dayjs(publishedAt).fromNow()}
+        >
+          {dayjs(publishedAt).format('DD MMMM YYYY')}
+        </time>
+    </div>
+  </div>
+</a>

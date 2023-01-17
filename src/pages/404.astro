@@ -1,6 +1,6 @@
 ---
 import { SEO } from 'config'
-import BaseLayout from '@/layouts/BaseLayout.astro'
+import FullLayout from '@/layouts/FullLayout.astro'
 import type { Frontmatter, SiteMeta } from '@/types'
 
 const metadata: SiteMeta = {
@@ -9,22 +9,37 @@ const metadata: SiteMeta = {
 }
 ---
 
-<BaseLayout {...metadata}>
-	<div class="md:py-60 rounded-md">
-		<div class="flex flex-col">
-			<h1 class="font-bold text-blue-600 lg:text-5xl">404</h1>
-
-			<h6 class="mb-2 text-2xl font-bold md:text-3xl">
-				<span class="text-red-500">Oops!</span> You weren't supposed to see this.
-			</h6>
-
-			<p class="mb-4 text-gray-500 md:text-lg">
-				The page you’re looking for doesn’t exist.
-			</p>
-			<div class="text-sm">
-				<a href="../#" class="font-semibold">Go back</a>
-				and remember: You haven't seen anything.
-			</div>
+<FullLayout {...metadata}>
+  <div class='flex flex-1 flex-col items-center justify-center space-y-6 px-8 text-center lg:px-16'>
+	<div class='md:py-60 rounded-md flex-col'>
+		<div class='flex flex-col'>
+		  <h1 class='font-bold text-blue-600 lg:text-5xl'>404</h1>
+	
+		  <h6 class='mb-2 text-2xl font-bold md:text-3xl'>
+			<span class='text-red-500'>Oops!</span> You weren't supposed to see this.
+		  </h6>
+	
+		  <p class='mb-4 text-gray-500 md:text-lg'>The page you’re looking for doesn’t exist.</p>
+		  <div class='text-sm'>
+			<a href='../#' class='font-semibold'>Go back</a>
+			and remember: You haven't seen anything.
+		  </div>
 		</div>
-	</div>
-</BaseLayout>
+	  </div>
+  </div>
+  <div class='md:py-60 rounded-md flex-col'>
+    <div class='flex flex-col'>
+      <h1 class='font-bold text-blue-600 lg:text-5xl'>404</h1>
+
+      <h6 class='mb-2 text-2xl font-bold md:text-3xl'>
+        <span class='text-red-500'>Oops!</span> You weren't supposed to see this.
+      </h6>
+
+      <p class='mb-4 text-gray-500 md:text-lg'>The page you’re looking for doesn’t exist.</p>
+      <div class='text-sm'>
+        <a href='../#' class='font-semibold'>Go back</a>
+        and remember: You haven't seen anything.
+      </div>
+    </div>
+  </div>
+</FullLayout>
