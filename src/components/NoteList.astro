@@ -1,0 +1,65 @@
+---
+import type { Frontmatter, SiteMeta } from '@/types'
+import NotesCard from './NotesCard.astro'
+
+const notes = await Astro.glob<Frontmatter>('../pages/notes/*.mdx')
+const nonDraftPosts = notes.filter(({ frontmatter }) => !frontmatter.draft)
+
+const tags = nonDraftPosts.flatMap(({ frontmatter }) => frontmatter.tags)
+const uniqueTags = [...new Set(tags)]
+
+const getCount = (tag: string) => tags.filter((t) => t === tag).length
+
+const nonDraftNotes = notes
+  .filter(({ frontmatter }) => !frontmatter.draft)
+  .sort((a, b) => {
+    const aDate = new Date(a.frontmatter.publishedAt)
+    const bDate = new Date(b.frontmatter.publishedAt)
+    return bDate.getTime() - aDate.getTime()
+  })
+---
+
+<div class='bg-dots min-h-screen'>
+  <div
+    class='relative h-full max-h-screen min-h-screen flex-none overflow-y-auto border-r border-gray-150 bg-white dark:border-gray-800 dark:bg-gray-900 lg:w-80 lg:bg-gray-50 lg:dark:bg-gray-900 xl:w-96'
+  >
+    <div
+      class='sticky top-0 z-10 flex flex-col justify-center px-3 py-2 dark:border-b dark:border-gray-900 h-12 bg-white dark:bg-gray-900 lg:w-80 lg:bg-gray-50 lg:dark:bg-gray-900'
+    >
+      <div class='flex items-center justify-between flex-none'>
+        <span class='flex items-center space-x-3'>
+          <span
+            class='flex items-center justify-center p-2 rounded-md cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 lg:hidden'
+            ><svg
+              xmlns='http://www.w3.org/2000/svg'
+              width='16'
+              height='16'
+              viewBox='0 0 24 24'
+              fill='none'
+              stroke='currentColor'
+              stroke-width='2'
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              class='ext-black dark:text-white'
+              ><line x1='3' y1='12' x2='21' y2='12'></line><line x1='3' y1='6' x2='21' y2='6'
+              ></line><line x1='3' y1='18' x2='21' y2='18'></line>
+            </svg>
+          </span><h2
+            class='text-sm font-bold transform-gpu line-clamp-1 text-black dark:text-white'
+          >
+            Digital Garden
+          </h2>
+        </span>
+      </div><div></div>
+    </div>
+    <div class='lg:space-y-1 lg:p-3'>
+      {
+        nonDraftNotes.length ? (
+        nonDraftNotes.map(({ frontmatter }) => <NotesCard {...frontmatter} />)
+        ) : (
+          <p class='text-gray-600 dark:text-gray-300'>No snippets yet.</p>
+        )
+      }
+    </div>
+  </div>
+</div>

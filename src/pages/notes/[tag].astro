@@ -44,11 +44,10 @@ const getCount = (tag: string) => tags.filter((t) => t === tag).length
 
 let tagHeader = `${count} note${count === 1 ? "" : "s"} tagged with "${tag}"`;
 ---
-
 <BaseLayout title={`#${tag} - Manuel Fessen`} description={`All the posts that include ${tag}.`}>
   <div class='mb-4'>
     <h2 class='text-2xl font-bold xl:text-3xl tracking-tight mb-4'>{tagHeader}</h2>
-    <p class='text-gray-600 dark:text-gray-300'>Welcome to my digital garden 👨🏻‍🌾 — a personal wiki. A collection of essays, notes, and half-baked explorations I'm always tending to. Read more about <a
+    <p class='text-gray-600 dark:text-gray-300'>Welcome to my digital garden2 👨🏻‍🌾 — a personal wiki. A collection of essays, notes, and half-baked explorations I'm always tending to. Read more about <a
       href="https://maggieappleton.com/garden-history"
       target="_blank"
       >A Brief History & Ethos of the Digital Garden</a>.</p>
