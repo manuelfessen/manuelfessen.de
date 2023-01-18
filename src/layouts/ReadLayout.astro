@@ -6,6 +6,7 @@ import type { MarkdownLayoutProps } from 'astro'
 import type { Frontmatter, SiteMeta } from '@/types'
 import { cx } from '@/lib/utils'
 import '@/styles/syntaxHighlight.css'
+import ArticleList from '@/components/ArticleList.astro'
 
 interface Props extends MarkdownLayoutProps<Frontmatter> {}
 
@@ -46,6 +47,7 @@ export type BaseHeadProps = {
 ---
 
 <ListLayout title={`${title} – Manuel Fessen`} description={description}>
+  <ArticleList />
   <div
     class='relative flex max-h-screen w-full flex-col overflow-y-auto bg-white dark:bg-black text-black dark:text-white'
   >
