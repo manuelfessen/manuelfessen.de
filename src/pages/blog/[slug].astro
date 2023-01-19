@@ -1,5 +1,5 @@
 ---
-import ListLayout from './ListLayout.astro'
+import ListLayout from '@/layouts/ListLayout.astro'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import type { MarkdownLayoutProps } from 'astro'
@@ -34,6 +34,7 @@ export type BaseHeadProps = {
 ---
 
 <ListLayout title={`${title} – Manuel Fessen`} description={description}>
+  <ArticleList />
   <div
     class='relative flex max-h-screen w-full flex-col overflow-y-auto bg-white dark:bg-black text-black dark:text-white'
   >

@@ -1,53 +1,14 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro'
+import ListLayout from '@/layouts/ListLayout.astro'
 
-import BookList from '@/components/bookshelf/BookList.astro'
-import BookReviewList from '@/components/bookshelf/BookReviewList.astro'
-
-export async function getStaticPaths({ paginate }) {
-	let allPosts = (await Astro.glob("./*.md")).sort(
-		(a, b) =>
-			new Date(b.frontmatter.date).valueOf() -
-			new Date(a.frontmatter.date).valueOf()
-	);
-
-	return paginate(allPosts, {
-		pageSize: 6,
-	});
-}
-
-const { page } = Astro.props;
+import BookList from '@/components/BookList.astro'
 
 const meta = {
 	title: "Manuel Fessens digital bookshelf",
 	description: "A collection of books I have read in the past.",
 };
 ---
-
-<BaseLayout title={'Tags - Manuel Fessen'} description='All the tags in this blog.'>
-	<div class='flex flex-col max-w-3xl w-full min-h-max'>
-		<h2 class='text-2xl font-bold xl:text-3xl tracking-tight mb-4'>My digital bookshelf 📚</h2>
-		<p class='text-gray-600 dark:text-gray-300'>
-			Thanks to my kindle paperwhite, i have found the fun in reading again. Oh,
-			and because I'm no longer <span class="line-through">pushed</span>{" "}
-			encouraged to read works like Buddenbrooks, Iphigenie auf Tauris and Tauben
-			im Gras.
-		</p>
-	  </div>
-
-	<section id="recent">
-		<h2 class="text-3xl md:text-2xl tracking-tight mt-6 font-semibold">
-			Recently read
-		</h2>
+<ListLayout title={'Manuel Fessen'} description='All the books I want to write about.'>
 		<BookList />
-	</section>
 
-	<section id="favorites">
-		<h2 class="text-3xl md:text-2xl tracking-tight mb-2 font-semibold">
-			Favorites
-		</h2>
-
-
-		<BookReviewList />
-	</section>
-</BaseLayout>
+</ListLayout>

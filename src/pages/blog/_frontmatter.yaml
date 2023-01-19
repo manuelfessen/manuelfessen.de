@@ -1,1 +1,1 @@
-layout: '@/layouts/ReadLayout.astro'
+layout: '@/pages/blog/[slug].astro'

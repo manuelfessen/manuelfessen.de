@@ -1,6 +1,6 @@
 ---
 import { SEO } from 'config'
-import BaseLayout from '@/layouts/BaseLayout.astro'
+import FullLayout from '@/layouts/FullLayout.astro'
 import Callout from '@/components/MDX/Callout.astro'
 import type { SiteMeta } from '@/types'
 const homepage = new URL(Astro.url).href
@@ -12,83 +12,88 @@ const metadata: SiteMeta = {
 }
 ---
 
-<BaseLayout {...metadata}>
-  <main class=''>
-    <section class='mb-8 flex flex-col'>
-      <h1 class='text-2xl font-bold xl:text-3xl tracking-tight mb-4'>Contact Me</h1>
-      <Callout header='Available for cool projects in spring 2023' />
-      <form
-        id='contactForm'
-        action='https://submit-form.com/C4htEPTs'
-        method='POST'
-        data-botpoison-public-key='pk_182d9398-de3f-4931-8022-1371da1d6cb9'
-        class='sm:mt-2'
-      >
-        <div class='mb-4 flex flex-col'>
-          <label class='label-text mb-2' for='name'>Your name</label>
-          <input
-            type='text'
-            id='name'
-            name='name'
-            placeholder='A curious person'
-            auto-complete='on'
-            required
-            class='input input-bordered focus:input-primary w-full rounded-lg border border-current px-4 py-2 dark:bg-gray-900'
-          />
-        </div>
-        <div class='mb-4 flex flex-col'>
-          <label class='label-text mb-2' for='email'>Email</label>
-          <input
-            type='email'
-            id='email'
-            name='email'
-            placeholder='curious@gmail.com'
-            auto-complete='on'
-            required
-            class='input input-bordered focus:input-primary w-full rounded-lg border border-current px-4 py-2 dark:bg-gray-900'
-          />
-        </div>
-        <div class='mb-4 flex flex-col'>
-          <label class='label-text mb-2' for='message'>Message</label>
-          <textarea
-            rows={5}
-            id='message'
-            name='message'
-            placeholder='A nice message'
-            required
-            class='textarea textarea-bordered focus:input-primary w-full rounded-lg border border-current px-4 py-4 dark:bg-gray-900'
-          ></textarea>
-        </div>
-        <input type='hidden' name='_redirect' value={homepage} />
-        <input type='hidden' name='_append' value='false' />
-
-        <div class='form-control mb-4 flex flex-col content-center md:items-baseline'>
-          <label class='label cursor-pointer  mb-2'>
-            <input required type='checkbox' class='checkbox mr-2 border' required />
-            <span class='label-text'
-              >I consent to having this website store my submitted information so they can respond
-              to my inquiry.</span
+<FullLayout {...metadata}>
+  <div class='relative flex max-h-screen w-full flex-col overflow-y-auto bg-white dark:bg-black'>
+    <div class='mx-auto w-full max-w-3xl px-4 py-12 pb-10 md:px-8'>
+      <div class='space-y-8 md:space-y-16'>
+        <section class='grid items-start gap-6 prose text-black dark:text-white'>
+              <h1 class='text-black dark:text-white text-4xl'>
+                Contact Me
+              </h1>
+              <form
+              id='contactForm'
+              action='https://submit-form.com/C4htEPTs'
+              method='POST'
+              data-botpoison-public-key='pk_182d9398-de3f-4931-8022-1371da1d6cb9'
+              class='sm:mt-2'
             >
-          </label>
-          <label class='label cursor-pointer'>
-            <input required type='checkbox' class='checkbox mr-2 border' required />
-            <span class='label-text'>
-              I agree to the <a
-                class='font-semibold'
-                href='
-        https://botpoison.com/legal/gdpr/'>GDPR Agreement</a
-              >
-            </span>
-          </label>
-        </div><button
-          type='submit'
-          class='focus:ring-4 focus:outline-none w-full cursor-pointer rounded-lg border border-current px-4 py-2 text-xl font-semibold'
-          >Send
-        </button>
-      </form>
-    </section>
-  </main>
-</BaseLayout>
+              <div class='mb-6 flex flex-col'>
+                <label class='label-text mb-2' for='name'>Your name</label>
+                <input
+                  type='text'
+                  id='name'
+                  name='name'
+                  placeholder='A curious person'
+                  auto-complete='on'
+                  required
+                  class='input input-bordered focus:input-primary w-full rounded-lg border border-current px-4 py-2 dark:bg-gray-900'
+                />
+              </div>
+              <div class='mb-6 flex flex-col'>
+                <label class='label-text mb-2' for='email'>Email</label>
+                <input
+                  type='email'
+                  id='email'
+                  name='email'
+                  placeholder='curious@gmail.com'
+                  auto-complete='on'
+                  required
+                  class='input input-bordered focus:input-primary w-full rounded-lg border border-current px-4 py-2 dark:bg-gray-900'
+                />
+              </div>
+              <div class='mb-6 flex flex-col'>
+                <label class='label-text mb-2' for='message'>Message</label>
+                <textarea
+                  rows={5}
+                  id='message'
+                  name='message'
+                  placeholder='A nice message'
+                  required
+                  class='textarea textarea-bordered focus:input-primary w-full rounded-lg border border-current px-4 py-4 dark:bg-gray-900'
+                ></textarea>
+              </div>
+              <input type='hidden' name='_redirect' value={homepage} />
+              <input type='hidden' name='_append' value='false' />
+      
+              <div class='form-control mb-6 flex flex-col content-center md:items-baseline'>
+                <label class='label cursor-pointer  mb-2'>
+                  <input required type='checkbox' class='checkbox mr-2 border' required />
+                  <span class='label-text'
+                    >I consent to having this website store my submitted information so they can respond
+                    to my inquiry.</span
+                  >
+                </label>
+                <label class='label cursor-pointer'>
+                  <input required type='checkbox' class='checkbox mr-2 border' required />
+                  <span class='label-text'>
+                    I agree to the <a
+                      class='font-semibold'
+                      href='
+              https://botpoison.com/legal/gdpr/'>GDPR Agreement</a
+                    >
+                  </span>
+                </label>
+              </div><button
+                type='submit'
+                class='flex space-x-2 flex-none items-center justify-center cursor-pointer leading-none transition-all font-semibold px-4 py-2 text-sm opacity-100 rounded-md text-gray-700 hover:text-gray-1000 shadow-xs bg-white border border-gray-400 border-opacity-30 dark:border-gray-700 dark:hover:border-gray-600 dark:bg-white dark:bg-opacity-10 dark:text-gray-200 dark:hover:text-white hover:border-opacity-50 hover:shadow-sm'
+                >Send Message
+              </button>
+            </form>
+        </section>
+      </div>
+    </div>
+  </div>
+</FullLayout>
 
 <script>
   import '@botpoison/browser'

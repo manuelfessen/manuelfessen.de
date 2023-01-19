@@ -1,1 +1,1 @@
-layout: '@/layouts/SnippetsLayout.astro'
+layout: '@/pages/notes/[slug].astro'

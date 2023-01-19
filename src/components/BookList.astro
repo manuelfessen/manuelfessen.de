@@ -1,16 +1,11 @@
 ---
 import type { Frontmatter, SiteMeta } from '@/types'
-import NotesCard from './NotesCard.astro'
+import BookCard from './BookCard.astro'
+import books from './data/books.json'
 
-const notes = await Astro.glob<Frontmatter>('../pages/notes/*.mdx')
-const nonDraftPosts = notes.filter(({ frontmatter }) => !frontmatter.draft)
+const book = await Astro.glob<Frontmatter>('../pages/books/*.md')
 
-const tags = nonDraftPosts.flatMap(({ frontmatter }) => frontmatter.tags)
-const uniqueTags = [...new Set(tags)]
-
-const getCount = (tag: string) => tags.filter((t) => t === tag).length
-
-const nonDraftNotes = notes
+const nonDraftBooks = book
   .filter(({ frontmatter }) => !frontmatter.draft)
   .sort((a, b) => {
     const aDate = new Date(a.frontmatter.publishedAt)
@@ -47,17 +42,18 @@ const nonDraftNotes = notes
           </span><h2
             class='text-sm font-bold transform-gpu line-clamp-1 text-black dark:text-white'
           >
-            Digital Garden
+            My digital bookshelf 📚
           </h2>
         </span>
       </div><div></div>
     </div>
     <div class='lg:space-y-1 lg:p-3'>
+      {books.map((props) => <BookCard {...props} />)}
       {
-        nonDraftNotes.length ? (
-        nonDraftNotes.map(({ frontmatter }) => <NotesCard {...frontmatter} />)
+        nonDraftBooks.length ? (
+        nonDraftBooks.map(({ frontmatter }) => <BookCard {...frontmatter} />)
         ) : (
-          <p class='text-gray-600 dark:text-gray-300'>No notes yet.</p>
+          <p class='text-gray-600 dark:text-gray-300'>No books yet.</p>
         )
       }
     </div>
