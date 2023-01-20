@@ -34,12 +34,10 @@ export type BaseHeadProps = {
 ---
 
 <ListLayout title={`${title} – Manuel Fessen`} description={description}>
-  <div class="hidden sm:flex sm:w-96">
-  <ArticleList />
+  <div class='hidden sm:flex sm:w-96'>
+    <ArticleList />
   </div>
-  <div
-    class='relative flex max-h-screen w-full flex-col overflow-y-auto bg-white dark:bg-black text-black dark:text-white'
-  >
+  <div class='relative flex max-h-screen w-full flex-col overflow-y-auto bg-white dark:bg-black'>
     <div class='mx-auto w-full max-w-3xl px-4 py-12 pb-10 md:px-8'>
       <div class='space-y-3 mb-8'>
         {hero && <img class='mx-auto w-full rounded' loading='lazy' src={hero} alt={title} />}
