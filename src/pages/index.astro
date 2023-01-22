@@ -26,7 +26,6 @@ const metadata: SiteMeta = {
 
 <FullLayout {...metadata}>
   <div class='relative flex max-h-screen w-full flex-col overflow-y-auto bg-white dark:bg-black'>
-    <div class="filter-blur sticky top-0 z-10 flex flex-col justify-center px-3 py-2 dark:border-b dark:border-gray-900" style="background: rgba(50, 50, 50, 0); box-shadow: rgba(0, 0, 0, 0) 0px 1px 3px; min-height: 48px;"><div class="flex items-center justify-between flex-none"><span class="flex items-center space-x-3"><span class="flex items-center justify-center p-2 rounded-md cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 lg:hidden"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></span><h2 class="text-sm font-bold text-primary transform-gpu line-clamp-1" style="transform: translateY(100%); opacity: 0;">Home</h2></span></div><div></div></div>
     <div class='mx-auto w-full max-w-3xl px-4 py-12 pb-10 md:px-8'>
       <div class='pb-24 space-y-8 md:space-y-16'>
         <section class='grid items-start grid-cols-1 gap-6 md:grid-cols-12'>
@@ -83,40 +82,40 @@ const metadata: SiteMeta = {
   </div>
 </FullLayout>
 
-  <style>
-    /* https://jarv.is/notes/css-waving-hand-emoji/ */
-    .wave {
-      animation-name: wave-animation;
-      animation-duration: 2.667s;
-      animation-iteration-count: infinite;
-      transform-origin: 70% 70%;
-      display: inline-block;
-    }
+<style>
+  /* https://jarv.is/notes/css-waving-hand-emoji/ */
+  .wave {
+    animation-name: wave-animation;
+    animation-duration: 2.667s;
+    animation-iteration-count: infinite;
+    transform-origin: 70% 70%;
+    display: inline-block;
+  }
 
-    @keyframes wave-animation {
-      0% {
-        transform: rotate(0deg);
-      }
-      10% {
-        transform: rotate(14deg);
-      }
-      20% {
-        transform: rotate(-8deg);
-      }
-      30% {
-        transform: rotate(14deg);
-      }
-      40% {
-        transform: rotate(-4deg);
-      }
-      50% {
-        transform: rotate(10deg);
-      }
-      60% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(0deg);
-      }
+  @keyframes wave-animation {
+    0% {
+      transform: rotate(0deg);
     }
-  </style>
+    10% {
+      transform: rotate(14deg);
+    }
+    20% {
+      transform: rotate(-8deg);
+    }
+    30% {
+      transform: rotate(14deg);
+    }
+    40% {
+      transform: rotate(-4deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+    60% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+</style>

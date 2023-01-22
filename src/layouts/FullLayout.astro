@@ -20,10 +20,6 @@ const { title, description, image } = Astro.props as BaseHeadProps
     class='relative flex h-full min-h-screen w-full bg-white dark:bg-black text-black dark:text-white overscroll-none'
   >
     <Sidebar />
-    <div
-      class='fixed inset-0 z-20 bg-black bg-opacity-10 transition duration-200 ease-in-out dark:bg-opacity-50 pointer-events-none opacity-0'
-    >
-    </div>
     <main class='flex flex-1'>
       <div class='flex w-full'>
       <slot />
