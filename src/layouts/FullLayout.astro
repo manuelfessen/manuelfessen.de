@@ -1,6 +1,5 @@
 ---
 import BaseHead from '@/components/BaseHead.astro'
-import Navbar from '@/components/Navbar.astro'
 import Sidebar from '@/components/Sidebar.astro'
 import type { SiteMeta } from '@/types/index'
 import { Image } from '@astrojs/image/components'
@@ -23,12 +22,7 @@ const { title, description, image } = Astro.props as BaseHeadProps
     <Sidebar />
     <main class='flex flex-1'>
       <div class='flex w-full'>
-        <div
-          class='relative flex max-h-screen w-full flex-col overflow-y-auto bg-white dark:bg-black'
-        >
-          <Navbar />
-          <slot />
-        </div>
+      <slot />
       </div>
     </main>
   </body>
