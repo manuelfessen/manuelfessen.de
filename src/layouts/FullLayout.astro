@@ -22,7 +22,11 @@ const { title, description, image } = Astro.props as BaseHeadProps
     <Sidebar />
     <main class='flex flex-1'>
       <div class='flex w-full'>
-      <slot />
+        <div
+          class='relative flex max-h-screen w-full flex-col overflow-y-auto bg-white dark:bg-black text-black dark:text-white'
+        >
+          <slot />
+        </div>
       </div>
     </main>
   </body>

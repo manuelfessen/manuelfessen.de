@@ -1,10 +1,11 @@
 ---
 import { SEO } from 'config'
-import FullLayout from '@/layouts/FullLayout.astro'
+import PageLayout from '@/layouts/PageLayout.astro'
 import OnlineCard from '@/components/OnlineCard.astro'
 import WorkCard from '@/components/WorkCard.astro'
 import BlogPostList from '@/components/BlogPostList.astro'
 import type { Frontmatter, SiteMeta } from '@/types'
+import Navbar from '@/components/Navbar.astro'
 
 const posts = await Astro.glob<Frontmatter>('./*/*.mdx')
 const nonDraftPosts = posts.filter(({ frontmatter }) => !frontmatter.draft)
@@ -24,63 +25,62 @@ const metadata: SiteMeta = {
 }
 ---
 
-<FullLayout {...metadata}>
-  <div class='relative flex max-h-screen w-full flex-col overflow-y-auto bg-white dark:bg-black'>
-    <div class='mx-auto w-full max-w-3xl px-4 py-12 pb-10 md:px-8'>
-      <div class='pb-24 space-y-8 md:space-y-16'>
-        <section class='grid items-start grid-cols-1 gap-6 md:grid-cols-12'>
-          <h4
-            class='col-span-2 pt-8 text-lg font-extrabold text-black dark:text-white md:pt-0 md:text-right md:text-base md:font-normal md:text-opacity-40'
-          >
-          </h4>
-          <div class='col-span-10'>
-            <div class='prose text-black dark:text-white'>
-              <h1 class='text-black dark:text-white text-4xl'>
-                Hi, I'm Manuel <span class='wave' role='img'>👋</span>
-              </h1>
-              <p>
-                I'm a UX Designer. I'm currently at <!-- -->
-                <a target='_blank' rel='noopener noreferrer' href='https://easy-software.com'
-                  >EASY Software</a
-                > and use my expertise in usability, accessibility, and user research to create intuitive
-                and engaging experiences that provide real value to users and customers.
-              </p><p>Before that, I worked there as a UX researcher for more than two years.</p><p>
-                Before EASY I delivered customer satisfaction for six years at<!-- -->
-                <a
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  href='https://kick-it-out.de/ueber-das-spiel/'>Ludetis</a
-                > as a Community Manager.
-              </p><p>
-                You can learn more <a href='/about'>about me</a> by reading my <a href='/writing'
-                  >blog</a
-                >, discover my <a href='/notes'>digital garden</a> or scroll through my <a
-                  href='/books'>digital bookshelf</a
-                >.
+<PageLayout {...metadata}>
+  <div class='mx-auto w-full max-w-3xl px-4 py-12 pb-10 md:px-8'>
+    <div class='pb-24 space-y-8 md:space-y-16'>
+      <section class='grid items-start grid-cols-1 gap-6 md:grid-cols-12'>
+        <h4
+          class='col-span-2 pt-8 text-lg font-extrabold text-black dark:text-white md:pt-0 md:text-right md:text-base md:font-normal md:text-opacity-40'
+        >
+        </h4>
+        <div class='col-span-10'>
+          <div class='prose text-black dark:text-white'>
+            <h1 class='text-black dark:text-white text-4xl'>
+              Hi, I'm Manuel <span class='wave' role='img'>👋</span>
+            </h1>
+            <p>
+              I am a UX designer at <!-- -->
+              <a target='_blank' rel='noopener noreferrer' href='https://easy-software.com'
+                >EASY Software</a
+              >. I use my expertise in usability, accessibility, and user research to create intuitive and engaging experiences that provide real value to users, customers, and the business.</p>
+              <p>Before that, I worked there as a UX researcher for more than two years.
               </p>
-            </div>
-            <div class='flex pt-6 space-x-4'>
+              <p>
+              Before EASY I delivered customer satisfaction for six years at<!-- -->
               <a
-                href='../contact'
-                class='flex space-x-2 flex-none items-center justify-center cursor-pointer leading-none transition-all font-semibold px-4 py-2 text-sm opacity-100 rounded-md bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 text-white'
-                >Contact Me</a
-              >
-              <a
-                href='../CV_Manuel_Fessen.pdf'
                 target='_blank'
-                class='flex space-x-2 flex-none items-center justify-center cursor-pointer leading-none transition-all font-semibold px-4 py-2 text-sm opacity-100 rounded-md text-gray-700 hover:text-gray-1000 shadow-xs bg-white border border-gray-400 border-opacity-30 dark:border-gray-700 dark:hover:border-gray-600 dark:bg-white dark:bg-opacity-10 dark:text-gray-200 dark:hover:text-white hover:border-opacity-50 hover:shadow-sm'
-                >Download CV</a
-              >
-            </div>
+                rel='noopener noreferrer'
+                href='https://kick-it-out.de/ueber-das-spiel/'>Ludetis</a
+              > as a Community Manager.
+            </p><p>
+              You can learn more <a href='/about'>about me</a> by reading my <a href='/writing'
+                >blog</a
+              >, discover my <a href='/notes'>digital garden</a> or scroll through my <a
+                href='/books'>digital bookshelf</a
+              >.
+            </p>
           </div>
-        </section>
-        <OnlineCard />
-        <WorkCard />
-        <BlogPostList />
-      </div>
+          <div class='flex pt-6 space-x-4'>
+            <a
+              href='../contact'
+              class='flex space-x-2 flex-none items-center justify-center cursor-pointer leading-none transition-all font-semibold px-4 py-2 text-sm opacity-100 rounded-md bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 text-white'
+              >Contact Me</a
+            >
+            <a
+              href='../CV_Manuel_Fessen.pdf'
+              target='_blank'
+              class='flex space-x-2 flex-none items-center justify-center cursor-pointer leading-none transition-all font-semibold px-4 py-2 text-sm opacity-100 rounded-md text-gray-700 hover:text-gray-1000 shadow-xs bg-white border border-gray-400 border-opacity-30 dark:border-gray-700 dark:hover:border-gray-600 dark:bg-white dark:bg-opacity-10 dark:text-gray-200 dark:hover:text-white hover:border-opacity-50 hover:shadow-sm'
+              >Download CV</a
+            >
+          </div>
+        </div>
+      </section>
+      <OnlineCard />
+      <WorkCard />
+      <BlogPostList />
     </div>
   </div>
-</FullLayout>
+</PageLayout>
 
 <style>
   /* https://jarv.is/notes/css-waving-hand-emoji/ */

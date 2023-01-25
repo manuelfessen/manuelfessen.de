@@ -1,0 +1,46 @@
+---
+//import ThemeToggle from './ThemeToggle.astro'
+import { cx } from '@/lib/utils'
+
+const items = [
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog/' },
+  { name: 'Notes', url: '/notes/' },
+]
+---
+
+<div
+  class='filter-blur sticky top-0 z-10 flex flex-col justify-center px-3 py-2 dark:border-b dark:border-gray-900 sm:hidden'
+  style='background: rgba(50, 50, 50, 0); box-shadow: rgba(0, 0, 0, 0) 0px 1px 3px; min-height: 48px;'
+>
+  <div class='flex items-center justify-between flex-none'>
+    <span class='flex items-center space-x-3'
+      >
+      <span
+      class='flex items-center justify-center p-2 rounded-md cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 lg:hidden'
+      type='button'
+      data-drawer-target='drawer-backdrop'
+      data-drawer-show='drawer-backdrop'
+      data-drawer-backdrop='true'
+      aria-controls='drawer-backdrop'
+      ><svg
+        xmlns='http://www.w3.org/2000/svg'
+        width='16'
+        height='16'
+        viewBox='0 0 24 24'
+        fill='none'
+        stroke='currentColor'
+        stroke-width='2'
+        stroke-linecap='round'
+        stroke-linejoin='round'
+        class='text-primary'
+        ><line x1='3' y1='12' x2='21' y2='12'></line><line x1='3' y1='6' x2='21' y2='6'
+        ></line><line x1='3' y1='18' x2='21' y2='18'></line></svg
+      ></span
+    ></span
+    ><div class='flex space-x-2'>
+      <div>
+      </div>
+    </div>
+  </div><div></div>
+</div>

@@ -40,8 +40,8 @@ const legal = [
 ]
 ---
 
-<nav
-  class='absolute top-0 -translate-x-full 3xl:w-80 z-30 flex h-full max-h-screen min-h-screen w-3/4 flex-none transform flex-col overflow-y-auto border-r border-gray-150 bg-white pb-10 transition duration-200 ease-in-out dark:border-gray-800 dark:bg-gray-900 sm:w-1/2 sm:pb-0 md:w-1/3 lg:relative lg:z-auto lg:w-56 lg:translate-x-0 lg:bg-gray-50 lg:dark:bg-gray-900 2xl:w-72'
+<nav id="drawer-backdrop"
+  class='absolute top-0 -translate-x-full 3xl:w-80 z-40 flex h-full max-h-screen min-h-screen w-3/4 flex-none transform flex-col overflow-y-auto border-r border-gray-150 bg-white pb-10 transition duration-200 ease-in-out dark:border-gray-800 dark:bg-gray-900 sm:w-1/2 sm:pb-0 md:w-1/3 lg:relative lg:z-auto lg:w-56 lg:translate-x-0 lg:bg-gray-50 lg:dark:bg-gray-900 2xl:w-72'
 >
   <div
     class='sticky top-0 z-10 flex flex-col justify-center px-3 py-2 dark:border-b dark:border-gray-900 h-12'
@@ -55,7 +55,7 @@ const legal = [
     </div><div></div>
   </div>
   <div class='flex-1 px-3 py-3 space-y-1'>
-    <ul class='space-y-1 h-full'>
+    <ul class='space-y-1'>
       {
         itemsHead.map(({ name, url, svg }) => (
           <li class='flex items-stretch space-x-1'>

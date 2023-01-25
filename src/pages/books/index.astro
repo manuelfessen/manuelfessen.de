@@ -1,5 +1,5 @@
 ---
-import ListLayout from '@/layouts/ListLayout.astro'
+import FullLayout from '@/layouts/FullLayout.astro'
 
 import BookList from '@/components/BookList.astro'
 
@@ -8,7 +8,7 @@ const meta = {
 	description: "A collection of books I have read in the past.",
 };
 ---
-<ListLayout title={'Manuel Fessen'} description='All the books I want to write about.'>
+<FullLayout title={'Manuel Fessen'} description='All the books I want to write about.'>
 		<BookList />
 
-</ListLayout>
+</FullLayout>

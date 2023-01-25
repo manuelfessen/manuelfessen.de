@@ -1,6 +1,6 @@
 ---
 import { SEO } from 'config'
-import FullLayout from '@/layouts/FullLayout.astro'
+import PageLayout from '@/layouts/PageLayout.astro'
 import type { Frontmatter, SiteMeta } from '@/types'
 
 const metadata: SiteMeta = {
@@ -9,7 +9,7 @@ const metadata: SiteMeta = {
 }
 ---
 
-<FullLayout {...metadata}>
+<PageLayout {...metadata}>
 
   <div class='relative flex max-h-screen w-full flex-col overflow-y-auto bg-white dark:bg-black'>
     
@@ -37,4 +37,4 @@ const metadata: SiteMeta = {
     </div>
   </div>
   </div>
-</FullLayout>
+</PageLayout>

@@ -1,10 +1,6 @@
 ---
-import BaseHead from '@/components/BaseHead.astro'
-import Sidebar from '@/components/Sidebar.astro'
+import Navbar from '@/components/Navbar.astro'
 import type { SiteMeta } from '@/types/index'
-import ArticleList from '@/components/ArticleList.astro'
-import { Image } from '@astrojs/image/components'
-import avatar from 'public/sw.webp'
 import FullLayout from './FullLayout.astro'
 
 export type BaseHeadProps = {
@@ -15,5 +11,6 @@ const { title, description, image } = Astro.props as BaseHeadProps
 ---
 
 <FullLayout title={`${title} – Manuel Fessen`} description={description}>
-<slot/>
+  <Navbar />
+  <slot />
 </FullLayout>

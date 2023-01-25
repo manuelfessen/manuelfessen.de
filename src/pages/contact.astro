@@ -1,6 +1,6 @@
 ---
 import { SEO } from 'config'
-import FullLayout from '@/layouts/FullLayout.astro'
+import PageLayout from '@/layouts/PageLayout.astro'
 import Callout from '@/components/MDX/Callout.astro'
 import type { SiteMeta } from '@/types'
 const homepage = new URL(Astro.url).href
@@ -12,7 +12,7 @@ const metadata: SiteMeta = {
 }
 ---
 
-<FullLayout {...metadata}>
+<PageLayout {...metadata}>
   <div class='relative flex max-h-screen w-full flex-col overflow-y-auto bg-white dark:bg-black'>
     
     <div class='mx-auto w-full max-w-3xl px-4 py-12 pb-10 md:px-8'>
@@ -94,7 +94,7 @@ const metadata: SiteMeta = {
       </div>
     </div>
   </div>
-</FullLayout>
+</PageLayout>
 
 <script>
   import '@botpoison/browser'

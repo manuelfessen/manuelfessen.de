@@ -20,32 +20,31 @@ const unpinnedPosts = sortedPosts.filter(({ frontmatter }) => !frontmatter.pinne
     class='h-full max-h-screen min-h-screen flex-none overflow-y-auto border-r border-gray-150 bg-white dark:border-gray-800 dark:bg-gray-900 lg:w-80 lg:bg-gray-50 lg:dark:bg-gray-900 xl:w-96'
   >
     <div
-      class='sticky top-0 z-10 flex flex-col justify-center px-3 py-2 dark:border-b dark:border-gray-900 h-12 bg-white dark:bg-gray-900 lg:w-80 lg:bg-gray-50 lg:dark:bg-gray-900'
+      class='sticky top-0 z-10 w-full flex flex-col justify-center px-3 py-2 dark:border-b dark:border-gray-900 h-12 bg-white dark:bg-gray-900 lg:w-80 lg:bg-gray-50 lg:dark:bg-gray-900'
     >
       <div class='flex items-center justify-between flex-none'>
-        <span class='flex items-center space-x-3'>
-            <a
-              class='flex items-center justify-center p-2 rounded-md text-primary hover:bg-gray-200 dark:hover:bg-gray-800 lg:hidden'
-              href='../'
-              ><svg
-                xmlns='http://www.w3.org/2000/svg'
-                width='16'
-                height='16'
-                viewBox='0 0 24 24'
-                fill='none'
-                stroke='currentColor'
-                stroke-width='2'
-                stroke-linecap='round'
-                stroke-linejoin='round'
-                class='text-primary'
-                ><line x1='19' y1='12' x2='5' y2='12'></line><polyline points='12 19 5 12 12 5'
-                ></polyline>
-              </svg>
-            </a>
-          <h2 class='text-sm font-bold transform-gpu line-clamp-1 text-black dark:text-white'>
-            Writing
-          </h2>
-        </span>
+        <span
+      class='flex items-center justify-center p-2 rounded-md cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 lg:hidden'
+      type='button'
+      data-drawer-target='drawer-backdrop'
+      data-drawer-show='drawer-backdrop'
+      data-drawer-backdrop='true'
+      aria-controls='drawer-backdrop'
+      ><svg
+        xmlns='http://www.w3.org/2000/svg'
+        width='16'
+        height='16'
+        viewBox='0 0 24 24'
+        fill='none'
+        stroke='currentColor'
+        stroke-width='2'
+        stroke-linecap='round'
+        stroke-linejoin='round'
+        class='text-primary'
+        ><line x1='3' y1='12' x2='21' y2='12'></line><line x1='3' y1='6' x2='21' y2='6'
+        ></line><line x1='3' y1='18' x2='21' y2='18'></line></svg
+      ></span
+    >
       </div>
     </div>
     <div class='lg:space-y-1 lg:p-3'>
