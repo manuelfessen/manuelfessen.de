@@ -19,11 +19,12 @@ const unpinnedPosts = sortedPosts.filter(({ frontmatter }) => !frontmatter.pinne
   <div
     class='h-full max-h-screen min-h-screen flex-none overflow-y-auto border-r border-gray-150 bg-white dark:border-gray-800 dark:bg-gray-900 lg:w-80 lg:bg-gray-50 lg:dark:bg-gray-900 xl:w-96'
   >
-    <div
-      class='sticky top-0 z-10 w-full flex flex-col justify-center px-3 py-2 dark:border-b dark:border-gray-900 h-12 bg-white dark:bg-gray-900 lg:w-80 lg:bg-gray-50 lg:dark:bg-gray-900'
-    >
-      <div class='flex items-center justify-between flex-none'>
-        <span
+  <div
+  class='sticky top-0 z-10 flex flex-col justify-center px-3 py-2 dark:border-b dark:border-gray-900 h-12 bg-white dark:bg-gray-900 lg:w-80 lg:bg-gray-50 lg:dark:bg-gray-900'
+>
+  <div class='flex items-center justify-between flex-none'>
+    <span class='flex items-center space-x-3' > 
+      <span
       class='flex items-center justify-center p-2 rounded-md cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 lg:hidden'
       type='button'
       data-drawer-target='drawer-backdrop'
@@ -45,22 +46,18 @@ const unpinnedPosts = sortedPosts.filter(({ frontmatter }) => !frontmatter.pinne
         ></line><line x1='3' y1='18' x2='21' y2='18'></line></svg
       ></span
     >
-      </div>
-    </div>
+      <h2 class='text-sm font-bold transform-gpu line-clamp-1 text-black dark:text-white'>
+        Writing
+      </h2>
+    </span>
+  </div>
+</div>
     <div class='lg:space-y-1 lg:p-3'>
       {
         unpinnedPosts.length ? (
           unpinnedPosts.map(({ frontmatter }) => <ArticleCard {...frontmatter} />)
         ) : (
           <p class='text-gray-600 dark:text-gray-300'>No posts yet. Come back later.</p>
-        )
-      }
-
-      {
-        unpinnedPosts.length ? (
-          unpinnedPosts.map(({ frontmatter }) => <ArticleCard {...frontmatter} />)
-        ) : (
-          <p class='text-gray-600 dark:text-gray-300'>No articles yet.</p>
         )
       }
     </div>
