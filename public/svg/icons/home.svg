@@ -1,21 +1,24 @@
 <svg
-              xmlns='http://www.w3.org/2000/svg'
-              class='icon icon-tabler icon-tabler-brand-instagram'
-              width='20'
-              height='20'
-              viewBox='0 0 24 24'
-              stroke-width='1.5'
-              fill='none'
-              stroke-linecap='round'
-              stroke-linejoin='round'
-            >
+  xmlns='http://www.w3.org/2000/svg'
+  width='20'
+  height='20'
+  viewBox='0 0 24 24'
+  stroke-width='1.5'
+  fill='none'
+  stroke-linecap='round'
+  stroke-linejoin='round'
+>
             <style>
-                path, polyline, rect {
-                  stroke: #000000;
-                }
-                @media (prefers-color-scheme: dark) {
-                  path, polyline, rect { stroke: #ffffff; }
-                }
+              :root { --color: #000000; }
+              @media (prefers-color-scheme: light) { :root { --color: #000000; } }
+              @media (prefers-color-scheme: dark) { :root { --color: #FFFFFF; } }
+          
+              rect, path, circle, line, polyline {
+                fill: none;
+                stroke: var(--color);
+                stroke-linecap: round;
+                stroke-linejoin: round;
+              }
   </style>
   <polyline points="5 12 3 12 12 3 21 12 19 12" />
   <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />

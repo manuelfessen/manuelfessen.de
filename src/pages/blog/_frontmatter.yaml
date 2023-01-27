@@ -1,1 +1,1 @@
-layout: '@/pages/blog/[slug].astro'
+layout: '@/layouts/PostLayout.astro'
