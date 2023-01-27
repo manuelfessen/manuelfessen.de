@@ -1,5 +1,5 @@
 ---
-import FullLayout from './FullLayout.astro'
+import PageLayout from './PageLayout.astro'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import type { MarkdownLayoutProps } from 'astro'
@@ -33,7 +33,7 @@ export type BaseHeadProps = {
 }
 ---
 
-<FullLayout title={`${title} – Manuel Fessen`} description={description}>
+<PageLayout title={`${title} – Manuel Fessen`} description={description}>
   <div
     class='relative flex max-h-screen w-full flex-col overflow-y-auto bg-white dark:bg-black text-black dark:text-white'
   >
@@ -55,4 +55,4 @@ export type BaseHeadProps = {
       </article>
     </div>
   </div>
-</FullLayout>
+</PageLayout>
