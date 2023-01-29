@@ -1,42 +1,44 @@
 ---
 //import ThemeToggle from './ThemeToggle.astro'
 import { cx } from '@/lib/utils'
+import { Icon } from 'astro-icon';
+
 
 const itemsHead = [
-  { name: 'Home', url: '../', svg: '/svg/icons/home.svg' },
-  { name: 'Contact', url: '../contact', svg: '/svg/icons/contact.svg' },
+  { name: 'Home', url: '/', svg: 'home' },
+  { name: 'Contact', url: '/contact', svg: 'contact' },
 ]
 
 const itemsMe = [
-  { name: 'Writing', url: '../blog', svg: '/svg/icons/writing.svg' },
-  { name: 'Digital Garden', url: '../notes', svg: '/svg/icons/digital-garden.svg' },
-  { name: 'Digital Bookshelf', url: '../books', svg: '/svg/icons/books.svg' },
-  { name: 'About', url: '../about', svg: '/svg/icons/about.svg' },
+  { name: 'Writing', url: '/blog', svg: 'writing' },
+  { name: 'Digital Garden', url: '/notes', svg: 'digital-garden' },
+  { name: 'Digital Bookshelf', url: '/books', svg: 'books' },
+  { name: 'About', url: '/about', svg: 'about' },
 ]
 
 const SOCIAL_LINK = [
   {
     name: 'LinkedIn',
     url: 'https://www.linkedin.com/in/manuelfessen',
-    svg: '/svg/brands/linkedin.svg',
+    svg: 'linkedin',
   },
-  { name: 'Figma', url: 'https://figma.com/@manuelfessen', svg: '/svg/brands/figma.svg' },
-  { name: 'Github', url: 'https://github.com/manuelfessen', svg: '/svg/brands/github.svg' },
+  { name: 'Figma', url: 'https://figma.com/@manuelfessen', svg: 'figma' },
+  { name: 'Github', url: 'https://github.com/manuelfessen', svg: 'github' },
   {
     name: 'Instagram',
     url: 'https://www.instagram.com/manuelfessen/',
-    svg: '/svg/brands/instagram.svg',
+    svg: 'instagram',
   },
   {
     name: 'Strava',
     url: 'https://www.strava.com/athletes/31601783',
-    svg: '/svg/brands/strava.svg',
+    svg: 'strava',
   },
 ]
 
 const legal = [
-  { name: 'Impressum', url: '../impressum', svg: '/svg/icons/impressum.svg' },
-  { name: 'Datenschutzerklärung', url: '../dse', svg: '/svg/icons/dse.svg' },
+  { name: 'Impressum', url: '/impressum', svg: 'impressum' },
+  { name: 'Datenschutzerklärung', url: '/dse', svg: 'dse' },
 ]
 ---
 
@@ -71,7 +73,7 @@ const legal = [
               {...(url.startsWith('http') ? { rel: 'noopener noreferrer' } : { rel: 'prefetch' })}
             >
               <span class='flex w-4 items-center justify-center'>
-                <img width='20' height='20' src={svg} />
+                <Icon name={svg} />
               </span>
               <span class='flex-1'>{name}</span>
             </a>
@@ -98,7 +100,7 @@ const legal = [
               {...(url.startsWith('http') ? { rel: 'noopener noreferrer' } : { rel: 'prefetch' })}
             >
               <span class='flex w-4 items-center justify-center'>
-                <img width='20' height='20' src={svg} />
+                <Icon name={svg} />
               </span>
               <span class='flex-1'>{name}</span>
             </a>
@@ -127,7 +129,7 @@ const legal = [
               {...(url.startsWith('http') ? { rel: 'noopener noreferrer' } : { rel: 'prefetch' })}
             >
               <span class='flex w-4 items-center justify-center'>
-                <img width='20' height='20' src={svg} />
+                <Icon name={svg} />
               </span>
               <>
                 <span class='flex-1'>{name}</span>
@@ -170,7 +172,7 @@ const legal = [
             {...(url.startsWith('http') ? { rel: 'noopener noreferrer' } : { rel: 'prefetch' })}
           >
             <span class='flex w-4 items-center justify-center'>
-              <img width='20' height='20' src={svg} />
+              <Icon name={svg} />
             </span>
             <span class='flex-1'>{name}</span>
           </a>

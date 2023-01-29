@@ -28,6 +28,7 @@
     "@tailwindcss/typography": "^0.5.8",
     "astro": "^1.6.10",
     "astro-compress": "^1.1.10",
+    "astro-icon": "^0.8.0",
     "astro-m2dx": "0.7.11",
     "astro-robots-txt": "^0.3.10",
     "autoprefixer": "^10.4.13",

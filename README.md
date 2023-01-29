@@ -1,8 +1,6 @@
 # Building my website with Astro 🚀
 
-Inspired by <a href="https://leerob.io/">leerob.io</a>
-<br/><br/>
-Codebase by <a href="https://github.com/NekoChanTaiwan/astro-blog">NekoChan</a>
+Inspired by <a href="https://brianlovin.com/">brianlovin</a>, built by myself with [Astro](https://astro.build/)🚀. 
 <br/><br/>
 Link to my website <a href="https://manuelfessen.de/">manuelfessen.de/</a>
 
@@ -33,7 +31,6 @@ Link to my website <a href="https://manuelfessen.de/">manuelfessen.de/</a>
 
   - Mobile-first
   - Dark mode
-  - Customizable
 
 ## Tasks ✅
 
@@ -45,5 +42,5 @@ Link to my website <a href="https://manuelfessen.de/">manuelfessen.de/</a>
 - [x] Improve social links (Github and LinkedIn)
 - [x] Add first Blog Post
 - [x] Add Activity component (Recent Books etc.)
-- [ ] Expand the digital garden
+- [x] Expand the digital garden
 - [ ] Expand Blogging ✍️💚
