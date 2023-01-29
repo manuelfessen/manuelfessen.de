@@ -4,19 +4,15 @@ import NotesCard from './NotesCard.astro'
 
 const notes = await Astro.glob<Frontmatter>('../pages/notes/*.mdx')
 const nonDraftPosts = notes.filter(({ frontmatter }) => !frontmatter.draft)
+const sortedPosts = nonDraftPosts
+  .sort(
+    ({ frontmatter: { publishedAt: a } }, { frontmatter: { publishedAt: b } }) =>
+      new Date(b).valueOf() - new Date(a).valueOf()
+  )
+  .slice(0, 15)
 
-const tags = nonDraftPosts.flatMap(({ frontmatter }) => frontmatter.tags)
-const uniqueTags = [...new Set(tags)]
+const unpinnedNotes = sortedPosts.filter(({ frontmatter }) => !frontmatter.pinned)
 
-const getCount = (tag: string) => tags.filter((t) => t === tag).length
-
-const nonDraftNotes = notes
-  .filter(({ frontmatter }) => !frontmatter.draft)
-  .sort((a, b) => {
-    const aDate = new Date(a.frontmatter.publishedAt)
-    const bDate = new Date(b.frontmatter.publishedAt)
-    return bDate.getTime() - aDate.getTime()
-  })
 ---
 <div class='bg-dots min-h-screen w-full'>
   <div
@@ -57,8 +53,8 @@ const nonDraftNotes = notes
     </div>
     <div class='lg:space-y-1 lg:p-3'>
       {
-        nonDraftNotes.length ? (
-        nonDraftNotes.map(({ frontmatter }) => <NotesCard {...frontmatter} />)
+        unpinnedNotes.length ? (
+        unpinnedNotes.map(({ frontmatter }) => <NotesCard {...frontmatter} />)
         ) : (
           <p class='text-gray-600 dark:text-gray-300'>No notes yet.</p>
         )

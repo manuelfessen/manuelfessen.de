@@ -1,4 +1,5 @@
 ---
+import { SEO } from 'config'
 import Navbar from '@/components/Navbar.astro'
 import type { SiteMeta } from '@/types/index'
 import FullLayout from './FullLayout.astro'
@@ -6,11 +7,13 @@ import FullLayout from './FullLayout.astro'
 export type BaseHeadProps = {
   meta: SiteMeta
 }
-
-const { title, description, image } = Astro.props as BaseHeadProps
+const metadata: SiteMeta = {
+  title: SEO.title,
+  description: 'Manuel Fessen - UX Professional',
+}
 ---
 
-<FullLayout title={`${title} – Manuel Fessen`} description={description}>
+<FullLayout {...metadata}>
   <div class="flex flex-col overflow-y-auto w-full">
   <Navbar />
   <slot />

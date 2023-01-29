@@ -31,7 +31,7 @@ const metadata: SiteMeta = {
 dayjs.extend(relativeTime)
 ---
 
-<FullLayout title={`${title} – Manuel Fessen`} description={description}>
+<FullLayout {...metadata}>
   <div class='hidden sm:flex sm:w-96'>
     <NoteList />
   </div>
@@ -119,5 +119,4 @@ dayjs.extend(relativeTime)
       </article>
     </div>
   </div>
-  
 </FullLayout>

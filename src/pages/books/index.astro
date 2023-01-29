@@ -1,14 +1,17 @@
 ---
+import { SEO } from 'config'
 import FullLayout from '@/layouts/FullLayout.astro'
 
 import BookList from '@/components/BookList.astro'
+import type { Frontmatter, SiteMeta } from '@/types'
 
-const meta = {
-	title: "Manuel Fessens digital bookshelf",
-	description: "A collection of books I have read in the past.",
-};
+const metadata: SiteMeta = {
+  title: SEO.title,
+  description: 'Manuel Fessen - UX Professional',
+}
 ---
-<FullLayout title={'Manuel Fessen'} description='All the books I want to write about.'>
+
+<FullLayout {...metadata}>
 		<BookList />
 
 </FullLayout>
