@@ -3,47 +3,25 @@
 import { cx } from '@/lib/utils'
 import { Icon } from 'astro-icon'
 
-const itemsHead = [
-  { name: 'Home', url: '/', svg: 'home' },
-  { name: 'Contact', url: '/contact', svg: 'contact' },
-]
+const itemHome = [{ url: '/' }]
+const itemContact = [{ url: '/contact' }]
 
-const itemsMe = [
-  { name: 'Writing', url: '/blog', svg: 'writing' },
-  { name: 'Digital Garden', url: '/notes', svg: 'digital-garden' },
-  { name: 'Digital Bookshelf', url: '/books', svg: 'books' },
-  { name: 'About', url: '/about', svg: 'about' },
-]
+const itemWriting = [{ url: '/blog' }]
+const itemNotes = [{ url: '/notes' }]
+const itemBooks = [{ url: '/books' }]
+const itemAbout = [{ url: '/about' }]
 
-const SOCIAL_LINK = [
-  {
-    name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/manuelfessen',
-    svg: 'linkedin',
-  },
-  { name: 'Figma', url: 'https://figma.com/@manuelfessen', svg: 'figma' },
-  { name: 'Github', url: 'https://github.com/manuelfessen', svg: 'github' },
-  {
-    name: 'Instagram',
-    url: 'https://www.instagram.com/manuelfessen/',
-    svg: 'instagram',
-  },
-  {
-    name: 'Strava',
-    url: 'https://www.strava.com/athletes/31601783',
-    svg: 'strava',
-  },
-]
+const itemLinkedIn = [{ url: 'https://www.linkedin.com/in/manuelfessen' }]
+const itemFigma = [{ url: 'https://figma.com/@manuelfessen' }]
+const itemGithub = [{ url: 'https://github.com/manuelfessen' }]
+const itemInstagramm = [{ url: 'https://www.instagram.com/manuelfessen/' }]
+const itemStrava = [{ url: 'https://www.strava.com/athletes/31601783' }]
 
-const legal = [
-  { name: 'Impressum', url: '/impressum', svg: 'impressum' },
-  { name: 'Datenschutzerklärung', url: '/dse', svg: 'dse' },
-]
+const itemImpressum = [{ url: '/impressum' }]
+const itemDSE = [{ url: '/dse' }]
 ---
 
-
 <nav
-  area-hidden="true"
   id='drawer-backdrop'
   class='absolute top-0 -translate-x-full 3xl:w-80 z-40 flex h-full max-h-screen min-h-screen w-3/4 flex-none transform flex-col overflow-y-auto border-r border-gray-150 bg-white pb-10 transition duration-200 ease-in-out dark:border-gray-800 dark:bg-gray-900 sm:w-1/2 sm:pb-0 md:w-1/3 lg:relative lg:z-auto lg:w-56 lg:translate-x-0 lg:bg-gray-50 lg:dark:bg-gray-900 2xl:w-72'
 >
@@ -61,7 +39,41 @@ const legal = [
   <div class='flex-1 px-3 py-3 space-y-1'>
     <ul class='space-y-1'>
       {
-        itemsHead.map(({ name, url, svg }) => (
+        itemHome.map(({ url }) => (
+          <li class='flex items-stretch space-x-1'>
+            <a
+              href='/'
+              class={cx(
+                'flex flex-1 items-center space-x-3 rounded-md px-2 py-1.5 text-sm font-medium',
+                Astro.url.pathname.split('/')[1] === url.replaceAll('/', '')
+                  ? 'bg-black text-white hover:bg-black hover:text-white dark:bg-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white'
+                  : 'text-gray-700 dark:text-gray-200 sm:hover:bg-gray-200 sm:hover:text-gray-900 sm:dark:hover:bg-gray-700 sm:dark:hover:text-gray-200'
+              )}
+              {...(url.startsWith('http') ? { rel: 'noopener noreferrer' } : { rel: 'prefetch' })}
+            >
+              <span class='flex w-4 items-center justify-center'>
+                <svg
+                  width='15'
+                  height='15'
+                  viewBox='0 0 15 15'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <path
+                    d='M7.07926 0.222253C7.31275 -0.007434 7.6873 -0.007434 7.92079 0.222253L14.6708 6.86227C14.907 7.09465 14.9101 7.47453 14.6778 7.71076C14.4454 7.947 14.0655 7.95012 13.8293 7.71773L13 6.90201V12.5C13 12.7761 12.7762 13 12.5 13H2.50002C2.22388 13 2.00002 12.7761 2.00002 12.5V6.90201L1.17079 7.71773C0.934558 7.95012 0.554672 7.947 0.32229 7.71076C0.0899079 7.47453 0.0930283 7.09465 0.32926 6.86227L7.07926 0.222253ZM7.50002 1.49163L12 5.91831V12H10V8.49999C10 8.22385 9.77617 7.99999 9.50002 7.99999H6.50002C6.22388 7.99999 6.00002 8.22385 6.00002 8.49999V12H3.00002V5.91831L7.50002 1.49163ZM7.00002 12H9.00002V8.99999H7.00002V12Z'
+                    fill='currentColor'
+                    fill-rule='evenodd'
+                    clip-rule='evenodd'
+                  />
+                </svg>
+              </span>
+              <span class='flex-1'>Home</span>
+            </a>
+          </li>
+        ))
+      }
+      {
+        itemContact.map(({ url }) => (
           <li class='flex items-stretch space-x-1'>
             <a
               href={url}
@@ -74,21 +86,34 @@ const legal = [
               {...(url.startsWith('http') ? { rel: 'noopener noreferrer' } : { rel: 'prefetch' })}
             >
               <span class='flex w-4 items-center justify-center'>
-                <Icon name={svg} />
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='20'
+                  height='20'
+                  viewBox='0 0 24 24'
+                  stroke-width='1.5'
+                  stroke='currentColor'
+                  fill='none'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                >
+                  <circle cx='12' cy='12' r='4' />
+                  <path d='M16 12v1.5a2.5 2.5 0 0 0 5 0v-1.5a9 9 0 1 0 -5.5 8.28' />
+                </svg>
               </span>
-              <span class='flex-1'>{name}</span>
+              <span class='flex-1'>Contact</span>
             </a>
           </li>
         ))
       }
     </ul><ul class='space-y-1'>
-      <h1
+      <h4
         class='px-2 pt-5 pb-2 text-xs font-semibold text-gray-100 text-opacity-40 dark:text-white'
       >
         Me
-      </h1>
+      </h4>
       {
-        itemsMe.map(({ name, url, svg }) => (
+        itemWriting.map(({ url }) => (
           <li class='flex items-stretch space-x-1'>
             <a
               href={url}
@@ -101,26 +126,148 @@ const legal = [
               {...(url.startsWith('http') ? { rel: 'noopener noreferrer' } : { rel: 'prefetch' })}
             >
               <span class='flex w-4 items-center justify-center'>
-                <Icon name={svg} />
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='20'
+                  height='20'
+                  viewBox='0 0 24 24'
+                  stroke-width='1.5'
+                  stroke='currentColor'
+                  fill='none'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                >
+                  <path d='M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18' />
+                  <line x1='13' y1='8' x2='15' y2='8' />
+                  <line x1='13' y1='12' x2='15' y2='12' />
+                </svg>
               </span>
-              <span class='flex-1'>{name}</span>
+              <span class='flex-1'>Writing</span>
+            </a>
+          </li>
+        ))
+      }
+
+      {
+        itemNotes.map(({ url }) => (
+          <li class='flex items-stretch space-x-1'>
+            <a
+              href={url}
+              class={cx(
+                'flex flex-1 items-center space-x-3 rounded-md px-2 py-1.5 text-sm font-medium',
+                Astro.url.pathname.split('/')[1] === url.replaceAll('/', '')
+                  ? 'bg-black text-white hover:bg-black hover:text-white dark:bg-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white'
+                  : 'text-gray-700 dark:text-gray-200 sm:hover:bg-gray-200 sm:hover:text-gray-900 sm:dark:hover:bg-gray-700 sm:dark:hover:text-gray-200'
+              )}
+              {...(url.startsWith('http') ? { rel: 'noopener noreferrer' } : { rel: 'prefetch' })}
+            >
+              <span class='flex w-4 items-center justify-center'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='20'
+                  height='20'
+                  viewBox='0 0 24 24'
+                  stroke-width='1.5'
+                  stroke='currentColor'
+                  fill='none'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                >
+                  <path d='M12 13l-2 -2' />
+                  <path d='M12 12l2 -2' />
+                  <path d='M12 21v-13' />
+                  <path d='M9.824 15.995a3 3 0 0 1 -2.743 -3.69a2.998 2.998 0 0 1 .304 -4.833a3 3 0 0 1 4.615 -3.707a3 3 0 0 1 4.614 3.707a2.997 2.997 0 0 1 .305 4.833a3 3 0 0 1 -2.919 3.695h-4z' />
+                </svg>
+              </span>
+              <span class='flex-1'>Notes</span>
+            </a>
+          </li>
+        ))
+      }
+      {
+        itemBooks.map(({ url }) => (
+          <li class='flex items-stretch space-x-1'>
+            <a
+              href={url}
+              class={cx(
+                'flex flex-1 items-center space-x-3 rounded-md px-2 py-1.5 text-sm font-medium',
+                Astro.url.pathname.split('/')[1] === url.replaceAll('/', '')
+                  ? 'bg-black text-white hover:bg-black hover:text-white dark:bg-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white'
+                  : 'text-gray-700 dark:text-gray-200 sm:hover:bg-gray-200 sm:hover:text-gray-900 sm:dark:hover:bg-gray-700 sm:dark:hover:text-gray-200'
+              )}
+              {...(url.startsWith('http') ? { rel: 'noopener noreferrer' } : { rel: 'prefetch' })}
+            >
+              <span class='flex w-4 items-center justify-center'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='20'
+                  height='20'
+                  viewBox='0 0 24 24'
+                  stroke-width='1.5'
+                  stroke='currentColor'
+                  fill='dark:text-white text-black'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                >
+                  <path d='M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0' />
+                  <path d='M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0' />
+                  <line x1='3' y1='6' x2='3' y2='19' />
+                  <line x1='12' y1='6' x2='12' y2='19' />
+                  <line x1='21' y1='6' x2='21' y2='19' />
+                </svg>
+              </span>
+              <span class='flex-1'>Digital Bookshelf</span>
+            </a>
+          </li>
+        ))
+      }
+      {
+        itemAbout.map(({ url }) => (
+          <li class='flex items-stretch space-x-1'>
+            <a
+              href={url}
+              class={cx(
+                'flex flex-1 items-center space-x-3 rounded-md px-2 py-1.5 text-sm font-medium',
+                Astro.url.pathname.split('/')[1] === url.replaceAll('/', '')
+                  ? 'bg-black text-white hover:bg-black hover:text-white dark:bg-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white'
+                  : 'text-gray-700 dark:text-gray-200 sm:hover:bg-gray-200 sm:hover:text-gray-900 sm:dark:hover:bg-gray-700 sm:dark:hover:text-gray-200'
+              )}
+              {...(url.startsWith('http') ? { rel: 'noopener noreferrer' } : { rel: 'prefetch' })}
+            >
+              <span class='flex w-4 items-center justify-center'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='20'
+                  height='20'
+                  viewBox='0 0 24 24'
+                  stroke-width='1.5'
+                  stroke='currentColor'
+                  fill='currentColor'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                >
+                  <circle cx='12' cy='7' r='4' />
+                  <path d='M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2' />
+                </svg>
+              </span>
+              <span class='flex-1'>About</span>
             </a>
           </li>
         ))
       }
     </ul>
     <ul class='space-y-1'>
-      <h1
+      <h4
         class='px-2 pt-5 pb-2 text-xs font-semibold text-gray-1000 text-opacity-40 dark:text-white'
       >
         Online
-      </h1>
+      </h4>
       {
-        SOCIAL_LINK.map(({ name, url, svg }) => (
+        itemLinkedIn.map(({ url }) => (
           <li class='flex items-stretch space-x-1'>
             <a
-              target='_blank'
               href={url}
+              target='_blank'
               class={cx(
                 'flex flex-1 items-center space-x-3 rounded-md px-2 py-1.5 text-sm font-medium',
                 Astro.url.pathname.split('/')[1] === url.replaceAll('/', '')
@@ -130,25 +277,166 @@ const legal = [
               {...(url.startsWith('http') ? { rel: 'noopener noreferrer' } : { rel: 'prefetch' })}
             >
               <span class='flex w-4 items-center justify-center'>
-                <Icon name={svg} />
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='20'
+                  height='20'
+                  viewBox='0 0 24 24'
+                  stroke-width='1.5'
+                  stroke='currentColor'
+                  fill='none'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                >
+                  <rect x='4' y='4' width='16' height='16' rx='2' />
+                  <line x1='8' y1='11' x2='8' y2='16' />
+                  <line x1='8' y1='8' x2='8' y2='8.01' />
+                  <line x1='12' y1='16' x2='12' y2='11' />
+                  <path d='M16 16v-3a2 2 0 0 0 -4 0' />
+                </svg>
               </span>
-              <>
-                <span class='flex-1'>{name}</span>
-                <span class='flex w-4 items-center justify-center text-black text-opacity-40 dark:text-white'>
-                  <svg
-                    width='10'
-                    height='9'
-                    viewBox='0 0 10 9'
-                    fill='none'
-                    xmlns='http://www.w3.org/2000/svg'
-                  >
-                    <path
-                      d='M9.00195 6.32617V0.824219C9.00195 0.490234 8.79102 0.267578 8.45117 0.267578L2.94922 0.279297C2.62109 0.279297 2.41016 0.519531 2.41016 0.794922C2.41016 1.07031 2.65039 1.30469 2.92578 1.30469h1.66602L7.45508 1.19922L6.39453 2.13672L1.16211 7.38086C1.05664 7.48633 0.998047 7.61523 0.998047 7.73828C0.998047 8.01367 1.24414 8.27734 1.53125 8.27734C1.66602 8.27734 1.78906 8.22461 1.89453 8.11914L7.13281 2.875L8.07617 1.81445L7.96484 4.48047V6.34961C7.96484 6.61914 8.19922 6.86523 8.48633 6.86523C8.76172 6.86523 9.00195 6.63672 9.00195 6.32617Z'
-                      fill='currentColor'
-                    />
-                  </svg>
-                </span>
-              </>
+              <span class='flex-1'>LinkedIn</span>
+            </a>
+          </li>
+        ))
+      }
+      {
+        itemFigma.map(({ url }) => (
+          <li class='flex items-stretch space-x-1'>
+            <a
+              href={url}
+              target='_blank'
+              class={cx(
+                'flex flex-1 items-center space-x-3 rounded-md px-2 py-1.5 text-sm font-medium',
+                Astro.url.pathname.split('/')[1] === url.replaceAll('/', '')
+                  ? 'bg-black text-white hover:bg-black hover:text-white dark:bg-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white'
+                  : 'text-gray-700 dark:text-gray-200 sm:hover:bg-gray-200 sm:hover:text-gray-900 sm:dark:hover:bg-gray-700 sm:dark:hover:text-gray-200'
+              )}
+              {...(url.startsWith('http') ? { rel: 'noopener noreferrer' } : { rel: 'prefetch' })}
+            >
+              <span class='flex w-4 items-center justify-center'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='20'
+                  height='20'
+                  viewBox='0 0 24 24'
+                  stroke-width='1.5'
+                  stroke='currentColor'
+                  fill='none'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  class='text-black dark:text-white'
+                >
+                  <circle cx='15' cy='12' r='3' />
+                  <rect x='6' y='3' width='12' height='6' rx='3' />
+                  <path d='M9 9a3 3 0 0 0 0 6h3m-3 0a3 3 0 1 0 3 3v-15' />
+                </svg>
+              </span>
+              <span class='flex-1'>Figma</span>
+            </a>
+          </li>
+        ))
+      }
+      {
+        itemGithub.map(({ url }) => (
+          <li class='flex items-stretch space-x-1'>
+            <a
+              href={url}
+              target='_blank'
+              class={cx(
+                'flex flex-1 items-center space-x-3 rounded-md px-2 py-1.5 text-sm font-medium',
+                Astro.url.pathname.split('/')[1] === url.replaceAll('/', '')
+                  ? 'bg-black text-white hover:bg-black hover:text-white dark:bg-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white'
+                  : 'text-gray-700 dark:text-gray-200 sm:hover:bg-gray-200 sm:hover:text-gray-900 sm:dark:hover:bg-gray-700 sm:dark:hover:text-gray-200'
+              )}
+              {...(url.startsWith('http') ? { rel: 'noopener noreferrer' } : { rel: 'prefetch' })}
+            >
+              <span class='flex w-4 items-center justify-center'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='20'
+                  height='20'
+                  viewBox='0 0 24 24'
+                  stroke-width='1.5'
+                  stroke='currentColor'
+                  fill='none'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                >
+                  <path d='M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5' />
+                </svg>
+              </span>
+              <span class='flex-1'>Github</span>
+            </a>
+          </li>
+        ))
+      }
+      {
+        itemInstagramm.map(({ url }) => (
+          <li class='flex items-stretch space-x-1'>
+            <a
+              href={url}
+              target='_blank'
+              class={cx(
+                'flex flex-1 items-center space-x-3 rounded-md px-2 py-1.5 text-sm font-medium',
+                Astro.url.pathname.split('/')[1] === url.replaceAll('/', '')
+                  ? 'bg-black text-white hover:bg-black hover:text-white dark:bg-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white'
+                  : 'text-gray-700 dark:text-gray-200 sm:hover:bg-gray-200 sm:hover:text-gray-900 sm:dark:hover:bg-gray-700 sm:dark:hover:text-gray-200'
+              )}
+              {...(url.startsWith('http') ? { rel: 'noopener noreferrer' } : { rel: 'prefetch' })}
+            >
+              <span class='flex w-4 items-center justify-center'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='20'
+                  height='20'
+                  viewBox='0 0 24 24'
+                  stroke-width='1.5'
+                  stroke='currentColor'
+                  fill='none'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                >
+                  <rect x='4' y='4' width='16' height='16' rx='4' />
+                  <circle cx='12' cy='12' r='3' />
+                  <line x1='16.5' y1='7.5' x2='16.5' y2='7.501' />
+                </svg>
+              </span>
+              <span class='flex-1'>Instagramm</span>
+            </a>
+          </li>
+        ))
+      }
+      {
+        itemStrava.map(({ url }) => (
+          <li class='flex items-stretch space-x-1'>
+            <a
+              href={url}
+              target='_blank'
+              class={cx(
+                'flex flex-1 items-center space-x-3 rounded-md px-2 py-1.5 text-sm font-medium',
+                Astro.url.pathname.split('/')[1] === url.replaceAll('/', '')
+                  ? 'bg-black text-white hover:bg-black hover:text-white dark:bg-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white'
+                  : 'text-gray-700 dark:text-gray-200 sm:hover:bg-gray-200 sm:hover:text-gray-900 sm:dark:hover:bg-gray-700 sm:dark:hover:text-gray-200'
+              )}
+              {...(url.startsWith('http') ? { rel: 'noopener noreferrer' } : { rel: 'prefetch' })}
+            >
+              <span class='flex w-4 items-center justify-center'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='20'
+                  height='20'
+                  viewBox='0 0 24 24'
+                  stroke-width='1.5'
+                  stroke='currentColor'
+                  fill='none'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                >
+                  <path d='M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169' />
+                </svg>
+              </span>
+              <span class='flex-1'>Strava</span>
             </a>
           </li>
         ))
@@ -156,11 +444,11 @@ const legal = [
     </ul>
   </div>
   <ul class='space-y-1 px-3 py-3 bottom-0 justify-self-end'>
-    <h1 class='px-2 pt-5 pb-2 text-xs font-semibold text-gray-1000 text-opacity-40 dark:text-white'>
+    <h4 class='px-2 pt-5 pb-2 text-xs font-semibold text-gray-1000 text-opacity-40 dark:text-white'>
       Legal
-    </h1>
+    </h4>
     {
-      legal.map(({ name, url, svg }) => (
+      itemImpressum.map(({ url }) => (
         <li class='flex items-stretch space-x-1'>
           <a
             href={url}
@@ -173,9 +461,55 @@ const legal = [
             {...(url.startsWith('http') ? { rel: 'noopener noreferrer' } : { rel: 'prefetch' })}
           >
             <span class='flex w-4 items-center justify-center'>
-              <Icon name={svg} />
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                width='20'
+                height='20'
+                viewBox='0 0 24 24'
+                stroke-width='1.5'
+                stroke='currentColor'
+                fill='none'
+                stroke-linecap='round'
+                stroke-linejoin='round'
+              >
+                <path d='M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12' />
+              </svg>
             </span>
-            <span class='flex-1'>{name}</span>
+            <span class='flex-1'>Impressum</span>
+          </a>
+        </li>
+      ))
+    }
+    {
+      itemDSE.map(({ url }) => (
+        <li class='flex items-stretch space-x-1'>
+          <a
+            href={url}
+            class={cx(
+              'flex flex-1 items-center space-x-3 rounded-md px-2 py-1.5 text-sm font-medium',
+              Astro.url.pathname.split('/')[1] === url.replaceAll('/', '')
+                ? 'bg-black text-white hover:bg-black hover:text-white dark:bg-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white'
+                : 'text-gray-700 dark:text-gray-200 sm:hover:bg-gray-200 sm:hover:text-gray-900 sm:dark:hover:bg-gray-700 sm:dark:hover:text-gray-200'
+            )}
+            {...(url.startsWith('http') ? { rel: 'noopener noreferrer' } : { rel: 'prefetch' })}
+          >
+            <span class='flex w-4 items-center justify-center'>
+              <svg
+                width='15'
+                height='15'
+                viewBox='0 0 15 15'
+                fill='none'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <path
+                  d='M3.94993 2.95002L3.94993 4.49998C3.94993 4.74851 3.74845 4.94998 3.49993 4.94998C3.2514 4.94998 3.04993 4.74851 3.04993 4.49998V2.50004C3.04993 2.45246 3.05731 2.40661 3.07099 2.36357C3.12878 2.18175 3.29897 2.05002 3.49993 2.05002H11.4999C11.6553 2.05002 11.7922 2.12872 11.8731 2.24842C11.9216 2.32024 11.9499 2.40682 11.9499 2.50002L11.9499 2.50004V4.49998C11.9499 4.74851 11.7485 4.94998 11.4999 4.94998C11.2514 4.94998 11.0499 4.74851 11.0499 4.49998V2.95002H8.04993V12.05H9.25428C9.50281 12.05 9.70428 12.2515 9.70428 12.5C9.70428 12.7486 9.50281 12.95 9.25428 12.95H5.75428C5.50575 12.95 5.30428 12.7486 5.30428 12.5C5.30428 12.2515 5.50575 12.05 5.75428 12.05H6.94993V2.95002H3.94993Z'
+                  fill='currentColor'
+                  fill-rule='evenodd'
+                  clip-rule='evenodd'
+                />
+              </svg>
+            </span>
+            <span class='flex-1'>Datenschutzerklärung</span>
           </a>
         </li>
       ))
