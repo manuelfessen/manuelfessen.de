@@ -53,7 +53,7 @@ const prettyCodeOptions: PrettyCodeOptions = {
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.manuelfessen.de',
+  site: 'https://www.manuelfessen.de/',
   markdown: {
     syntaxHighlight: false,
   },
