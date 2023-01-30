@@ -23,7 +23,7 @@ const itemDSE = [{ url: '/dse' }]
 
 <nav
   id='drawer-backdrop'
-  class='absolute top-0 -translate-x-full 3xl:w-80 z-40 flex h-full max-h-screen min-h-screen w-3/4 flex-none transform flex-col overflow-y-auto border-r border-gray-150 bg-white pb-10 transition duration-200 ease-in-out dark:border-gray-800 dark:bg-gray-900 sm:w-1/2 sm:pb-0 md:w-1/3 lg:relative lg:z-auto lg:w-56 lg:translate-x-0 lg:bg-gray-50 lg:dark:bg-gray-900 2xl:w-72'
+  class='absolute -translate-x-full 3xl:w-80 z-40 flex sm:h-full h-screen max-h-screen min-h-screen w-3/4 flex-none transform flex-col overflow-y-auto border-r border-gray-150 bg-white pb-10 transition duration-200 ease-in-out dark:border-gray-800 dark:bg-gray-900 sm:w-1/2 sm:pb-0 md:w-1/3 lg:relative lg:z-auto lg:w-56 lg:translate-x-0 lg:bg-gray-50 lg:dark:bg-gray-900 2xl:w-72'
 >
   <div
     class='sticky top-0 z-10 flex flex-col justify-center px-3 py-2 dark:border-b dark:border-gray-900 h-12'
@@ -107,11 +107,11 @@ const itemDSE = [{ url: '/dse' }]
         ))
       }
     </ul><ul class='space-y-1'>
-      <h4
-        class='px-2 pt-5 pb-2 text-xs font-semibold text-gray-100 text-opacity-40 dark:text-white'
+      <h2
+        class='px-2 pt-5 pb-2 text-xs font-semibold text-gray-1000 text-opacity-40 dark:text-white'
       >
         Me
-      </h4>
+      </h2>
       {
         itemWriting.map(({ url }) => (
           <li class='flex items-stretch space-x-1'>
@@ -257,11 +257,11 @@ const itemDSE = [{ url: '/dse' }]
       }
     </ul>
     <ul class='space-y-1'>
-      <h4
+      <h2
         class='px-2 pt-5 pb-2 text-xs font-semibold text-gray-1000 text-opacity-40 dark:text-white'
       >
         Online
-      </h4>
+      </h2>
       {
         itemLinkedIn.map(({ url }) => (
           <li class='flex items-stretch space-x-1'>
@@ -444,9 +444,9 @@ const itemDSE = [{ url: '/dse' }]
     </ul>
   </div>
   <ul class='space-y-1 px-3 py-3 bottom-0 justify-self-end'>
-    <h4 class='px-2 pt-5 pb-2 text-xs font-semibold text-gray-1000 text-opacity-40 dark:text-white'>
+    <h2 class='px-2 pt-5 pb-2 text-xs font-semibold text-gray-1000 text-opacity-40 dark:text-white'>
       Legal
-    </h4>
+    </h2>
     {
       itemImpressum.map(({ url }) => (
         <li class='flex items-stretch space-x-1'>
