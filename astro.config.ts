@@ -1,4 +1,3 @@
-import { readFileSync } from 'fs'
 import { defineConfig } from 'astro/config'
 import prefetch from '@astrojs/prefetch'
 import sitemap from '@astrojs/sitemap'
@@ -9,6 +8,8 @@ import mdx from '@astrojs/mdx'
 import image from '@astrojs/image'
 import compress from 'astro-compress'
 import mdxProvider from './plugins/mdx-provider'
+import remarkToc from "remark-toc";
+import remarkCollapse from "remark-collapse";
 import remarkM2dx from 'astro-m2dx'
 import remarkRouteSlug from './plugins/remark-route-slug'
 import remarkReadingTime from './plugins/remark-reading-time'
@@ -43,6 +44,13 @@ export default defineConfig({
         [remarkM2dx, remarM2dxOptions],
         remarkRouteSlug,
         remarkReadingTime,
+        remarkToc,
+        [
+          remarkCollapse,
+          {
+            test: "Table of contents",
+          },
+        ],
       ],
     }),
     image({
