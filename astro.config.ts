@@ -10,7 +10,6 @@ import image from '@astrojs/image'
 import compress from 'astro-compress'
 import mdxProvider from './plugins/mdx-provider'
 import remarkM2dx from 'astro-m2dx'
-import remarkToc from './plugins/remark-toc'
 import remarkRouteSlug from './plugins/remark-route-slug'
 import remarkReadingTime from './plugins/remark-reading-time'
 import type { Options as M2dxOptions } from 'astro-m2dx'
@@ -42,11 +41,9 @@ export default defineConfig({
     mdx({
       remarkPlugins: [
         [remarkM2dx, remarM2dxOptions],
-        remarkToc,
         remarkRouteSlug,
         remarkReadingTime,
       ],
-      extendPlugins: 'astroDefaults', // remark-gfm, remark-smartypants
     }),
     image({
       serviceEntryPoint: '@astrojs/image/sharp',
