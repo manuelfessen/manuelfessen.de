@@ -8,7 +8,9 @@ import mdx from '@astrojs/mdx'
 import image from '@astrojs/image'
 import compress from 'astro-compress'
 import mdxProvider from './plugins/mdx-provider'
-import remarkToc from "remark-toc";
+import rehypeSlug from 'rehype-slug'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import remarkToc from "remark-toc"
 import remarkCollapse from "remark-collapse";
 import remarkM2dx from 'astro-m2dx'
 import remarkRouteSlug from './plugins/remark-route-slug'
@@ -51,6 +53,10 @@ export default defineConfig({
             test: "Table of contents",
           },
         ],
+      ],
+      rehypePlugins: [
+        rehypeSlug,
+        [rehypeAutolinkHeadings, { behavior: 'append' }],
       ],
     }),
     image({

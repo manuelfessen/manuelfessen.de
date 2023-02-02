@@ -63,3 +63,5 @@ span[data-rehype-pretty-code-fragment] code[data-theme='light'] {
 span[data-rehype-pretty-code-fragment] code[data-theme='dark'] {
   @apply hidden dark:inline;
 }
+
+
