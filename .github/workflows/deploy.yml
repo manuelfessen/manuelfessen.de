@@ -1,0 +1,35 @@
+name: Github Pages Astro CI
+
+on:
+  # Löst den Workflow bei jedem Push auf den `main`-Branch aus
+  # Verwendest du einen anderen Branch-Namen? Ersetze `main` durch den Namen deines Branches
+  push:
+    branches: [ main ]
+  # Erlaubt es dir, diesen Workflow manuell über den Actions-Tab auf GitHub zu starten
+  workflow_dispatch:
+  
+# Erlaubt diesem Job das Repository zu klonen und eine Veröffentlichung bei GitHub Pages zu erstellen
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checke dein Repository mit Git aus
+        uses: actions/checkout@v2          
+      - name: Installiere Abhängigkeiten, erzeuge deine Website und lade sie hoch
+        uses: withastro/action@v0
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Bei GitHub Pages veröffentlichen
+        id: deployment
+        uses: actions/deploy-pages@v1
