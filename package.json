@@ -38,7 +38,7 @@
     "dayjs": "^1.11.6",
     "gsap": "^3.11.3",
     "katex": "0.16.4",
-    "open-graph-scraper": "^5.0.4",
+    "open-graph-scraper": "^5.0.5",
     "probe-image-size": "^7.2.3",
     "reading-time": "^1.5.0",
     "rehype-autolink-headings": "^6.1.1",
@@ -48,7 +48,7 @@
     "shiki": "^0.14.0",
     "solid-js": "^1.6.10",
     "swetrix": "^2.0.1",
-    "tailwind-merge": "^1.9.0",
+    "tailwind-merge": "^1.9.1",
     "tailwindcss": "^3.2.4"
   },
   "devDependencies": {
