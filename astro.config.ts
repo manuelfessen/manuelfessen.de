@@ -29,6 +29,7 @@ const remarM2dxOptions: M2dxOptions = {
 // https://astro.build/config
 export default defineConfig({
   site: 'https://manuelfessen.github.io/',
+  base: 'manuelfessen.de',
   markdown: {
     syntaxHighlight: false,
   },
