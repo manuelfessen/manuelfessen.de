@@ -36,6 +36,7 @@
     "clsx": "^1.2.1",
     "date-fns": "^2.29.3",
     "dayjs": "^1.11.6",
+    "flowbite": "^1.6.3",
     "gsap": "^3.11.3",
     "katex": "0.16.4",
     "open-graph-scraper": "^5.0.5",
