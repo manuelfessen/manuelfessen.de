@@ -17,13 +17,13 @@ const { title, description, image } = Astro.props as BaseHeadProps
     <BaseHead title={title} description={description} />
   </head>
   <body
-    class='relative flex h-full min-h-screen w-full bg-white dark:bg-black text-black dark:text-white overscroll-none'
+    class='relative flex h-full min-h-screen w-full bg-white dark:bg-black text-gray-900 dark:text-gray-100 overscroll-none'
   >
     <Sidebar />
     <main class='flex flex-1'>
       <div class='flex w-full'>
         <div
-          class='relative flex max-h-screen w-full overflow-y-auto bg-white dark:bg-black text-black dark:text-white'
+          class='relative flex max-h-screen w-full overflow-y-auto bg-white dark:bg-black text-gray-900 dark:text-gray-100'
         >
           <slot />
         </div>
