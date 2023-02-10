@@ -12,7 +12,7 @@ const nonDraftPosts = posts.filter(({ frontmatter }) => !frontmatter.draft)
 
 export const get = () =>
   rss({
-    title: 'Manuel Fessen’s Blog',
+    title: 'Manuel Fessen',
     description: 'Manuel Fessen | UX Designer',
     site: import.meta.env.SITE,
     items: nonDraftPosts.map(({ url, frontmatter }) => ({
