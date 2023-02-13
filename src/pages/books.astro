@@ -1,8 +1,7 @@
 ---
-import { SEO } from 'config'
+import { SEO } from 'config';
+import BookList from '@/components/BookList.astro';
 import FullLayout from '@/layouts/FullLayout.astro'
-
-import BookList from '@/components/BookList.astro'
 import type { Frontmatter, SiteMeta } from '@/types'
 
 const metadata: SiteMeta = {
@@ -12,6 +11,5 @@ const metadata: SiteMeta = {
 ---
 
 <FullLayout {...metadata}>
-		<BookList />
-
+    <BookList />
 </FullLayout>
