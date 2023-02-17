@@ -21,14 +21,14 @@
   integrity sha512-6bBFeDTtPOn4jZaiD3p0f05MEGQL9pw2Zbfj546oFETNmjJFWO3nzHz6/m+P53calknCvyVzZ5YhoBLIvzn5iw==
 
 "@astrojs/compiler@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-1.1.0.tgz#ab77b1c9ed5dfa30588c99346974fb3038b96833"
-  integrity sha512-C4kTwirys+HafufMqaxCbML2wqkGaXJM+5AekXh/v1IIOnMIdcEON9GBYsG6qa8aAmLhZ58aUZGPhzcA3Dx7Uw==
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-1.1.1.tgz#a106f265f7f4fa04db288818d05be2dd64f2471b"
+  integrity sha512-JRDEARnuUUOlKUE4XVu8+NoeNWpOHtYQW39uWjqTbpefMjL95og54vTKLHqeUajXWeY115zZtO7jIVdOmQ1IPQ==
 
-"@astrojs/image@^0.14.1":
-  version "0.14.1"
-  resolved "https://registry.yarnpkg.com/@astrojs/image/-/image-0.14.1.tgz#19476de928f3846f078397c3c42e1e6aac8053dd"
-  integrity sha512-tRswPnPJVqStGXh+5mWtvh7+qi+jABcGkm9BFdP2Hh8Ya8KAgO0ICPjDG3Fppcz5G2JIZ50B3ajXiyWuuRIQJw==
+"@astrojs/image@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/@astrojs/image/-/image-0.15.0.tgz#04f2ec2e199f8332c75f33eb0e435325f8e52587"
+  integrity sha512-Dw47TNCF1dkX3gM1jEmtov4aLR/N5XNzTyToRv99OJZmAAY7J19DN+FUaCHYj3gsiF9N5FekhgOeKu1v4A5DgA==
   dependencies:
     "@altano/tiny-async-pool" "^1.0.2"
     http-cache-semantics "^4.1.0"
@@ -74,15 +74,15 @@
     unist-util-visit "^4.1.0"
     vfile "^5.3.2"
 
-"@astrojs/mdx@^0.16.0":
-  version "0.16.0"
-  resolved "https://registry.yarnpkg.com/@astrojs/mdx/-/mdx-0.16.0.tgz#74bf1a9d8049d2eff75986ac0a7717263fc7c706"
-  integrity sha512-HNk0FhNNthI7+pLmheJyPVU36dXE5l+9UwmmnrMV6COHNZIO2t+pnWnsushEDYZjpkYITDwnXKnQAtD8Mqj4xw==
+"@astrojs/mdx@^0.16.2":
+  version "0.16.2"
+  resolved "https://registry.yarnpkg.com/@astrojs/mdx/-/mdx-0.16.2.tgz#35a766699162def3c8493f5fa218ced7707cde16"
+  integrity sha512-ZNOdBW7ExnWM50+wubg8iw5J1jkUVkTHAJXQt3IwH4TVIOC3mQyr5hDPfN2/pwG9Ch9RNlI+7nsDFNaHY0AeaA==
   dependencies:
     "@astrojs/markdown-remark" "^2.0.1"
     "@astrojs/prism" "^2.0.0"
-    "@mdx-js/mdx" "^2.1.2"
-    "@mdx-js/rollup" "^2.1.1"
+    "@mdx-js/mdx" "^2.3.0"
+    "@mdx-js/rollup" "^2.3.0"
     acorn "^8.8.0"
     es-module-lexer "^0.10.5"
     estree-util-visit "^1.2.0"
@@ -584,7 +584,7 @@
   resolved "https://registry.yarnpkg.com/@ljharb/has-package-exports-patterns/-/has-package-exports-patterns-0.0.2.tgz#c1718939b65efa1f45f53686c2fcfa992b9fb68f"
   integrity sha512-4/RWEeXDO6bocPONheFe6gX/oQdP/bEpv0oL4HqjPP5DCenBSt0mHgahppY49N0CpsaqffdwPq+TlX9CYOq2Dw==
 
-"@mdx-js/mdx@^2.0.0", "@mdx-js/mdx@^2.1.2":
+"@mdx-js/mdx@^2.0.0", "@mdx-js/mdx@^2.3.0":
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@mdx-js/mdx/-/mdx-2.3.0.tgz#d65d8c3c28f3f46bb0e7cb3bf7613b39980671a9"
   integrity sha512-jLuwRlz8DQfQNiUCJR50Y09CGPq3fLtmtUQfVrj79E0JWu3dvsVcxVIcfhR5h0iXu+/z++zDrYeiJqifRynJkA==
@@ -607,7 +607,7 @@
     unist-util-visit "^4.0.0"
     vfile "^5.0.0"
 
-"@mdx-js/rollup@^2.1.1":
+"@mdx-js/rollup@^2.3.0":
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@mdx-js/rollup/-/rollup-2.3.0.tgz#9dbdfc64e3ce4a1af041da963e1cb6f2b6450cbf"
   integrity sha512-wLvRfJS/M4UmdqTd+WoaySEE7q4BIejYf1xAHXYvtT1du/1Tl/z2450Gg2+Hu7fh05KwRRiehiTP9Yc/Dtn0fA==
@@ -1006,10 +1006,10 @@ astring@^1.8.0:
   resolved "https://registry.yarnpkg.com/astring/-/astring-1.8.4.tgz#6d4c5d8de7be2ead9e4a3cc0e2efb8d759378904"
   integrity sha512-97a+l2LBU3Op3bBQEff79i/E4jMD2ZLFD8rHx9B6mXyB2uQwhJQYfiDqUwtfjF4QA1F2qs//N6Cw8LetMbQjcw==
 
-astro-compress@^1.1.32:
-  version "1.1.32"
-  resolved "https://registry.yarnpkg.com/astro-compress/-/astro-compress-1.1.32.tgz#bb45e0554a0ac1e5a97e6d162fa440a65584ff9d"
-  integrity sha512-JzaQqydjM3cWhYn5vAAcQpqHjhd7YECoHXY2oXoBZfyaOKncfvcoyW4VbZX8qI6CdA9tQ1n2lib46/TLfZgltg==
+astro-compress@^1.1.33:
+  version "1.1.33"
+  resolved "https://registry.yarnpkg.com/astro-compress/-/astro-compress-1.1.33.tgz#90918ee39e64b03e4aa8748ec9c6512586839c11"
+  integrity sha512-i9LuEzQAeYPs9Vn+FbN9bdPDa/g2PYddT1GOkoUacFpAZCl9qIYFFvacULjeZIMMKhrRkPZ5f9lZVC3RJP7Qpg==
   dependencies:
     "@types/csso" "5.0.0"
     "@types/html-minifier-terser" "7.0.0"
@@ -1054,10 +1054,10 @@ astro-robots-txt@^0.3.12:
     valid-filename "^4.0.0"
     zod "^3.20.6"
 
-astro@^2.0.11:
-  version "2.0.11"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-2.0.11.tgz#22f59cbef36bd6b538e23004479092ee18729909"
-  integrity sha512-dXBuHE1ZYfafHyjhe7ZUkcZzGGInWrLCMeHAML//+mdySr/htDsiMo8DN25Ld5siKClsCvyXgxitu651wSWcyw==
+astro@^2.0.12:
+  version "2.0.12"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-2.0.12.tgz#4736d14fc17c8dfb0e0f7d74b91ae345a053069e"
+  integrity sha512-qtAqPSfvUuA94Lt38ErB+pe1JrPzMsdxhLLxmbMA44JLriFAjkKA60mZf+woaYxe9l8Gc0KQ0oKa4rE4ucrA8A==
   dependencies:
     "@astrojs/compiler" "^1.1.0"
     "@astrojs/language-server" "^0.28.3"
@@ -1276,9 +1276,9 @@ camelcase@^6.2.0:
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
 
 caniuse-lite@^1.0.30001426, caniuse-lite@^1.0.30001449:
-  version "1.0.30001452"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001452.tgz#dff7b8bb834b3a91808f0a9ff0453abb1fbba02a"
-  integrity sha512-Lkp0vFjMkBB3GTpLR8zk4NwW5EdRdnitwYJHDOOKIU85x4ckYCPQ+9WlVvSVClHxVReefkUMtWZH2l9KGlD51w==
+  version "1.0.30001453"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001453.tgz#6d3a1501622bf424a3cee5ad9550e640b0de3de8"
+  integrity sha512-R9o/uySW38VViaTrOtwfbFEiBFUh7ST3uIG4OEymIG3/uKdHDO4xk/FaqfUw0d+irSUyFPy3dZszf9VvSTPnsA==
 
 ccount@^2.0.0:
   version "2.0.1"
@@ -1805,9 +1805,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.4.284:
-  version "1.4.295"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.295.tgz#911d5df67542bf7554336142eb302c5ec90bba66"
-  integrity sha512-lEO94zqf1bDA3aepxwnWoHUjA8sZ+2owgcSZjYQy0+uOSEclJX0VieZC+r+wLpSxUHRd6gG32znTWmr+5iGzFw==
+  version "1.4.299"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.299.tgz#faa2069cd4879a73e540e533178db5c618768d41"
+  integrity sha512-lQ7ijJghH6pCGbfWXr6EY+KYCMaRSjgsY925r1p/TlpSfVM1VjHTcn1gAc15VM4uwti283X6QtjPTXdpoSGiZQ==
 
 emmet@^2.3.0:
   version "2.3.6"
@@ -2246,9 +2246,9 @@ has@^1.0.3:
     function-bind "^1.1.1"
 
 hast-util-from-parse5@^7.0.0:
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/hast-util-from-parse5/-/hast-util-from-parse5-7.1.1.tgz#1887b4dd4e19f29d9c48c2e1c8bfeaac13a1f3a0"
-  integrity sha512-R6PoNcUs89ZxLJmMWsVbwSWuz95/9OriyQZ3e2ybwqGsRXzhA6gv49rgGmQvLbZuSNDv9fCg7vV7gXUsvtUFaA==
+  version "7.1.2"
+  resolved "https://registry.yarnpkg.com/hast-util-from-parse5/-/hast-util-from-parse5-7.1.2.tgz#aecfef73e3ceafdfa4550716443e4eb7b02e22b0"
+  integrity sha512-Nz7FfPBuljzsN3tCQ4kCBKqdNhQE2l0Tn+X1ubgKBPRoiDIu1mL08Cfw4k7q71+Duyaw7DXDN+VTAp4Vh3oCOw==
   dependencies:
     "@types/hast" "^2.0.0"
     "@types/unist" "^2.0.0"
@@ -3952,10 +3952,10 @@ prettier-plugin-astro@^0.7.0:
     sass-formatter "^0.7.5"
     synckit "^0.8.4"
 
-prettier-plugin-tailwindcss@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/prettier-plugin-tailwindcss/-/prettier-plugin-tailwindcss-0.2.2.tgz#61f4437936c79c8cc2915f31b4bd512605177239"
-  integrity sha512-5RjUbWRe305pUpc48MosoIp6uxZvZxrM6GyOgsbGLTce+ehePKNm7ziW2dLG2air9aXbGuXlHVSQQw4Lbosq3w==
+prettier-plugin-tailwindcss@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-tailwindcss/-/prettier-plugin-tailwindcss-0.2.3.tgz#b68a1de10056fc84055426af132c2697bea0955c"
+  integrity sha512-s2N5Dh7Ao5KTV1mao5ZBnn8EKtUcDPJEkGViZIjI0Ij9TTI5zgTz4IHOxW33jOdjHKa8CSjM88scelUiC5TNRQ==
 
 prettier@^2.7.1, prettier@^2.8.4:
   version "2.8.4"
