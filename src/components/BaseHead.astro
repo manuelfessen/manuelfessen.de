@@ -5,22 +5,22 @@ import '@fontsource/inter'
 import '@fontsource/fira-code'
 import 'katex/dist/katex.min.css'
 
-import type { SiteMeta } from "@/types/index";
-import siteMeta from "@/types/site-meta.config";
+import type { SiteMeta } from '@/types/index'
+import siteMeta from '@/types/site-meta.config'
 
-export type BaseHeadProps = SiteMeta;
+export type BaseHeadProps = SiteMeta
 
 const {
   title,
   description = siteMeta.description,
   image = '/social.png',
   imageTwitter = '/sw.png',
-} = Astro.props as BaseHeadProps;
+} = Astro.props as BaseHeadProps
 
-const titleSeparator = "•";
+const titleSeparator = '•'
 //const siteTitle = `${title} ${titleSeparator} ${siteMeta.title}`;
-const siteTitle = `${title}`;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const siteTitle = `${title}`
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
 <meta charset='utf-8' />
@@ -28,30 +28,28 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <meta name='generator' content={Astro.generator} />
 <link rel='icon' type='image/svg+xml' href='/favicon.ico' />
 
-
 <!-- Primary Meta Tags -->
 <title>{siteTitle}</title>
 <meta name='title' content={siteTitle} />
 <meta name='description' content={description} />
 
 <!-- Open Graph / Facebook -->
-<meta property="og:locale" content={siteMeta.ogLocale} />
+<meta property='og:locale' content={siteMeta.ogLocale} />
 <meta property='og:type' content='website' />
 <meta property='og:url' content={canonicalURL} />
-<link rel="canonical" href={canonicalURL} />
+<link rel='canonical' href={canonicalURL} />
 <meta property='og:title' content={title} />
 <meta property='og:description' content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property='og:image' content={new URL(image, Astro.url)} />
 
-<meta property='twitter:card' content={image ? "summary_large_image" : "summary"} />
+<meta property='twitter:card' content={image ? 'summary_large_image' : 'summary'} />
 <meta property='twitter:url' content={Astro.url} />
 <meta property='twitter:title' content={title} />
 <meta property='twitter:description' content={description} />
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="@nytimesbits" />
-<meta name="twitter:creator" content="@nickbilton" />
-<meta property="og:image" content={new URL(imageTwitter, Astro.url)} />
-
+<meta name='twitter:card' content='summary' />
+<meta name='twitter:site' content='@nytimesbits' />
+<meta name='twitter:creator' content='@nickbilton' />
+<meta property='og:image' content={new URL(imageTwitter, Astro.url)} />
 
 <link as='font' href={inter} type='font/woff2' crossorigin='anonymous' />
 <link as='font' href={firacode} type='font/woff2' crossorigin='anonymous' />
@@ -60,10 +58,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <script src='../lib/flowbite.min.js'></script>
 
 <!-- Put this at the end of the <body> tag -->
-  <script>
-    import * as Swetrix from 'swetrix'
-    document.addEventListener('DOMContentLoaded', function() {
-      Swetrix.init('XD9d7BxYhUBl')
-      Swetrix.trackViews()
+<script>
+  import * as Swetrix from 'swetrix'
+  document.addEventListener('DOMContentLoaded', function () {
+    Swetrix.init('XD9d7BxYhUBl', {
+      respectDNT: true,
     })
-  </script>
+    Swetrix.trackViews()
+  })
+</script>
