@@ -67,3 +67,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
     Swetrix.trackViews()
   })
 </script>
+
+<script>
+  import { inject } from '@vercel/analytics';
+  inject();
+</script>
