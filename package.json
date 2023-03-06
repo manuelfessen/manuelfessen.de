@@ -27,8 +27,12 @@
     "@fontsource/inter": "^4.5.14",
     "@tailwindcss/line-clamp": "^0.4.2",
     "@tailwindcss/typography": "^0.5.8",
+<<<<<<< Updated upstream
     "@vercel/analytics": "^0.1.11",
     "astro": "^2.0.15",
+=======
+    "astro": "^2.0.18",
+>>>>>>> Stashed changes
     "astro-compress": "^1.1.35",
     "astro-icon": "^0.8.0",
     "astro-m2dx": "0.7.15",
@@ -40,7 +44,7 @@
     "dayjs": "^1.11.6",
     "gsap": "^3.11.3",
     "katex": "0.16.4",
-    "open-graph-scraper": "^5.1.0",
+    "open-graph-scraper": "^5.1.1",
     "probe-image-size": "^7.2.3",
     "reading-time": "^1.5.0",
     "rehype-autolink-headings": "^6.1.1",
@@ -62,7 +66,7 @@
     "mdast-util-to-string": "^3.1.0",
     "mdast-util-toc": "^6.1.0",
     "prettier": "^2.8.4",
-    "prettier-plugin-tailwindcss": "^0.2.3",
+    "prettier-plugin-tailwindcss": "^0.2.4",
     "sharp": "^0.31.2",
     "string-replace-to-array": "^2.1.0",
     "svgo": "3.0.2",
