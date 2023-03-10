@@ -19,6 +19,7 @@ import type { Options as M2dxOptions } from 'astro-m2dx';
 import vercel from '@astrojs/vercel/static';
 
 // https://astro-m2dx.netlify.app/
+import partytown from "@astrojs/partytown";
 const remarM2dxOptions: M2dxOptions = {
   exportComponents: true,
   frontmatter: true,
@@ -27,11 +28,16 @@ const remarM2dxOptions: M2dxOptions = {
   unwrapImages: true
 };
 
+
 // https://astro.build/config
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.manuelfessen.de/',
+  output: "static",
+  adapter: vercel({
+    analytics: true
+  }),
   markdown: {
     syntaxHighlight: false
   },
@@ -51,9 +57,10 @@ export default defineConfig({
     img: {
       webp: false
     }
+  }), partytown({
+    // Example: Add dataLayer.push as a forwarding-event.
+    config: { 
+      forward: ["dataLayer.push"] 
+    },
   })],
-  output: "static",
-  adapter: vercel({
-    analytics: true
-  })
 });

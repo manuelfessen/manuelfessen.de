@@ -107,6 +107,17 @@
     send "^0.18.0"
     server-destroy "^1.0.1"
 
+<<<<<<< Updated upstream
+=======
+"@astrojs/partytown@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@astrojs/partytown/-/partytown-1.1.0.tgz#9c480c92fc23636e4496f1a86f03b300c0fc58f9"
+  integrity sha512-2cO2MuK8KEWRIsYyAkxopSL7Q5aB3ra+HTkk0umNUwAKVEZWZdDtYifdztU7WFYIlV/6t+2191MvBTqTcnenJQ==
+  dependencies:
+    "@builder.io/partytown" "^0.7.4"
+    mrmime "^1.0.0"
+
+>>>>>>> Stashed changes
 "@astrojs/prefetch@^0.2.0":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@astrojs/prefetch/-/prefetch-0.2.0.tgz#d9750301a20d8429d7b4752cf50b859eca4e5523"
@@ -405,6 +416,11 @@
   integrity sha512-hl+YoByBwBrNE0Hv/mwse9kAV6hAlq5qnwSlFhjnI/LkwOxNo1hOQ+x2UlopQ5QEIgxhxjndz9PwcMhFojEKfQ==
   dependencies:
     js-sha512 "^0.8.0"
+
+"@builder.io/partytown@^0.7.4":
+  version "0.7.5"
+  resolved "https://registry.yarnpkg.com/@builder.io/partytown/-/partytown-0.7.5.tgz#f501e3db37a5ac659f21ba0c2e61b278e58b64b9"
+  integrity sha512-Zbr2Eo0AQ4yzmQr/36/h+6LKjmdVBB3Q5cGzO6rtlIKB/IOpbQVUZW+XAnhpJmJr9sIF97OZjgbhG9k7Sjn4yw==
 
 "@emmetio/abbreviation@^2.2.3":
   version "2.2.3"
@@ -1955,9 +1971,15 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.4.284:
+<<<<<<< Updated upstream
   version "1.4.327"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.327.tgz#288b106518cfed0a60f7de8a0480432a9be45477"
   integrity sha512-DIk2H4g/3ZhjgiABJjVdQvUdMlSABOsjeCm6gmUzIdKxAuFrGiJ8QXMm3i09grZdDBMC/d8MELMrdwYRC0+YHg==
+=======
+  version "1.4.328"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.328.tgz#b4565ffa502542b561cea16086d6d9b916c7095a"
+  integrity sha512-DE9tTy2PNmy1v55AZAO542ui+MLC2cvINMK4P2LXGsJdput/ThVG9t+QGecPuAZZSgC8XoI+Jh9M1OG9IoNSCw==
+>>>>>>> Stashed changes
 
 emmet@^2.3.0:
   version "2.3.6"
@@ -3888,6 +3910,11 @@ mri@^1.1.0:
   resolved "https://registry.yarnpkg.com/mri/-/mri-1.2.0.tgz#6721480fec2a11a4889861115a48b6cbe7cc8f0b"
   integrity sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==
 
+mrmime@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/mrmime/-/mrmime-1.0.1.tgz#5f90c825fad4bdd41dc914eff5d1a8cfdaf24f27"
+  integrity sha512-hzzEagAgDyoU1Q6yg5uI+AorQgdvMCur3FcKf7NhMKWsaYg+RnbTyHRa/9IlLF9rf455MOCtcqqrQQ83pPP7Uw==
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -4454,9 +4481,9 @@ read-cache@^1.0.0:
     pify "^2.3.0"
 
 readable-stream@^3.1.1, readable-stream@^3.4.0, readable-stream@^3.6.0:
-  version "3.6.1"
-  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-3.6.1.tgz#f9f9b5f536920253b3d26e7660e7da4ccff9bb62"
-  integrity sha512-+rQmrWMYGA90yenhTYsLWAsLsqVC8osOw6PKE1HDYiO0gdPeKe/xDHNzIAIn4C91YQ6oenEhfYqqc1883qHbjQ==
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-3.6.2.tgz#56a9b36ea965c00c5a93ef31eb111a0f11056967"
+  integrity sha512-9u/sniCrY3D5WdsERHzHE4G2YCXqoG5FTHUiCC4SIbr6XcLZBY05ya9EKjYek9O5xOAwjGq+1JdGBAS7Q9ScoA==
   dependencies:
     inherits "^2.0.3"
     string_decoder "^1.1.1"
@@ -4738,9 +4765,15 @@ rimraf@^3.0.2:
     glob "^7.1.3"
 
 rollup@^3.10.0:
+<<<<<<< Updated upstream
   version "3.19.0"
   resolved "https://registry.yarnpkg.com/rollup/-/rollup-3.19.0.tgz#cc580f8e0c1dc89f3888f5943f9542cb136fa40f"
   integrity sha512-xZzJZlH9Ca6cosfdNGPwl2z7Pby8dTi9TrYLPeg6/j7aUoDOhBd706tCUFvbiBj45h/cS7z/a4gS8xd5Yg0jBw==
+=======
+  version "3.19.1"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-3.19.1.tgz#2b3a31ac1ff9f3afab2e523fa687fef5b0ee20fc"
+  integrity sha512-lAbrdN7neYCg/8WaoWn/ckzCtz+jr70GFfYdlf50OF7387HTg+wiuiqJRFYawwSPpqfqDNYqK7smY/ks2iAudg==
+>>>>>>> Stashed changes
   optionalDependencies:
     fsevents "~2.3.2"
 

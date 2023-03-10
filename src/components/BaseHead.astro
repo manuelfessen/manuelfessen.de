@@ -57,11 +57,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 <link as='font' href={firacode} type='font/woff2' crossorigin='anonymous' />
 
 <!-- Flowbite -->
-<script src='../lib/flowbite.min.js'></script>
+<script type="text/partytown" src='../lib/flowbite.min.js'></script>
 
 <!-- Put this at the end of the <body> tag -->
 <script>
   import * as Swetrix from 'swetrix'
+  
+  type="text/partytown"
   document.addEventListener('DOMContentLoaded', function () {
     Swetrix.init('XD9d7BxYhUBl', {
       respectDNT: true,
@@ -71,6 +73,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 </script>
 
 <script>
+  type="text/partytown"
   import { inject } from '@vercel/analytics';
   inject();
 </script>
