@@ -18,7 +18,6 @@ import remarkReadingTime from './plugins/remark-reading-time';
 import type { Options as M2dxOptions } from 'astro-m2dx';
 import vercel from '@astrojs/vercel/static';
 
-
 const remarM2dxOptions: M2dxOptions = {
   exportComponents: true,
   frontmatter: true,
@@ -56,5 +55,5 @@ export default defineConfig({
     img: {
       webp: false
     }
-  }),
+  })],
 });
