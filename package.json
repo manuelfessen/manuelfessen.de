@@ -16,7 +16,6 @@
     "@astrojs/image": "^0.16.0",
     "@astrojs/mdx": "^0.18.0",
     "@astrojs/node": "^5.1.0",
-    "@astrojs/partytown": "^1.1.0",
     "@astrojs/prefetch": "^0.2.0",
     "@astrojs/rss": "^2.2.0",
     "@astrojs/sitemap": "^1.2.0",

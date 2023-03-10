@@ -18,8 +18,7 @@ import remarkReadingTime from './plugins/remark-reading-time';
 import type { Options as M2dxOptions } from 'astro-m2dx';
 import vercel from '@astrojs/vercel/static';
 
-// https://astro-m2dx.netlify.app/
-import partytown from "@astrojs/partytown";
+
 const remarM2dxOptions: M2dxOptions = {
   exportComponents: true,
   frontmatter: true,
@@ -57,10 +56,5 @@ export default defineConfig({
     img: {
       webp: false
     }
-  }), partytown({
-    // Example: Add dataLayer.push as a forwarding-event.
-    config: { 
-      forward: ["dataLayer.push"] 
-    },
-  })],
+  }),
 });
