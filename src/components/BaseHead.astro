@@ -60,7 +60,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 <script src='../lib/flowbite.min.js'></script>
 
 <!-- Put this at the end of the <body> tag -->
-<script defer>
+<script>
   import * as Swetrix from 'swetrix'
   
   document.addEventListener('DOMContentLoaded', function () {
@@ -71,7 +71,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
   })
 </script>
 
-<script defer>
+<script>
   import { inject } from '@vercel/analytics';
   inject();
 </script>
