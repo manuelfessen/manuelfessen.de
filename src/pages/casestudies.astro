@@ -1,0 +1,15 @@
+---
+import { SEO } from 'config';
+import CaseStudiesList from '@/components/CaseStudiesList.astro';
+import FullLayout from '@/layouts/FullLayout.astro'
+import type { Frontmatter, SiteMeta } from '@/types'
+
+const metadata: SiteMeta = {
+  title: SEO.title,
+  description: 'Manuel Fessen - UX Professional',
+}
+---
+
+<FullLayout {...metadata}>
+    <CaseStudiesList />
+</FullLayout>
