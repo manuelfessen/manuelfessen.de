@@ -7,6 +7,8 @@ import type { Frontmatter, SiteMeta } from '@/types'
 import { cx } from '@/lib/utils'
 import '@/styles/syntaxHighlight.css'
 import ArticleList from '@/components/ArticleList.astro'
+import ContactCard from '@/components/ContactCard.astro'
+
 
 interface Props extends MarkdownLayoutProps<Frontmatter> {}
 
@@ -116,7 +118,9 @@ dayjs.extend(relativeTime)
         )}
       >
         <slot />
+        <ContactCard/>
       </article>
+
     </div>
   </div>
   </div>
