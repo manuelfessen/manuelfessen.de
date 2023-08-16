@@ -6,7 +6,6 @@ import tailwind from '@astrojs/tailwind';
 import solidJs from '@astrojs/solid-js';
 import mdx from '@astrojs/mdx';
 import image from '@astrojs/image';
-import compress from 'astro-compress';
 import mdxProvider from './plugins/mdx-provider';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -51,9 +50,5 @@ export default defineConfig({
     }]]
   }), image({
     serviceEntryPoint: '@astrojs/image/sharp'
-  }), compress({
-    img: {
-      webp: false
-    }
-  })],
+  }),],
 });
