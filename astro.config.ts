@@ -5,7 +5,6 @@ import robotsTxt from 'astro-robots-txt';
 import tailwind from '@astrojs/tailwind';
 import solidJs from '@astrojs/solid-js';
 import mdx from '@astrojs/mdx';
-import image from '@astrojs/image';
 import mdxProvider from './plugins/mdx-provider';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -48,7 +47,5 @@ export default defineConfig({
     rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, {
       behavior: 'append'
     }]]
-  }), image({
-    serviceEntryPoint: '@astrojs/image/sharp'
-  }),],
+  }), ,],
 });
