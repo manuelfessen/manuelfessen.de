@@ -29,6 +29,7 @@
     "astro": "^3.0.5",
     "astro-icon": "^0.8.1",
     "astro-m2dx": "0.7.16",
+    "astro-purgecss": "^3.0.0",
     "astro-robots-txt": "^0.5.0",
     "autoprefixer": "^10.4.15",
     "class-variance-authority": "^0.7.0",
