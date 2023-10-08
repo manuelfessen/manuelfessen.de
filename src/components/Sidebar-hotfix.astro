@@ -74,6 +74,7 @@ const itemDSE = [{ url: '/dse' }]
                 </svg>
               </span>
               <span class='flex-1'>Home</span>
+              <span class='hidden md:inline-flex flex-none border border-neutral-200 dark:border-neutral-700 rounded p-1 px-2 text-sm  items-center leading-4'>1</span>
             </a>
           </li>
         ))
@@ -112,6 +113,7 @@ const itemDSE = [{ url: '/dse' }]
                 </svg>
               </span>
               <span class='flex-1'>Case Studies</span>
+              <span class='hidden md:inline-flex flex-none border border-neutral-200 dark:border-neutral-700 rounded p-1 px-2 text-sm items-center leading-4'>2</span>
             </a>
           </li>
         ))
@@ -146,6 +148,7 @@ const itemDSE = [{ url: '/dse' }]
                 </svg>
               </span>
               <span class='flex-1'>Contact</span>
+              <span class='hidden md:inline-flex flex-none border border-neutral-200 dark:border-neutral-700 rounded p-1 px-2 text-sm items-center leading-4 '>3</span>
             </a>
           </li>
         ))
@@ -224,6 +227,7 @@ const itemDSE = [{ url: '/dse' }]
                 </svg>
               </span>
               <span class='flex-1'>Writing</span>
+              <span class='hidden md:inline-flex flex-none border border-neutral-200 dark:border-neutral-700 rounded p-1 px-2 text-sm items-center leading-4 '>4</span>
             </a>
           </li>
         ))
@@ -261,6 +265,7 @@ const itemDSE = [{ url: '/dse' }]
                 </svg>
               </span>
               <span class='flex-1'>Digital garden</span>
+              <span class='hidden md:inline-flex flex-none border border-neutral-200 dark:border-neutral-700 rounded p-1 px-2 text-sm items-center leading-4 '>5</span>
             </a>
           </li>
         ))
@@ -298,6 +303,7 @@ const itemDSE = [{ url: '/dse' }]
                 </svg>
               </span>
               <span class='flex-1'>Digital Bookshelf</span>
+              <span class='hidden md:inline-flex flex-none border border-neutral-200 dark:border-neutral-700 rounded p-1 px-2 text-sm items-center leading-4 '>6</span>
             </a>
           </li>
         ))
@@ -332,6 +338,7 @@ const itemDSE = [{ url: '/dse' }]
                 </svg>
               </span>
               <span class='flex-1'>About</span>
+              <span class='hidden md:inline-flex flex-none border border-neutral-200 dark:border-neutral-700 rounded p-1 px-2 text-sm items-center leading-4 '>7</span>
             </a>
           </li>
         ))
@@ -627,6 +634,7 @@ const itemDSE = [{ url: '/dse' }]
               </svg>
             </span>
             <span class='flex-1'>Impressum</span>
+              <span class='hidden md:inline-flex flex-none border border-neutral-200 dark:border-neutral-700 rounded p-1 px-2 text-sm items-center leading-4 '>8</span>
           </a>
         </li>
       ))
@@ -637,7 +645,7 @@ const itemDSE = [{ url: '/dse' }]
           <a
             href={url}
             class={cx(
-              'flex flex-1 items-center space-x-3 rounded-md px-2 py-1.5 text-sm font-medium',
+              'flex flex-1 items-center space-x-3 rounded-md px-2 py-1.5 text-sm font-medium truncate',
               Astro.url.pathname.split('/')[1] === url.replaceAll('/', '')
                 ? 'bg-black text-white hover:bg-black hover:text-white dark:bg-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white'
                 : 'text-gray-700 dark:text-gray-200 sm:hover:bg-gray-200 sm:hover:text-gray-900 sm:dark:hover:bg-gray-700 sm:dark:hover:text-gray-200'
@@ -660,7 +668,8 @@ const itemDSE = [{ url: '/dse' }]
                 />
               </svg>
             </span>
-            <span class='flex-1'>Datenschutzerklärung</span>
+            <span class='flex-1 truncate'>Datenschutzerklärung</span>
+              <span class='hidden md:inline-flex flex-none border border-neutral-200 dark:border-neutral-700 rounded p-1 px-2 text-sm items-center leading-4 '>9</span>
           </a>
         </li>
       ))

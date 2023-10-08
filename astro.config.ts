@@ -14,7 +14,8 @@ import remarkM2dx from 'astro-m2dx';
 import remarkRouteSlug from './plugins/remark-route-slug';
 import remarkReadingTime from './plugins/remark-reading-time';
 import type { Options as M2dxOptions } from 'astro-m2dx';
-import vercel from '@astrojs/vercel/static';
+import vercel from '@astrojs/vercel/serverless';
+
 
 const remarM2dxOptions: M2dxOptions = {
   exportComponents: true,
@@ -30,9 +31,14 @@ const remarM2dxOptions: M2dxOptions = {
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.manuelfessen.de/',
-  output: "static",
+  output: 'server',
   adapter: vercel({
-    analytics: true
+    webAnalytics: {
+      enabled: true,
+    },
+    speedInsights: {
+      enabled: true,
+    },
   }),
   markdown: {
     syntaxHighlight: false
