@@ -3,7 +3,12 @@ import type { Frontmatter, SiteMeta } from '@/types'
 import BlogCard from './BlogCard.astro'
 
 const posts = await Astro.glob<Frontmatter>('../pages/blog/*.mdx')
-const nonDraftPosts = posts.filter(({ frontmatter }) => !frontmatter.draft)
+const casestudies = await Astro.glob<Frontmatter>('../pages/casestudies/*.mdx')
+
+  const nonDraftPosts = [
+    ...posts.filter(({ frontmatter }) => !frontmatter.draft),
+    ...casestudies.filter(({ frontmatter }) => !frontmatter.draft)
+].slice(-5);
 const sortedPosts = nonDraftPosts.sort(
   ({ frontmatter: { publishedAt: a } }, { frontmatter: { publishedAt: b } }) =>
     new Date(b).valueOf() - new Date(a).valueOf()
