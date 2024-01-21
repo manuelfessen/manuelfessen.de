@@ -34,18 +34,13 @@ const CookieBanner = () => {
   }
 
   return (
-    <div className="fixed bottom-0 right-0 mb-4 mr-4 w-96 cookie-banner">
-      <div className="shadow-lg p-4 border bg-skin-fill">
+    <div className="fixed bottom-0 right-0 sm:mb-4 sm:mr-4 m-2 cookie-banner">
+      <div className="shadow-lg p-4 border bg-skin-fill sm:w-96 w-full">
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center">
             <img src="https://www.svgrepo.com/show/401340/cookie.svg" alt="Cookie" className="h-6 w-6 mr-2" />
             <span className="font-bold text-sm">Cookie Policy</span>
           </div>
-          <button className="focus:outline-none" onClick={() => setIsBannerVisible(false)}>
-            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
         </div>
         <p className="text-sm">
         By accepting cookies, you're helping me experiment and analyze; decline if you prefer less tracking. For details: <a href="/dse">Privacy Policy</a>.
