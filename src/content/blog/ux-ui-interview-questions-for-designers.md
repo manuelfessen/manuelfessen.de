@@ -6,7 +6,9 @@ description: Master UX/UX Designer interviews with expert questions for juniors,
 hero: /images/blog/30-ux-designer-Interview-questions.png
 ---
 
-I've sat on both sides of the table. This perspective has led me to curate a collection of my all-time favorite questions. These gems are designed to navigate through the interview. Whether you're an aspiring junior, a seasoned UX designer, or a senior, you should be able to answer such questions to ace any interview. Let's dive right in, shall we?
+Recently I had a nice conversation with a recruiter. As I've sat on both sides of the table, he asked with questions I ask (and was asked) in the interviews and which are my favorites. Maybe you have the same question, because you are preparing for an interview for a designer role or you are interviewing one. 
+
+Even if you don’t prepare for an interview, you should be able to answer these questions.
 
 # General Questions (For All Levels)
 - How do you define "good" UX design and why is it important?
