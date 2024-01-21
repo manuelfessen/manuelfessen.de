@@ -1,44 +1,48 @@
 ---
-import { SEO } from 'config'
-import PageLayout from '@/layouts/PageLayout.astro'
-import type { Frontmatter, SiteMeta } from '@/types'
-
-const metadata: SiteMeta = {
-  title: SEO.title,
-  description: 'Manuel Fessen - UX Professional',
-}
+import { SITE } from "@config";
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
 ---
 
-<PageLayout {...metadata}>
+<Layout title={`Impressum | ${SITE.title}`}>
+  <Header />
 
-  <div class='relative flex max-h-screen w-full flex-col overflow-y-auto bg-white dark:bg-black'>
-    
-    <div class='mx-auto w-full max-w-3xl px-4 py-12 pb-10 md:px-8'>
-      <div class='pb-24 space-y-8 md:space-y-16'>
+  <div
+    class="relative flex max-h-screen w-full flex-col overflow-y-auto"
+  >
+    <div class="mx-auto w-full max-w-2xl py-12 pb-10">
+      <div class="md:space-y-16 space-y-8 pb-24">
         <section
-          class='mx-auto w-full max-w-3xl px-4 py-12 pb-10 md:px-8 prose text-gray-900 dark:text-gray-100 dark:prose-invert'
+          class="prose mx-auto w-full max-w-2xl px-4 py-12 pb-10 dark:prose-invert"
         >
-      <h1 class='font-sans text-2xl font-bold xl:text-3xl mb-8'>Impressum</h1>
-      <div class="space-y-1">
-      <h2>Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
-      <p class="text-gray-700 dark:text-gray-300">
-        Manuel Fessen<br />
-        Ungelsheimer Weg 7<br />
-        40472 D&uuml;sseldorf
-      </p>
-    </div>
-    <div class="space-y-1">
-      <h2>Kontakt</h2>
-      <p class="text-gray-700 dark:text-gray-300">E-Mail: litze.pasten.0i@icloud.com</p>
+          <h1 class="xl:text-2xl mb-8 font-sans text-2xl font-bold">
+            Impressum
+          </h1>
+          <div class="space-y-1">
+            <h2>Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
+            <p class="text-gray-700 dark:text-gray-300">
+              Manuel Fessen<br />
+              Ungelsheimer Weg 7<br />
+              40472 D&uuml;sseldorf
+            </p>
+          </div>
+          <div class="space-y-1">
+            <h2>Kontakt</h2>
+            <p class="text-gray-700 dark:text-gray-300">
+              E-Mail: litze.pasten.0i@icloud.com
+            </p>
 
-      <p class="text-gray-700 dark:text-gray-300">
-        Quelle: <a href='https://www.e-recht24.de/impressum-generator.html'
-          >https://www.e-recht24.de/impressum-generator.html</a
-        >
-      </p>
+            <p class="text-gray-700 dark:text-gray-300">
+              Quelle: <a
+                href="https://www.e-recht24.de/impressum-generator.html"
+                >https://www.e-recht24.de/impressum-generator.html</a
+              >
+            </p>
+          </div>
+        </section>
+      </div>
     </div>
-  </section>
-</div>
-</div>
-</div>
-</PageLayout>
+  </div>
+  <Header />
+</Layout>

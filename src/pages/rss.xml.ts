@@ -1,25 +1,20 @@
-import rss from '@astrojs/rss'
-import type { MarkdownLayoutProps } from 'astro'
-import type { Frontmatter } from '@/types'
+import rss from "@astrojs/rss";
+import { getCollection } from "astro:content";
+import getSortedPosts from "@utils/getSortedPosts";
+import { SITE } from "@config";
 
-interface MdxProps extends MarkdownLayoutProps<Frontmatter> {
-  url: string
-}
-
-const postImportResult = import.meta.glob<MdxProps>('./blog/*.mdx', { eager: true })
-const posts = Object.values(postImportResult)
-const nonDraftPosts = posts.filter(({ frontmatter }) => !frontmatter.draft)
-
-export const get = () =>
-  rss({
-    title: 'Manuel Fessen',
-    description: 'Manuel Fessen | UX Designer',
-    site: import.meta.env.SITE,
-    items: nonDraftPosts.map(({ url, frontmatter }) => ({
-      link: url,
-      title: frontmatter.title,
-      description: frontmatter.description,
-      pubDate: new Date(frontmatter.publishedAt),
+export async function GET() {
+  const posts = await getCollection("blog");
+  const sortedPosts = getSortedPosts(posts);
+  return rss({
+    title: SITE.title,
+    description: SITE.desc,
+    site: SITE.website,
+    items: sortedPosts.map(({ data, slug }) => ({
+      link: `posts/${slug}`,
+      title: data.title,
+      description: data.description,
+      pubDate: new Date(data.pubDatetime),
     })),
-    customData: `<language>en-us</language>`,
-  })
+  });
+}

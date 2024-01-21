@@ -1,24 +1,36 @@
 # build output
-dist
-.vercel
+dist/
+.output/
 
 # dependencies
 node_modules/
-.snowpack/
 
 # logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-yarn.lock
+pnpm-debug.log*
+
+# ignore .vercel directory
+.vercel
+
 
 # environment variables
 .env
+.env.local
 .env.production
 
 # macOS-specific files
 .DS_Store
 
-#cypress
-cypress/videos
-cypress/screenshots
+# ignore .astro directory
+.astro
+
+# yarn
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.pnp.*

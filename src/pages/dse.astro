@@ -1,21 +1,18 @@
 ---
-import { SEO } from 'config'
-import PageLayout from '@/layouts/PageLayout.astro'
-import type { Frontmatter, SiteMeta } from '@/types'
-
-const metadata: SiteMeta = {
-  title: SEO.title,
-  description: 'Manuel Fessen - UX Professional',
-}
+import { SITE } from "@config";
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
 ---
 
-<PageLayout {...metadata}>
-  <div class='relative flex max-h-screen w-full flex-col overflow-y-auto bg-white dark:bg-black'>
+<Layout title={`Datenschutzerklärung | ${SITE.title}`}>
+  <Header />
+  <div class='relative flex max-h-screen w-full flex-col overflow-y-auto'>
     
-    <div class='mx-auto w-full max-w-3xl px-4 py-12 pb-10 md:px-8'>
+    <div class='mx-auto w-full max-w-2xl py-12 pb-10 md:px-8'>
       <div class='pb-24 space-y-8 md:space-y-16'>
         <section
-          class='mx-auto w-full max-w-3xl px-4 py-12 pb-10 md:px-8 prose text-gray-900 dark:text-gray-100 dark:prose-invert'
+          class='mx-auto w-full max-w-2xl py-12 pb-10 md:px-8 prose dark:prose-invert'
         >
           <h1>Datenschutz&shy;erkl&auml;rung</h1>
           <h2>1. Datenschutz auf einen Blick</h2>
@@ -51,6 +48,14 @@ const metadata: SiteMeta = {
             gew&auml;hrleisten. Andere Daten k&ouml;nnen zur Analyse Ihres Nutzerverhaltens
             verwendet werden.
           </p>
+          <p>
+            <strong>Einsatz von Microsoft Clarity</strong><br>
+            Diese Website verwendet Microsoft Clarity, einen Webanalyse-Dienst der Microsoft Corporation („Microsoft“). Microsoft Clarity ermöglicht es uns, das Nutzerverhalten auf unserer Website zu analysieren, um das Nutzererlebnis zu verbessern. Zu diesem Zweck werden verschiedene Daten erfasst, wie zum Beispiel Mausklicks, Mausbewegungen, Scroll-Aktivitäten und teilweise auch Texteingaben auf dieser Website. Microsoft Clarity verwendet auch Cookies, das sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden und die eine Analyse der Benutzung der Website durch Sie ermöglichen.<br><br>
+            Die durch Microsoft Clarity erfassten Informationen über Ihre Benutzung dieser Website werden in der Regel an einen Server von Microsoft in den USA übertragen und dort gespeichert. Wir haben mit Microsoft einen Vertrag zur Auftragsverarbeitung abgeschlossen, der sicherstellt, dass die Datenverarbeitung im Einklang mit der Europäischen Datenschutzgrundverordnung (DSGVO) erfolgt.<br><br>
+            Sie können der Erfassung und Speicherung Ihrer Daten durch Microsoft Clarity jederzeit widersprechen. Informationen dazu, wie Sie die Datenerfassung durch Microsoft Clarity deaktivieren können, finden Sie in den Datenschutzhinweisen von Microsoft: <a href="https://privacy.microsoft.com/de-de/privacystatement">Link zu den Datenschutzhinweisen von Microsoft</a>.<br><br>
+            Bitte beachten Sie, dass das Deaktivieren der Datenerfassung durch Microsoft Clarity dazu führen kann, dass Sie nicht alle Funktionen dieser Website in vollem Umfang nutzen können.<br><br>
+            Weitere Informationen zu Microsoft Clarity und zum Datenschutz bei Microsoft finden Sie unter <a href="https://privacy.microsoft.com/de-de/privacystatement">Link zur Datenschutzerklärung von Microsoft</a>.
+        </p>
           <h4>Welche Rechte haben Sie bez&uuml;glich Ihrer Daten?</h4>
           <p>
             Sie haben jederzeit das Recht, unentgeltlich Auskunft &uuml;ber Herkunft, Empf&auml;nger
@@ -254,4 +259,5 @@ const metadata: SiteMeta = {
       </div>
     </div>
   </div>
-</PageLayout>
+  <Footer/>
+</Main>

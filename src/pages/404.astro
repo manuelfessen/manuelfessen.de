@@ -1,29 +1,42 @@
 ---
-import { SEO } from 'config'
-import PageLayout from '@/layouts/PageLayout.astro'
-import type { Frontmatter, SiteMeta } from '@/types'
-
-const metadata: SiteMeta = {
-  title: SEO.getTitle('404 Not Found'),
-  description: 'Oops! It looks like this page is lost in space!',
-}
+import { SITE } from "@config";
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import LinkButton from "@components/LinkButton.astro";
 ---
 
-<PageLayout {...metadata}>
-  <div class='flex flex-1 flex-col items-center justify-center space-y-6 px-8 lg:px-16'>
-  <div class='md:py-60 rounded-md flex-col'>
-    <div class='flex flex-col'>
-      <h1 class='font-bold text-blue-600 lg:text-5xl'>404</h1>
+<Layout title={`404 Not Found | ${SITE.title}`}>
+  <Header />
 
-      <h6 class='mb-2 text-2xl font-bold md:text-3xl'>
-        <span class='text-red-500'>Oops!</span> You weren't supposed to see this.
-      </h6>
+  <main id="main-content">
+    <div class="not-found-wrapper">
+      <h1 aria-label="404 Not Found">404</h1>
+      <span aria-hidden="true">¯\_(ツ)_/¯</span>
+      <p>Page Not Found</p>
+      <LinkButton
+        href="/"
+        className="my-6 underline decoration-dashed underline-offset-8 text-base"
+      >
+        Go back home
+      </LinkButton>
+    </div>
+  </main>
 
-      <p class='mb-4 text-gray-500 md:text-lg'>The page you’re looking for doesn’t exist.</p>
-      <div class='text-sm'>
-        <a onclick="history.back()" class='font-semibold'>Go back</a>
-        and remember: You haven't seen anything.
-      </div>
-    </div></div>
-  </div>
-</PageLayout>
+  <Footer />
+</Layout>
+
+<style>
+  #main-content {
+    @apply mx-auto flex max-w-3xl flex-1 items-center justify-center;
+  }
+  .not-found-wrapper {
+    @apply mb-14 flex flex-col items-center justify-center;
+  }
+  .not-found-wrapper h1 {
+    @apply text-9xl font-bold text-skin-accent;
+  }
+  .not-found-wrapper p {
+    @apply mt-4 text-2xl sm:text-3xl;
+  }
+</style>

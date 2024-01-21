@@ -1,0 +1,31 @@
+---
+export interface Props {
+  href: string;
+  className?: string;
+  ariaLabel?: string;
+  title?: string;
+  disabled?: boolean;
+  blank?: boolean;
+}
+
+const { href, className, ariaLabel, title, disabled = false, blank = false } = Astro.props;
+---
+
+<a
+  href={disabled ? "#" : href}
+  tabindex={disabled ? "-1" : "0"}
+  class={`group inline-block content-center ${className}`}
+  aria-label={ariaLabel}
+  title={title}
+  aria-disabled={disabled}
+  target={blank && !disabled ? "_blank" : undefined}
+  rel={blank && !disabled ? "noopener noreferrer" : undefined}
+>
+  <slot />
+</a>
+
+<style>
+  a {
+    @apply hover:text-skin-accent text-center font-medium items-center;
+  }
+</style>

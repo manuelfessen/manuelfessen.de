@@ -1,56 +1,71 @@
-const { fontFamily, spacing } = require('tailwindcss/defaultTheme')
+function withOpacity(variableName) {
+  return ({ opacityValue }) => {
+    if (opacityValue !== undefined) {
+      return `rgba(var(${variableName}), ${opacityValue})`;
+    }
+    return `rgb(var(${variableName}))`;
+  };
+}
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-  //darkMode: ['class', '[data-theme="dark"]'],
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
-    fontFamily: {
-      sans: ['Inter', ...fontFamily.sans],
-      mono: ['Fira Code', ...fontFamily.mono],
+    // Remove the following screen breakpoint or add other breakpoints
+    // if one breakpoint is not enough for you
+    screens: {
+      sm: "640px",
     },
+
     extend: {
-      colors: {
-        gray: {
-          0: '#fff',
-          100: '#fafafa',
-          200: '#eaeaea',
-          300: '#999999',
-          400: '#888888',
-          500: '#666666',
-          600: '#444444',
-          700: '#333333',
-          800: '#222222',
-          900: '#111111',
+      textColor: {
+        skin: {
+          base: withOpacity("--color-text-base"),
+          accent: withOpacity("--color-accent"),
+          inverted: withOpacity("--color-fill"),
         },
       },
-      typography: (theme) => ({
+      backgroundColor: {
+        skin: {
+          fill: withOpacity("--color-fill"),
+          accent: withOpacity("--color-accent"),
+          inverted: withOpacity("--color-text-base"),
+          card: withOpacity("--color-card"),
+          "card-muted": withOpacity("--color-card-muted"),
+        },
+      },
+      outlineColor: {
+        skin: {
+          fill: withOpacity("--color-accent"),
+        },
+      },
+      borderColor: {
+        skin: {
+          line: withOpacity("--color-border"),
+          fill: withOpacity("--color-text-base"),
+          accent: withOpacity("--color-accent"),
+        },
+      },
+      fill: {
+        skin: {
+          base: withOpacity("--color-text-base"),
+          accent: withOpacity("--color-accent"),
+        },
+        transparent: "transparent",
+      },
+      typography: {
         DEFAULT: {
           css: {
-            a: {
-              textDecoration: 'none',
-              color: theme('colors.blue.500'),
-              '&:hover': {
-                color: theme('colors.blue.700'),
-              },
-              code: { color: theme('colors.blue.400') },
-              
-            },
-            'h2,h3,h4': {
-              'scroll-margin-top': spacing[32],
-            },
-            thead: {
-              borderBottomColor: theme('colors.gray.200'),
-            },
             pre: {
-              backgroundColor: 'transparent',
+              color: false,
             },
-            'blockquote p:first-of-type::before': false,
-            'blockquote p:last-of-type::after': false,
+            code: {
+              color: false,
+            },
           },
         },
-      }),
+      },
     },
   },
-  plugins: [require('@tailwindcss/typography')],
-}
+  plugins: [require("@tailwindcss/typography")],
+};

@@ -1,7 +1,5 @@
 # Building my website with Astro 🚀
 
-Inspired by <a href="https://brianlovin.com/">brianlovin</a>, built by myself with [Astro](https://astro.build/)🚀. 
-<br/><br/>
 Link to my website <a href="https://manuelfessen.de/">manuelfessen.de/</a>
 
 ## ⭐ Features
