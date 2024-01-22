@@ -7,8 +7,6 @@ title: "Work"
 #### easy software AG (2019 - Present)
 Since 2019, I've been with easy software AG, where I quickly moved up to lead a team of designers. My job shifted towards focusing more on the bigger picture of UX architecture, strategic planning, handling relationships with our stakeholders, and talking directly with clients and users.
 
-I'm also really proud of the CPUX-F workshop I put together for our team. It was a great experience, not just for the learning but for bringing our diverse group together and strengthening our skills as a unit.
-
 ## Student assistant
 #### easy software AG (2016 - 2018)
 My primary focus was on user research and testing. By identifying addressing and solving usability issues, enhanced the practicality and user-friendliness of easy's digital document management products. Particularly enjoyable: the establishment of a testing laboratory for usability enhancements and the research of Mixed Reality applications.
