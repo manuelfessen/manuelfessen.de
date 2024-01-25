@@ -45,7 +45,7 @@ const CookieBanner = () => {
         <p className="text-sm">
         By accepting cookies, you're helping me experiment and analyze; decline if you prefer less tracking. For details: <a href="/dse">Privacy Policy</a>.
         </p>
-        <button onClick={() => setUserChoice('accepted')} className="mt-4 font-bold py-2 px-4">
+        <button onClick={() => setUserChoice('accepted')} className="mt-4 font-bold py-2 px-4 border">
           Accept
         </button>
         <button onClick={() => setUserChoice('declined')} className="mt-4 py-2 px-4">
