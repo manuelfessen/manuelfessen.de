@@ -3,7 +3,7 @@ layout: ../layouts/WorkLayout.astro
 title: "Work"
 ---
 
-## UX Designer / Teamlead
+## UX Designer
 #### easy software AG (2019 - Present)
 Since 2019, I've been with easy software AG, where I quickly moved up to lead a team of designers. My job shifted towards focusing more on the bigger picture of UX architecture, strategic planning, handling relationships with our stakeholders, and talking directly with clients and users.
 

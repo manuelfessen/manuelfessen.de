@@ -9,17 +9,17 @@ Well, I guess it's safe to say that my New Year's resolution of running a half m
 
 Trust me, I have made every of the following mistakes and learned the hard way about the areas for improvement. 
 
-### New Year's Day
-Do it on New Year's Day. Nothing says "I'm not taking this seriously" like starting with little to now sleep. 
+### Do it on New Year's Day. 
+Nothing says "I'm not taking this seriously" like starting with little to now sleep. 
 
-### Cloths
-Wear inappropriate cloths. Who cares if you've been training in proper equipment for months? On race day, ditch those and clothing not adapted to the weather instead. It's really good when you're too warm while jogging, yet the wind still makes you freeze. 
+### Wear inappropriate cloths. 
+Who cares if you've been training in proper equipment for months? On race day, ditch those and clothing not adapted to the weather instead. It's really good when you're too warm while jogging, yet the wind still makes you freeze. 
 
-### Don't drink
-Don't hydrate. Sure, it's important to stay hydrated during a long race, but who has time for that? Just forget about drinking any water or sports drinks. 
+### Don't hydrate. Water is your enemy. 
+Sure, it's important to stay hydrated during a long race, but who has time for that? Just forget about drinking any water or sports drinks. 
 
-### No breakfast
-Don't eat anything before you run, who needs energy? It's perfectly cool to start in the experience with an expresso and some old cookies from Christmas. 
+### Don't eat anything before you run
+Who needs energy at all? It's perfectly fine to start in the experience with an expresso and some old cookies from Christmas. 
 
 ### Stretching is for losers
 Don't stretch before the race. Why bother stretching when you can just jump right into the race and let your muscles cramp up within the first few minutes? It'll be great to hobble the next days.
