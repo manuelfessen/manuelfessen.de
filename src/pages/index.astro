@@ -18,8 +18,7 @@ const searchList = posts.map(({ data, slug }) => ({
   slug,
 }));
 ---
-
-<Layout title={`${SITE.title}`}>
+<Layout title="Manuel Fessen" description="UX Designer at easy software"}>
   <Header activeNav="" />
   <Main>
     <SearchBar client:load searchList={searchList} />

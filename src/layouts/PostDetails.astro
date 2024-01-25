@@ -7,6 +7,7 @@ import type { CollectionEntry } from "astro:content";
 import ViewCounter from "@lib/ViewCounter";
 import { slugifyStr } from "@utils/slugify";
 import ContactCard from "@components/ContactCard.astro";
+import { SITE } from "@config";
 export interface Props {
   post: CollectionEntry<"blog">;
 }
@@ -33,7 +34,7 @@ const ogUrl = new URL(
 ).href;
 
 const layoutProps = {
-  title,
+  title: `${title} | ${SITE.title}`,
   author,
   description,
   pubDatetime,
@@ -43,7 +44,6 @@ const layoutProps = {
   scrollSmooth: true,
 };
 const slug = slugifyStr(title); 
-console.log("Erzeugter Slug:", slug);
 ---
 
 <Layout {...layoutProps}>

@@ -1,6 +1,9 @@
 ---
+author: Manuel Fessen
+title: Work 
+description: A summary of my work and contributions.
+pubDatetime: 2019-04-13T12:12:00Z
 layout: ../layouts/WorkLayout.astro
-title: "Work"
 ---
 
 ## UX Designer
