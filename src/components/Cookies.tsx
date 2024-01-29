@@ -15,7 +15,7 @@ const CookieBanner = () => {
       c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
       t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
       y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "i1pofmk4j8");
+  })(window, document, "clarity", "script", "i1pofmk4j8");
   };
 
   const setUserChoice = (choice) => {
@@ -35,7 +35,7 @@ const CookieBanner = () => {
 
   return (
     <div className="fixed bottom-0 right-0 sm:mb-4 sm:mr-4 m-2 cookie-banner">
-      <div className="shadow-lg p-4 border bg-skin-fill sm:w-96 w-full">
+      <div className="shadow-lg p-4 border border-[var(--color-border)] bg-skin-fill sm:w-96 w-full">
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center">
             <img src="https://www.svgrepo.com/show/401340/cookie.svg" alt="Cookie" className="h-6 w-6 mr-2" />
@@ -45,10 +45,10 @@ const CookieBanner = () => {
         <p className="text-sm">
         By accepting cookies, you're helping me experiment and analyze; decline if you prefer less tracking. For details: <a href="/dse">Privacy Policy</a>.
         </p>
-        <button onClick={() => setUserChoice('accepted')} className="mt-4 font-bold py-2 px-4 border">
+        <button onClick={() => setUserChoice('accepted')} className="mt-4 font-bold py-2 px-4 border border-skin-fill border-opacity-40 hover:border-skin-accent">
           Accept
         </button>
-        <button onClick={() => setUserChoice('declined')} className="mt-4 py-2 px-4">
+        <button onClick={() => setUserChoice('declined')} className="mt-4 py-2 px-4 hover:underline">
           Decline
         </button>
       </div>

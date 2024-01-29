@@ -19,7 +19,7 @@ export default function Card({ href, frontmatter, secHeading = true }: Props) {
     <li className="flex flex-col space-y-1">
       <a
         href={href}
-        className="-mx-3 flex flex-col rounded-md px-3 text-base tracking-tight"
+        className="-mx-3 flex flex-col px-3 text-base tracking-tight hover:!no-underline"
       >
         {secHeading ? (
           <h2 {...headerProps}>{title}</h2>

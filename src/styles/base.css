@@ -40,6 +40,10 @@
     @apply outline-2 outline-offset-1 outline-skin-fill
     focus-visible:no-underline focus-visible:outline-dashed;
   }
+
+  a:hover {
+   @apply underline; 
+  }
   svg {
     @apply inline-block h-6 w-6 fill-skin-base group-hover:fill-skin-accent;
   }
@@ -60,7 +64,7 @@
     prose-blockquote:border-opacity-50 prose-blockquote:opacity-80
     prose-figcaption:!text-skin-base prose-figcaption:opacity-70
     prose-strong:!text-skin-base
-    prose-code:rounded prose-code:bg-skin-card 
+    prose-code:prose-code:bg-skin-card 
     prose-code:bg-opacity-75 prose-code:p-1 
     prose-code:before:!content-[''] prose-code:after:!content-['']
     prose-ol:!text-skin-base 
