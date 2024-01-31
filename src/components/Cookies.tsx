@@ -19,6 +19,7 @@ const CookieBanner = () => {
   };
 
   const setUserChoice = (choice) => {
+    console.log(`User choice: ${choice}`);
     localStorage.setItem('cookieConsent', choice);
     sessionStorage.setItem('bannerShown', 'true');
     document.cookie = `cookieConsent=${choice}; path=/; max-age=31536000`; // 1 year expiration
@@ -26,6 +27,7 @@ const CookieBanner = () => {
 
     if (choice === 'accepted') {
       activateClarity();
+      console.log('Activating Clarity...');
     }
   };
 
