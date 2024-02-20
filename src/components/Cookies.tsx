@@ -26,6 +26,8 @@ const CookieBanner = () => {
 
     if (choice === 'accepted') {
       activateClarity();
+    } else if (choice === 'declined') {
+      window.clarity('decline');
     }
   };
 
