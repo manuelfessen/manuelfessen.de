@@ -1,6 +1,6 @@
 ---
 author: Manuel Fessen
-pubDatetime: 2023-09-03T15:24:00Z
+pubDatetime: 2021-09-03T15:24:00Z
 title: Home Building Customer Portal
 description: A web platform for a national market leader in the home building industry to enable their customers to monitor the construction of their new homes. 
 hero: /images/blog/building-homes/hero-building-homes.webp
