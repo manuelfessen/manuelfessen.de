@@ -74,7 +74,18 @@ export const headerData = {
       ],
     }, */
   ],
-  actions: [{ text: 'Kontakt', href: 'https://www.linkedin.com/in/manuelfessen/', target: '_blank' }],
+  actions: [
+    { 
+      text: 'Kontakt', 
+      href: 'https://www.linkedin.com/in/manuelfessen/', 
+      target: '_blank',
+      onClick: () => {
+        if (typeof clarity === 'function') {
+          clarity("set", "Button", "Kontakt");
+        }
+      }
+    }
+  ],
 };
 
 export const footerData = {
