@@ -6,7 +6,6 @@ import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import icon from 'astro-icon';
-import compress from '@playform/compress';
 import astrowind from './vendor/integration';
 import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin, lazyImagesRehypePlugin } from './src/utils/frontmatter.mjs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -27,18 +26,7 @@ export default defineConfig({
     config: {
       forward: ['dataLayer.push']
     }
-  })), compress({
-    CSS: true,
-    HTML: {
-      'html-minifier-terser': {
-        removeAttributeQuotes: false
-      }
-    },
-    Image: false,
-    JavaScript: true,
-    SVG: false,
-    Logger: 1
-  }), astrowind({
+  })), astrowind({
     config: "./src/config.yaml"
   })],
   image: {
