@@ -1,0 +1,96 @@
+---
+import WidgetWrapper from '../ui/WidgetWrapper.astro';
+import type { CallToAction, Widget } from '~/types';
+import Headline from '~/components/ui/Headline.astro';
+import Button from '~/components/ui/Button.astro';
+import Image from "astro/components/Image.astro";
+
+
+interface Props extends Widget {
+ title?: string;
+ subtitle?: string;
+ tagline?: string;
+ callToAction?: CallToAction;
+ actions?: string | CallToAction[];
+ image?: string; 
+}
+
+const {
+ title = await Astro.slots.render('title'),
+ subtitle = await Astro.slots.render('subtitle'),
+ tagline = await Astro.slots.render('tagline'),
+ actions = await Astro.slots.render('actions'),
+ id,
+ isDark = false,
+image = await Astro.slots.render('image'),
+ isReversed = false,
+ classes = {},
+ bg = await Astro.slots.render('bg'),
+} = Astro.props;
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`mx-auto ${classes?.container ?? ''}`} bg={bg}>
+ <div class="flex items-center bg-primary p-8">
+    <div class="md:gap-16 hidden md:block">
+      <div aria-hidden="true" class="mt-10 md:mt-0 md:basis-1/2">
+        {
+          image && (
+            <div class="relative m-auto max-w-4xl">
+              {typeof image === 'string' ? (
+                <Fragment set:html={image} />
+              ) : (
+                <Image
+                  class="mx-auto w-full bg-gray-500 bg-primary"
+                  width={500}
+                  height={500}
+                  widths={[400, 768]}
+                  sizes="(max-width: 768px) 100vw, 250px"
+                  layout="responsive"
+                  loading="eager"
+                  {...(image as any)}
+                />
+              )}
+            </div>
+          )
+        }
+      </div>
+    </div>
+   <div class="md:mx-16 mx-0 text-centerdark:shadow-none">
+     <Headline
+       title={title}
+       subtitle={subtitle}
+       tagline={tagline}
+       classes={{
+         container: 'mb-0 md:mb-0',
+         title: 'text-4xl md:text-4xl font-bold leading-tighter tracking-tighter mb-4 font-heading',
+         subtitle: 'text-xl text-muted dark:text-slate-400',
+       }}
+     />
+     {
+       actions && (
+         <div class="max-w-xs sm:max-w-md flex flex-nowrap flex-col sm:flex-row gap-4 mt-6">
+           {Array.isArray(actions) ? (
+             actions.map((action) => (
+               <div class="flex w-full sm:w-auto">
+                 <Button {...(action || {})} class="py-0 px-0 font-semibold shadow-none w-auto primary text-lg" />
+               </div>
+             ))
+           ) : (
+             <Fragment set:html={actions} />
+           )}
+         </div>
+       )
+     }
+   </div>
+ </div>
+</WidgetWrapper>
+
+
+<style>
+
+::selection {
+      background-color: black;
+      color: snow;
+    }
+
+</style>

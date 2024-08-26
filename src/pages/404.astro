@@ -1,42 +1,23 @@
 ---
-import { SITE } from "@config";
-import Layout from "@layouts/Layout.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
-import LinkButton from "@components/LinkButton.astro";
+import Layout from '~/layouts/PageLayout.astro';
+import { getHomePermalink } from '~/utils/permalinks';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+
+import sayHelloImg from '~/assets/images/say-hello.png';
+
+const title = `Error 404`;
+import { headerData } from '~/navigation';
 ---
 
-<Layout title={`404 Not Found | ${SITE.title}`}>
-  <Header />
-
-  <main id="main-content">
-    <div class="not-found-wrapper">
-      <h1 aria-label="404 Not Found">404</h1>
-      <span aria-hidden="true">¯\_(ツ)_/¯</span>
-      <p>Page Not Found</p>
-      <LinkButton
-        href="/"
-        className="my-6 underline decoration-dashed underline-offset-8 text-base"
-      >
-        Go back home
-      </LinkButton>
-    </div>
-  </main>
-
-  <Footer />
+<Layout metadata={{ title }}>
+  <section class="flex h-full py-16">
+    <div class="flex flex-col px-5 my-8">
+        <h2 class="mb-8 font-bold text-4xl">
+          <span class="sr-only">Error</span>
+          <span class="text-primary text-9xl">404</span>
+        <p class="text-3xl font-semibold md:text-6xl">Die gesuchte Seite konnte leider nicht gefunden werden.</p>
+        <a rel="noopener noreferrer" href={getHomePermalink()} class="btn">Zurück zum Start</a>
+      </div>
+  </section>
 </Layout>
-
-<style>
-  #main-content {
-    @apply mx-auto flex max-w-3xl flex-1 items-center justify-center;
-  }
-  .not-found-wrapper {
-    @apply mb-14 flex flex-col items-center justify-center;
-  }
-  .not-found-wrapper h1 {
-    @apply text-9xl font-bold text-skin-accent;
-  }
-  .not-found-wrapper p {
-    @apply mt-4 text-2xl sm:text-3xl;
-  }
-</style>

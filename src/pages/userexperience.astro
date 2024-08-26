@@ -1,0 +1,155 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Hero from '~/components/widgets/Hero2.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'UX/UI Design',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    tagline="UX/UI Design"
+    title="Discover. Define. Design. Deliver."
+    actions={[{ variant:"primary", text: 'Mehr erfahren', 
+    href: '#services', }]}
+  />
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+  title="Meine Dienstleistungen"
+  id="services"
+  columns={3}
+  items={[
+    {
+      "title": "Responsive Webdesign & Mobile Apps",
+      "description": "Websites und Apps, die auf allen Geräten und Bildschirmgrößen perfekt funktionieren für ein nahtloses Nutzererlebnis.",
+      "icon": "tabler:device-mobile"
+    },
+    {
+      "title": "UX-Audits & Usability-Tests", 
+      "description": "Durch gründliche Analysen und Tests identifiziere ich Schwachstellen in der Benutzerfreundlichkeit und optimiere die User Experience.",
+      "icon": "tabler:microscope"
+    },
+    {
+      "title": "B2B UI/UX Design",
+      "description": "Intuitive und effiziente Benutzeroberflächen für komplexe Unternehmensprodukte und Software-as-a-Service-Lösungen.",
+      "icon": "tabler:building-skyscraper"
+    },
+    {
+      "title": "Design Systeme & Pattern Libraries",
+      "description": "Übersichtliche und skalierbare Design-Systeme zur Vereinheitlichung der UX/UI über alle Produkte und Plattformen hinweg.", 
+      "icon": "tabler:layout-grid"
+    },
+    {
+      "title": "Agiles Produktmanagement",
+      "description": "Einführung und Beratung zu agilen Methoden wie Scrum, Lean und Design Thinking für effizientes digitales Produktmanagement.",
+      "icon": "tabler:git-branch"
+    },
+    {
+      "title": "E-Commerce UX/UI",
+      "description": "Optimierung der Conversion-Raten und Kaufabschlüsse durch nutzerfreundliche Online-Shop-Erlebnisse auf allen Geräten.",
+      "icon": "tabler:shopping-cart"
+    },
+    {
+      "title": "Voice User Interfaces", 
+      "description": "Gestaltung intuitiver Sprachbedienungen für digitale Assistenten wie Alexa, Siri und smarte Home-Geräte.",
+      "icon": "tabler:volume-2"
+    },
+    {
+      "title": "UX Writing & Microcopy",
+      "description": "Klare und verständliche Kommunikation in Benutzeroberflächen durch präzises, zielgruppengerechtes Schreiben der UI-Texte.",
+      "icon": "tabler:file-text"
+    },
+    {
+      "title": "Barrierefreies Design",
+      "description": "Websites, Apps und Produkte, die uneingeschränkt für Menschen mit Behinderungen nutzbar sind und niemanden ausschließen.",
+      "icon": "tabler:users-group"
+    }
+  ]}
+/>
+
+   <!-- Hero Widget ******************* -->
+
+   <Hero
+   title="Erlebnisse, die begeistern."
+   subtitle="Ich bin Experte darin, komplexe Ideen in intuitiv bedienbare und emotionale Oberflächen zu übersetzen. Meine Designs erzählen Geschichten, lösen Emotionen aus und begeistern Menschen. Egal ob Website, Mobile App oder Unternehmensanwendung - ich konzipiere und gestalte digitale Produkte ganzheitlich aus einem Guss. Von der ersten Strategie bis zur letzten Pixel-Perfektion durchdringe ich Marken- und Produktidentitäten bis ins kleinste Detail. Meine Arbeit ist die perfekte Symbiose aus Ästhetik und Funktion, Kreativität und Systemdenken. Ich lebe den menschzentrierten Gestaltungsansatz und bringe jahrelange Erfahrung in UX/UI, Produktmanagement und Entwicklung mit. Mein Ziel ist es, außergewöhnliche und nachhaltige Erlebnisse zu kreieren, die Menschen lieben und Unternehmen nach vorne bringen. Designs, die begeistern - das ist meine Passion."
+ />
+  <!-- Content Widget **************** -->
+
+  <Content
+    isAfterContent
+    items={[
+      {
+        "title": "Höhere Kundenbindung",
+        "description": "Intuitives Design und emotionale Produkterlebnisse minimieren Frustrationen und Abwanderungen.",
+        "icon": "tabler:heart-handshake"
+      },
+      {
+        "title": "Wettbewerbsvorsprung",
+        "description": "Eine erstklassige User Experience ist in der digitalen Welt Ihr Schlüssel zur Differenzierung am Markt.",
+        "icon": "tabler:award"
+      },
+      {
+        "title": "Umsatzsteigerung",
+        "description": "Meine UX-Analysen und Optimierungsmaßnahmen erhöhen Konversions- und Abschlussraten nachhaltig.",
+        "icon": "tabler:chart-line"
+      },
+      {
+        "title": "Neue Zielgruppen erschließen",
+        "description": "Barrierefreiheit und maximale Usability erschließen völlig neue Kundensegmente für Ihr Business.", 
+        "icon": "tabler:target"
+      }
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1552664688-cf412ec27db2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+      alt: 'Benefits Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Ihre Vorteile</h3>
+    </Fragment>
+  </Content>
+
+
+
+<!-- Testimonials Widget *********** -->
+
+
+<Testimonials
+title="Testimonials"
+subtitle="Erfahren Sie, wie bisherige Kunden über ihre Erfahrungen mit mir berichten."
+testimonials={[
+  {
+    testimonial: `Manuels analytischen Fähigkeiten und sein tiefgreifendes Verständnis für Nutzerverhalten sind beeindruckend. Durch seine wertvollen Erkenntnisse, und Anpassungen konnten wir unsere Conversion Rates signifikant steigern.`,
+    name: 'Dimitri Wolf',
+    job: 'SEA Manager',
+    image: {
+      src: 'data:image/jpeg;base64,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',
+      alt: 'Dimitri Wolfs Foto',
+    },
+  },
+  {
+    testimonial: `Manuel verwandelte unseren Traffic mit pragmatischen sowie kreativen Anpassungen in wertvolle Leads. Es war eine Freude, mit ihm zusammenzuarbeiten.`,
+    name: 'Geschäftsführer',
+    job: 'secato Werkzeugsverkauf GmbH',
+    image: {
+      src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQd725bA9BMlouAUuCD19N3T4fPSfwmI0DqA&s',
+      alt: 'Geschäftsführer Foto',
+    },
+  },
+  {
+    testimonial: `Dank Manuel haben wir viel mehr Anmeldungen erhalten. Das durchdachte Design hat unsere Besucher abgeholt und die Conversion Rate signifikant erhöht.`,
+    name: 'Sophie Sternberg',
+    job: 'Psychologin',
+  },
+]}
+/>
+</Layout>

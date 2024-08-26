@@ -1,0 +1,68 @@
+---
+import Hero from '~/components/widgets/Hero2.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import Features3 from "~/components/widgets/Features3.astro";
+
+const metadata = {
+  title: 'Über mich',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    title="Vita"
+    tagline="Über mich"
+    />
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 sm:-mt-32 -mt-16 ">
+      <p class="text-gray-700 mb-8 leading-relaxed">
+        Schon während meines Studiums der Mensch Technik Interaktion galt mein besonderes Interesse der Frage, wie digitale Produkte gestaltet werden können, um einen bedeutenden Einfluss auf das Leben der Nutzer zu haben. Diese Leidenschaft führte mich zu einer vielseitigen Karriere im UX Design und Produktmanagement, die sich heute in meiner Tätigkeit als freiberuflicher UX Consultant und Produkt Manager bei der easy software AG widerspiegelt.
+      </p>
+    
+      <h2 class="text-2xl font-semibold mb-4">Berufserfahrung</h2>
+    
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-xl font-semibold">Seit 01-2024: Freiberuflicher UX Consultant</h3>
+          <ul class="list-disc pl-6 mt-2 ">
+            <li>Unterstützung kleiner und mittlerer Unternehmen bei der Optimierung ihrer digitalen Präsenz</li>
+            <li>Steigerung der Conversion Rate durch nutzerzentrierte Optimierungen</li>
+          </ul>
+        </div>
+    
+        <div>
+          <h3 class="text-xl font-semibold">Seit 09-2023: Product Manager UX bei easy software AG</h3>
+          <ul class="list-disc pl-6 mt-2">
+            <li>Leitung des UX/UI-Teams und Entwicklerteams</li>
+            <li>Definition der Produkt-, Neukundengewinnungs- und Go-to-Market-Strategie zur Umsatzsteigerung</li>
+            <li>Vertretung des Produkts und UX/UI auf Live-Events mit Kunden, Partnern und C-Level-Führungskräften</li>
+          </ul>
+        </div>
+    
+        <div>
+          <h3 class="text-xl font-semibold">2021 bis 09.2023: (Lead) UX Designer bei easy software AG</h3>
+          <ul class="list-disc pl-6 mt-2">
+            <li>Führung eines Teams von 3 UX-Designern, Erhöhung der Kundenzufriedenheit (CSAT) auf 4,6</li>
+            <li>Einführung eines Design Systems, führte zur merkbaren Effizienzsteigerung im Team und der Entwicklung</li>
+            <li>Leitung der Neugestaltung des Schlüsselprodukts</li>
+            <li>Identifizierung und Behebung von über 300 UX-Problemen</li>
+            <li>Mentoring von 5 Junior Designern, Förderung ihrer beruflichen Entwicklung</li>
+          </ul>
+        </div>
+    
+        <div>
+          <h3 class="text-xl font-semibold">2019-2020: UX Designer bei easy Apiomat GmbH</h3>
+          <ul class="list-disc pl-6 mt-2">
+            <li>Etablierung des ersten unternehmensweiten Styleguides</li>
+            <li>Entwicklung und Evaluierung von Usability-Tests, Steigerung des System Usability Scale (SUS) auf 79</li>
+          </ul>
+        </div>
+      </div>
+    
+      <h2 class="text-2xl font-semibold mt-10 mb-4">Aus- und Weiterbildung</h2>
+      <p >
+        B.Sc. Mensch Technik Interaktion an der Hochschule Ruhr West
+      </p>
+    </div>
+</Layout>
