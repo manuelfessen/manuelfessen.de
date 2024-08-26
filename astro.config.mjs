@@ -38,6 +38,7 @@ export default defineConfig({
     rehypePlugins: [responsiveTablesRehypePlugin, lazyImagesRehypePlugin]
   },
   vite: {
+    envPrefix: 'PUBLIC_',
     resolve: {
       alias: {
         '~': path.resolve(__dirname, './src')
