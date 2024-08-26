@@ -41,7 +41,7 @@ const CookieBanner = () => {
     }
   };
 
-  if (!isBannerVisible) {
+  if (!isBannerVisible) { 
     return null;
   }
 
