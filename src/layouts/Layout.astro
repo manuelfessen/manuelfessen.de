@@ -12,6 +12,7 @@ import SiteVerification from '~/components/common/SiteVerification.astro';
 import Analytics from '~/components/common/Analytics.astro';
 import BasicScripts from '~/components/common/BasicScripts.astro';
 import Cookies from "~/components/common/Cookies.astro";
+import SpeedInsights from "~/components/common/SpeedInsights.astro";
 
 // Comment the line below to disable View Transitions
 import { ViewTransitions } from 'astro:transitions';
@@ -36,6 +37,7 @@ const { language, textDirection } = I18N;
     <Metadata {...metadata} />
     <SiteVerification />
     <Analytics />
+    <SpeedInsights/>
 
     <!-- Comment the line below to disable View Transitions -->
     <ViewTransitions fallback="swap" />
