@@ -2,6 +2,19 @@
 const clarityId = import.meta.env.PUBLIC_CLARITY_ID;
 ---
 <script define:vars={{ clarityId }}>
+    // Consent-Logik vor dem Laden des Google Tag Managers
+    function loadGTM() {
+        (function(w,d,s,l,i){
+            w[l]=w[l]||[];
+            w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+            var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+            j.async=true;
+            j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+            f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-P2QB675C');
+    }
+
     // Google Tag Manager
     (function(w,d,s,l,i){
         w[l]=w[l]||[];
@@ -57,6 +70,7 @@ const clarityId = import.meta.env.PUBLIC_CLARITY_ID;
                 'ad_user_data': 'granted',
                 'ad_personalization': 'granted'
             });
+            loadGTM(); // GTM laden, wenn Cookies akzeptiert werden
         } else if (choice === 'declined') {
             blockClarity();
             gtag('consent', 'update', {
@@ -65,6 +79,8 @@ const clarityId = import.meta.env.PUBLIC_CLARITY_ID;
                 'ad_user_data': 'denied',
                 'ad_personalization': 'denied'
             });
+            // Eintrag im dataLayer für abgelehnte Cookies
+            window.dataLayer.push({'event': 'consent', 'consent': {'ad_storage': 'denied', 'analytics_storage': 'denied'}});
         }
     }
 
