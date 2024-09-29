@@ -35,6 +35,7 @@ const { language, textDirection } = I18N;
     <ApplyColorMode />
     <Metadata {...metadata} />
     <SiteVerification />
+    <Analytics />
 
     <!-- Comment the line below to disable View Transitions -->
     <ViewTransitions fallback="swap" />
@@ -46,7 +47,7 @@ const { language, textDirection } = I18N;
     <slot />
 
     <BasicScripts />
-    <Analytics />
+    <Cookies />
 
     <style is:global>
       img {
