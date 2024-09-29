@@ -24,6 +24,18 @@ Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Web
 ### Wofür nutzen wir Ihre Daten?
 Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.
 
+## Einsatz von Google Analytics 
+
+Wir setzen auf unserer Website Google Analytics ein, einen Webanalysedienst der Firma Google Inc., 1600 Amphitheatre Parkway, Mountain View, CA 94043 USA (nachfolgend: "Google"). Google ist in diesem Zusammenhang Auftragsverarbeiter von uns und wir haben mit Google eine entsprechende Auftragsvereinbarung gemäß Art. 28 DSGVO geschlossen. 
+
+Google Analytics ermöglicht es uns, zu analysieren, wie die Nutzer mit den auf der Website bereitgestellten Inhalten interagieren, und so herauszufinden, was gut ankommt und was nicht. Auf der Basis können wir unsere Angebote auf der Website optimieren. Bei dem Einsatz von Google Analytics werden die folgenden Daten erfasst und an Google in den USA übermittelt: Daten zum Gerät und Browser (Hostname, Browser Typ, Referrer, Sprache), IP-Adresse sowie die jeweilige Nutzerinteraktion auf der Webseite (z.B. welche Seite ein Nutzer aufruft, welche Produkte der Nutzer auswählt und erwirbt). Zudem wird mittels eines Cookies eine zufällige, pseudonyme ID für einen Nutzer vergeben, der die vorgenannten Informationen zugeordnet werden. In der Regel ist dies eine Cookie ID. Diese knüpft an die Kennung des von Google Analytics gesetzten Cookies für das konkrete Gerät an. Darüber hinaus wird durch uns eine User ID zur geräteübergreifenden Nachverfolgung gesetzt. Zudem haben wir die Anonymisierungsfunktion für IP-Adressen aktiviert. Dies bedeutet, dass sobald das IP-Paket auf den Servern von Google eingetroffen ist, die Daten bei Google vollständig anonymisiert werden. 
+
+Nähere Informationen zu Nutzungsbedingungen und Datenschutz finden Sie unter: http://www.google.com/analytics/terms/de.html bzw. unter https://www.google.de/intl/de/policies/. 
+
+## Einsatz von Google Tag Manager  
+
+Im Zusammenhang mit Google Analytics und Google Ad Services verwenden wir zudem den Google Tag Manager. Diese Lösung ermöglicht es, Google Analytics und Google Ads auf der Webseite technisch einzubinden. Der Google Tag Manager funktioniert dabei wie ein Container, in dem die Webanalyse und Marketing Tools, die auf der Webseite ausgespielt werden sollen, mithilfe eines sog. Tags versehen und gespeichert werden. Ein Tag ist ein Code Fragment, das festlegt, welche Daten unter welchen Voraussetzungen von den eingesetzten Tools erfasst werden dürfen. Die Datenschutzhinweise von Google zu diesem Tool finden Sie hier: https://marketingplatform.google.com/about/analytics/tag-manager/use-policy/.  
+
 ## Einsatz von Microsoft Clarity
 Diese Website verwendet Microsoft Clarity, einen Webanalyse-Dienst der Microsoft Corporation („Microsoft“). Microsoft Clarity ermöglicht es uns, das Nutzerverhalten auf unserer Website zu analysieren, um das Nutzererlebnis zu verbessern. Zu diesem Zweck werden verschiedene Daten erfasst, wie zum Beispiel Mausklicks, Mausbewegungen, Scroll-Aktivitäten und teilweise auch Texteingaben auf dieser Website. Microsoft Clarity verwendet auch Cookies, das sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden und die eine Analyse der Benutzung der Website durch Sie ermöglichen.
 

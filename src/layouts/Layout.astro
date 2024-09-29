@@ -35,17 +35,18 @@ const { language, textDirection } = I18N;
     <ApplyColorMode />
     <Metadata {...metadata} />
     <SiteVerification />
-    <Analytics />
 
     <!-- Comment the line below to disable View Transitions -->
     <ViewTransitions fallback="swap" />
+
+    
   </head>
 
   <body class="antialiased text-default bg-page tracking-tight">
     <slot />
 
     <BasicScripts />
-    <Cookies/>
+    <Analytics />
 
     <style is:global>
       img {
