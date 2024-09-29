@@ -15,17 +15,17 @@ const clarityId = import.meta.env.PUBLIC_CLARITY_ID;
     // End Google Tag Manager
 
     // Füge das gtag-Skript hinzu
-    window.gtag = function() { // Global machen
-        window.dataLayer = window.dataLayer || [];
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function() {
         window.dataLayer.push(arguments);
     };
     gtag('js', new Date());
-    gtag('config', 'GTM-P2QB675C'); // Ersetze GA_MEASUREMENT_ID mit deiner tatsächlichen ID
+    gtag('config', 'GA_MEASUREMENT_ID'); // Ersetze GA_MEASUREMENT_ID mit deiner tatsächlichen ID
 
     function activateClarity() {
         if (!clarityId) {
             console.error("Clarity ID ist nicht definiert");
-            return; // Verhindert Fehler, wenn clarityId nicht definiert ist
+            return;
         }
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -37,7 +37,6 @@ const clarityId = import.meta.env.PUBLIC_CLARITY_ID;
     }
 
     function blockClarity() {
-        // Versuchen, die Clarity-Funktion aufzurufen, ohne Fehler zu werfen
         if (typeof window.clarity === 'function') {
             window.clarity('decline');
             console.log("Clarity wurde blockiert.");
@@ -54,32 +53,23 @@ const clarityId = import.meta.env.PUBLIC_CLARITY_ID;
 
         if (choice === 'accepted') {
             activateClarity();
-            // Google Tag Manager nur aktivieren, wenn die Einwilligung erteilt wurde
-            if (typeof gtag === 'function') {
-                gtag('consent', 'update', {
-                    'ad_storage': 'granted',
-                    'analytics_storage': 'granted',
-                    'ad_user_data': 'granted',
-                    'ad_personalization': 'granted'
-                });
-            } else {
-                console.error("gtag ist nicht definiert");
-            }
+            gtag('consent', 'update', {
+                'ad_storage': 'granted',
+                'analytics_storage': 'granted',
+                'ad_user_data': 'granted',
+                'ad_personalization': 'granted'
+            });
         } else if (choice === 'declined') {
             blockClarity();
-            // Google Tag Manager nur deaktivieren, wenn die Einwilligung verweigert wurde
-            if (typeof gtag === 'function') {
-                gtag('consent', 'update', {
-                    'ad_storage': 'denied',
-                    'analytics_storage': 'denied',
-                    'ad_user_data': 'denied',
-                    'ad_personalization': 'denied'
-                });
-            } else {
-                console.error("gtag ist nicht definiert");
-            }
+            gtag('consent', 'update', {
+                'ad_storage': 'denied',
+                'analytics_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied'
+            });
         }
     }
+
     function showBanner() {
         document.getElementById('cookieBanner').classList.remove('hidden');
     }
@@ -93,8 +83,6 @@ const clarityId = import.meta.env.PUBLIC_CLARITY_ID;
         const bannerShown = sessionStorage.getItem('bannerShown');
 
         if (!userChoice && !bannerShown) {
-            showBanner();
-        } else if (!userChoice && bannerShown) {
             showBanner();
         } else {
             hideBanner();
