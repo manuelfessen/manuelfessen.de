@@ -2,6 +2,26 @@
 const clarityId = import.meta.env.PUBLIC_CLARITY_ID;
 ---
 <script define:vars={{ clarityId }}>
+    // Google Tag Manager
+    (function(w,d,s,l,i){
+        w[l]=w[l]||[];
+        w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+        var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+        j.async=true;
+        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+        f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-ZZVNRP2YS0');
+    // End Google Tag Manager
+
+    // Füge das gtag-Skript hinzu
+    window.gtag = function() { // Global machen
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push(arguments);
+    };
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID'); // Ersetze GA_MEASUREMENT_ID mit deiner tatsächlichen ID
+
     function activateClarity() {
         if (!clarityId) {
             console.error("Clarity ID ist nicht definiert");
@@ -22,7 +42,7 @@ const clarityId = import.meta.env.PUBLIC_CLARITY_ID;
             window.clarity('decline');
             console.log("Clarity wurde blockiert.");
         } else {
-            console.log("Clarity ist nicht definiert, aber die Blockierung wurde angefordert.");
+            console.log("Clarity wurde blockiert2");
         }
     }
 
@@ -34,7 +54,7 @@ const clarityId = import.meta.env.PUBLIC_CLARITY_ID;
 
         if (choice === 'accepted') {
             activateClarity();
-            // Check if gtag is defined before calling it
+            // Google Tag Manager nur aktivieren, wenn die Einwilligung erteilt wurde
             if (typeof gtag === 'function') {
                 gtag('consent', 'update', {
                     'ad_storage': 'granted',
@@ -47,7 +67,7 @@ const clarityId = import.meta.env.PUBLIC_CLARITY_ID;
             }
         } else if (choice === 'declined') {
             blockClarity();
-            // Check if gtag is defined before calling it
+            // Google Tag Manager nur deaktivieren, wenn die Einwilligung verweigert wurde
             if (typeof gtag === 'function') {
                 gtag('consent', 'update', {
                     'ad_storage': 'denied',
@@ -60,20 +80,6 @@ const clarityId = import.meta.env.PUBLIC_CLARITY_ID;
             }
         }
     }
-
-
-    // Google Tag Manager
-    (function(w,d,s,l,i){
-        w[l]=w[l]||[];
-        w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-        var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-        j.async=true;
-        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-        f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-ZZVNRP2YS0');
-    // End Google Tag Manager
-
     function showBanner() {
         document.getElementById('cookieBanner').classList.remove('hidden');
     }
