@@ -1,7 +1,7 @@
 ---
 const clarityId = import.meta.env.PUBLIC_CLARITY_ID;
 ---
-<script>
+<script define:vars={{ clarityId }}>
     function activateClarity() {
         if (!clarityId) {
             console.error("Clarity ID ist nicht definiert");
@@ -63,7 +63,7 @@ const clarityId = import.meta.env.PUBLIC_CLARITY_ID;
         f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-P2QB675C');
     // End Google Tag Manager
-    
+
     function showBanner() {
         document.getElementById('cookieBanner').classList.remove('hidden');
     }
