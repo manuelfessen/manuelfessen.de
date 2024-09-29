@@ -34,20 +34,30 @@ const clarityId = import.meta.env.PUBLIC_CLARITY_ID;
 
         if (choice === 'accepted') {
             activateClarity();
-            gtag('consent', 'update', {
-                'ad_storage': 'granted',
-                'analytics_storage': 'granted',
-                'ad_user_data': 'granted',
-                'ad_personalization': 'granted'
-            });
+            // Check if gtag is defined before calling it
+            if (typeof gtag === 'function') {
+                gtag('consent', 'update', {
+                    'ad_storage': 'granted',
+                    'analytics_storage': 'granted',
+                    'ad_user_data': 'granted',
+                    'ad_personalization': 'granted'
+                });
+            } else {
+                console.error("gtag ist nicht definiert");
+            }
         } else if (choice === 'declined') {
             blockClarity();
-            gtag('consent', 'update', {
-                'ad_storage': 'denied',
-                'analytics_storage': 'denied',
-                'ad_user_data': 'denied',
-                'ad_personalization': 'denied'
-            });
+            // Check if gtag is defined before calling it
+            if (typeof gtag === 'function') {
+                gtag('consent', 'update', {
+                    'ad_storage': 'denied',
+                    'analytics_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied'
+                });
+            } else {
+                console.error("gtag ist nicht definiert");
+            }
         }
     }
 
@@ -61,7 +71,7 @@ const clarityId = import.meta.env.PUBLIC_CLARITY_ID;
         j.async=true;
         j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
         f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-P2QB675C');
+    })(window,document,'script','dataLayer','GTM-ZZVNRP2YS0');
     // End Google Tag Manager
 
     function showBanner() {
