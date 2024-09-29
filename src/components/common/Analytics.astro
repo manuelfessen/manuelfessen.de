@@ -16,11 +16,9 @@ const clarityId = import.meta.env.PUBLIC_CLARITY_ID;
 
     // Füge das gtag-Skript hinzu
     window.dataLayer = window.dataLayer || [];
-    window.gtag = function() {
-        window.dataLayer.push(arguments);
-    };
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'GA_MEASUREMENT_ID'); // Ersetze GA_MEASUREMENT_ID mit deiner tatsächlichen ID
+    gtag('config', 'G-ZZVNRP2YS0'); // Google Analytics ID hinzugefügt
 
     function activateClarity() {
         if (!clarityId) {
