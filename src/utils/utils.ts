@@ -1,4 +1,4 @@
-import { I18N } from 'astrowind:config';
+import { I18N } from 'portfolio:config';
 
 export const formatter: Intl.DateTimeFormat = new Intl.DateTimeFormat(I18N?.language, {
   year: 'numeric',

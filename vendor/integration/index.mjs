@@ -22,7 +22,7 @@ const tasksIntegration = ({ config: _themeConfig = 'src/config.yaml' } = {}) => 
 
         const buildLogger = logger.fork("astrowind");
 
-        const virtualModuleId = 'astrowind:config';
+        const virtualModuleId = 'portfolio:config';
         const resolvedVirtualModuleId = '\0' + virtualModuleId;
 
         const rawJsonConfig = await loadConfig(_themeConfig);

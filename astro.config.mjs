@@ -6,7 +6,7 @@ import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import icon from 'astro-icon';
-import astrowind from './vendor/integration';
+import config from './vendor/integration';
 import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin, lazyImagesRehypePlugin } from './src/utils/frontmatter.mjs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const hasExternalScripts = false;
@@ -26,7 +26,7 @@ export default defineConfig({
     config: {
       forward: ['dataLayer.push']
     }
-  })), astrowind({
+  })), config({
     config: "./src/config.yaml"
   })],
   image: {

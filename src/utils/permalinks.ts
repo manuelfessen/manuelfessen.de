@@ -1,6 +1,6 @@
 import slugify from 'limax';
 
-import { SITE, APP_BLOG } from 'astrowind:config';
+import { SITE, APP_BLOG } from 'portfolio:config';
 
 import { trim } from '~/utils/utils';
 
