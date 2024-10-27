@@ -57,5 +57,8 @@
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5",
     "typescript-eslint": "^7.6.0"
+  },
+  "resolutions": {
+    "rollup": "4.24.0"
   }
 }
