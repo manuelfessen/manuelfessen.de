@@ -45,7 +45,7 @@ Sie können der Erfassung und Speicherung Ihrer Daten durch Microsoft Clarity je
 
 Bitte beachten Sie, dass das Deaktivieren der Datenerfassung durch Microsoft Clarity dazu führen kann, dass Sie nicht alle Funktionen dieser Website in vollem Umfang nutzen können.
 
-Weitere Informationen zu Microsoft Clarity und zum Datenschutz bei Microsoft finden Sie unter Link zur Datenschutzerklärung von Microsoft.
+Weitere Informationen zu Microsoft Clarity und zum Datenschutz bei Microsoft finden Sie hier: https://www.microsoft.com/de-de/privacy/privacystatement 
 
 ## Welche Rechte haben Sie bezüglich Ihrer Daten?
 Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Außerdem haben Sie das Recht, unter bestimmten Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.
