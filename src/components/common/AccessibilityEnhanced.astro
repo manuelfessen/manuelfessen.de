@@ -1,0 +1,118 @@
+---
+// Enhanced Accessibility Component that preserves existing UI
+---
+
+<script>
+// Keyboard Navigation Enhancement
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Tab') {
+    document.documentElement.classList.add('using-keyboard');
+  }
+});
+
+document.addEventListener('mousedown', () => {
+  document.documentElement.classList.remove('using-keyboard');
+});
+
+// Reduced Motion Support
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+if (prefersReducedMotion.matches) {
+  document.documentElement.classList.add('reduced-motion');
+}
+
+// Enhanced Focus Management
+const enhanceFocusableElements = () => {
+  const elements = document.querySelectorAll('a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+  elements.forEach(el => {
+    if (!el.hasAttribute('aria-label') && !el.textContent.trim()) {
+      const nearestText = el.querySelector('img')?.alt || 'Interactive element';
+      el.setAttribute('aria-label', nearestText);
+    }
+  });
+};
+
+document.addEventListener('DOMContentLoaded', enhanceFocusableElements);
+</script>
+
+<style is:global>
+  /* Preserve existing styles while adding accessibility enhancements */
+  :root {
+    --focus-outline-color: #0066cc;
+    --focus-outline-width: 3px;
+  }
+
+  /* Enhanced keyboard focus styles */
+  .using-keyboard :focus {
+    outline: var(--focus-outline-width) solid var(--focus-outline-color);
+    outline-offset: 2px;
+  }
+
+  /* Skip link - visible only when focused */
+  .skip-to-main {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    padding: 1rem;
+    border: 2px solid var(--focus-outline-color);
+    border-radius: 4px;
+    z-index: 1000;
+    transition: top 0.2s;
+  }
+
+  .skip-to-main:focus {
+    top: 1rem;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Enhanced link underlines for better visibility */
+  a:not(.btn):not(.no-underline) {
+    text-decoration-thickness: 0.1em;
+    text-underline-offset: 0.2em;
+  }
+
+  /* Ensure sufficient touch target size */
+  @media (pointer: coarse) {
+    button, 
+    [role="button"],
+    a,
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"] {
+      min-height: 44px;
+      min-width: 44px;
+      padding: 0.5rem;
+    }
+  }
+
+  /* Improved focus visibility for form elements */
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: var(--focus-outline-width) solid var(--focus-outline-color);
+    outline-offset: 2px;
+  }
+</style>
+
+<!-- Skip Link -->
+<a href="#main-content" class="skip-to-main">
+  Zum Hauptinhalt springen
+</a>
+
+<!-- Announcer for screen readers -->
+<div 
+  role="status" 
+  aria-live="polite" 
+  class="sr-only"
+>
+</div>

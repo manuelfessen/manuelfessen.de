@@ -4,7 +4,7 @@ layout: '~/layouts/MarkdownLayout.astro'
 ---
 
 
-_Zuletzt geupdated_: 06. Januar 2023
+_Zuletzt geupdated_: 04. Dezember 2024
 
 # Datenschutz auf einen Blick
 
@@ -46,6 +46,20 @@ Sie können der Erfassung und Speicherung Ihrer Daten durch Microsoft Clarity je
 Bitte beachten Sie, dass das Deaktivieren der Datenerfassung durch Microsoft Clarity dazu führen kann, dass Sie nicht alle Funktionen dieser Website in vollem Umfang nutzen können.
 
 Weitere Informationen zu Microsoft Clarity und zum Datenschutz bei Microsoft finden Sie hier: https://www.microsoft.com/de-de/privacy/privacystatement 
+
+## Einsatz von Chatbase.co
+Diese Website verwendet einen Chatbot-Dienst von Chatbase.co. Dieser Dienst ermöglicht es uns, einen KI-gestützten Chatbot auf unserer Website bereitzustellen, um Besuchern schnell und effizient bei Fragen zu helfen. Der Chatbot wird erst nach Ihrer ausdrücklichen Einwilligung in die Verwendung von Cookies geladen und aktiviert.
+
+Wenn Sie mit dem Chatbot interagieren, werden verschiedene Daten erfasst und an Server von Chatbase.co übertragen:
+- Ihre Chatnachrichten und Interaktionen mit dem Chatbot
+- Technische Informationen wie Browser-Typ, Geräteinformationen und Zeitpunkt der Interaktion
+- IP-Adresse (anonymisiert)
+
+Die Datenverarbeitung erfolgt auf Grundlage Ihrer Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO. Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, indem Sie Ihre Cookie-Einstellungen anpassen.
+
+Chatbase.co verarbeitet die Daten als unser Auftragsverarbeiter ausschließlich auf unsere Weisung hin. Wir haben mit Chatbase.co einen Auftragsverarbeitungsvertrag geschlossen, der den Schutz Ihrer Daten sicherstellt.
+
+Weitere Informationen zur Datenverarbeitung durch Chatbase.co finden Sie in deren Datenschutzerklärung unter: https://www.chatbase.co/privacy
 
 ## Welche Rechte haben Sie bezüglich Ihrer Daten?
 Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Außerdem haben Sie das Recht, unter bestimmten Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.

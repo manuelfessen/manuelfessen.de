@@ -1,0 +1,69 @@
+---
+import { SITE } from 'portfolio:config';
+import type { MetaData } from '~/types';
+
+export interface Props {
+  metadata?: MetaData;
+}
+
+const { metadata = {} } = Astro.props;
+
+const title = metadata.title 
+  ? `${metadata.title} — ${SITE.name}`
+  : SITE.title;
+
+const description = metadata.description || SITE.description;
+const canonical = metadata.canonical || Astro.url.href;
+const image = metadata.image || SITE.defaultImage;
+const type = metadata.type || 'website';
+
+---
+
+<!-- Basic Meta Tags -->
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+
+<!-- Open Graph -->
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonical} />
+{image && <meta property="og:image" content={image} />}
+<meta property="og:site_name" content={SITE.name} />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+{image && <meta name="twitter:image" content={image} />}
+
+<!-- Schema.org -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": type === 'article' ? 'Article' : 'WebSite',
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": canonical
+  },
+  "headline": title,
+  "description": description,
+  "image": image,
+  "datePublished": metadata.publishDate || null,
+  "dateModified": metadata.modifiedDate || null,
+  "author": metadata.author ? {
+    "@type": "Person",
+    "name": metadata.author,
+  } : {
+    "@type": "Person",
+    "name": SITE.author,
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": SITE.name,
+    "logo": {
+      "@type": "ImageObject",
+      "url": SITE.logo
+    }
+  }
+})} />

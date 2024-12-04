@@ -1,0 +1,77 @@
+---
+// This component adds accessibility enhancements
+---
+
+<!-- Skip to main content link -->
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-white px-4 py-2 rounded-md">
+  Skip to main content
+</a>
+
+<script>
+  // Add keyboard navigation support
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab') {
+      document.body.classList.add('user-is-tabbing');
+    }
+  });
+
+  // Remove outline for mouse users
+  document.addEventListener('mousedown', () => {
+    document.body.classList.remove('user-is-tabbing');
+  });
+
+  // Enhance focus management
+  document.addEventListener('DOMContentLoaded', () => {
+    // Add role="button" to clickable divs
+    document.querySelectorAll('div[onclick]').forEach(el => {
+      if (!el.getAttribute('role')) {
+        el.setAttribute('role', 'button');
+        el.setAttribute('tabindex', '0');
+      }
+    });
+
+    // Add aria-label to links without text
+    document.querySelectorAll('a').forEach(link => {
+      if (!link.textContent.trim() && !link.getAttribute('aria-label')) {
+        const img = link.querySelector('img');
+        if (img) {
+          link.setAttribute('aria-label', img.alt || 'Link');
+        }
+      }
+    });
+  });
+</script>
+
+<style is:global>
+  /* Show focus styles only for keyboard navigation */
+  .user-is-tabbing *:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  /* Hide focus styles for non-keyboard interaction */
+  *:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Ensure sufficient color contrast */
+  :root {
+    --min-contrast-ratio: 4.5;
+  }
+
+  /* Improve text readability */
+  body {
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+  }
+
+  /* Make sure interactive elements are properly sized */
+  button, 
+  [role="button"],
+  input,
+  select,
+  textarea {
+    min-height: 44px;
+    min-width: 44px;
+  }
+</style>

@@ -12,10 +12,9 @@ import SiteVerification from '~/components/common/SiteVerification.astro';
 import Analytics from '~/components/common/Analytics.astro';
 import BasicScripts from '~/components/common/BasicScripts.astro';
 import Cookies from "~/components/common/Cookies.astro";
-import  SpeedInsights  from "@vercel/speed-insights/astro"
-
-// Comment the line below to disable View Transitions
-import { ViewTransitions } from 'astro:transitions';
+import SpeedInsights from "@vercel/speed-insights/astro";
+import SEO from '~/components/common/SEO.astro';
+import AccessibilityEnhanced from '~/components/common/AccessibilityEnhanced.astro';
 
 import type { MetaData as MetaDataType } from '~/types';
 
@@ -25,6 +24,10 @@ export interface Props {
 
 const { metadata = {} } = Astro.props;
 const { language, textDirection } = I18N;
+
+// Comment the line below to disable View Transitions
+import { ViewTransitions } from 'astro:transitions';
+
 ---
 
 <!doctype html>
@@ -38,15 +41,15 @@ const { language, textDirection } = I18N;
     <SiteVerification />
     <Analytics />
     <SpeedInsights/>
-
-    <!-- Comment the line below to disable View Transitions -->
     <ViewTransitions fallback="swap" />
-
-    
   </head>
 
   <body class="antialiased text-default bg-page tracking-tight">
-    <slot />
+    <AccessibilityEnhanced />
+    
+    <main id="main-content" tabindex="-1">
+      <slot />
+    </main>
 
     <BasicScripts />
     <Cookies />
@@ -54,6 +57,19 @@ const { language, textDirection } = I18N;
     <style is:global>
       img {
         content-visibility: auto;
+      }
+
+      /* Ensure sufficient color contrast */
+      .text-default {
+        color: rgba(0, 0, 0, 0.87);
+      }
+
+      /* Improve text readability */
+      @media (min-width: 768px) {
+        body {
+          line-height: 1.6;
+          letter-spacing: 0.01em;
+        }
       }
     </style>
   </body>

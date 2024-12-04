@@ -3,32 +3,33 @@ site:
   site: 'https://manuelfessen.de'
   base: '/'
   trailingSlash: false
-
+  author: Manuel Fessen
+  defaultImage: '/social.png'
   googleSiteVerificationId: 
 
 # Default SEO metadata
 metadata:
   title:
-    default: Manuel Fessen
+    default: Manuel Fessen - UX/UI Designer & Web Developer
     template: '%s - Manuel Fessen'
-  description: "\U0001F680 Mit herausragender User Experience Kunden begeistern."
+  description: "\U0001F680 Mit herausragender User Experience Kunden begeistern. Professionelle UX/UI Design & Webentwicklung für digitale Produkte, die Menschen begeistern."
   robots:
     index: true
     follow: true
   openGraph:
     site_name: Manuel Fessen
     images:
-      - url: '~/assets/images/default.png'
+      - url: '/social.png'
         width: 1200
         height: 628
     type: website
   twitter:
-    handle: '@onwidget'
-    site: '@onwidget'
+    handle: '@manuelfessen'
+    site: '@manuelfessen'
     cardType: summary_large_image
 
 i18n:
-  language: en
+  language: de
   textDirection: ltr
 
 apps:
