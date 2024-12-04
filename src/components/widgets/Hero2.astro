@@ -9,7 +9,7 @@ export interface Props {
   tagline?: string;
   content?: string;
   actions?: string | CallToAction[];
-  image?: string | any; // TODO: find HTMLElementProps
+  image?: string | any;
 }
 
 const {
@@ -22,7 +22,11 @@ const {
 } = Astro.props;
 ---
 
-<section class="relative md:-mt-[76px] not-prose animation">
+<section 
+  class="relative md:-mt-[76px] not-prose animation"
+  aria-label="Hero Section"
+  role="banner"
+>
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
     <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
@@ -33,6 +37,7 @@ const {
             <p
               class="sm:text-4xl text-muted font-semibold tracking-wide hidden sm:flex"
               set:html={tagline}
+              role="doc-subtitle"
             />
           )
         }
@@ -41,20 +46,29 @@ const {
             <h1
               class="text-5xl sm:text-6xl md:text-8xl xl:text-9xl leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
               set:html={title}
+              aria-label={typeof title === 'string' ? title : 'Page Title'}
             />
           )
         }
         <div class="max-w-7xl mx-auto lg:max-w-none">
-          {subtitle && <p class="text-xl text-muted mb-6 dark:text-slate-300" set:html={subtitle} />}
+          {subtitle && (
+            <p 
+              class="text-xl text-muted mb-6 dark:text-slate-300" 
+              set:html={subtitle}
+              role="doc-subtitle"
+            />
+          )}
 
           {
             actions && (
-              <div class="max-w-xs sm:max-w-md sm:m-auto flex flex-nowrap sm:flex-row sm:justify-center gap-4 lg:justify-start lg:m-0 lg:max-w-7xl">
+              <div class="max-w-xs sm:max-w-md flex flex-nowrap flex-col sm:flex-row sm:justify-start gap-4 m-auto lg:m-0">
                 {Array.isArray(actions) ? (
                   actions.map((action) => (
-                    <div class="flex w-full sm:w-auto">
-                      <Button {...(action || {})} class="w-full sm:mb-0" />
-                    </div>
+                    <Button 
+                      {...(action || {})} 
+                      class="w-full sm:w-auto"
+                      aria-label={action.text}
+                    />
                   ))
                 ) : (
                   <Fragment set:html={actions} />
@@ -65,6 +79,24 @@ const {
         </div>
         {content && <Fragment set:html={content} />}
       </div>
+      {image && (
+        <div class="lg:flex lg:w-1/2">
+          {typeof image === 'string' ? (
+            <Fragment set:html={image} />
+          ) : (
+            <Image
+              {...(image || {})}
+              class="mx-auto lg:mr-0 w-full rounded-md"
+              width={400}
+              height={400}
+              loading="eager"
+              priority={true}
+              decoding="async"
+              alt={image.alt || 'Hero Image'}
+            />
+          )}
+        </div>
+      )}
     </div>
   </div>
 </section>

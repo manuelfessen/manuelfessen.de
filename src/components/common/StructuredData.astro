@@ -1,0 +1,111 @@
+---
+const services = [
+  {
+    "@type": "Service",
+    "name": "Product Management",
+    "description": "Strategische Produktentwicklung mit Fokus auf Benutzerfreundlichkeit und Geschäftserfolg.",
+    "provider": {
+      "@type": "Person",
+      "name": "Manuel Fessen",
+      "url": "https://manuelfessen.de"
+    },
+    "areaServed": {
+      "@type": "State",
+      "name": "Nordrhein-Westfalen",
+      "containedIn": "Deutschland"
+    }
+  },
+  {
+    "@type": "Service",
+    "name": "User Experience Design",
+    "description": "Nutzerorientierte Gestaltung digitaler Produkte basierend auf Daten und Benutzerforschung.",
+    "provider": {
+      "@type": "Person",
+      "name": "Manuel Fessen",
+      "url": "https://manuelfessen.de"
+    },
+    "areaServed": {
+      "@type": "State",
+      "name": "Nordrhein-Westfalen",
+      "containedIn": "Deutschland"
+    }
+  },
+  {
+    "@type": "Service",
+    "name": "Conversion Rate Optimization",
+    "description": "Datengetriebene Optimierung von digitalen Produkten zur Steigerung der Conversion Rate.",
+    "provider": {
+      "@type": "Person",
+      "name": "Manuel Fessen",
+      "url": "https://manuelfessen.de"
+    },
+    "areaServed": {
+      "@type": "State",
+      "name": "Nordrhein-Westfalen",
+      "containedIn": "Deutschland"
+    }
+  }
+];
+
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://manuelfessen.de/#person",
+  "name": "Manuel Fessen",
+  "jobTitle": "Product Manager",
+  "description": "Product Manager mit Expertise in UX Design, CRO und Webentwicklung",
+  "url": "https://manuelfessen.de",
+  "sameAs": [
+    "https://www.linkedin.com/in/manuelfessen/",
+    "https://github.com/manuelfessen"
+  ],
+  "workLocation": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Essen",
+      "addressRegion": "Nordrhein-Westfalen",
+      "addressCountry": "DE"
+    }
+  },
+  "knowsAbout": [
+    "Product Management",
+    "User Experience Design",
+    "Conversion Rate Optimization",
+    "Web Development"
+  ]
+};
+
+const professionalService = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://manuelfessen.de/#business",
+  "name": "Manuel Fessen - Product Management & UX",
+  "image": "https://manuelfessen.de/social.png",
+  "url": "https://manuelfessen.de",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Essen",
+    "addressRegion": "Nordrhein-Westfalen",
+    "addressCountry": "DE"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "51.4556432",
+    "longitude": "7.0115552"
+  },
+  "description": "Product Manager mit Expertise in UX Design, CRO und Webentwicklung. Spezialisiert auf die Entwicklung benutzerfreundlicher digitaler Produkte.",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Product Management & UX Services",
+    "itemListElement": services
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/manuelfessen/",
+    "https://github.com/manuelfessen"
+  ]
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(professionalService)} />
+<script type="application/ld+json" set:html={JSON.stringify(person)} />
