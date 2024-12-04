@@ -11,12 +11,11 @@ import Metadata from '~/components/common/Metadata.astro';
 import SiteVerification from '~/components/common/SiteVerification.astro';
 import Analytics from '~/components/common/Analytics.astro';
 import BasicScripts from '~/components/common/BasicScripts.astro';
+import AccessibilityEnhanced from '~/components/common/AccessibilityEnhanced.astro';
+import StructuredData from '~/components/common/StructuredData.astro';
 import Cookies from "~/components/common/Cookies.astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
 import SEO from '~/components/common/SEO.astro';
-import AccessibilityEnhanced from '~/components/common/AccessibilityEnhanced.astro';
-import FontOptimization from '~/components/common/FontOptimization.astro';
-import StructuredData from '~/components/common/StructuredData.astro';
 
 import type { MetaData as MetaDataType } from '~/types';
 
@@ -44,7 +43,6 @@ import { ViewTransitions } from 'astro:transitions';
     <SiteVerification />
     <Analytics />
     <SpeedInsights/>
-    <FontOptimization />
     <StructuredData />
 
     <!-- Comment the line below to disable View Transitions -->

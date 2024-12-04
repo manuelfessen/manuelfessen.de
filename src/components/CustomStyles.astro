@@ -20,7 +20,6 @@ import '@fontsource-variable/inter';
 
 ---
 
-
 <style is:inline>
   :root {
     --aw-font-sans: 'InterVariable';
@@ -63,5 +62,31 @@ import '@fontsource-variable/inter';
       background-color: black;
       color: snow;
     }
+  }
+</style>
+
+<style is:global>
+  /* System Font Stack */
+  :root {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  /* Text Rendering Optimization */
+  html {
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  [data-aw-toggle-menu] path {
+    @apply transition;
+  }
+  [data-aw-toggle-menu].expanded g > path:first-child {
+    @apply -rotate-45 translate-y-[15px] translate-x-[-3px];
+  }
+
+  [data-aw-toggle-menu].expanded g > path:last-child {
+    @apply rotate-45 translate-y-[-8px] translate-x-[14px];
   }
 </style>
