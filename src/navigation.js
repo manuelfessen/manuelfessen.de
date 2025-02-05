@@ -14,10 +14,6 @@ export const headerData = {
       text: 'Conversion Rate Optimierung',
       href: getPermalink('/conversionrate'),
     },
-    {
-      text: 'Über mich',
-      href: getPermalink('/about'),
-    },
     /**
     {
       text: 'Landing',
