@@ -37,3 +37,38 @@ export const headerData = {
     }
   ],
 };
+
+export const footerData = {
+  links: [
+    {
+      text: 'Impressum',
+      href: getPermalink('/impressum'),
+    },
+    {
+      text: 'Datenschutz',
+      href: getPermalink('/datenschutz'),
+    },
+    {
+      text: 'AGB',
+      href: getPermalink('/agb'),
+    }
+  ],
+  socialLinks: [
+    {
+      icon: 'tabler:brand-linkedin',
+      href: 'https://www.linkedin.com/in/manuelfessen/',
+      ariaLabel: 'LinkedIn',
+    },
+    {
+      icon: 'tabler:brand-github',
+      href: 'https://github.com/manuelfessen',
+      ariaLabel: 'GitHub',
+    }
+  ],
+  secondaryLinks: [
+    {
+      text: 'Über mich',
+      href: getPermalink('/about'),
+    }
+  ]
+};
