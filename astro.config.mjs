@@ -20,6 +20,7 @@ export default defineConfig({
   }), sitemap(), mdx(), icon({
     include: {
       tabler: ['*'],
+      logos: ['*'],
       'flat-color-icons': ['template', 'gallery', 'approval', 'document', 'advertising', 'currency-exchange', 'voice-presentation', 'business-contact', 'database']
     }
   }), ...whenExternalScripts(() => partytown({
