@@ -16,7 +16,7 @@ export const headerData = {
     },
     {
       text: 'Kontakt',
-      href: getPermalink('/conversionrate'),
+      href: getPermalink('https://www.linkedin.com/in/manuelfessen/'),
       target: '_blank',
       onClick: () => {
         if (typeof clarity === 'function') {
@@ -65,10 +65,4 @@ export const footerData = {
       ariaLabel: 'GitHub',
     }
   ],
-  secondaryLinks: [
-    {
-      text: 'Über mich',
-      href: getPermalink('/about'),
-    }
-  ]
 };
