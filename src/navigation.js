@@ -27,11 +27,11 @@ export const headerData = {
   ],
   actions: [
     { 
-      text: 'kurz.ai', 
-      href: getPermalink('/kurz'),
+      text: 'Fyle', 
+      href: getPermalink('/fyle'),
       onClick: () => {
         if (typeof clarity === 'function') {
-          clarity("set", "Button", "kurz.ai");
+          clarity("set", "Button", "fyle");
         }
       }
     }
