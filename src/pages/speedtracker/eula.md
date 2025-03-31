@@ -1,3 +1,9 @@
+---
+layout: ../../layouts/MarkdownLayout.astro
+title: Speedtracker - Privacy Policy
+description: Privacy policy for the Speedtracker app
+---
+
 ===========================================================================
 TERMS AND CONDITIONS FOR THE USE OF SPEEDTRACKER
 ===========================================================================
