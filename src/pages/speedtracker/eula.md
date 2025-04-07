@@ -3,15 +3,15 @@ layout: ../../layouts/MarkdownLayout.astro
 title: Speedtracker - Privacy Policy
 description: Privacy policy for the Speedtracker app
 ---
-===========================================================================
+
 TERMS AND CONDITIONS FOR THE USE OF SPEEDTRACKER
-===========================================================================
+
 
 Effective: March 2025
 
-===========================================================================
+
 TERMS FOR THE EUROPEAN UNION AND EUROPEAN ECONOMIC AREA
-===========================================================================
+
 
 1. ACCEPTANCE OF TERMS
 By downloading, installing, or using the SpeedTracker application ("App"), you expressly agree to these Terms and Conditions. If you do not agree, please refrain from using the App.
@@ -264,9 +264,9 @@ Users explicitly agree not to:
 
 All rights not expressly granted to users under these Terms are reserved by the App developer.
 
-===========================================================================
+
 TERMS FOR NORTH AMERICA (UNITED STATES AND CANADA)
-===========================================================================
+
 
 For users in the United States and Canada, the following terms apply in addition to or in replacement of the terms above:
 
@@ -342,9 +342,9 @@ These changes may be implemented at any time without prior notice. By continuing
 
 If and when premium features are introduced, payments will be processed by Apple's App Store, not the App developer, and will be subject to Apple's App Store terms and conditions.
 
-===========================================================================
+
 TERMS FOR ASIA-PACIFIC REGION
-===========================================================================
+
 
 For users in Australia, New Zealand, Japan, Singapore, and other Asia-Pacific countries, the following terms apply in addition to or in replacement of the terms above:
 
@@ -439,9 +439,9 @@ These changes may be implemented at any time without prior notice. By continuing
 
 If and when premium features are introduced, payments will be processed by Apple's App Store, not the App developer, and will be subject to Apple's App Store terms and conditions.
 
-===========================================================================
+
 TERMS FOR LATIN AMERICA
-===========================================================================
+
 
 For users in Brazil, Argentina, Colombia, Mexico, Chile, and other Latin American countries, the following terms apply in addition to or in replacement of the terms above:
 
@@ -514,9 +514,9 @@ These changes may be implemented at any time without prior notice. By continuing
 
 If and when premium features are introduced, payments will be processed by Apple's App Store, not the App developer, and will be subject to Apple's App Store terms and conditions.
 
-===========================================================================
+
 TERMS FOR MIDDLE EAST REGION
-===========================================================================
+
 
 For users in the United Arab Emirates, Saudi Arabia, Qatar, and other Gulf countries, the following terms apply in addition to or in replacement of the terms above:
 
@@ -581,9 +581,9 @@ These changes may be implemented at any time without prior notice. By continuing
 
 If and when premium features are introduced, payments will be processed by Apple's App Store, not the App developer, and will be subject to Apple's App Store terms and conditions.
 
-===========================================================================
+
 TERMS FOR CHINA MAINLAND
-===========================================================================
+
 
 For users in China mainland, the following terms apply in addition to or in replacement of the terms above:
 
