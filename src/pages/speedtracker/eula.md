@@ -585,7 +585,9 @@ If and when premium features are introduced, payments will be processed by Apple
 TERMS FOR CHINA MAINLAND
 
 
-For users in China mainland, the following terms apply in addition to or in replacement of the terms above:
+For users in China mainland, the following terms apply in addition to or in repla
+
+cement of tssahttps://www.manuelfessen.de/speedtracker/eulasasasasshttps://www.manuelfessen.de/speedtracker/eulahttps://www.manuelfessen.de/speedtracker/eulahttps://www.manuelfessen.de/speedtracker/eulasasasasaasasasasahe terms above:
 
 3. USER RESPONSIBILITIES
 
