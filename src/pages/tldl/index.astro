@@ -1,0 +1,158 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import { Icon } from 'astro-icon/components';
+
+const metadata = {
+  title: 'TLDL - AI Meeting Notes',
+  description: 'TLDL – AI Meeting Notes, on Autopilot. Never take meeting notes again.',
+  ignoreTitleTemplate: true,
+};
+
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero2 Widget for TLDL App -->
+  <Hero2
+    tagline="TLDL – AI Meeting Notes, on Autopilot"
+    actions={[
+      // {
+      //   variant: 'primary',
+      //   text: 'Start 7-Day Free Trial',
+      //   href: '#', // Replace with actual App Store link if available
+      //   // Optional: Add icon: 'tabler:app-window' or similar
+      // },
+    ]}
+  >
+    <Fragment slot="title">
+      Never take meeting notes again.
+    </Fragment>
+    <Fragment slot="subtitle">
+      Focus on people, decisions, and outcomes - not on your keyboard. TLDL eliminates the grunt work with human-like transcription and instant AI summaries.
+    </Fragment>
+     <Fragment slot="content">
+      <a href="#" target="_blank" class="block w-[200px] ml-0 lg:ml-0"> {/* TODO: Replace # with actual App Store link */}
+        <Fragment set:html={`
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 209.327 60" width="100%" height="auto">
+            <title>Download on the App Store</title>
+            <image href="/appstore-download.svg" width="100%" height="100%" />
+          </svg>
+        `} />
+      </a>
+       <p class="text-sm mt-2">Start your 7‑day free trial today.</p>
+    </Fragment>
+  </Hero2>
+
+  <!-- Features2 Widget for TLDL App Features -->
+  <Features2
+    title="Key Features"
+    subtitle="How TLDL transforms your meetings:"
+    columns={3}
+    items={[
+      {
+        title: 'Automatic Recording & Transcription',
+        description: 'Capture meetings, calls, lectures in 60+ languages with smart speaker detection. Live captions included.',
+        icon: 'tabler:microphone',
+      },
+      {
+        title: 'Instant AI Insights',
+        description: 'One‑tap summaries, ask your transcript anything, generate follow‑ups, to‑dos, and more.',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'Search & Find in Seconds',
+        description: 'Google‑like keyword search across all conversations. Highlight, clip, and bookmark key moments.',
+        icon: 'tabler:search',
+      },
+       {
+        title: 'Enterprise‑Grade Privacy',
+        description: 'End‑to‑end encryption and SOC 2 Type II–compliant infrastructure. You own your data.',
+        icon: 'tabler:lock',
+      }
+    ]}
+  />
+
+   <!-- Why TLDL / Trust Section -->
+   <section class="bg-blue-50 dark:bg-slate-800 py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+
+      <div class="flex items-start mb-8">
+        <div class="flex-shrink-0">
+          <div class="flex items-center justify-center h-10 w-10 rounded-md bg-yellow-400 text-gray-900">
+            <Icon name="tabler:check" class="w-6 h-6" />
+          </div>
+        </div>
+        <div class="ml-4">
+          <h3 class="text-xl leading-6 font-semibold text-gray-900 dark:text-white">Why TLDL?</h3>
+          <p class="mt-2 text-base text-gray-600 dark:text-slate-400">
+            Professionals waste hours each week typing notes, hunting for quotes, and rewriting follow‑up emails. Or even worse, they forget notes and have to ask clarifying questions later. TLDL eliminates that grunt work.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex items-start">
+        <div class="flex-shrink-0">
+          <div class="flex items-center justify-center h-10 w-10 rounded-md bg-yellow-400 text-gray-900">
+            <Icon name="tabler:thumb-up" class="w-6 h-6" />
+          </div>
+        </div>
+        <div class="ml-4">
+          <h3 class="text-xl leading-6 font-semibold text-gray-900 dark:text-white">Trusted Worldwide</h3>
+          <p class="mt-2 text-base text-gray-600 dark:text-slate-400">
+            Trusted by thousands of users and hundreds of teams worldwide.
+          </p>
+        </div>
+      </div>
+
+    </div>
+   </section>
+
+
+   <!-- Start Free Section -->
+   <section class="py-16 md:py-20">
+     <div class="max-w-4xl mx-auto px-4 sm:px-6">
+
+        <div class="flex items-start mb-8">
+          <div class="flex-shrink-0 mt-1">
+            <div class="flex items-center justify-center h-6 w-6 rounded-sm bg-yellow-400 text-gray-900">
+              <Icon name="tabler:check" class="w-4 h-4" />
+            </div>
+          </div>
+          <div class="ml-4">
+            <h3 class="text-xl leading-6 font-semibold text-gray-900 dark:text-white">Start Free - Upgrade Anytime</h3>
+            <ol class="mt-3 list-decimal list-inside text-base text-gray-600 dark:text-slate-400 space-y-2">
+              <li>Download TLDL & start your 7‑day trial - no feature limits.</li>
+              <li>Experience how effortless meetings become.</li>
+              <li>Keep the productivity gains or cancel anytime via Apple.</li>
+            </ol>
+            <a href="#" class="mt-6 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-gray-900 bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
+              Download and Start Free Trial
+              <Icon name="tabler:download" class="ml-2 -mr-1 h-5 w-5" />
+            </a>
+          </div>
+        </div>
+
+        <div class="flex items-start">
+          <div class="flex-shrink-0 mt-1">
+             <div class="flex items-center justify-center h-6 w-6 rounded-sm bg-yellow-400 text-gray-900">
+               <Icon name="tabler:check" class="w-4 h-4" />
+             </div>
+          </div>
+          <div class="ml-4">
+            <p class="text-base text-gray-600 dark:text-slate-400">
+               Manage or cancel in Settings > Apple ID. A purchase confirms to iTunes T&Cs; trial forfeits on purchase. Prices vary by region.
+            </p>
+          </div>
+        </div>
+
+     </div>
+   </section>
+
+  <!-- Terms & Privacy Section -->
+  <div class="px-4 sm:px-6 py-8 text-center text-sm">
+      <a href="/#" class="mr-4 text-gray-600 hover:text-gray-900 dark:text-gray-400 hover:dark:text-white">Privacy Policy</a>
+      <a href="/#" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 hover:dark:text-white">Terms of Service</a>
+  </div>
+
+</Layout>
