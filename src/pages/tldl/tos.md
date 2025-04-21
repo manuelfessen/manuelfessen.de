@@ -1,20 +1,20 @@
 ---
 layout: ../../layouts/MarkdownLayout.astro
-title: Insaight – Terms of Service
-description: Terms of Service for the Insaight app
+title: TooLongDidListen – Terms of Service
+description: Terms of Service for the TooLongDidListen app
 ---
 
-# Terms of Service for Insaight
+# Terms of Service for TooLongDidListen
 
 **Effective Date: 21.04.2025**
 
-Welcome to Insaight (the "App"). By downloading, installing, or using the App, you agree to be bound by these Terms of Service ("Terms"). If you do not agree, do not use the App.
+Welcome to TooLongDidListen (the "App"). By downloading, installing, or using the App, you agree to be bound by these Terms of Service ("Terms"). If you do not agree, do not use the App.
 
 ## 1. Introduction & Acceptance
 These Terms constitute a legally binding agreement between you (the user) and the App developer ("we," "us," or "our"). You must be at least 18 years old or have explicit parental/guardian consent to use the App.
 
 ## 2. App Description & Intended Use
-Insaight is an AI-powered app for audio recording, transcription, and analysis. It offers iCloud synchronization, AI-driven features (via AssemblyAI and OpenAI), and subscription management (via RevenueCat). The App is intended for personal, non-commercial use only.
+TooLongDidListen is an AI-powered app for audio recording, transcription, and analysis. It offers iCloud synchronization, AI-driven features (via AssemblyAI and OpenAI), and subscription management (via RevenueCat). The App is intended for personal, non-commercial use only.
 
 ## 3. License Grant & Restrictions
 We grant you a limited, non-exclusive, non-transferable, revocable license to use the App for its intended purpose. You may not:
