@@ -5,7 +5,7 @@ description: Privacy policy for the TLDL app
 ---
 
 ## 1. Introduction
-This privacy policy informs you about the processing of personal data when using the TLDL app (hereinafter "the App") in accordance with the General Data Protection Regulation (GDPR) and the German Federal Data Protection Act (BDSG).
+This privacy policy informs you about the processing of personal data when using the TooLongDidListen app (hereinafter "the App") in accordance with the General Data Protection Regulation (GDPR) and the German Federal Data Protection Act (BDSG).
 
 **The App is not intended for use by children under the age of 16. We do not knowingly collect personal data from children.**
 
@@ -45,7 +45,7 @@ We process personal data for the following purposes:
 ## 5. Legal Basis for Processing
 The legal basis for processing personal data is:
 
-- **Article 6(1)(a) GDPR (Consent):** For accessing the microphone to record audio. **It is your responsibility as the user to ensure you have obtained explicit consent from all individuals participating in a conversation before initiating a recording with the TLDL app.** Recording individuals without their knowledge or consent may be unlawful.
+- **Article 6(1)(a) GDPR (Consent):** For accessing the microphone to record audio. To assist with awareness, the App displays a one-time notification upon first use reminding you of this obligation and provides a persistent visual indicator during recording. An optional audio cue at the start of recording can also be enabled in settings. **However, these features are merely aids; it remains your sole responsibility as the user to ensure you have obtained explicit consent from all individuals participating in a conversation before initiating a recording.** Recording individuals without their knowledge or consent may be unlawful in many jurisdictions.
 - **Article 6(1)(b) GDPR (Performance of contract):** For providing core app functionality like transcription, AI analysis, subscription management, and iCloud sync (when enabled by the user).
 - **Article 6(1)(f) GDPR (Legitimate interest):** For processing anonymized usage analytics to improve the app, ensuring data minimization and privacy protection.
 

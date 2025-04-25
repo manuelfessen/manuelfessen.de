@@ -30,6 +30,7 @@ We grant you a limited, non-exclusive, non-transferable, revocable license to us
 - You must obtain explicit consent from all individuals before recording audio.
 - You must not use the App to violate any laws, including privacy, copyright, or data protection laws.
 - You are responsible for maintaining backups of your data.
+- The App provides a persistent visual indicator when recording is active to assist with transparency.
 
 ## 5. No Professional Advice
 The App and its outputs are for informational purposes only and do not constitute legal, financial, medical, or other professional advice. You must independently verify all information and seek professional advice where appropriate.

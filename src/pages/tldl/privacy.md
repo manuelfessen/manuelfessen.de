@@ -5,7 +5,7 @@ description: Datenschutzerklärung für die TLDL App
 ---
 
 ## 1. Einleitung
-Diese Datenschutzerklärung informiert Sie über die Verarbeitung personenbezogener Daten bei der Nutzung der TLDL App gemäß der Datenschutz-Grundverordnung (DSGVO) und dem Bundesdatenschutzgesetz (BDSG).
+Diese Datenschutzerklärung informiert Sie über die Verarbeitung personenbezogener Daten bei der Nutzung der TooLongDidListen App gemäß der Datenschutz-Grundverordnung (DSGVO) und dem Bundesdatenschutzgesetz (BDSG).
 
 **Die App ist nicht für die Nutzung durch Kinder unter 16 Jahren bestimmt. Wir erheben nicht wissentlich personenbezogene Daten von Kindern.**
 
@@ -45,7 +45,7 @@ Wir verarbeiten personenbezogene Daten zu folgenden Zwecken:
 ## 5. Rechtsgrundlage der Verarbeitung
 Die Rechtsgrundlage für die Verarbeitung personenbezogener Daten ist:
 
-- **Art. 6 Abs. 1 lit. a DSGVO (Einwilligung):** Für den Zugriff auf das Mikrofon zur Audioaufnahme. **Es liegt in Ihrer Verantwortung als Nutzer sicherzustellen, dass Sie die ausdrückliche Zustimmung aller an einem Gespräch teilnehmenden Personen eingeholt haben, bevor Sie eine Aufnahme mit der TLDL App starten.** Das Aufnehmen von Personen ohne deren Wissen oder Zustimmung kann rechtswidrig sein.
+- **Art. 6 Abs. 1 lit. a DSGVO (Einwilligung):** Für den Zugriff auf das Mikrofon zur Audioaufnahme. Um das Bewusstsein zu fördern, zeigt die App bei der ersten Nutzung eine einmalige Benachrichtigung an, die Sie an diese Verpflichtung erinnert, und bietet während der Aufnahme eine dauerhafte visuelle Anzeige. Ein optionaler akustischer Hinweis zu Beginn der Aufnahme kann ebenfalls in den Einstellungen aktiviert werden. **Diese Funktionen dienen jedoch lediglich als Hilfsmittel; es bleibt Ihre alleinige Verantwortung als Nutzer sicherzustellen, dass Sie die ausdrückliche Zustimmung aller an einem Gespräch teilnehmenden Personen eingeholt haben, bevor Sie eine Aufnahme starten.** Das Aufnehmen von Personen ohne deren Wissen oder Zustimmung kann in vielen Rechtsordnungen rechtswidrig sein.
 - **Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung):** Zur Bereitstellung der Kernfunktionalität der App wie Transkription, KI-Analyse, Abonnementverwaltung und iCloud-Synchronisierung (wenn vom Nutzer aktiviert).
 - **Art. 6 Abs. 1 lit. f DSGVO (Berechtigtes Interesse):** Zur Verarbeitung anonymisierter Nutzungsanalysen zur Verbesserung der App, unter Gewährleistung von Datenminimierung und Datenschutz.
 
